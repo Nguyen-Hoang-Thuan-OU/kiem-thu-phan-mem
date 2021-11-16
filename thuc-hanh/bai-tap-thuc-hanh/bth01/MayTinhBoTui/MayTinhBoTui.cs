@@ -18,7 +18,8 @@ namespace MayTinhBoTai
 
         private void buttonCong_Click(object sender, EventArgs e)
         {
-            if (textBoxSoA.Text != String.Empty)
+            if (textBoxSoA.Text != String.Empty &&
+                textBoxSoB.Text != String.Empty)
             {
                 double a = double.Parse(textBoxSoA.Text);
                 double b = double.Parse(textBoxSoB.Text);
