@@ -102,7 +102,7 @@
             this.buttonCong.Location = new System.Drawing.Point(124, 146);
             this.buttonCong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCong.Name = "buttonCong";
-            this.buttonCong.Size = new System.Drawing.Size(121, 36);
+            this.buttonCong.Size = new System.Drawing.Size(111, 36);
             this.buttonCong.TabIndex = 6;
             this.buttonCong.Text = "Cộng";
             this.buttonCong.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             this.buttonTru.Location = new System.Drawing.Point(253, 146);
             this.buttonTru.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonTru.Name = "buttonTru";
-            this.buttonTru.Size = new System.Drawing.Size(121, 36);
+            this.buttonTru.Size = new System.Drawing.Size(111, 36);
             this.buttonTru.TabIndex = 7;
             this.buttonTru.Text = "Trừ";
             this.buttonTru.UseVisualStyleBackColor = true;
