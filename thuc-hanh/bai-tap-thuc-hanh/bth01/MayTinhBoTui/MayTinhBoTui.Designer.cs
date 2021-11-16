@@ -35,6 +35,7 @@
             this.labelKetQua = new System.Windows.Forms.Label();
             this.textBoxKetQua = new System.Windows.Forms.TextBox();
             this.buttonCong = new System.Windows.Forms.Button();
+            this.buttonTru = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelSoA
@@ -91,6 +92,7 @@
             this.textBoxKetQua.Location = new System.Drawing.Point(124, 106);
             this.textBoxKetQua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxKetQua.Name = "textBoxKetQua";
+            this.textBoxKetQua.ReadOnly = true;
             this.textBoxKetQua.Size = new System.Drawing.Size(430, 30);
             this.textBoxKetQua.TabIndex = 5;
             // 
@@ -106,11 +108,25 @@
             this.buttonCong.UseVisualStyleBackColor = true;
             this.buttonCong.Click += new System.EventHandler(this.buttonCong_Click);
             // 
+            // buttonTru
+            // 
+            this.buttonTru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTru.Location = new System.Drawing.Point(253, 146);
+            this.buttonTru.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonTru.Name = "buttonTru";
+            this.buttonTru.Size = new System.Drawing.Size(121, 36);
+            this.buttonTru.TabIndex = 7;
+            this.buttonTru.Text = "Trừ";
+            this.buttonTru.UseVisualStyleBackColor = true;
+            this.buttonTru.Click += new System.EventHandler(this.buttonTru_Click);
+            // 
             // MayTinhBoTui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(568, 459);
+            this.Controls.Add(this.buttonTru);
             this.Controls.Add(this.buttonCong);
             this.Controls.Add(this.textBoxKetQua);
             this.Controls.Add(this.labelKetQua);
@@ -136,6 +152,7 @@
         private System.Windows.Forms.Label labelKetQua;
         private System.Windows.Forms.TextBox textBoxKetQua;
         private System.Windows.Forms.Button buttonCong;
+        private System.Windows.Forms.Button buttonTru;
     }
 }
 
