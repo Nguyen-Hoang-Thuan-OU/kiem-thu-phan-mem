@@ -15,5 +15,13 @@ namespace MayTinhBoTai
         {
             InitializeComponent();
         }
+
+        private void buttonCong_Click(object sender, EventArgs e)
+        {
+            double a = double.Parse(textBoxSoA.Text);
+            double b = double.Parse(textBoxSoB.Text);
+            double c = a + b;
+            textBoxKetQua.Text = c.ToString();
+        }
     }
 }

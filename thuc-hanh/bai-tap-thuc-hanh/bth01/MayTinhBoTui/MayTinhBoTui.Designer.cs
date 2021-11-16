@@ -104,8 +104,9 @@
             this.buttonCong.TabIndex = 6;
             this.buttonCong.Text = "Cộng";
             this.buttonCong.UseVisualStyleBackColor = true;
+            this.buttonCong.Click += new System.EventHandler(this.buttonCong_Click);
             // 
-            // Form1
+            // MayTinhBoTui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,7 +120,7 @@
             this.Controls.Add(this.labelSoA);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
+            this.Name = "MayTinhBoTui";
             this.Text = "Máy tính bỏ túi";
             this.ResumeLayout(false);
             this.PerformLayout();
