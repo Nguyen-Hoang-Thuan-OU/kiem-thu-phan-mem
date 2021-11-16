@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace MayTinhBoTai
 {
-    public partial class Form1 : Form
+    public partial class MayTinhBoTui : Form
     {
-        public Form1()
+        public MayTinhBoTui()
         {
             InitializeComponent();
         }
