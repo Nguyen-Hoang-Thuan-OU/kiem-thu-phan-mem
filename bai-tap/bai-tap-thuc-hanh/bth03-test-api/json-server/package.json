@@ -1,0 +1,17 @@
+{
+  "name": "json-server",
+  "version": "1.0.0",
+  "description": "JSON Server - BTH03",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch products.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "i": "^0.3.7",
+    "json-server": "^0.17.0"
+  },
+  "devDependencies": {}
+}
