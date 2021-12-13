@@ -1,0 +1,19 @@
+{
+    "products":
+   [
+        {
+            "id": 1,
+            "name":"iPhone 7 Plus",
+            "description": "Apple, 32 GB, RAM: 3GB, iOS13",
+            "price":17000000.0,
+            "category_id":1
+        },
+        {
+            "id": 2,
+            "name":"AiPad Pro 2020",
+            "description": "Apple, 128 GB, RAM: 6GB",
+            "price":20000000.0,
+            "category_id":2
+        }
+    ]
+}
