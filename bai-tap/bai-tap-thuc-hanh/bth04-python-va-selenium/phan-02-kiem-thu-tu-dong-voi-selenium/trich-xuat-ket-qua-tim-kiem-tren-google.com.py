@@ -24,7 +24,7 @@ trinh_dieu_khien.get('https://www.google.com/')
 gia_tri_nhap_vao = trinh_dieu_khien \
     .find_element(By.NAME, 'q')
 
-# Lấy thông tin thuộc tính CSS:
+# Lấy thông tin thuộc tính CSS của khung tìm kiếm:
 # kích thước, kiểu chữ, màu chữ, màu nền,...
 print("Thông tin thuộc tính CSS: ")
 print("-----------")
