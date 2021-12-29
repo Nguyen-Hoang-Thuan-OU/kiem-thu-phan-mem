@@ -1,0 +1,344 @@
+﻿Vì sao muốn trở thành tester?
+Tester thật sự là gì?
+Những kỹ năng và tố chất cần có của một tester?
+Tiềm năng của nghề tester?
+Làm test có yêu cầu nền tảng CNTT?
+
+================================================================================
+
+Tại sao phải kiểm thử phần mềm?
+
+** 7 nguyên tắc/nguyên lý/phương châm/nguồn gốc căn bản của kiểm thử phần mềm:
+
+	01. Kiểm thử để chứng minh sự hiện diện của lỗi (Testing shows presence of defects): để chứng minh phần mềm CÓ LỖI vì lỗi luôn tiềm ẩn chứ không phải để khẳng định rằng phần mềm này không có lỗi (bug-free). Vì vậy, cần thiết kế test case để tìm ra được càng nhiều lỗi càng tốt.
+
+	02. Không thể kiểm thử hết toàn bộ (Exhaustive testing is not possible): trong phần mềm sẽ có rất nhiều chức năng, yêu cầu, loại kiểm thử,... được thực hiện trên nhiều môi trường, nền tảng, công nghệ... nên ta không bao giờ có thể kiểm thử hết được toàn bộ chứng năng của phần mềm, tất cả các kịch bản, đầu vào và đầu ra. Vì vậy, cần sử dụng những phương pháp phân tích rủi ro, độ ưu tiên,... để tập trung kiểm thử những chức năng chính, chức năng quan trọng, chức năng có nguy cơ lỗi cao trên những môi trường thường xuyên được sử dụng nhất.
+
+		Ví dụ: kiểm thử website tiki.vn. Đại đa số là người Việt truy cập và mua hàng thông qua các trình duyệt Chrome, CốcCốc; chức năng mua hàng sẽ là chức năng cần được ưu tiên kiểm thử trước.
+
+	03. Kiểm thử càng sớm càng tốt (Early testing): kiểm thử nên suất hiện càng sớm càng tốt trong tất cả các giao đoạn (6 pha, 6 công đoạn)/vòng đời của việc phát triển phần mềm, từ lúc thu thập những yêu cầu của khách hàng đến lúc phát triển và xây dựng hệ thống. Vì kiểm thử ở những giai đoạn đầu sẽ giúp sớm phát hiện bug, giúp giao đoạn chuyển giao hệ thống đúng thời hạn và chất lượng đúng như dự kiến.
+
+	04. Lỗi thường được phân bố tập trung (Defect clustering): lỗi (bug) thường xuất hiện ở những chức năng chính, nơi nào xuất hiện nhiều lỗi thì khả năng cao những nơi gần đó cũng sẽ đang có rất nhiều lỗi. Quy luật 80/20 - Pareto: khoảng 80% kết quả là do 20% nguyên nhân gây ra (80% tổng số bug trong chương trình là do 20% chức năng quan trọng gây ra).
+
+	05. Nghịch lý thuốc trừ sâu (Pesticide paradox): cùng một test case, kỹ thuật kiểm thử, nếu kiểm thử lặp lại nhiều lần (lặp lại bộ test case) sẽ khiến xác suất tìm ra lỗi thấp hơn, và nếu không tìm ra được lỗi thì nên đổi kỹ thuật kiểm thử, cải thiện test case. Nếu một tính năng mới được thêm vào thì nên kiểm thử hồi quy (regression testing) để đảm bảo rằng tính năng mới này không làm ảnh hưởng đến những tính năng vốn đã có của hệ thống.
+
+	06. Kiểm thử theo ngữ cảnh độc lập (Testing is context dependent): tuỳ theo ngữ cảnh mà kiểm thử, chỉ tập trung kiểm thử ở những chức năng được yêu cầu.
+
+		Ví dụ: khi kiểm thử phần mềm máy tính cầm tay, nếu đối tượng sử dụng là học sinh cấp 1 thì chỉ nên tập trung kiểm thử những chức năng tính toán công, trừ, nhân, chia.
+
+	07. Quan niệm sai lầm về việc hết lỗi/không còn lỗi (Absence of errors fallacy): vì bản chất của phần mềm là luôn luôn có lỗi nên chớ vội mừng và phát hành phần mềm khi không tìm thấy lỗi trong phần mềm, vì có thể là do kiểm thử viên kiểm thử chưa tới, kịch bản và bộ test case chưa thật sự tốt. Lúc này, cần áp dụng thêm nhiều kỹ thuật kiểm thử để tìm lỗi.
+
+================================================================================
+
+** Những bước mà kiểm thử viên cần thực hiện trong một dự án thực tế:
+
+	Bước 01: Hiểu về dự án (đặt câu hỏi, trao đổi với khách hàng, lãnh đạo và thành viên trong nhóm).
+	Bước 02: Thiết lập kế hoạch/chiến lược kiểm thử (test plan).
+	Bước 03: Thiết lập các kịch bản kiểm thử (test scenarios | độ ưu tiên P0 -> P4).
+	Bước 04: Thiết lập các tình huống kiểm thử (test cases).
+	Bước 05: Thực thi kiểm thử.
+	Bước 06: Báo cáo kết quả kiểm thử chính thức.
+
+================================================================================
+
+** Xây dựng chiến lược kiểm thử:
+
+Chiến lược kiểm thử là bước quan trọng trong việc lập tài liệu tổng quan về việc kiểm thử (test plan), là dạng tài liệu ở mức cao do các test manager/test leader phát triển. Tài liệu định nghĩa ra mục tiêu kiểm thử của dự án và phương tiện/phương pháp để đạt được, xác định nổ lực và chi phí kiểm thử.
+
+	- Bước 01: Định nghĩa phạm vi của kiểm thử (Define scope of testing): những thành phần trong hệ thống, phần cứng, phần mềm, phần mềm trung gian được sử dụng trong hệ thống được gọi là in-scope; các thành phần của hệ thống sẽ không được kiểm thử được gọi là out-of-scope. Là bước vô cùng quan trọng đối với tất cả các bên liên quan trong hệ thống, cung cấp sự chắc chắn và thông tin chính xác về hoạt động kiểm thử đang dự định thực hiện, tất cả các thành viên trong dự án sẽ hiểu rõ những gì được và không được kiểm thử trong dự án.
+
+		* Để xác định được phạm vi:
+			+ Nắm rõ, chính xác được yêu cầu của khách hàng (precise customer requirement).
+			+ Xác định được ngân sách của dự án (project budget).
+			+ Nắm được những đặc điểm kỹ thuật của sản phẩm (product specification).
+			+ Nắm được kỹ năng và trình độ kiểm thử của từng thành viên trong nhóm kiểm thử (skill & talent of test team).
+
+	- Bước 02: Xác định loại kiểm thử (Identify testing type): dùng để xác định mỗi loại kiểm thử cụ thể, thứ tự ưu tiên của từng loại so với nhân lực và trình độ kiểm thử của nhóm, nhằm một mục tiêu chung là phát hiện sớm lỗi trước khi phát hành sản phẩm và tiết kiệm chi phí.
+
+		* Kiểm thử đơn vị (Unit test): một unit là một đơn vị/thành phần nhỏ nhất mà ta có thể kiểm thử được. Thường do người lập trình viên thực hiện kiểm thử đầu tiên vì họ là người viết ra nó.
+
+		* Kiểm thử API (API testing): API là cầu nối chuyển giao thông tin giữa Client với Server, không thực hiện bất kỳ hành động nghiệp vụ (business logic) nào.
+
+		* Kiểm thử tích hợp (Integration test): kiểm thử tích hợp một nhóm mô-đun, chức năng riêng lẻ lại với nhau, được thực hiển bởi những kiểm thử viên.
+
+		* Kiểm thử hệ thống (System test): kiểm tra một sản phẩm đã hoàn chỉnh và tích hợp đầy đủ (toàn bộ hệ thống), nếu ổn định thì hệ thống sẽ được chuyển giao cho khách hàng. Được thực hiện sau khi đã kiểm thử đơn vị (unit test) và kiểm thử tích hợp (integration test).
+
+		* Kiểm thử cài đặt/gỡ bỏ cài đặt (Install/UnInstall testing):
+			- Kiểm thử cài đặt: xác minh phần mềm đã được cài đặt với tất cả các thành phần cần thiết và các ứng dụng đang hoạt động như mong đợi.
+			- Kiểm thử gỡ bỏ cài đặt: được thực hiện để xác minh liệu rằng tất cả các thành phần của ứng dụng có bị loại bỏ trong quá trình hay không. Tất cả các tập tin liên quan đến ứng dụng cùng cấu trúc thư mục của nó phải được gỡ bỏ sau khi quá trình gỡ bỏ thành công.
+
+		* Kiểm thử Agile (Agile testing): là phương pháp kiểm thử phần mềm tuân theo một số quy tắc của bản tuyên ngôn (manifesto) agile, xem việc phát triển phần mềm như là khách hàng của việc kiểm thử.
+
+		* Kiểm thử chấp nhận (Acceptance testing): khách hàng (hoặc ủy quyền cho một nhóm thứ ba) thực hiện nhằm mục đích chứng minh phần mềm thỏa mãn tất cả yêu cầu của khách hàng và khách hàng chấp nhận sản phẩm.
+			- Alpha test:
+			- Beta test: 
+
+	- Bước 03: Tạo và lưu trữ tài liệu về những vấn đề và hướng giải quyết (Document risk & issue): các test manager/test leader cần phải tính toán được vấn đề, rủi ro tiềm ẩn trong phần mềm và hướng giải quyết.
+
+		+ Vấn đề 1: Thành viên trong nhóm thiếu các kỹ năng cần thiết để kiểm thử trang web.
+			-> Giải pháp: Lập kế hoạch khoá đài tạo để nâng cao kỹ năng của các thành viên.
+		+ Vấn đề 2: Tiến độ dự án quá eo hẹp, thật khó để hoàn thành dự án đúng hạn.
+			-> Giải pháp: Đặt mức độ ưu tiên cho từng hoạt động kiểm thử (test priority).
+		+ Vấn đề 3: Test manager có kỹ năng quản lý kém.
+			-> Giải pháp: Lập kế hoạch đào tạo cho quản lý.
+		+ Vấn đề 4: Thiếu hợp tác, ảnh hưởng tiêu cực đến năng suất của thành viên.
+			-> Giải pháp: Khuyến khích mỗi thành viên trong nhóm thực hiện nhiệm vụ của mình và truyền cảm hứng cho họ để họ nỗ lực nhiều hơn.
+		+ Vấn đề 5: Dự toán ngân sách sai và vượt chi phí.
+			-> Giải pháp: Thiết lập phạm vi trước khi bắt đầu công việc, chú ý nhiều đến việc lập kế hoạch dự án, liên tục theo dõi và đo lường tiến độ.
+
+	- Bước 04: Xác định thành viên thực hiện và thời điểm thực hiện kiểm thử (Create test logistic):
+		+ Xác định thành viên: ước tính ngân sách của dự án và lựa chọn thành viên dựa theo khả năng của từng thành viên có phù hợp với công việc (khả năng hiểu yêu cầu và quan điểm của khách hàng, mong muốn chất lượng tốt, chú ý đến từng chi tiết nhỏ, có tinh thần hợp tác nhóm tốt.).
+		+ Xác định thời điểm: cần kết hợp với các hoạt động khác, bắt đầu kiểm thử khi đã có: tài liệu đặc tả yêu cầu, nguồn nhân lực và môi trường kiểm thử.
+
+================================================================================
+
+** Cần áp dụng thêm những kỹ thuật thiết kế test case để bao phủ được nhiều trường hợp nhất có thể, giúp giảm thiểu khối lượng công việc bằng cách giảm tổng số trường hợp:
+
+* Tổng hợp các kỹ thuật thiết kế test case:
+
+	* Kiểm thử hộp đen/Kiểm thử dựa trên đặc tả (Specification Based/Behavior Based/Black Box Testing): không quan tâm đến cấu trúc, thiết kế, xử lý, cách triển khai bên trong hệ thống; chỉ cần có dữ liệu đầu vào và kiểm tra dữ liệu đầu ra mong muốn, không quan tâm hệ thống sẽ phải xử lý thế nào để có được đầu ra.
+
+		- Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class).
+		- Kỹ thuật phân tích giá trị biên (Boundary Value Analysis).
+		- Kỹ thuật bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect).
+		- Kỹ thuật kiểm thử dịch chuyển/chuyển đổi trạng thái (State Transition Testing).
+		- Kỹ thuật kiểm thử các trường hợp/tình huống sử dụng (Use Case Testing).
+
+
+	* Kiểm thử hộp trắng (Structure Based/White Box Testing): kiểm thử viên biết và thực hiện kiểm thử trên cấu trúc, thiết kế, xử lý, cách triển khai bên trong hệ thống.
+
+		- Kiểm thử đường dẫn cơ sở (Basis Path Testing).
+		- Kiểm thử cấu trúc điều khiển (Control Structure Testing).
+			+ Kiểm thử luồng điều khiển (Control Flow Testing) / Bao phủ (Coverage Testing).
+				* Phủ câu lệnh/dòng lệnh (Statement Coverage).
+				* Phủ quyết định (Decision Coverage).
+				* Phủ nhánh (Branch Coverage).
+				* Phủ đường (Path Coverage).
+				* Phủ điều kiện (Condition Coverage).
+				* Phủ đa điều kiện (Multiple Condition Coverage - MCC).
+			+ Kiểm thử luồng dữ liệu (Data Flow Testing).
+			+ Kiểm thử vòng lặp (Loop Testing).
+
+
+	* Kiểm thử dựa trên kinh nghiệm (Experienced Based Testing):
+
+		- Đoán lỗi (Error Guessing).
+		- Kiểm thử thăm dò (Exploratory Testing).
+
+----------
+
+	- Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning): là kỹ thuật kiểm thử hộp đen, giúp loại bỏ những test case dư thừa, chỉ chạy những test case có độ bao phủ cao hơn. Chia đầu vào của chương trình thành nhiều lớp dữ liệu, từ đó suy ra được trường hợp kiểm thử. Xác định được trường hợp tương đương hợp lệ (positive case) và không hợp lệ (negative case).
+
+		Ví dụ 1: kiểm thử biểu mẫu đăng nhập đơn giản
+				- Chỉ được phép nhập từ 6 đến 20 ký tự.
+				- Để trống hoặc không phải chữ -> Thông báo: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ"
+					* Hợp lệ:
+						+ Phân vùng 1: nhập giá trị hợp lệ từ 6 -> 20 ký tự.
+					* Không hợp lệ:
+						+ Phân vùng 2: nhập giá trị không hợp lệ < 6  ký tự.
+						+ Phân vùng 3: nhập giá trị không hợp lệ > 20  ký tự.
+						+ Phân vùng 4: trường hợp để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ.
+			=> 4 test case cụ thể.
+				- Case 1: nhập giá trị từ 6 -> 20 ký tự => pass
+				- Case 2: nhập giá trị < 6 ký tự (có thể nhập 1, 2, 3, ..., 5 ký tự) => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+				- Case 3: nhập giá trị > 20 ký tự (có thể nhập 21, 22, 23,... ký tự) => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+				- Case 4: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
+
+---------------------------------------------------------------------------
+
+	- Kỹ thuật phân tích giá trị biên (Boundary Value Analysis): là trường hợp đặc biệt của phân vùng tương đương.
+
+		Ví dụ 1: kiểm thử biểu mẫu đăng nhập đơn giản
+			=> Phân vùng giữ nguyên nhưng có sự thay đổi về test case 
+				- Case 1: nhập giá trị với 5 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+				- Case 2: nhập giá trị với 6 ký tự => pass
+				- Case 3: nhập giá trị với 20 ký tự => pass
+				- Case 4: nhập giá trị với 21 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+				- Case 5: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
+
+---------------------------------------------------------------------------
+
+	- Kỹ thuật bảng quyết định (Decision Table Testing): dùng khi phải kết hợp các điều kiện lại với nhau, khi số lượng điều kiện cần kết hợp khá lớn, dẫn đến việc không thể nhớ được một trường hợp nào đó đã được kiểm thử hay chưa.
+
+		+ Bước 01: xác định các chức năng cần sử dụng để kiểm thử.
+		+ Bước 02: xác định những điều kiện, sau đó tách ra thành những tập con và xử lý từng tập con một.
+		+ Bước 02: xác định tất cả các sự kết hợp giữa đúng và sai.
+			Ví dụ: biểu mẫu đăng nhập
+				- Đúng email và mật khẩu -> Trang chủ
+				- Sai email và mật khẩu -> Thông báo lỗi
+					+ Đúng email & mật khẩu -> Trang chủ
+					+ Đúng email, sai mật khẩu -> Thông báo lỗi
+					+ Sai email, đúng mật khẩu -> Thông báo lỗi
+					+ Sai email, sai mật khẩu -> Thông báo lỗi
+
+				-------------------------------------------------
+				|Điều kiện	|TH 1	|TH 2	|TH 3	|TH 4	|
+				|---------------|-------|-------|-------|-------|
+				|Email (Đ/S)	|Đúng	|Đúng	|Sai	|Sai	|
+				|---------------|-------|-------|-------|-------|
+				|Mật khẩu (Đ/S)	|Đúng	|Sai	|Đúng	|Sai	|
+				|---------------|-------|-------|-------|-------|
+				|Kết quả (TrC/L)|Tr. chủ|Lỗi	|Lỗi	|Lỗi	|
+				-------------------------------------------------
+
+---------------------------------------------------------------------------
+
+	- Kỹ thuật kiểm thử chuyển đổi trạng thái (State Transition Testing): khi một vài phần của hệ thống được mô tả bằng trạng thái, khi hệ thống ở một trạng thái này và chuyển sang một hệ thống khác theo một quy tác nào đó của phần mềm. Mô hình chuyển đổi sẽ bao gồm bốn phần: trạng thái, phiên chuyển đổi, sự kiện, hành động-kết quả.
+
+		Ví dụ 1: từ trạng thái đăng nhập -> đăng nhập thành công
+
+		Ví dụ 2: nhập mã pin
+			-> đúng -> đăng nhập thành công
+			-> sai -> thử lại -> sai 3 lần -> khoá thẻ
+
+---------------------------------------------------------------------------
+
+	- Kỹ thuật đoán lỗi (Error Guessing): chủ yếu dựa vào kinh nghiệm, sự am hiểu về hệ thống hoặc dựa vào những dự án đã trải qua, những bug đã tìm được,... vì vậy không phù hợp với người mới. Có thể giúp tìm ra những lỗi mà thậm chí không có trong test case (exploratory testing).
+
+		Ví dụ: lỗi chia cho 0, gửi yêu cầu không kèm giá trị hoặc chứa giá trị/ký tự đặc biệt, quyên xoá tài khoản test,...
+
+---------------------------------------------------------------------------
+
+	- Kiểm thử theo cặp/cặp đôi (All-Pairs Testing/Pairwise Testing): dành cho những trường hợp phải kiểm thử một lượng lớn dữ liệu, giúp lấy ra những trường hợp tiêu biểu, loại bỏ sự dư thừa lặp lại. Được sử dụng trong các dự án yêu cầu cần phải kết hợp những đoạn code, trường hợp, điều kiện, tham số đầu vào rời rạc... lại với nhau để kiểm thử. (Khác với bảng quyết định vì BQĐ sẽ kiểm thử hết toàn bộ trường hợp của dữ liệu thay vì chọn ra những trường hợp tiêu biểu.)
+
+		+ Bước 01: xác định số lượng đầu vào.
+		+ Bước 02: tính tổng số trạng thái sẽ có bằng cách nhân các trường hợp lại với nhau.
+		+ Bước 03: kết hợp hai giá trị đầu vào lớn nhất, tiêu biểu nhất.
+		+ Bước 04: thực hiện ánh xạ các giá trị lại với nhau.
+
+			Ví dụ: kiểm tra đăng nhập với 100 tài khoản + mật khẩu, 3 phân quyền: quản trị viên, người dùng và khách.
+				- Bước 01:
+					100 tên tài khoản -> 2 giá trị (đúng/sai).
+					100 mật khẩu -> 2 giá trị (đúng/sai).
+					3 phân quyền -> 3 giá trị.
+				- Bước 02: số trường hợp: 2 x 2 x 3 => 12 trường hợp.
+				- Bước 03: vì tài khoản và mật khẩu đều có chung 2 giá trị là đúng và sai -> 3 phân quyền x 2 trường hợp => 6 test case
+				- Bước 04: kết hợp các trường hợp của các giá trị.
+
+================================================================================
+
+** Các loại lỗi và các dạng kỹ thuật kiểm thử:
+
+Lỗi trên website:
+	- Lỗi về thiết kế, bố cục, giao diện:
+		+ Sắp xếp không đúng trật tự, không cân đối (misalignment).
+		+ Các nút bấm đè lên nhau, che khuất nhau (overlapping).
+		+ Thiếu nội dung và hình ảnh (missing contents/images).
+		+ Font chữ.
+		+ Màu sắc.
+	- Lỗi chức năng (functional testing): khi khách hàng yêu cầu một chức năng nào đó mà phần mềm không thực hiện đúng theo yêu cầu. Áp dụng kiểm thử hộp đen, hộp trắng và hộp xám để sửa lỗi này.
+		Ví dụ: người dùng nhấn vào nút [Đăng ký] nhưng không thể đăng ký, hoặc đăng ký xong nhưng không thể đăng nhập,...
+
+	- Kiểm thử tương thích (compatibility testing): tương thích về phần cứng, phần mềm, hệ điều hành, hệ thống mạng, trình duyệt, thiết bị, phiên bản,...
+		Ví dụ: phần mềm có cho ra cùng một kết quả trong các trình duyệt khác nhau trên cùng một hệ điều hành,... 
+
+	- Kiểm thử địa phương hoá (localization testing):
+		+ Ngôn ngữ.
+		+ Đơn vị tiền tệ.
+		+ Định dạng ngày tháng năm.
+
+	- Kiểm thử hiệu năng (performance testing): đảm bảo các tiêu chí về tốc độ, khả năng đáp ứng/phản hồi/tương thích, độ ổn định và khả năng mở rộng.
+
+	- Kiểm thử về trải nghiệm người dùng (usability testing): có dễ dùng hay gây rối mắt, khó hiểu; nếu là website bán hàng thì việc thanh toán có dễ dàng hay không, hiện thông báo lỗi nhưng không cụ thể khiến người dùng không biết mình bị sai ở đâu; các nút bấm thiết kế quá nhỏ khiến cho những thiết bị với màn hình nhỏ khó thao tác.
+
+	- Kiểm thử bảo mật (security testing): 
+
+================================================================================
+
+** Software build là gì?
+Nếu phát triển một chương trình máy tính đơn giản chỉ bao gồm một tệp mã nguồn, ta chỉ cần biên dịch và liên kết một tệp này, để tạo thành một tệp thực thi.
+
+Một dự án phần mềm thực tế được chia thành nhiều thành phần, được thực hiện bởi nhiều thành viên và ra cho rất nhiều tập tin. Lead developer sẽ sử dụng phần mềm nhằm gom và kết nối những thành phần lại với nhau để cho ra hệ thống hoàn chỉnh.
+
+** Kiểm thử ổn định (Smoke Testing) - kiểm thử xác minh (verification) bản build.
+Là loại kiểm thử phần mềm được thực hiện sau khi build để xác minh rằng các chức năng, thành phần quan trọng nhất của chương trình đang hoạt động tốt (không phải toàn hệ thống - exhaustive testing). Kiểm thử viên sẽ thực hiện kiểm thử ngay trên chính bản build đó. Thường được thực hiện trước kiểm thử chức năng hoặc kiểm thử hồi quy, mục đích là để từ chối một ứng dụng bị hỏng nặng, vì vậy mà nhóm QA sẽ không mất nhiều thời gian cài đặt và thử nghiệm ứng dụng phần mềm.
+	Ví dụ: xác minh rằng ứng dụng khởi động thành công, giao diện được đáp ứng và phù hợp trên tất cả các thiết bị, mọi độ phân giải màn hình.
+
+** Kiểm thử hợp lý (Sanity Testing) - kiểm thử xác minh (verification) tính năng mới và lỗi đã được sửa trong bản build.
+Là loại kiểm thử phần mềm được thực hiện sau khi nhận được bản build với những thay đổi nhỏ về code hoặc chức năng để xác định rằng những lỗi cũ đã được sửa và trong quá trình thay đổi chức năng không gây ra, phát sinh thêm bất kỳ lỗi mới nào. Dùng để xác định rằng bản build hoạt động đúng như mong đợi, mục tiêu không phải để xác minh kỹ lưỡng chức năng mới mà để xác định rằng nhà phát triển đã áp dụng một số tính hợp lý (sanity) trong khi sản xuất phần mềm. Nếu kiểm tra tính hợp lý không thành công, bản build sẽ bị từ chối để tiết kiệm thời gian và chi phí liên quan đến một thử nghiệm nghiêm ngặt hơn.
+	Ví dụ: nếu máy tính bỏ túi cho ra kết quả của một phép tính đơn giản là 2 + 2 = 5! thì không cần phải tốn công để kiểm thử các hàm nâng cao như sin 30 + cos 50.
+
+			*********SỰ KHÁC BIỆT CHÍNH*********
+
+---------------------------------------------------------------------------------
+|Kiểm thử ổn định (Smoke Testing)	|Kiểm thử hợp lý (Sanity Testing)	|
+|---------------------------------------|---------------------------------------|
+|Mục tiêu để xác minh "tính ổn định"	|Mục tiêu để xác minh "tính hợp lý"	|
+|---------------------------------------|---------------------------------------|
+|Chắc chắn rằng các chức năng quan trọng|Kiểm tra chức năng mới/lỗi đã được sửa	|
+|của chương trình đang hoạt động tốt	|					|
+|---------------------------------------|---------------------------------------|
+|Được thực hiển bởi lập trình viên và	|Được thực hiển bởi kiểm thử viên	|
+|kiểm thử viên				|					|
+|---------------------------------------|---------------------------------------|
+|Xác minh các chức năng quan trọng của	|Xác minh chức năng mới, ví dụ: sửa lỗi	|
+|hệ thống				|					|
+|---------------------------------------|---------------------------------------|
+|Là một tập con của thử nghiệm chấp nhận|Là một tập con của kiểm thử hồi quy	|
+|(acceptance testing)			|(regression testing)			|
+|---------------------------------------|---------------------------------------|
+|Thường có tài liệu và kịch bản		|Thường không có tài liệu và kịch bản	|
+|---------------------------------------|---------------------------------------|
+|Xác minh toàn bộ hệ thống từ đầu đến	|Xác minh một thành phần cụ thể	của toàn|
+|cuối					|bộ hệ thống				|
+|---------------------------------------|---------------------------------------|
+|Giống như Kiểm tra sức khỏe tổng quát	|Giống như Kiểm tra sức khỏe chuyên biệt|
+---------------------------------------------------------------------------------
+
+================================================================================
+
+** Kiểm thử API:
+
+Ví dụ: các bước để thay đổi mật khẩu.
+	01. User vào phần "Profile" để thay đổi mật khẩu.
+	02. User nhấn vào nút "Update".
+	03. API sẽ chịu trách nhiệm là gửi thông tin mật khẩu cũ và thông tin mật khẩu mới đó về Server.
+	04. Server sẽ đọc thông tin và kiểm tra.
+	05. Nếu tất cả mọi thứ đều ổn thì Server sẽ tiến hành cập nhật mật khẩu mới.
+	06. Server sẽ trả phản hồi về cho Client và thông báo rằng đã cập nhật thành công.
+	07. Cuối cùng là User sẽ nhìn thấy mật khẩu đã được cập nhật thành công.
+
+Các bước 4, 5 và 6 được gọi là Syntax Testing và Functional Testing
+
+================================================================================
+
+** Kiểm thử phần mềm tự động:
+Là quá trình sử dụng công cụ để kiểm thử phần mềm. Đôi khi sẽ có những kịch bản kiểm thử thủ công lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu kiểm thử thủ công; lúc này, cần có sự hỗ trợ của công cụ để tự động hoá quá trình kiểm thử.
+
+* Các bước kiểm thử tự động:
+	01. Xác định các vùng/mục tiêu trong phần mềm để kiểm thử tự động.
+	02. Chọn công cụ thích hợp để tự động hoá kiểm thử.
+	03. Viết kịch bản kiểm thử.
+	04. Tạo ra tập hợp các trường hợp kiểm thử (test suite).
+	05. Thực thi các kịch bản kiểm thử.
+	06. Xây dựng báo cáo kết quả.
+	07. Tìm lỗi hoặc vấn đề về hiệu năng.
+
+* Nên sử dụng kiểm thử tự động khi:
+	- Các dự án lớn và trọng điểm, những dự án dài hạn và tốn nguồn nhân lực.
+	- Những dự án yêu cầu kiểm thử thường xuyên trong cùng một lĩnh vực (kiểm thử lặp lại một tính năng).
+	- Những yêu cầu không thường xuyên thay đổi.
+	- Truy cập ứng dụng để kiểm tra tải và hiệu suất với nhiều người dùng ảo.
+	- Kiểm tra tính ổn định của phần mềm trên quan điểm của kiểm thử thủ công.
+	- Tính khả dụng của thời gian.
+
+* Những test case có thể kiểm thử tự động:
+	- Rủi ro cao - các test case quan trọng.
+	- Những test case được thực hiện nhiều lần.
+	- Những test case khó thực hiện thủ công.
+	- Những test case tốn thời gian.
+
+* Những test case không phù hợp để kiểm thử tự động:
+	- Những test case được thiết kế mới và chưa được thực hiện thủ công ít nhất một lần.
+	- Những test case có các yêu cầu thường xuyên thay đổi.
+	- Những test case được thực hiện đột xuất, không có kế hoạch, kịch bản, tese case và tài liệu (ad-hoc).
+
+* Lưu ý khi kiểm thử tự động:
+	- Chi phí khởi đầu (thuê nhân viên, mua công cụ) cho kiểm thử tự động rất cao.
+	- Kiểm thử tự động không phải là 100%, có một số trường hợp không thể kiểm thử tự động.
+	- Không kiểm thử tự động với trường hợp UI không cố định.
+	- Người kiểm thử tự động nên có kiến thức lập trình tốt.
+
+
+
+

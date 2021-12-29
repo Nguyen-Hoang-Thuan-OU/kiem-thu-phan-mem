@@ -1,0 +1,5 @@
+﻿a,b,operation,expected
+3,4,Plus,7
+-7,6,Minus,-13
+-3,-7,Multiply,21
+-5,5,Divide,-1
