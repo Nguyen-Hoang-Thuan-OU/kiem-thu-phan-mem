@@ -25,8 +25,11 @@ namespace CalculatorTester
             this.calculation = new Calculation(10, 5);
         }
 
-        // Các Test Case cho trường hợp đúng
+        #region TestOperation
 
+        /* Các Test Case cho trường hợp đúng */
+
+        // Test Case cộng
         [TestMethod]
         public void TestAddOperator()
         {
@@ -35,6 +38,7 @@ namespace CalculatorTester
             Assert.AreEqual(calculation.Execute("Plus"), 15);
         }
 
+        // Test Case trừ
         [TestMethod]
         public void TestSubOperator()
         {
@@ -43,6 +47,7 @@ namespace CalculatorTester
             Assert.AreEqual(calculation.Execute("Minus"), 5);
         }
 
+        // Test Case nhân
         [TestMethod]
         public void TestMulOperator()
         {
@@ -51,6 +56,7 @@ namespace CalculatorTester
             Assert.AreEqual(calculation.Execute("Multiply"), 50);
         }
 
+        // Test Case chia
         [TestMethod]
         public void TestDivOperator()
         {
@@ -59,7 +65,7 @@ namespace CalculatorTester
             Assert.AreEqual(calculation.Execute("Divide"), 2);
         }
 
-        // Các Test Case cho trường hợp sai
+        /* Các Test Case cho trường hợp sai */
 
         [TestMethod]
 
@@ -102,6 +108,10 @@ namespace CalculatorTester
             
             Assert.AreEqual(expected, actual);
         }
+		 
+	    #endregion
+
+        #region TestPower
 
         // Kiểm tra hàm mũ - 1
         [TestMethod]
@@ -150,5 +160,94 @@ namespace CalculatorTester
 
             Assert.AreEqual(expected, actual);
         }
+		 
+	    #endregion
+
+        #region TestPolynomial
+
+        // Có xử lý ngoại lệ - nhập không đủ n + 1 hệ số
+        [TestMethod]
+        [ExpectedException (typeof(ArgumentException))]
+        public void TestPolynomial1()
+        {
+            int n = 3;
+            List<int> a = new List<int>() { 1, 2, 3 };
+            Polynomial p = new Polynomial(n, a);
+        }
+
+        // Có xử lý ngoại lệ - nhập n âm
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestPolynomial2()
+        {
+            // Chạy sai khi list a = rỗng
+            int n = -1;
+            List<int> a = new List<int>() { };
+            Polynomial p = new Polynomial(n, a);
+        }
+
+        // Test Case pass
+        [TestMethod]
+        public void TestPolynomial3()
+        {
+            int n = 2;
+            List<int> a = new List<int>() { 1, 2, 3 };
+            Polynomial p = new Polynomial(n, a);
+            double x = 2;
+            Assert.AreEqual(p.Cal(x), 17);
+        }
+		 
+	    #endregion
+
+        #region Redix
+
+        // Hiển thị thông báo lỗi
+        [TestMethod]
+        [ExpectedException (typeof(ArgumentException))]
+        public void Radix1()
+        {
+            int number = -1;
+            Radix r = new Radix(number);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ConvertDecimalToAnother1()
+        {
+            int number = 7;
+            int radix = 1;
+            Radix r = new Radix(number);
+            r.ConvertDecimalToAnother(radix);
+        }
+
+        [TestMethod]
+        public void ConvertDecimalToAnother2()
+        {
+            // So sánh số sau khi chuyển với 101
+            int number = 5;
+            int radix = 2;
+            Radix r = new Radix(number);
+            Assert.AreEqual(r.ConvertDecimalToAnother(radix), "101");
+        }
+
+        // Đọc dữ liệu kiểm thử cho đa thức từ tập tin csv
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                    @".\Data\TestDataRadix.csv",
+                    "TestDataRadix#csv",
+                    DataAccessMethod.Sequential)]
+
+        public void ConvertDecimalToAnother3()
+        {
+            int radix = int.Parse(TestContext.DataRow[0].ToString());
+            int number = int.Parse(TestContext.DataRow[1].ToString());
+            string expected = TestContext.DataRow[2].ToString();
+            
+            Radix r = new Radix(number);
+            Assert.AreEqual(expected, r.ConvertDecimalToAnother(radix));
+        }
+
+        #endregion
+
     }
 }

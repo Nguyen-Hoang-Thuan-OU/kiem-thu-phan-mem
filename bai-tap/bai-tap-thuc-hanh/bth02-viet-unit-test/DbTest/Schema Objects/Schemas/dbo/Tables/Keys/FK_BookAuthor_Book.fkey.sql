@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[BookAuthor]
+    ADD CONSTRAINT [FK_BookAuthor_Book] FOREIGN KEY ([BookID]) REFERENCES [dbo].[Book] ([BookID]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
