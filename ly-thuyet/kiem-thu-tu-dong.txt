@@ -1,0 +1,46 @@
+Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế code/kịch bản kiểm thử tự động (Test Script), nhằm mục đích nhờ máy tính tự động hoá việc thực thi các test case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai). Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
+		-> Con người viết code để máy tính giả lập lại các hành động và thay con người kiểm thử hệ thống và kết luận.
+
+		Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
+			- Chủ động lập trình.
+			- Ghi hình lại các bước dạng kịch bản (Record/Playback-Replay): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các test case. Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện và cho phép can thiệp, chỉnh sửa lại các bước nếu cần. Có thể chuyển thành ngôn ngữ lập trình (Java, C#, Python,...) và cho phép chỉnh sửa lại theo phong cách lập trình.
+				-> Functional Automation Testing Tool: Katalon, Telerik, Ranorex, TestComplete... => Dựa trên framework kiểm thử tự động mở nguồn mở (test automation framework) Selenium (web), Appium (desktop),...
+
+========================================================================
+
+|Ngôn ngữ lập trình|--->|Thư viện lập trình|--->|WebDriver|--->|Trình duyệt|
+							^		|
+							|_______________|
+							HTTP over HTTP Server
+
+** Thư viện lập trình:
+
+Bộ thư viện trong lập trình (tập hợp các class với các phương thức/hàm) được đóng với một định dạng cụ thể (jar, dll,...).
+
+** WebDriver (người em song sinh với trình duyệt, ví dụ: ChromeDriver, OperaDriver, Firefox WebDriver,...)
+
+Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đoạn code chạy song song với trình duyệt, có kết nối với thư viện lập trình, từ đó cho phép ngôn ngữ lập trình can thiệp vào trình duyệt để kiểm thử web app bằng code tự động.
+	-> Là một tập tin nhị phân và biết cách giao tiếp với trình duyệt và ngôn ngữ lập trình.
+
+------------------------------
+
+** Để viết được code mô phỏng các thao tác của QC/Người dùng.
+	- Cần thư viện tương ứng: Selenium (tuỳ vào ngôn ngữ lập trình).
+	- Cần có phần trung gian để kết nối với trình duyệt, thay con người điều khiển trình duyệt: WebDriver (tuỳ vào trình duyệt và phiên bản của trình duyệt).
+
+------------------------------
+
+** Các bước viết code (Test Script) để tự động hoá những thao tác của QC/Người dùng khi sử dụng một website (điều khiển trình duyệt):
+
+Bước 01: copy file ChromeDriver.exe vào trong cùng thư mục chứa code hoặc môi trường ảo (venv - python) để dễ quản lý và sử dụng.
+
+Bước 02: khai báo thư viện lập trình WebDriver tương ứng với trình duyệt đang sử dụng vào trong code. Khi đưa file WebDriver vào trong code bằng cách tải thư viện lập trình thì lúc này cả trình duyệt (nhờ WebDriver đại diện) được xem là một đối tượng, ta có thể thoải mái gọi hàm để điều khiển/yêu cầu trình duyệt thực hiện.
+
+Bước 03: khai báo đối tượng trình duyệt
+
+
+
+
+
+
+
