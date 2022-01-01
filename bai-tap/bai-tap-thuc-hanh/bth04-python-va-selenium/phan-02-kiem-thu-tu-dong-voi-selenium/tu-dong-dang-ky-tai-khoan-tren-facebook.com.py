@@ -6,8 +6,14 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
+# Tuỳ chỉnh ngôn ngữ sang tiếng Anh
+# vì có sử dụng XPATH
+tuy_chinh = webdriver.ChromeOptions()
+tuy_chinh.add_argument("--lang=en")
+
 dich_vu = Service('venv/chromedriver.exe')
-trinh_dieu_khien = webdriver.Chrome(service=dich_vu)
+trinh_dieu_khien = webdriver.Chrome(service=dich_vu,
+                                    options=tuy_chinh)
 
 trinh_dieu_khien.get('https://www.facebook.com/')
 
@@ -82,7 +88,7 @@ try:
                       'websubmit').click()
 
     print("\n===================================\n")
-    print("Thao tác đăng ký đã thành công!")
+    print("Thao tác đăng ký đã hoàn tất!")
     print("\n===================================\n")
 
 except Exception as ex:
