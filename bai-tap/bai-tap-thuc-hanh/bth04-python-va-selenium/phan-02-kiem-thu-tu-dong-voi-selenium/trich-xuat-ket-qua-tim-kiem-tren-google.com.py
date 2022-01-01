@@ -13,9 +13,19 @@ tu_khoa_can_tim = input("Nhập từ khoá cần tìm: ")
 
 print('\n=================================\n')
 
+# Cài đặt tuỳ chỉnh cho Chrome
+tuy_chinh = webdriver.ChromeOptions()
+
+# Mặc định mở ở trong chế độ ẩn danh
+tuy_chinh.add_argument("--incognito")
+
+# Tuỳ chỉnh ngôn ngữ mặc định
+tuy_chinh.add_argument("--lang=vi")
+
 # Chỉ định Chrome Driver và trình duyệt sử dụng
 dich_vu = Service('venv/chromedriver.exe')
-trinh_dieu_khien = webdriver.Chrome(service=dich_vu)
+trinh_dieu_khien = webdriver.Chrome(service=dich_vu,
+                                    options=tuy_chinh)
 
 # Chỉ định website
 trinh_dieu_khien.get('https://www.google.com/')
@@ -26,7 +36,7 @@ gia_tri_nhap_vao = trinh_dieu_khien \
 
 # Lấy thông tin thuộc tính CSS của khung tìm kiếm:
 # kích thước, kiểu chữ, màu chữ, màu nền,...
-print("Thông tin thuộc tính CSS: ")
+print("Thông tin thuộc tính CSS của ô tìm kiếm: ")
 print("-----------")
 print(gia_tri_nhap_vao
       .value_of_css_property('font-family'))
