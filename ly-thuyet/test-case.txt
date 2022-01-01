@@ -1,4 +1,4 @@
-**********Test scenario & Test Case**********
+﻿**********Test scenario & Test Case**********
 
 ** Kịch bản kiểm thử (test scenario): được lập sau khi nhận được yêu cầu/tài liệu kiểm thử (test document) từ phía khách hàng. Mỗi chức năng/yêu cầu sẽ tương ứng với một kịch bản (scenario) mà trong mỗi kịch bản sẽ có nhiều tình huống (case) khác nhau.
 
