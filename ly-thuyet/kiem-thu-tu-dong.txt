@@ -1,4 +1,4 @@
-Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế code/kịch bản kiểm thử tự động (Test Script), nhằm mục đích nhờ máy tính tự động hoá việc thực thi các test case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai). Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
+﻿Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế code/kịch bản kiểm thử tự động (Test Script), nhằm mục đích nhờ máy tính tự động hoá việc thực thi các test case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai). Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
 		-> Con người viết code để máy tính giả lập lại các hành động và thay con người kiểm thử hệ thống và kết luận.
 
 		Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
@@ -22,9 +22,9 @@ Bộ thư viện trong lập trình (tập hợp các class với các phương 
 Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đoạn code chạy song song với trình duyệt, có kết nối với thư viện lập trình, từ đó cho phép ngôn ngữ lập trình can thiệp vào trình duyệt để kiểm thử web app bằng code tự động.
 	-> Là một tập tin nhị phân và biết cách giao tiếp với trình duyệt và ngôn ngữ lập trình.
 
-------------------------------
+========================================================================
 
-** Để viết được code mô phỏng các thao tác của QC/Người dùng.
+** Các yêu cầu để viết được code mô phỏng các thao tác của QC/Người dùng.
 	- Cần thư viện tương ứng: Selenium (tuỳ vào ngôn ngữ lập trình).
 	- Cần có phần trung gian để kết nối với trình duyệt, thay con người điều khiển trình duyệt: WebDriver (tuỳ vào trình duyệt và phiên bản của trình duyệt).
 
@@ -32,11 +32,64 @@ Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đo�
 
 ** Các bước viết code (Test Script) để tự động hoá những thao tác của QC/Người dùng khi sử dụng một website (điều khiển trình duyệt):
 
-Bước 01: copy file ChromeDriver.exe vào trong cùng thư mục chứa code hoặc môi trường ảo (venv - python) để dễ quản lý và sử dụng.
+Bước 01: copy file ChromeDriver.exe vào trong cùng thư mục chứa code hoặc môi trường ảo (venv - python) để dễ quản lý và sử dụng. Báo cho máy ảo biết phải kết nối với ChromeDriver.exe.
 
-Bước 02: khai báo thư viện lập trình WebDriver tương ứng với trình duyệt đang sử dụng vào trong code. Khi đưa file WebDriver vào trong code bằng cách tải thư viện lập trình thì lúc này cả trình duyệt (nhờ WebDriver đại diện) được xem là một đối tượng, ta có thể thoải mái gọi hàm để điều khiển/yêu cầu trình duyệt thực hiện.
+Bước 02: khai báo thư viện lập trình WebDriver tương ứng với trình duyệt đang sử dụng vào trong code.
 
-Bước 03: khai báo đối tượng trình duyệt
+Khi đưa WebDriver vào trong code bằng cách tải thư viện lập trình thì lúc này cả trình duyệt (nhờ WebDriver đại diện) được xem là một đối tượng và chiếm bộ nhớ RAM trong máy, ta có thể thoải mái gọi hàm để điều khiển/yêu cầu trình duyệt thực hiện các thao tác một cách tự động.
+
+Bước 03: sử dụng đối tượng đại diện trong trình duyệt (ví dụ: trinh_dieu_khien) để tìm/định vị các phần tử website.
+
+Mỗi thành phần/thẻ xuất hiện trong cây DOM trên website (web element/web control/tag/component) khi này đều được xem là đối tượng vì nó có giá trị (id, name, color, type,...).
+
+	Ví dụ: thẻ <div>, <h>, <span>,...
+		-> đều được xem là đối tượng vì có mô tả, đặc tính và hành vi.
+
+Ta có thể nhờ trình duyệt tìm giúp ta các thẻ nào đó, khi đó ta sẽ tham chiếu đến thẻ tìm thấy qua loại dữ liệu WebElement (input, button, radio button, checkbox...).
+
+Có nhiều cách để tìm thẻ: id, name, class, đường dẫn đến thẻ (XPath)
+						<html>
+						<body>
+							<div>
+
+	Ví dụ 1: trinh_dieu_khien.get('https://www.google.com/')
+	Ví dụ 2: trinh_dieu_khien.find_element(By.NAME, 'q')
+
+(Sử dụng hàm Submit() khi nút bấm đó là nút bấm thật sự nằm trong form, sử dụng hàm Click() khi nút bấm đó chỉ là label được chèn hyperlink)
+
+========================================================================
+
+Khi W3C chuẩn hoá HTML, họ đã đưa ra những kỹ thuật để định vị các thẻ (tag) trong website, kỹ thuật để tìm ra/xác định/chỉ định một thẻ/phần tử (web element) nào đó tại vị trí nào đó trong hàng nghìn thẻ/phần tử khác.
+	-> Kỹ thuật Selector (CSS Selector, XPath,...) - kỹ thuật định vị một thẻ/phần tử (web element) bất kỳ trong website.
+
+-------------------------
+
+XPath: tìm duyệt/định vị thẻ một cách tương đối trong website (web element locator).
+	-> Lần mò theo cây DOM của webiste.
+
+Dựa trên ngôn ngữ XML (bố của HTML), mô tả theo cặp thẻ và đánh dấu ý nghĩa của từng cặp thẻ (Markup Language).
+
+	Ví dụ:
+		<div> - Division: phân vùng
+		<span> - Span
+		<b> - Bold
+		<i> - Italic
+		<u> - Underline
+
+-------------------------
+
+CSS Selector: dấu chấm đại diện cho class, dấu thăng đại diện cho các thuộc tính bên trong.
+
+========================================================================
+
+Trong quá trình thao tác (thường là chuyển trang), do đây là hai luồng (thread) riêng biệt nên cần sử dụng thêm wait để đợi trang kế tiếp trả về phần từ, vì trong nhiều trường hợp trang kế chưa kịp tải nên các phần tử sẽ chưa kịp xuất hiện.
+	-> Sử dụng wait khi code chạy nhanh hơn việc trang được nạp.
+
+
+
+
+
+
 
 
 
