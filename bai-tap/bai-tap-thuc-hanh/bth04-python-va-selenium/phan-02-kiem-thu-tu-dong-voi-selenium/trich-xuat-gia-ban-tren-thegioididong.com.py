@@ -49,7 +49,7 @@ o_tim_kiem = trinh_dieu_khien \
 # o_tim_kiem.send_keys(san_pham_can_tim)
 
 # Gán cứng kết quả cần tìm
-o_tim_kiem.send_keys("iPhone 13")
+o_tim_kiem.send_keys("xiaomi")
 
 o_tim_kiem.submit()
 
@@ -115,7 +115,7 @@ try:
         # vì vậy cần kiểm tra điều kiện
         # nếu có sẽ tìm và xoá dấu * đi
 
-        if gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_1.find("*"):
+        if "*" in gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_1:
             gia_tien_sau_khi_da_xu_ly_cat_chuoi_1 \
                 = gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_1[:-2]
 
@@ -141,7 +141,7 @@ try:
         # vì vậy cần kiểm tra điều kiện
         # nếu có sẽ tìm và xoá dấu * đi
 
-        if gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_2.find("*"):
+        if "*" in gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_2:
             gia_tien_sau_khi_da_xu_ly_cat_chuoi_2 \
                 = gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_2[:-2]
 
@@ -174,7 +174,7 @@ try:
         # vì vậy cần kiểm tra điều kiện
         # nếu có sẽ tìm và xoá dấu * đi
 
-        if gia_giam_soc_cua_san_phan_dau_tien_trong_chi_tiet.find("*"):
+        if "*" in gia_giam_soc_cua_san_phan_dau_tien_trong_chi_tiet:
             gia_tien_sau_khi_da_xu_ly_cat_chuoi \
                 = gia_giam_soc_cua_san_phan_dau_tien_trong_chi_tiet[:-2]
 
