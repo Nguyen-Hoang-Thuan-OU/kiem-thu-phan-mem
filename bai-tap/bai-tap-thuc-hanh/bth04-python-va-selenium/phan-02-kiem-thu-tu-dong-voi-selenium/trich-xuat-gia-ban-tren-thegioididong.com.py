@@ -49,7 +49,7 @@ o_tim_kiem = trinh_dieu_khien \
 # o_tim_kiem.send_keys(san_pham_can_tim)
 
 # Gán cứng kết quả cần tìm
-o_tim_kiem.send_keys("Samsung")
+o_tim_kiem.send_keys("iPhone 13")
 
 o_tim_kiem.submit()
 
@@ -65,6 +65,7 @@ trong danh sách kết quả trả về (phần tóm tắt)
 san_phan_dau_tien_trong_tom_tat = trinh_dieu_khien \
     .find_element(By.XPATH,
                   """//ul[@class='listsearch item2020 listproduct']//li[3]""")
+
 """
 Bước 03: So sánh giá tiền trong phần tìm kiếm
 với giá tiền trong chi tiết sản phẩm
@@ -78,7 +79,8 @@ try:
     # thay vì tìm trên tổng thể thì ta sẽ tìm thẻ con
     # ngay trong thẻ mà ta đang đứng, như thế sẽ giúp ta
     # không bị lộn sang price của sản phẩm khác
-    gia_tien_cua_san_phan_dau_tien_trong_tom_tat = san_phan_dau_tien_trong_tom_tat \
+    gia_tien_cua_san_phan_dau_tien_trong_tom_tat \
+        = san_phan_dau_tien_trong_tom_tat \
         .find_element(By.CLASS_NAME, "price").text
 
     # In giá tiền trong phần tìm kiếm
@@ -103,39 +105,55 @@ try:
     # Trường hợp 1
     try:
         gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_1 = trinh_dieu_khien \
-            .find_element(By.XPATH, """//p[@class='box-price-present black']""").text
+            .find_element(By.XPATH,
+                          """//p[@class='box-price-present black']""") \
+            .text
 
         # Một số sản phẩm đang giảm giá
         # khi mua trực tuyến sẽ có dấu sao *
         # ở cuối giá của sản phẩm,
         # vì vậy cần kiểm tra điều kiện
         # nếu có sẽ tìm và xoá dấu * đi
-        if (gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_1.find("*")):
-            gia_tien_sau_khi_da_xu_ly_cat_chuoi \
+
+        if gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_1.find("*"):
+            gia_tien_sau_khi_da_xu_ly_cat_chuoi_1 \
                 = gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_1[:-2]
 
-        # In giá tiền trong phần chi tiết sản phẩm
-        print("Giá tiền trong chi tiết sản phẩm:",
-              gia_tien_sau_khi_da_xu_ly_cat_chuoi,
-              "(Đã bao gồm giá giảm bình thường nếu có)")
+            # In giá tiền trong phần chi tiết sản phẩm
+            # sau khi đã cắt chuỗi
+            print("Giá tiền trong chi tiết sản phẩm:",
+                  gia_tien_sau_khi_da_xu_ly_cat_chuoi_1,
+                  "(Đã bao gồm giá giảm bình thường nếu có)")
+        else:
+            print("Giá tiền trong chi tiết sản phẩm:",
+                  gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_1,
+                  "(Đã bao gồm giá giảm bình thường nếu có)")
 
     # Trường hợp 2
     except:
         gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_2 = trinh_dieu_khien \
-            .find_element(By.XPATH, """//p[@class='box-price-present']""").text
+            .find_element(By.XPATH, """//p[@class='box-price-present']""") \
+            .text
 
         # Một số sản phẩm đang giảm giá
         # khi mua trực tuyến sẽ có dấu sao *
         # ở cuối giá của sản phẩm,
         # vì vậy cần kiểm tra điều kiện
         # nếu có sẽ tìm và xoá dấu * đi
-        if (gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_2.find("*")):
-            gia_tien_sau_khi_da_xu_ly_cat_chuoi \
+
+        if gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_2.find("*"):
+            gia_tien_sau_khi_da_xu_ly_cat_chuoi_2 \
                 = gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_2[:-2]
 
-        print("Giá tiền trong chi tiết sản phẩm:",
-              gia_tien_sau_khi_da_xu_ly_cat_chuoi,
-              "(Đã bao gồm giá giảm bình thường nếu có)")
+            # In giá tiền trong phần chi tiết sản phẩm
+            # sau khi đã cắt chuỗi
+            print("Giá tiền trong chi tiết sản phẩm:",
+                  gia_tien_sau_khi_da_xu_ly_cat_chuoi_2,
+                  "(Đã bao gồm giá giảm bình thường nếu có)")
+        else:
+            print("Giá tiền trong chi tiết sản phẩm:",
+                  gia_tien_cua_san_phan_dau_tien_trong_chi_tiet_2,
+                  "(Đã bao gồm giá giảm bình thường nếu có)")
 
     # Lấy giá tiền của sản phẩm đầu tiên
     # (đang giảm giá sốc nếu mua trực tuyến)
@@ -147,21 +165,28 @@ try:
     # khi mua trực tuyến
     try:
         gia_giam_soc_cua_san_phan_dau_tien_trong_chi_tiet = trinh_dieu_khien \
-            .find_element(By.XPATH, """//p[@class='giamsoc-ol-price']""").text
+            .find_element(By.XPATH, """//p[@class='giamsoc-ol-price']""") \
+            .text
 
         # Một số sản phẩm đang giảm giá
         # khi mua trực tuyến sẽ có dấu sao *
         # ở cuối giá của sản phẩm,
         # vì vậy cần kiểm tra điều kiện
         # nếu có sẽ tìm và xoá dấu * đi
-        if (gia_giam_soc_cua_san_phan_dau_tien_trong_chi_tiet.find("*")):
+
+        if gia_giam_soc_cua_san_phan_dau_tien_trong_chi_tiet.find("*"):
             gia_tien_sau_khi_da_xu_ly_cat_chuoi \
                 = gia_giam_soc_cua_san_phan_dau_tien_trong_chi_tiet[:-2]
 
-        # In giá tiền trong phần chi tiết sản phẩm
-        print("Giá tiền trong chi tiết sản phẩm:",
-              gia_tien_sau_khi_da_xu_ly_cat_chuoi,
-              "(Đã bao gồm giá giảm sốc nếu mua trực tuyến)")
+            # In giá tiền trong phần chi tiết sản phẩm
+            # sau khi đã cắt chuỗi
+            print("Giá tiền trong chi tiết sản phẩm:",
+                  gia_tien_sau_khi_da_xu_ly_cat_chuoi,
+                  "(Đã bao gồm giá giảm sốc nếu mua trực tuyến)")
+        else:
+            print("Giá tiền trong chi tiết sản phẩm:",
+                  gia_giam_soc_cua_san_phan_dau_tien_trong_chi_tiet,
+                  "(Đã bao gồm giá giảm sốc nếu mua trực tuyến)")
 
     # Nếu sản phẩm không có giảm giá sốc
     # khi mua trực tuyến
@@ -170,5 +195,4 @@ try:
 
 # Nếu không tìm được giá của sản phẩm
 except:
-    print("Không thể lấy được giá của sản phẩm"
-          "do đây là hàng sắp về hoặc đã ngừng kinh doanh!")
+    print("Không thể lấy được giá của sản phẩm do đây là hàng sắp về hoặc đã ngừng kinh doanh!")
