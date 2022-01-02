@@ -34,10 +34,61 @@ Tại sao phải kiểm thử phần mềm?
 
 	Bước 01: Hiểu về dự án (đặt câu hỏi, trao đổi với khách hàng, lãnh đạo và thành viên trong nhóm).
 	Bước 02: Thiết lập kế hoạch/chiến lược kiểm thử (test plan).
-	Bước 03: Thiết lập các kịch bản kiểm thử (test scenarios, độ ưu tiên,...).
+	Bước 03: Thiết lập các kịch bản kiểm thử (test scenarios | độ ưu tiên P0 -> P4).
 	Bước 04: Thiết lập các tình huống kiểm thử (test cases).
 	Bước 05: Thực thi kiểm thử.
 	Bước 06: Báo cáo kết quả kiểm thử chính thức.
+
+================================================================================
+
+** Xây dựng chiến lược kiểm thử:
+
+Chiến lược kiểm thử là bước quan trọng trong việc lập tài liệu tổng quan về việc kiểm thử (test plan), là dạng tài liệu ở mức cao do các test manager/test leader phát triển. Tài liệu định nghĩa ra mục tiêu kiểm thử của dự án và phương tiện/phương pháp để đạt được, xác định nổ lực và chi phí kiểm thử.
+
+	- Bước 01: Định nghĩa phạm vi của kiểm thử (Define scope of testing): những thành phần trong hệ thống, phần cứng, phần mềm, phần mềm trung gian được sử dụng trong hệ thống được gọi là in-scope; các thành phần của hệ thống sẽ không được kiểm thử được gọi là out-of-scope. Là bước vô cùng quan trọng đối với tất cả các bên liên quan trong hệ thống, cung cấp sự chắc chắn và thông tin chính xác về hoạt động kiểm thử đang dự định thực hiện, tất cả các thành viên trong dự án sẽ hiểu rõ những gì được và không được kiểm thử trong dự án.
+
+		* Để xác định được phạm vi:
+			+ Nắm rõ, chính xác được yêu cầu của khách hàng (precise customer requirement).
+			+ Xác định được ngân sách của dự án (project budget).
+			+ Nắm được những đặc điểm kỹ thuật của sản phẩm (product specification).
+			+ Nắm được kỹ năng và trình độ kiểm thử của từng thành viên trong nhóm kiểm thử (skill & talent of test team).
+
+	- Bước 02: Xác định loại kiểm thử (Identify testing type): dùng để xác định mỗi loại kiểm thử cụ thể, thứ tự ưu tiên của từng loại so với nhân lực và trình độ kiểm thử của nhóm, nhằm một mục tiêu chung là phát hiện sớm lỗi trước khi phát hành sản phẩm và tiết kiệm chi phí.
+
+		* Kiểm thử đơn vị (Unit test): một unit là một đơn vị/thành phần nhỏ nhất mà ta có thể kiểm thử được. Thường do người lập trình viên thực hiện kiểm thử đầu tiên vì họ là người viết ra nó.
+
+		* Kiểm thử API (API testing): API là cầu nối chuyển giao thông tin giữa Client với Server, không thực hiện bất kỳ hành động nghiệp vụ (business logic) nào.
+
+		* Kiểm thử tích hợp (Integration test): kiểm thử tích hợp một nhóm mô-đun, chức năng riêng lẻ lại với nhau, được thực hiển bởi những kiểm thử viên.
+
+		* Kiểm thử hệ thống (System test): kiểm tra một sản phẩm đã hoàn chỉnh và tích hợp đầy đủ (toàn bộ hệ thống), nếu ổn định thì hệ thống sẽ được chuyển giao cho khách hàng. Được thực hiện sau khi đã kiểm thử đơn vị (unit test) và kiểm thử tích hợp (integration test).
+
+		* Kiểm thử cài đặt/gỡ bỏ cài đặt (Install/UnInstall testing):
+			- Kiểm thử cài đặt: xác minh phần mềm đã được cài đặt với tất cả các thành phần cần thiết và các ứng dụng đang hoạt động như mong đợi.
+			- Kiểm thử gỡ bỏ cài đặt: được thực hiện để xác minh liệu rằng tất cả các thành phần của ứng dụng có bị loại bỏ trong quá trình hay không. Tất cả các tập tin liên quan đến ứng dụng cùng cấu trúc thư mục của nó phải được gỡ bỏ sau khi quá trình gỡ bỏ thành công.
+
+		* Kiểm thử Agile (Agile testing): là phương pháp kiểm thử phần mềm tuân theo một số quy tắc của bản tuyên ngôn (manifesto) agile, xem việc phát triển phần mềm như là khách hàng của việc kiểm thử.
+
+		* Kiểm thử chấp nhận (Acceptance testing): khách hàng (hoặc ủy quyền cho một nhóm thứ ba) thực hiện nhằm mục đích chứng minh phần mềm thỏa mãn tất cả yêu cầu của khách hàng và khách hàng chấp nhận sản phẩm.
+			- Alpha test:
+			- Beta test: 
+
+	- Bước 03: Tạo và lưu trữ tài liệu về những vấn đề và hướng giải quyết (Document risk & issue): các test manager/test leader cần phải tính toán được vấn đề, rủi ro tiềm ẩn trong phần mềm và hướng giải quyết.
+
+		+ Vấn đề 1: Thành viên trong nhóm thiếu các kỹ năng cần thiết để kiểm thử trang web.
+			-> Giải pháp: Lập kế hoạch khoá đài tạo để nâng cao kỹ năng của các thành viên.
+		+ Vấn đề 2: Tiến độ dự án quá eo hẹp, thật khó để hoàn thành dự án đúng hạn.
+			-> Giải pháp: Đặt mức độ ưu tiên cho từng hoạt động kiểm thử (test priority).
+		+ Vấn đề 3: Test manager có kỹ năng quản lý kém.
+			-> Giải pháp: Lập kế hoạch đào tạo cho quản lý.
+		+ Vấn đề 4: Thiếu hợp tác, ảnh hưởng tiêu cực đến năng suất của thành viên.
+			-> Giải pháp: Khuyến khích mỗi thành viên trong nhóm thực hiện nhiệm vụ của mình và truyền cảm hứng cho họ để họ nỗ lực nhiều hơn.
+		+ Vấn đề 5: Dự toán ngân sách sai và vượt chi phí.
+			-> Giải pháp: Thiết lập phạm vi trước khi bắt đầu công việc, chú ý nhiều đến việc lập kế hoạch dự án, liên tục theo dõi và đo lường tiến độ.
+
+	- Bước 04: Xác định thành viên thực hiện và thời điểm thực hiện kiểm thử (Create test logistic):
+		+ Xác định thành viên: ước tính ngân sách của dự án và lựa chọn thành viên dựa theo khả năng của từng thành viên có phù hợp với công việc (khả năng hiểu yêu cầu và quan điểm của khách hàng, mong muốn chất lượng tốt, chú ý đến từng chi tiết nhỏ, có tinh thần hợp tác nhóm tốt.).
+		+ Xác định thời điểm: cần kết hợp với các hoạt động khác, bắt đầu kiểm thử khi đã có: tài liệu đặc tả yêu cầu, nguồn nhân lực và môi trường kiểm thử.
 
 ================================================================================
 
@@ -199,18 +250,12 @@ Nếu phát triển một chương trình máy tính đơn giản chỉ bao gồ
 
 Một dự án phần mềm thực tế được chia thành nhiều thành phần, được thực hiện bởi nhiều thành viên và ra cho rất nhiều tập tin. Lead developer sẽ sử dụng phần mềm nhằm gom và kết nối những thành phần lại với nhau để cho ra hệ thống hoàn chỉnh.
 
---------------------
-
 ** Kiểm thử ổn định (Smoke Testing) - kiểm thử xác minh (verification) bản build.
 Là loại kiểm thử phần mềm được thực hiện sau khi build để xác minh rằng các chức năng, thành phần quan trọng nhất của chương trình đang hoạt động tốt (không phải toàn hệ thống - exhaustive testing). Kiểm thử viên sẽ thực hiện kiểm thử ngay trên chính bản build đó. Thường được thực hiện trước kiểm thử chức năng hoặc kiểm thử hồi quy, mục đích là để từ chối một ứng dụng bị hỏng nặng, vì vậy mà nhóm QA sẽ không mất nhiều thời gian cài đặt và thử nghiệm ứng dụng phần mềm.
-
 	Ví dụ: xác minh rằng ứng dụng khởi động thành công, giao diện được đáp ứng và phù hợp trên tất cả các thiết bị, mọi độ phân giải màn hình.
-
---------------------
 
 ** Kiểm thử hợp lý (Sanity Testing) - kiểm thử xác minh (verification) tính năng mới và lỗi đã được sửa trong bản build.
 Là loại kiểm thử phần mềm được thực hiện sau khi nhận được bản build với những thay đổi nhỏ về code hoặc chức năng để xác định rằng những lỗi cũ đã được sửa và trong quá trình thay đổi chức năng không gây ra, phát sinh thêm bất kỳ lỗi mới nào. Dùng để xác định rằng bản build hoạt động đúng như mong đợi, mục tiêu không phải để xác minh kỹ lưỡng chức năng mới mà để xác định rằng nhà phát triển đã áp dụng một số tính hợp lý (sanity) trong khi sản xuất phần mềm. Nếu kiểm tra tính hợp lý không thành công, bản build sẽ bị từ chối để tiết kiệm thời gian và chi phí liên quan đến một thử nghiệm nghiêm ngặt hơn.
-
 	Ví dụ: nếu máy tính bỏ túi cho ra kết quả của một phép tính đơn giản là 2 + 2 = 5! thì không cần phải tốn công để kiểm thử các hàm nâng cao như sin 30 + cos 50.
 
 			*********SỰ KHÁC BIỆT CHÍNH*********
@@ -260,7 +305,14 @@ Các bước 4, 5 và 6 được gọi là Syntax Testing và Functional Testing
 ** Kiểm thử phần mềm tự động:
 Là quá trình con người sử dụng công cụ để tự động hoá quá trình kiểm thử phần mềm. Đôi khi sẽ có những kịch bản kiểm thử thủ công lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu kiểm thử thủ công. Lúc này, cần có sự hỗ trợ của công cụ để tự động hoá quá trình kiểm thử.
 
-
+* Các bước tổng quan để kiểm thử tự động:
+	01. Xác định các vùng/mục tiêu trong phần mềm để kiểm thử tự động.
+	02. Chọn công cụ thích hợp để tự động hoá kiểm thử.
+	03. Viết kịch bản kiểm thử.
+	04. Tạo ra tập hợp các trường hợp kiểm thử (test suite).
+	05. Thực thi các kịch bản kiểm thử.
+	06. Xây dựng báo cáo kết quả.
+	07. Tìm lỗi hoặc vấn đề về hiệu năng.
 
 
 
