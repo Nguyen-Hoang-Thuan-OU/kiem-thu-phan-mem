@@ -1,61 +1,114 @@
-﻿Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế code/kịch bản kiểm thử tự động (Test Script), nhằm mục đích nhờ máy tính tự động hoá việc thực thi các test case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai). Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
-		-> Con người viết code để máy tính giả lập lại các hành động và thay con người kiểm thử hệ thống và kết luận.
+﻿** Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế sẵn kịch bản kiểm thử tự động (Test Script) và để phần thực thi lại cho máy tính vì đôi khi sẽ có những kịch bản lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu con người tự thực hiện kiểm thử thủ công.
+Máy tính sẽ thay mặt con người tự động hoá việc thực thi các test case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai). Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
+	-> Con người viết code để máy tính giả lập lại các hành động và thay con người kiểm thử hệ thống và kết luận.
 
-		Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
-			- Chủ động lập trình.
-			- Ghi hình lại các bước dạng kịch bản (Record/Playback-Replay): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các test case. Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện và cho phép can thiệp, chỉnh sửa lại các bước nếu cần. Có thể chuyển thành ngôn ngữ lập trình (Java, C#, Python,...) và cho phép chỉnh sửa lại theo phong cách lập trình.
-				-> Functional Automation Testing Tool: Katalon, Telerik, Ranorex, TestComplete... => Dựa trên framework kiểm thử tự động mở nguồn mở (test automation framework) Selenium (web), Appium (desktop),...
+* Các bước tổng quan để kiểm thử tự động:
+	01. Xác định các vùng/mục tiêu trong phần mềm để kiểm thử tự động.
+	02. Chọn công cụ thích hợp để tự động hoá kiểm thử.
+	03. Viết kịch bản kiểm thử.
+	04. Tạo ra tập hợp các trường hợp kiểm thử (test suite).
+	05. Thực thi các kịch bản kiểm thử.
+	06. Xây dựng báo cáo kết quả.
+	07. Tìm lỗi hoặc vấn đề về hiệu năng.
 
 ========================================================================
+
+* Nên sử dụng kiểm thử tự động khi:
+	- Các dự án lớn và trọng điểm, những dự án dài hạn và tốn nguồn nhân lực.
+	- Những dự án yêu cầu kiểm thử thường xuyên trong cùng một lĩnh vực (kiểm thử lặp lại một tính năng).
+	- Những yêu cầu không thường xuyên thay đổi.
+	- Truy cập ứng dụng để kiểm tra tải và hiệu suất với nhiều người dùng ảo.
+	- Kiểm tra tính ổn định của phần mềm trên quan điểm của kiểm thử thủ công.
+	- Tính khả dụng của thời gian.
+
+* Những test case có thể kiểm thử tự động:
+	- Rủi ro cao - các test case quan trọng.
+	- Những test case được thực hiện nhiều lần.
+	- Những test case khó thực hiện thủ công.
+	- Những test case tốn thời gian.
+
+* Những test case không phù hợp để kiểm thử tự động:
+	- Những test case được thiết kế mới và chưa được thực hiện thủ công ít nhất một lần.
+	- Những test case có các yêu cầu thường xuyên thay đổi.
+	- Những test case được thực hiện đột xuất, không có kế hoạch, kịch bản, tese case và tài liệu (ad-hoc).
+
+* Lưu ý khi kiểm thử tự động:
+	- Chi phí khởi đầu (thuê nhân viên, mua công cụ) cho kiểm thử tự động rất cao.
+	- Kiểm thử tự động không phải là 100%, có một số trường hợp không thể kiểm thử tự động.
+	- Không kiểm thử tự động với trường hợp UI không cố định.
+	- Người kiểm thử tự động nên có kiến thức lập trình tốt.
+
+========================================================================
+
+** Các công cụ hỗ trợ kiểm thử tự động hai trong một - Studio (Functional Automation Testing Tools): Katalon, Telerik, Ranorex, TestComplete, Watir, HP QTP/UFT...
+	-> Dựa trên framework kiểm thử tự động mã nguồn mở (test automation framework) Selenium (web), Appium (desktop),...
+	-> Lưu lại các phần tử website dưới dạng đối tượng trong Element Repository (Object Repository) và cho phép tái sử dụng trong các Test Case khác nhau của cùng một dự án.
+
+========================================================================
+
+** Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
+	- Chủ động lập trình bằng cách sử dụng Selenium, WebDriver.exe và kiến thức lập trình hướng đối tượng để viết Test Script.
+		-> Sử dụng thư viện lập trình Selenium.
+
+	- Ghi hình lại các bước dạng kịch bản (Record & Replay/Playback): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các test case ở mức cơ bản.
+Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện và cho phép can thiệp, chỉnh sửa lại các bước. Có thể chuyển thành ngôn ngữ lập trình (Java, C#, Python,...) và cho phép chỉnh sửa lại theo phong cách lập trình nếu cần.
+		-> Sử dụng công cụ đồ hoạ Selenium IDE.
+		-> Sử dụng công cụ record + code: Katalon,...		
+
+========================================================================
+
+** Viết kịch bản kiểm thử tự động bằng việc chủ động lập trình:
 
 |Ngôn ngữ lập trình|--->|Thư viện lập trình|--->|WebDriver|--->|Trình duyệt|
 							^		|
 							|_______________|
 							HTTP over HTTP Server
 
+------------------------------
+
 ** Thư viện lập trình:
 
 Bộ thư viện trong lập trình (tập hợp các class với các phương thức/hàm) được đóng với một định dạng cụ thể (jar, dll,...).
 
-** WebDriver (người em song sinh với trình duyệt, ví dụ: ChromeDriver, OperaDriver, Firefox WebDriver,...)
+** WebDriver (phần trung gian để kết nối, người em song sinh với trình duyệt, ví dụ: ChromeDriver, OperaDriver, Firefox WebDriver,...)
 
 Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đoạn code chạy song song với trình duyệt, có kết nối với thư viện lập trình, từ đó cho phép ngôn ngữ lập trình can thiệp vào trình duyệt để kiểm thử web app bằng code tự động.
 	-> Là một tập tin nhị phân và biết cách giao tiếp với trình duyệt và ngôn ngữ lập trình.
 
 ========================================================================
 
-** Các yêu cầu để viết được code mô phỏng các thao tác của QC/Người dùng.
+** Các yêu cầu để viết được code/kịch bản mô phỏng các thao tác của QC/Người dùng.
 	- Cần thư viện tương ứng: Selenium (tuỳ vào ngôn ngữ lập trình).
 	- Cần có phần trung gian để kết nối với trình duyệt, thay con người điều khiển trình duyệt: WebDriver (tuỳ vào trình duyệt và phiên bản của trình duyệt).
 
 ------------------------------
 
-** Các bước viết code (Test Script) để tự động hoá những thao tác của QC/Người dùng khi sử dụng một website (điều khiển trình duyệt):
+** Các bước viết code (Test Script) để tự động hoá những thao tác của QC/Người dùng khi sử dụng một website (điều khiển trình duyệt) bằng Selenium WebDriver:
 
-Bước 01: copy file ChromeDriver.exe vào trong cùng thư mục chứa code hoặc môi trường ảo (venv - python) để dễ quản lý và sử dụng. Báo cho máy ảo biết phải kết nối với ChromeDriver.exe.
+	Bước 01: copy file ChromeDriver.exe vào trong cùng thư mục chứa code hoặc môi trường ảo (venv - python) để dễ quản lý và sử dụng. Báo cho máy ảo biết phải kết nối với ChromeDriver.exe.
 
-Bước 02: khai báo thư viện lập trình WebDriver tương ứng với trình duyệt đang sử dụng vào trong code.
+	Bước 02: khai báo thư viện lập trình WebDriver tương ứng với trình duyệt đang sử dụng vào trong code.
 
 Khi đưa WebDriver vào trong code bằng cách tải thư viện lập trình thì lúc này cả trình duyệt (nhờ WebDriver đại diện) được xem là một đối tượng và chiếm bộ nhớ RAM trong máy, ta có thể thoải mái gọi hàm để điều khiển/yêu cầu trình duyệt thực hiện các thao tác một cách tự động.
 
-Bước 03: sử dụng đối tượng đại diện trong trình duyệt (ví dụ: trinh_dieu_khien) để tìm/định vị các phần tử website.
+	Bước 03: sử dụng đối tượng đại diện trong trình duyệt (ví dụ: trinh_dieu_khien_trinh_duyet) để tìm/định vị các phần tử website.
 
 Mỗi thành phần/thẻ xuất hiện trong cây DOM trên website (web element/web control/tag/component) khi này đều được xem là đối tượng vì nó có giá trị (id, name, color, type,...).
 
 	Ví dụ: thẻ <div>, <h>, <span>,...
 		-> đều được xem là đối tượng vì có mô tả, đặc tính và hành vi.
 
-Ta có thể nhờ trình duyệt tìm giúp ta các thẻ nào đó, khi đó ta sẽ tham chiếu đến thẻ tìm thấy qua loại dữ liệu WebElement (input, button, radio button, checkbox...).
+Vì đã là một đối tượng nên ta hoàn toàn có thể nhờ trình duyệt tìm giúp ta các thẻ nào đó, khi đó ta sẽ tham chiếu đến thẻ tìm thấy qua loại dữ liệu WebElement (input, button, radio button, checkbox...).
 
 Có nhiều cách để tìm thẻ: id, name, class, đường dẫn đến thẻ (XPath)
 						<html>
 						<body>
 							<div>
 
-	Ví dụ 1: trinh_dieu_khien.get('https://www.google.com/')
-	Ví dụ 2: trinh_dieu_khien.find_element(By.NAME, 'q')
+	Ví dụ 1: trinh_dieu_khien_trinh_duyet.get('https://www.google.com/')
+	Ví dụ 2: trinh_dieu_khien_trinh_duyet.find_element(By.NAME, 'q')
 
-(Sử dụng hàm Submit() khi nút bấm đó là nút bấm thật sự nằm trong form, sử dụng hàm Click() khi nút bấm đó chỉ là label được chèn hyperlink)
+(Lưu ý: Khi lập trình sự kiện nhấn một nút trên trình duyệt, hãy sử dụng hàm Submit() khi nút bấm đó là nút bấm thật sự nằm trong form, và sử dụng hàm Click() khi nút bấm đó chỉ là label được chèn hyperlink.)
 
 ========================================================================
 
