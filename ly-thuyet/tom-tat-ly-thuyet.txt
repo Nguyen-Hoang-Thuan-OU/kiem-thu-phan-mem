@@ -298,14 +298,14 @@ Ví dụ: các bước để thay đổi mật khẩu.
 	06. Server sẽ trả phản hồi về cho Client và thông báo rằng đã cập nhật thành công.
 	07. Cuối cùng là User sẽ nhìn thấy mật khẩu đã được cập nhật thành công.
 
-Các bước 4, 5 và 6 được gọi là Syntax Testing và Functional Testing
+Các bước 4, 5 và 6 được gọi là Syntax Testing và Functional Testing.
 
 ================================================================================
 
 ** Kiểm thử phần mềm tự động:
-Là quá trình sử dụng công cụ để kiểm thử phần mềm. Đôi khi sẽ có những kịch bản kiểm thử thủ công lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu kiểm thử thủ công; lúc này, cần có sự hỗ trợ của công cụ để tự động hoá quá trình kiểm thử.
+Là quá trình con người sử dụng công cụ để tự động hoá quá trình kiểm thử phần mềm. Đôi khi sẽ có những kịch bản kiểm thử thủ công lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu kiểm thử thủ công. Lúc này, cần có sự hỗ trợ của công cụ để tự động hoá quá trình kiểm thử.
 
-* Các bước kiểm thử tự động:
+* Các bước tổng quan để kiểm thử tự động:
 	01. Xác định các vùng/mục tiêu trong phần mềm để kiểm thử tự động.
 	02. Chọn công cụ thích hợp để tự động hoá kiểm thử.
 	03. Viết kịch bản kiểm thử.
@@ -314,30 +314,19 @@ Là quá trình sử dụng công cụ để kiểm thử phần mềm. Đôi kh
 	06. Xây dựng báo cáo kết quả.
 	07. Tìm lỗi hoặc vấn đề về hiệu năng.
 
-* Nên sử dụng kiểm thử tự động khi:
-	- Các dự án lớn và trọng điểm, những dự án dài hạn và tốn nguồn nhân lực.
-	- Những dự án yêu cầu kiểm thử thường xuyên trong cùng một lĩnh vực (kiểm thử lặp lại một tính năng).
-	- Những yêu cầu không thường xuyên thay đổi.
-	- Truy cập ứng dụng để kiểm tra tải và hiệu suất với nhiều người dùng ảo.
-	- Kiểm tra tính ổn định của phần mềm trên quan điểm của kiểm thử thủ công.
-	- Tính khả dụng của thời gian.
 
-* Những test case có thể kiểm thử tự động:
-	- Rủi ro cao - các test case quan trọng.
-	- Những test case được thực hiện nhiều lần.
-	- Những test case khó thực hiện thủ công.
-	- Những test case tốn thời gian.
 
-* Những test case không phù hợp để kiểm thử tự động:
-	- Những test case được thiết kế mới và chưa được thực hiện thủ công ít nhất một lần.
-	- Những test case có các yêu cầu thường xuyên thay đổi.
-	- Những test case được thực hiện đột xuất, không có kế hoạch, kịch bản, tese case và tài liệu (ad-hoc).
 
-* Lưu ý khi kiểm thử tự động:
-	- Chi phí khởi đầu (thuê nhân viên, mua công cụ) cho kiểm thử tự động rất cao.
-	- Kiểm thử tự động không phải là 100%, có một số trường hợp không thể kiểm thử tự động.
-	- Không kiểm thử tự động với trường hợp UI không cố định.
-	- Người kiểm thử tự động nên có kiến thức lập trình tốt.
+
+
+
+
+
+
+
+
+
+
 
 
 
