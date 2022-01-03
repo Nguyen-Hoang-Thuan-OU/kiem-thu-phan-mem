@@ -204,7 +204,8 @@ Một dự án phần mềm thực tế được chia thành nhiều thành ph�
 
 ** Kiểm thử ổn định (Smoke Testing) - kiểm thử xác minh (verification) bản build.
 Là loại kiểm thử phần mềm được thực hiện sau khi build để xác minh rằng các chức năng, thành phần quan trọng nhất của chương trình đang hoạt động tốt (không phải toàn hệ thống - exhaustive testing). Kiểm thử viên sẽ thực hiện kiểm thử ngay trên chính bản build đó. Thường được thực hiện trước kiểm thử chức năng hoặc kiểm thử hồi quy, mục đích là để từ chối một ứng dụng bị hỏng nặng, vì vậy mà nhóm QA sẽ không mất nhiều thời gian cài đặt và thử nghiệm ứng dụng phần mềm.
-	Ví dụ: xác minh rằng ứng dụng khởi động thành công, giao diện được đáp ứng và phù hợp trên tất cả các thiết bị, mọi độ phân giải màn hình.
+	Ví dụ 1: xác minh rằng ứng dụng khởi động thành công, giao diện được đáp ứng và phù hợp trên tất cả các thiết bị, mọi độ phân giải màn hình.
+	Ví dụ 2: mỗi ngày, khi có bản build mới sẽ lấy khoảng 10 Test Case ra để chạy, nếu cả 10 Test Case này đều pass thì bản build đó cũng sẽ pass.
 
 --------------------
 
