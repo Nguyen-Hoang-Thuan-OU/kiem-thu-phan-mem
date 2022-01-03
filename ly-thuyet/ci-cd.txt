@@ -1,0 +1,7 @@
+﻿** CI (Continuous Integration) và CD (Continuous Delivery): quá trình làm việc liên tục và tự động của phần mềm, được tích hợp vào trong vòng đời phát triển của phần mềm (Software Development Life Cycle - SDLC).
+
+Phù hợp khi làm trong dự án với nhiều team và nhiều thành viên: Jenkins, TeamCity, Azure DevOps.
+
+- Hạn chế lỗi khi commit code lên vì CI/CD sẽ tự động kiểm tra đoạn code do ta vừa commit, nếu hợp lệ mới cho phép commit.
+- Tự động chạy một bộ test nào đó để xem code vừa được commit có ảnh hưởng đến những tính năng khác.
+- Tự động build ứng dụng.
