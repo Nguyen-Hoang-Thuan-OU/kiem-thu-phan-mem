@@ -1,4 +1,4 @@
-﻿** Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế sẵn kịch bản kiểm thử tự động (Test Script/Test Procedure) và để phần thực thi lại cho máy tính vì đôi khi sẽ có những kịch bản lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu con người tự thực hiện kiểm thử thủ công.
+﻿** Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các phần mềm khác, công cụ, các thư viện,... để thiết kế sẵn kịch bản kiểm thử tự động (Test Script/Test Procedure) và để phần thực thi lại cho máy tính vì đôi khi sẽ có những kịch bản lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu con người tự thực hiện kiểm thử thủ công.
 	-> Con người viết code để máy tính giả lập lại các hành động và thay con người kiểm thử hệ thống và kết luận.
 
 	Ví dụ 1: kiểm thử thủ công việc đăng nhập với 100 tài khoản khác nhau.
@@ -9,14 +9,20 @@ Máy tính sẽ thay mặt con người tự động hoá việc thực thi các
 
 ------------------------------
 
+Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
+	- Chủ động lập trình để thực hiện các thao tác.
+	- Ghi hình lại các bước dạng kịch bản (Record & Replay/Playback).
+
+========================================================================
+
 * Các bước cơ bản để kiểm thử tự động:
 	01. Xác định các vùng/mục tiêu trong phần mềm để kiểm thử tự động (Biết được mình đang cần kiểm thử cái gì).
-	02. Chọn công cụ thích hợp để tự động hoá kiểm thử (Sử dụng các công cụ gì để kiểm thử API, UI, Mobile,...).
+	02. Chọn công cụ thích hợp để tự động hoá kiểm thử (Sử dụng các công cụ, nền tảng và ngôn ngữ lập trình nào để kiểm thử API, UI, Mobile,...).
 	03. Lập trình/viết kịch bản kiểm thử (Test Script).
-	04. Tạo ra tập hợp các trường hợp kiểm thử (Test Suite), bộ kịch bản kiểm thử hoàn chỉnh (Test Scenario).
-	05. Thực thi các kịch bản kiểm thử.
+	04. Tạo ra tập hợp các trường hợp kiểm thử (Test Suite), kịch bản kiểm thử hoàn chỉnh (Test Scenario).
+	05. Thực thi các kịch bản kiểm thử (Test Script).
 	06. Xây dựng báo cáo kết quả.
-	07. Tìm lỗi hoặc vấn đề về hiệu năng.
+	07. Phân tích để tìm lỗi hoặc vấn đề về hiệu năng.
 
 ========================================================================
 
@@ -24,23 +30,44 @@ Máy tính sẽ thay mặt con người tự động hoá việc thực thi các
 	- Các dự án lớn và trọng điểm, những dự án dài hạn và tốn nguồn nhân lực.
 	- Những dự án yêu cầu kiểm thử thường xuyên trong cùng một lĩnh vực (kiểm thử lặp lại một tính năng).
 	- Những yêu cầu không thường xuyên thay đổi.
-	- Truy cập ứng dụng để kiểm tra tải và hiệu suất với nhiều người dùng ảo.
+	- Truy cập ứng dụng để kiểm tra chịu tải và hiệu suất với nhiều người dùng ảo (Kiểm thử hiệu năng - Performance Testing).
 	- Kiểm tra tính ổn định của phần mềm trên quan điểm của kiểm thử thủ công.
 	- Tính khả dụng của thời gian.
+
+------------------------------
 
 * Những test case có thể kiểm thử tự động:
 	- Rủi ro cao - các test case quan trọng.
 	- Những test case được thực hiện nhiều lần.
 	- Những test case khó thực hiện thủ công.
-	- Những test case tốn thời gian.
+	- Những test case tốn thời gian của con người.
+
+------------------------------
 
 * Những test case không phù hợp để kiểm thử tự động:
 	- Những test case được thiết kế mới và chưa được thực hiện thủ công ít nhất một lần.
-	- Những test case có các yêu cầu thường xuyên thay đổi.
+	- Những test case có các yêu cầu thường xuyên thay đổi (do khách hàng chưa quyết định được tính năng).
 	- Những test case được thực hiện đột xuất, không có kế hoạch, kịch bản, tese case và tài liệu (ad-hoc).
 
-* Lưu ý khi kiểm thử tự động:
-	- Chi phí khởi đầu (thuê nhân viên, mua công cụ) cho kiểm thử tự động rất cao.
+------------------------------
+
+* Ưu và nhược điểm của kiểm thử tự động:
+	- Ưu điểm:
+		+ Cải thiện hiệu quả: nhanh hơn kiểm thử thủ công.
+		+ Cải thiện độ chính xác: đáng tin cậy hơn con người do bộ dữ liệu kiểm thử đã được chuẩn bị từ trước và đã qua quá trình kiểm tra trước khi đưa vào tự động.
+		+ Tính tái sử dụng cao: nếu xây dựng được một bộ framework cho riêng mình thì có thể tái sử dụng trong nhiều dự án có cùng cấu trúc (thường do một công ty thiết kế dựa trên một mẫu sẵn có).
+		+ Tiết kiệm được thời gian: có thể hoạt động 24/24 trong khi con người chỉ có thể bằng 50% hoặc 33% về thời gian hoạt động.
+		+ Hỗ trợ thực thi Các Test Case một cách lặp lại: có thể được thực hiện lại nhiều lần trên các loại trình duyệt khác nhau.
+
+	- Nhược điểm:
+		+ Tốn chi phí để trả cho các công cụ tự động hoá chuyên nghiệp (phí bản quyền) và thuê nhân viên có am hiểu về kiểm thử tự động, tốn phí quản lý và bảo trì, tìm hiểu, huấn luyện/đào tạo/giáo dục,...
+		+ Mất thời gian, công sức để tạo mới và chỉnh sửa Test Script.
+		+ Không phải Test Case nào cũng phù hợp để kiểm thử tự động. Ví dụ: các Test Csse về UI,...
+
+------------------------------
+
+* Lưu ý khi lựa chọn kiểm thử tự động:
+	- Chi phí khởi đầu (thuê nhân viên, mua công cụ,...) cho kiểm thử tự động rất cao.
 	- Kiểm thử tự động không phải là 100%, có một số trường hợp không thể kiểm thử tự động.
 	- Không kiểm thử tự động với trường hợp UI không cố định.
 	- Người kiểm thử tự động nên có kiến thức lập trình tốt.
@@ -48,7 +75,7 @@ Máy tính sẽ thay mặt con người tự động hoá việc thực thi các
 ========================================================================
 
 ** Các công cụ hỗ trợ kiểm thử tự động hai trong một - Studio (Functional Automation Testing Tools): Katalon, Telerik, Ranorex, TestComplete, Watir, HP QTP/UFT...
-	-> Dựa trên framework kiểm thử tự động mã nguồn mở (test automation framework) Selenium (web), Appium (desktop),...
+	-> Dựa trên framework kiểm thử tự động mã nguồn mở (test automation framework) Selenium (web), Appium (desktop, mobile),...
 	-> Lưu lại các phần tử website dưới dạng đối tượng trong Element Repository (Object Repository) và cho phép tái sử dụng trong các Test Case khác nhau của cùng một dự án.
 
 ========================================================================
@@ -60,7 +87,7 @@ Máy tính sẽ thay mặt con người tự động hoá việc thực thi các
 	- Ghi hình lại các bước dạng kịch bản (Record & Replay/Playback): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các test case ở mức cơ bản.
 Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện và cho phép can thiệp, chỉnh sửa lại các bước. Có thể chuyển thành ngôn ngữ lập trình (Java, C#, Python,...) và cho phép chỉnh sửa lại theo phong cách lập trình nếu cần.
 		-> Sử dụng công cụ đồ hoạ Selenium IDE.
-		-> Sử dụng công cụ record + code: Katalon,...		
+		-> Sử dụng công cụ record + code: Katalon,...
 
 ========================================================================
 
@@ -145,12 +172,22 @@ CSS Selector: dấu chấm đại diện cho class, dấu thăng đại diện c
 Trong quá trình thao tác (thường là chuyển trang), do đây là hai luồng (thread) riêng biệt nên cần sử dụng thêm wait để đợi trang kế tiếp trả về phần từ, vì trong nhiều trường hợp trang kế chưa kịp tải nên các phần tử sẽ chưa kịp xuất hiện.
 	-> Sử dụng wait khi code chạy nhanh hơn việc trang được nạp.
 
+========================================================================
+
+** Sử dụng công cụ để ghi hình lại các bước dạng kịch bản (Record & Replay/Playback):
 
 
+========================================================================
 
+** Assertion vs Verification
 
+* Assert: dừng việc test ngay khi có test case trả về kết quả fail để có thể điều tra và fix lỗi này ngay, tất cả các Test Case còn lại chưa được chạy đều sẽ bị dừng lại.
 
+-------------------------
 
+* Verify (Soft Assert): vẫn tiếp tục thực hiện kiểm thử tất cả các test case khác dù có test case trả về kết quả fail, ta sẽ nhận được danh sách kết quả sau khi tất cả các test case thực hiện xong bằng cách gọi hàm assertAll().
+
+========================================================================
 
 
 
