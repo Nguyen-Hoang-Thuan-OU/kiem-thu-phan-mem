@@ -1,4 +1,4 @@
-﻿**********Test Plan, Test Scenario, Test Case, Test Suite**********
+﻿**********Test Plan, Test Suite, Test Scenario, Test Case**********
 
 ================================================================================
 
@@ -231,11 +231,6 @@ Có hai cách để thực thi test case:
 
 	* Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế code/kịch bản kiểm thử tự động (Test Script), nhằm mục đích nhờ máy tính tự động hoá việc thực thi các test case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai). Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
 		-> Con người viết code để máy tính giả lập lại các hành động và thay con người kiểm thử hệ thống và kết luận.
-
-		Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
-			- Chủ động lập trình để thực hiện các thao tác.
-			- Ghi hình lại các bước dạng kịch bản (Record/Playback-Replay): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước/các câu lệnh/các khung hình (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các test case. Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện và cho phép can thiệp, chỉnh sửa lại các bước nếu cần. Có thể chuyển thành ngôn ngữ lập trình (Java, C#, Python,...) và cho phép chỉnh sửa lại theo phong cách lập trình.
-				-> Functional Automation Testing Tool: Katalon, Telerik, Ranorex, TestComplete... => Dựa trên framework kiểm thử tự động mở nguồn mở (test automation framework) Selenium (web), Appium (desktop),...
 
 --------------------
 
