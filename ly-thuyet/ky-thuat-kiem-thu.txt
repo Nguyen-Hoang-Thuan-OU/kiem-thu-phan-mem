@@ -1,0 +1,212 @@
+﻿[KHÁI NIỆM KIỂM THỬ TĨNH - STATIC TESTING]
+
+** Kiểm thử tĩnh (Static Testing)
+
+==============================================================================
+
+[KHÁI NIỆM KIỂM THỬ ĐỘNG - DYNAMIC TESTING]
+
+** Kiểm thử động (Dynamic Testing):
+	- Kiểm thử hộp đen/Kiểm thử dựa trên đặc tả (Specification Based/Behavior Based/Black Box Testing).
+	- Kiểm thử hộp trắng (Structure Based/White Box Testing)
+		-> Kiểm thử hộp xám (Gray-box Testing/Grey-box Testing): tìm kiếm các khiếm khuyết (nếu có) do cấu trúc không đúng hoặc việc sử dụng ứng dụng không đúng cách.
+
+==============================================================================
+
+[KHÁI NIỆM KIỂM THỬ HỘP ĐEN - BLACK BOX TESTING]
+
+** Kiểm thử hộp đen/Kiểm thử dựa trên đặc tả (Requirements-based Testing/Specification Based Testing/Behavior Based Testing/Black Box Testing):
+
+	- Khi thiết kế sẽ phải dựa theo bảng đặc tả yêu cầu phần mềm (Software Requirements Specification - SRS) để thiết kế.
+
+	- Khi thực thi kiểm thử thì lúc này sẽ không cần phải quan tâm đến cấu trúc, thiết kế, xử lý, cách triển khai bên trong hệ thống,... mà chỉ cần có dữ liệu đầu vào và dữ liệu đầu ra. Xét xem liệu dữ liệu đầu vào (input/expected result) và dữ liệu đầu ra mong muốn (output/actual result) có khớp với nhau hay không để từ đó đi đến kết luận Test Case đó PASS hay FAIL, chứ không cần quan tâm hệ thống sẽ phải xử lý thế nào để có được đầu ra.
+
+		=> Đóng vai trò là người dùng cuối (end-user) sử dụng hệ thống đã hoàn thiện hoặc gần hoàn thiện (tương tác với giao diện người dùng) với mục đích kiểm tra đầu ra (ouput) có khớp với đầu vào (input) như đã được mô tả trong bảng đặc tả hay không.
+
+------------------------------
+
+** Phân loại các kỹ thuật kiểm thử hộp đen:
+
+	- Phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class).
+
+	- Phân tích giá trị biên (Boundary Value Analysis).
+
+	- Bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect).
+
+	- Kiểm thử dịch chuyển/chuyển đổi trạng thái (State Transition Testing).
+
+	- Kiểm thử các trường hợp/tình huống sử dụng (Use Case Testing).
+
+==============================================================================
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT PHÂN VÙNG - EQUIVALENCE PARTITIONING]
+
+** Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class): là kỹ thuật kiểm thử hộp đen, giúp loại bỏ những test case dư thừa, chỉ chạy những test case có độ bao phủ cao hơn. Chia đầu vào của chương trình thành nhiều lớp dữ liệu, từ đó suy ra được trường hợp kiểm thử. Xác định được trường hợp tương đương hợp lệ (positive case) và không hợp lệ (negative case).
+
+	Ví dụ 1: kiểm thử biểu mẫu đăng nhập đơn giản.
+		- Chỉ được phép nhập từ 6 đến 20 ký tự.
+		- Để trống hoặc không phải chữ -> Thông báo: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
+
+		* Hợp lệ:
+			+ Phân vùng 1: nhập giá trị hợp lệ từ 6 -> 20 ký tự.
+
+		* Không hợp lệ:
+			+ Phân vùng 2: nhập giá trị không hợp lệ < 6  ký tự.
+			+ Phân vùng 3: nhập giá trị không hợp lệ > 20  ký tự.
+			+ Phân vùng 4: trường hợp để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ.
+
+		=> 4 test case cụ thể.
+
+			- Case 1: nhập giá trị từ 6 -> 20 ký tự => pass
+
+			- Case 2: nhập giá trị < 6 ký tự (có thể nhập 1, 2, 3, ..., 5 ký tự) => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+
+			- Case 3: nhập giá trị > 20 ký tự (có thể nhập 21, 22, 23,... ký tự) => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+
+			- Case 4: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT PHÂN TÍCH GIÁ TRỊ BIÊN - BOUNDARY VALUE ANALYSIS]
+
+** Kỹ thuật phân tích giá trị biên (Boundary Value Analysis): là trường hợp đặc biệt của phân vùng tương đương.
+
+	Ví dụ 1: kiểm thử biểu mẫu đăng nhập đơn giản
+		=> Phân vùng giữ nguyên nhưng có sự thay đổi về test case.
+ 
+			- Case 1: nhập giá trị với 5 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+
+			- Case 2: nhập giá trị với 6 ký tự => pass
+
+			- Case 3: nhập giá trị với 20 ký tự => pass
+
+			- Case 4: nhập giá trị với 21 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+
+			- Case 5: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT BẢNG QUYẾT ĐỊNH - DECISION TABLE TESTING]
+
+** Kỹ thuật bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect): dùng khi phải kết hợp các điều kiện lại với nhau, khi số lượng điều kiện cần kết hợp khá lớn, dẫn đến việc không thể nhớ được một trường hợp nào đó đã được kiểm thử hay chưa.
+
+	+ Bước 01: xác định các chức năng cần sử dụng để kiểm thử.
+
+	+ Bước 02: xác định những điều kiện, sau đó tách ra thành những tập con và xử lý từng tập con một.
+
+	+ Bước 03: xác định tất cả các sự kết hợp giữa đúng và sai.
+
+		Ví dụ: biểu mẫu đăng nhập
+
+			- Đúng email và mật khẩu -> Trang chủ
+
+			- Sai email và mật khẩu -> Thông báo lỗi
+				+ Đúng email & mật khẩu -> Trang chủ
+				+ Đúng email, sai mật khẩu -> Thông báo lỗi
+				+ Sai email, đúng mật khẩu -> Thông báo lỗi
+				+ Sai email, sai mật khẩu -> Thông báo lỗi
+
+			---------------------------------------------------------
+			|Điều kiện		|TH 1	|TH 2	|TH 3	|TH 4	|
+			|-----------------------|-------|-------|-------|-------|
+			|Email (Đ/S)		|Đúng	|Đúng	|Sai	|Sai	|
+			|-----------------------|-------|-------|-------|-------|
+			|Mật khẩu (Đ/S)		|Đúng	|Sai	|Đúng	|Sai	|
+			|-----------------------|-------|-------|-------|-------|
+			|Kết quả (Trang Chủ/Lỗi)|Tr. chủ|Lỗi	|Lỗi	|Lỗi	|
+			---------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT CHUYỂN ĐỔI TRẠNG THÁI - STATE TRANSITION TESTING]
+
+** Kỹ thuật chuyển đổi trạng thái (State Transition Testing): khi một vài phần của hệ thống được mô tả bằng trạng thái, khi hệ thống ở một trạng thái này và chuyển sang một hệ thống khác theo một quy tác nào đó của phần mềm. Mô hình chuyển đổi sẽ bao gồm bốn phần: trạng thái, phiên chuyển đổi, sự kiện, hành động-kết quả.
+
+	Ví dụ 1: từ trạng thái đăng nhập -> đăng nhập thành công
+
+	Ví dụ 2: nhập mã pin
+		-> đúng -> đăng nhập thành công
+
+		-> sai -> thử lại -> sai 3 lần -> khoá thẻ
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ ...]
+[KỸ THUẬT THEO CẶP - ALL PAIRS TESTING]
+
+** Kiểm thử theo cặp/cặp đôi (All-Pairs Testing/Pairwise Testing): dành cho những trường hợp phải kiểm thử một lượng lớn dữ liệu, giúp lấy ra những trường hợp tiêu biểu, loại bỏ sự dư thừa lặp lại. Được sử dụng trong các dự án yêu cầu cần phải kết hợp những đoạn code, trường hợp, điều kiện, tham số đầu vào rời rạc... lại với nhau để kiểm thử. (Khác với bảng quyết định vì BQĐ sẽ kiểm thử hết toàn bộ trường hợp của dữ liệu thay vì chọn ra những trường hợp tiêu biểu.)
+
+	+ Bước 01: xác định số lượng đầu vào.
+
+	+ Bước 02: tính tổng số trạng thái sẽ có bằng cách nhân các trường hợp lại với nhau.
+
+	+ Bước 03: kết hợp hai giá trị đầu vào lớn nhất, tiêu biểu nhất.
+
+	+ Bước 04: thực hiện ánh xạ các giá trị lại với nhau.
+
+		Ví dụ: kiểm tra đăng nhập với 100 tài khoản + mật khẩu, 3 phân quyền: quản trị viên, người dùng và khách.
+			- Bước 01:
+				100 tên tài khoản -> 2 giá trị (đúng/sai).
+				100 mật khẩu -> 2 giá trị (đúng/sai).
+				3 phân quyền -> 3 giá trị.
+
+			- Bước 02: số trường hợp: 2 x 2 x 3 => 12 trường hợp.
+
+			- Bước 03: vì tài khoản và mật khẩu đều có chung 2 giá trị là đúng và sai -> 3 phân quyền x 2 trường hợp => 6 test case
+
+			- Bước 04: kết hợp các trường hợp của các giá trị.
+
+==============================================================================
+
+[KHÁI NIỆM KIỂM THỬ HỘP TRẮNG - WHITE BOX TESTING]
+
+** Kiểm thử hộp trắng (Structure Based/White Box Testing): kiểm thử viên biết và thực hiện kiểm thử trên cấu trúc, thiết kế, xử lý, cách triển khai bên trong hệ thống.
+
+------------------------------
+
+** Phân loại các kỹ thuật kiểm thử hộp trắng:
+
+	- Kiểm thử đường dẫn cơ sở (Basis Path Testing).
+
+	- Kiểm thử cấu trúc điều khiển (Control Structure Testing).
+		+ Kiểm thử luồng điều khiển (Control Flow Testing) / Bao phủ (Coverage Testing).
+			* Phủ câu lệnh/dòng lệnh (Statement Coverage).
+			* Phủ quyết định (Decision Coverage).
+			* Phủ nhánh (Branch Coverage).
+			* Phủ đường (Path Coverage).
+			* Phủ điều kiện (Condition Coverage).
+			* Phủ đa điều kiện (Multiple Condition Coverage - MCC).
+
+		+ Kiểm thử luồng dữ liệu (Data Flow Testing).
+
+		+ Kiểm thử vòng lặp (Loop Testing).
+
+==============================================================================
+
+[KHÁI NIỆM KIỂM THỬ DỰA TRÊN KINH NGHIỆM - EXPERIENCED BASED TESTING]
+
+** Kiểm thử dựa trên kinh nghiệm (Experienced Based Testing):
+
+------------------------------
+
+** Phân loại các kỹ thuật kiểm thử dựa trên kinh nghiệm:
+
+	- Đoán lỗi (Error Guessing).
+
+	- Kiểm thử thăm dò (Exploratory Testing).
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ DỰA TRÊN KINH NGHIỆM]
+[KỸ THUẬT ĐOÁN LỖI - ERROR GUESSING]
+
+** Kỹ thuật đoán lỗi (Error Guessing): chủ yếu dựa vào kinh nghiệm, sự am hiểu về hệ thống hoặc dựa vào những dự án đã trải qua, những bug đã tìm được,... vì vậy không phù hợp với người mới. Có thể giúp tìm ra những lỗi mà thậm chí không có trong test case (exploratory testing).
+
+	Ví dụ: lỗi chia cho 0, gửi yêu cầu không kèm giá trị hoặc chứa giá trị/ký tự đặc biệt, quyên xoá tài khoản test,...
+
+
+

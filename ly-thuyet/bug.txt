@@ -1,5 +1,11 @@
-﻿Mistake: 
-Error: 
-Defect: 
-Bug: 
-Failure: 
+﻿[ĐỊNH NGHĨA CÁC KHÁI NIỆM]
+
+Mistake: một "mistake" được gây ra bởi con người được gọi là "error", nó có thể nằm yên cho đến khi có ai đó tìm ra nó.
+
+Error: một "error" nếu tìm ra được thì gọi là "defect".
+
+Defect: "defect" được lập trình viên thừa nhận thì được gọi là "bug".
+
+Bug: những sai sót xuất hiện trong phần mềm đã được thừa nhận, khiến cho phần mềm hoạt động không được như mong đợi.
+
+Failure: bản build không nhớp với yêu cầu (requirement) được gọi là "failure".

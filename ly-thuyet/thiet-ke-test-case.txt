@@ -1,0 +1,125 @@
+[CẤU TRÚC TEST CASE]
+
+* Cấu trúc cần có của một Test Case:
+	//Thiết kế Test Case - Do QC thực hiện, kết quả sau đó sẽ được lưu trữ trên excel, word,...//
+
+		- ID định danh của Test Case.
+		- Tên/tiêu đề Test Case.
+		- Mô tả/tóm tắt Test Case.
+		- Các điều kiện tiên quyết (preconditions).
+		- Đầu vào: các bước/quy trình kiểm thử cụ thể (test steps/test procedures) để xác minh tính năng đúng hay sai.
+		- Đầu ra mong đợi (Expected Result): kỳ vọng kết quả nhận được nếu thực hiện theo đúng các bước ở trên.
+
+--------------------
+
+	//Thực thi/chạy Test Case - Do chính QC đã thiết kế ra hoặc QC khác thực hiện để kiểm chứng tính năng, so sánh kết quả mong đợi (expected) với thực tế (actual) được miêu tả trong Test Case//
+
+		- Đầu ra thực tế (Actual Result): kết quả thực tế sẽ nhận được khi thực hiện theo đúng các bước ở trên.
+		- Trạng thái/kết quả kiểm thử (status/test result) so với kết quả mong đợi: PASS hoặc FAIL.
+
+--------------------
+
+* Tuỳ chọn: có thể có hoặc không, ví dụ: tính năng [Quên mật khẩu] không cần có dữ liệu kiểm thử.
+	- Kịch bản kiểm thử (Test Scenario)
+	- Độ ưu tiên (từ 0 -> 4 hoặc Low, Medium, High, Critical).
+	- Bộ dữ liệu chuẩn bị cho việc kiểm thử.
+	- Các tham số kiểm thử.
+	- Loại tình huống kiểm thử.
+	- Có đủ điều kiện để kiểm thử tự động.
+	- Các trạng thái khác ngoài pass và fail (chưa thực thi, bị ngưng,...).
+	- Kết quả trả về thực tế.
+	- Ghi chú/bình luận.
+	- Thông tin môi trường kiểm thử.
+	- Ngày thực hiện kiểm thử.
+	- Phiên bản của hệ thống/website.
+	- Thiết bị.
+	- ID của lỗi (bug).
+
+------------------------------------------------------------
+
+[VÍ DỤ MẪU TEST CASE]
+
+|Số định danh/ID Test Case| |Tên Test Case| |Điều kiện tiên quyết| |Các bước thực hiện kiểm thử| |Dữ liệu kiểm thử| |Kết quả mong muốn| |Kết quả thực thế|
+
+	Ví dụ:
+		- Số định danh/ID Test Case: TC_Login001
+		- Tên Test Case: Kiểm tra tính năng đăng nhập
+		- Điều kiện tiên quyết: truy cập thành công vào website
+		- Các bước thực hiện kiểm thử:
+					01. Truy cập vào trang chủ
+					02. Nhấn vào menu [Tài khoản của tôi]
+					03. Chọn tính năng [Đăng nhập]
+					04. Nhập tài khoản và mật khẩu hợp lệ
+					05. Nhấn nút [Đăng nhập]
+		- Dữ liệu kiểm thử:
+					Tài khoản: a@a.com
+					Mật khẩu: Abc!@#456
+		- Kết quả mong muốn: Người dùng có thể đăng nhập vào hệ thống
+		- Kết quả thực thế: Hiện thông báo đăng nhập không thành công
+
+================================================================================
+
+[VIẾT ĐẶC TẢ TEST CASE]
+
+** Kỹ năng viết đặc tả Test Case (tài liệu đặc tả tình huống kiểm thử):
+
+	- Đặt tên, định danh Test Case: đặt làm sao mà khi đọc tên là biết ý đồ của Test Case, đặt tên Test Case theo mô-đun, theo chức năng kiểm thử.
+		Ví dụ: TC_Register, TC_Login.
+
+	- Mô tả Test Case: nên có mô tả song song với các bước thực hiện kiểm thử (test step) để giải thích tóm tắt Test Case sẽ làm những công việc gì.
+		Ví dụ 1: kiểm tra sự phản hồi khi nhập email và mật khẩu không hợp lệ.
+		Ví dụ 2: đến trang chủ, nhập dữ liệu và nhấn nút.
+
+	- Tránh lặp lại Test Case: kiểm tra xem những Test Case đó đã từng có trong hệ thống hay chưa, nếu có thì nên dùng lại, cập nhật và cải tiến hơn là viết lại từ đầu.
+
+	- Tránh đoán mò: dựa vào đặc tả mà viết.
+
+	- Thường xuyên cập nhật Test Case: nên cập nhật lại Test Case mỗi khi hệ thống có cập nhật, thay đổi, nâng cấp.
+
+	- Đánh giá chéo: các kiểm thử viên kiểm thử chéo cho nhau.
+
+================================================================================
+
+[QUẢN LÝ TEST CASE]
+
+Để quản lý được Test Case, ta có thể sử dụng Excel, Word. Nhưng nếu số lượng Test Case quá nhiều, song song với đó là quản lý việc kiểm thử và kết quả kiểm thử, các lần kiểm thử khác nhau,... thì các công cụ truyền thống sẽ dần bộc lộ hạn chế.
+
+Lúc này, cần phải sử dụng thêm các phần mềm chuyên dụng cho việc quản lý, lưu trữ các Test Case, kết quả kiểm thử, các lần kiểm thử, biểu đồ, quản lý nhóm và phân chia công việc.
+
+Các phần mềm để quản lý các Test Case: TestRail, TestMonitor...
+
+================================================================================
+
+[MẸO THIẾT KẾ TEST CASE]
+
+Trong kiểm thử phần mềm, để việc thiết kế Test Case được hiệu quả hơn, cần áp dụng thêm những kỹ thuật kiểm thử trong quá trình thiết kế thiết kế.
+
+Vì không thể kiểm thử toàn diện (Exhaustive Testing) nên việc áp dụng các kỹ thuật thiết kế Test Case sẽ giúp giảm thiểu khối lượng công việc phải làm bằng cách giảm tổng số trường hợp phải kiểm thử nhưng vẫn có thể bao phủ được nhiều trường hợp nhất có thể (giảm số lượng các trường hợp nhưng tăng phạm vi kiểm tra), giúp tìm được nhiều lỗi hơn và xác định được các điều kiện kiểm thử khó tìm thấy.
+
+================================================================================
+
+[THỰC THI TEST CASE]
+
+Sau thiết kế Test Case là giai đoạn thực thi/chạy Test Case, giai đoạn này có thể do chính QC đã thiết kế ra Test Case hoặc giao cho một QC khác thực hiện theo những bước đã được mô tả trong Test Case để lấy được kết quả thực tế (actual result), từ đó so sánh kết quả thực tế (actual result) với kết quả mong đợi (expected result), mục đích là để xác minh tính năng chạy đúng hay sai.
+
+Có hai cách để thực thi test case:
+
+	* Kiểm thử thủ công (Manual Testing): tự tay (thủ công) mở hệ thống lên, làm theo các bước đã được mô tả trong test case, dùng mắt thường để nhìn kết quả và tự kết luận đúng hay sai so với kết quả mong đợi được viết trong test case.
+		-> Dùng sức người để thực thi và kiểm tra hệ thống.
+
+	* Kiểm thử tự động (Automation/Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế code/kịch bản kiểm thử tự động (Test Script), nhằm mục đích nhờ máy tính tự động hoá việc thực thi các test case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai). Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
+		-> Con người viết code để máy tính giả lập lại các hành động và thay con người kiểm thử hệ thống và kết luận.
+
+================================================================================
+
+[LỖI PHÁT SINh TRONG QUÁ TRÌNH THỰC THI TEST CASE]
+
+Lỗi (Bug/Defect) xảy ra rong quá trình QC thực thi/chạy Test Case, khi hệ thống hoạt động không được như dự kiến: kết quả thực tế (actual result) khác với kết quả mong đợi (expected result), xuất hiện ngoại lệ, null,... -> Test Case Fail
+
+Lúc này, QC sẽ ghi lại các thao tác/các bước để làm sao xảy ra được lỗi và có thể chụp lại màn hình để làm bằng chứng, sau đó lưu lại vào một công cụ riêng chuyên được dùng để quản lý lỗi như Bugzilla, hoặc lưu vào các công cụ quản lý dự án/quản lý các yêu cầu có kết hợp quản lý bug như Jira. Các công cụ thường này có liên thông với nhau bằng cách chuyển đổi thông tin qua lại nhờ API.
+
+	-> Lưu lại những "bằng chứng" này lên một nơi được gọi là Bug Database, Bug Tracker, thuật ngữ trong nghề gọi là "Log Bug".
+
+Lập trình viên sẽ đọc mô tả về lỗi, tự tái hiện/dựng lại lỗi (Re-produce Bug) để xác nhận hoặc loại bỏ (reject) -> Quá trình fix bug bắt đầu.
+
+

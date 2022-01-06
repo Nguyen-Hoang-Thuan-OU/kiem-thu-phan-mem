@@ -8,6 +8,8 @@ Làm test có yêu cầu nền tảng CNTT?
 
 Tại sao phải kiểm thử phần mềm?
 
+[7 NGUYÊN LÝ TRONG KIỂM THỬ PHẦN MỀM]
+
 ** 7 nguyên tắc/nguyên lý/phương châm/nguồn gốc căn bản của kiểm thử phần mềm:
 
 	01. Kiểm thử để chứng minh sự hiện diện của lỗi (Testing shows presence of defects): để chứng minh phần mềm CÓ LỖI vì lỗi luôn tiềm ẩn chứ không phải để khẳng định rằng phần mềm này không có lỗi (bug-free). Vì vậy, cần thiết kế test case để tìm ra được càng nhiều lỗi càng tốt.
@@ -30,6 +32,8 @@ Tại sao phải kiểm thử phần mềm?
 
 ================================================================================
 
+[CÁC BƯỚC CẦN THỰC HIỆN TRONG MỘT DỰ ÁN]
+
 ** Những bước mà kiểm thử viên cần thực hiện trong một dự án thực tế:
 
 	Bước 01: Hiểu về dự án (đặt câu hỏi, trao đổi với khách hàng, lãnh đạo và thành viên trong nhóm).
@@ -38,132 +42,6 @@ Tại sao phải kiểm thử phần mềm?
 	Bước 04: Thiết lập các tình huống kiểm thử (test cases).
 	Bước 05: Thực thi kiểm thử.
 	Bước 06: Báo cáo kết quả kiểm thử chính thức.
-
-================================================================================
-
-** Cần áp dụng thêm những kỹ thuật thiết kế test case để bao phủ được nhiều trường hợp nhất có thể, giúp giảm thiểu khối lượng công việc bằng cách giảm tổng số trường hợp:
-
-* Tổng hợp các kỹ thuật thiết kế test case:
-
-	* Kiểm thử hộp đen/Kiểm thử dựa trên đặc tả (Specification Based/Behavior Based/Black Box Testing): không quan tâm đến cấu trúc, thiết kế, xử lý, cách triển khai bên trong hệ thống; chỉ cần có dữ liệu đầu vào và kiểm tra dữ liệu đầu ra mong muốn, không quan tâm hệ thống sẽ phải xử lý thế nào để có được đầu ra.
-
-		- Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class).
-		- Kỹ thuật phân tích giá trị biên (Boundary Value Analysis).
-		- Kỹ thuật bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect).
-		- Kỹ thuật kiểm thử dịch chuyển/chuyển đổi trạng thái (State Transition Testing).
-		- Kỹ thuật kiểm thử các trường hợp/tình huống sử dụng (Use Case Testing).
-
---------------------
-
-	* Kiểm thử hộp trắng (Structure Based/White Box Testing): kiểm thử viên biết và thực hiện kiểm thử trên cấu trúc, thiết kế, xử lý, cách triển khai bên trong hệ thống.
-
-		- Kiểm thử đường dẫn cơ sở (Basis Path Testing).
-		- Kiểm thử cấu trúc điều khiển (Control Structure Testing).
-			+ Kiểm thử luồng điều khiển (Control Flow Testing) / Bao phủ (Coverage Testing).
-				* Phủ câu lệnh/dòng lệnh (Statement Coverage).
-				* Phủ quyết định (Decision Coverage).
-				* Phủ nhánh (Branch Coverage).
-				* Phủ đường (Path Coverage).
-				* Phủ điều kiện (Condition Coverage).
-				* Phủ đa điều kiện (Multiple Condition Coverage - MCC).
-			+ Kiểm thử luồng dữ liệu (Data Flow Testing).
-			+ Kiểm thử vòng lặp (Loop Testing).
-
-
-	* Kiểm thử dựa trên kinh nghiệm (Experienced Based Testing):
-
-		- Đoán lỗi (Error Guessing).
-		- Kiểm thử thăm dò (Exploratory Testing).
-
-----------
-
-	- Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning): là kỹ thuật kiểm thử hộp đen, giúp loại bỏ những test case dư thừa, chỉ chạy những test case có độ bao phủ cao hơn. Chia đầu vào của chương trình thành nhiều lớp dữ liệu, từ đó suy ra được trường hợp kiểm thử. Xác định được trường hợp tương đương hợp lệ (positive case) và không hợp lệ (negative case).
-
-		Ví dụ 1: kiểm thử biểu mẫu đăng nhập đơn giản
-				- Chỉ được phép nhập từ 6 đến 20 ký tự.
-				- Để trống hoặc không phải chữ -> Thông báo: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ"
-					* Hợp lệ:
-						+ Phân vùng 1: nhập giá trị hợp lệ từ 6 -> 20 ký tự.
-					* Không hợp lệ:
-						+ Phân vùng 2: nhập giá trị không hợp lệ < 6  ký tự.
-						+ Phân vùng 3: nhập giá trị không hợp lệ > 20  ký tự.
-						+ Phân vùng 4: trường hợp để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ.
-			=> 4 test case cụ thể.
-				- Case 1: nhập giá trị từ 6 -> 20 ký tự => pass
-				- Case 2: nhập giá trị < 6 ký tự (có thể nhập 1, 2, 3, ..., 5 ký tự) => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
-				- Case 3: nhập giá trị > 20 ký tự (có thể nhập 21, 22, 23,... ký tự) => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
-				- Case 4: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
-
----------------------------------------------------------------------------
-
-	- Kỹ thuật phân tích giá trị biên (Boundary Value Analysis): là trường hợp đặc biệt của phân vùng tương đương.
-
-		Ví dụ 1: kiểm thử biểu mẫu đăng nhập đơn giản
-			=> Phân vùng giữ nguyên nhưng có sự thay đổi về test case 
-				- Case 1: nhập giá trị với 5 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
-				- Case 2: nhập giá trị với 6 ký tự => pass
-				- Case 3: nhập giá trị với 20 ký tự => pass
-				- Case 4: nhập giá trị với 21 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
-				- Case 5: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
-
----------------------------------------------------------------------------
-
-	- Kỹ thuật bảng quyết định (Decision Table Testing): dùng khi phải kết hợp các điều kiện lại với nhau, khi số lượng điều kiện cần kết hợp khá lớn, dẫn đến việc không thể nhớ được một trường hợp nào đó đã được kiểm thử hay chưa.
-
-		+ Bước 01: xác định các chức năng cần sử dụng để kiểm thử.
-		+ Bước 02: xác định những điều kiện, sau đó tách ra thành những tập con và xử lý từng tập con một.
-		+ Bước 02: xác định tất cả các sự kết hợp giữa đúng và sai.
-			Ví dụ: biểu mẫu đăng nhập
-				- Đúng email và mật khẩu -> Trang chủ
-				- Sai email và mật khẩu -> Thông báo lỗi
-					+ Đúng email & mật khẩu -> Trang chủ
-					+ Đúng email, sai mật khẩu -> Thông báo lỗi
-					+ Sai email, đúng mật khẩu -> Thông báo lỗi
-					+ Sai email, sai mật khẩu -> Thông báo lỗi
-
-				-------------------------------------------------
-				|Điều kiện	|TH 1	|TH 2	|TH 3	|TH 4	|
-				|---------------|-------|-------|-------|-------|
-				|Email (Đ/S)	|Đúng	|Đúng	|Sai	|Sai	|
-				|---------------|-------|-------|-------|-------|
-				|Mật khẩu (Đ/S)	|Đúng	|Sai	|Đúng	|Sai	|
-				|---------------|-------|-------|-------|-------|
-				|Kết quả (TrC/L)|Tr. chủ|Lỗi	|Lỗi	|Lỗi	|
-				-------------------------------------------------
-
----------------------------------------------------------------------------
-
-	- Kỹ thuật kiểm thử chuyển đổi trạng thái (State Transition Testing): khi một vài phần của hệ thống được mô tả bằng trạng thái, khi hệ thống ở một trạng thái này và chuyển sang một hệ thống khác theo một quy tác nào đó của phần mềm. Mô hình chuyển đổi sẽ bao gồm bốn phần: trạng thái, phiên chuyển đổi, sự kiện, hành động-kết quả.
-
-		Ví dụ 1: từ trạng thái đăng nhập -> đăng nhập thành công
-
-		Ví dụ 2: nhập mã pin
-			-> đúng -> đăng nhập thành công
-			-> sai -> thử lại -> sai 3 lần -> khoá thẻ
-
----------------------------------------------------------------------------
-
-	- Kỹ thuật đoán lỗi (Error Guessing): chủ yếu dựa vào kinh nghiệm, sự am hiểu về hệ thống hoặc dựa vào những dự án đã trải qua, những bug đã tìm được,... vì vậy không phù hợp với người mới. Có thể giúp tìm ra những lỗi mà thậm chí không có trong test case (exploratory testing).
-
-		Ví dụ: lỗi chia cho 0, gửi yêu cầu không kèm giá trị hoặc chứa giá trị/ký tự đặc biệt, quyên xoá tài khoản test,...
-
----------------------------------------------------------------------------
-
-	- Kiểm thử theo cặp/cặp đôi (All-Pairs Testing/Pairwise Testing): dành cho những trường hợp phải kiểm thử một lượng lớn dữ liệu, giúp lấy ra những trường hợp tiêu biểu, loại bỏ sự dư thừa lặp lại. Được sử dụng trong các dự án yêu cầu cần phải kết hợp những đoạn code, trường hợp, điều kiện, tham số đầu vào rời rạc... lại với nhau để kiểm thử. (Khác với bảng quyết định vì BQĐ sẽ kiểm thử hết toàn bộ trường hợp của dữ liệu thay vì chọn ra những trường hợp tiêu biểu.)
-
-		+ Bước 01: xác định số lượng đầu vào.
-		+ Bước 02: tính tổng số trạng thái sẽ có bằng cách nhân các trường hợp lại với nhau.
-		+ Bước 03: kết hợp hai giá trị đầu vào lớn nhất, tiêu biểu nhất.
-		+ Bước 04: thực hiện ánh xạ các giá trị lại với nhau.
-
-			Ví dụ: kiểm tra đăng nhập với 100 tài khoản + mật khẩu, 3 phân quyền: quản trị viên, người dùng và khách.
-				- Bước 01:
-					100 tên tài khoản -> 2 giá trị (đúng/sai).
-					100 mật khẩu -> 2 giá trị (đúng/sai).
-					3 phân quyền -> 3 giá trị.
-				- Bước 02: số trường hợp: 2 x 2 x 3 => 12 trường hợp.
-				- Bước 03: vì tài khoản và mật khẩu đều có chung 2 giá trị là đúng và sai -> 3 phân quyền x 2 trường hợp => 6 test case
-				- Bước 04: kết hợp các trường hợp của các giá trị.
 
 ================================================================================
 
@@ -194,6 +72,8 @@ Lỗi trên website:
 	- Kiểm thử bảo mật (security testing): 
 
 ================================================================================
+
+[PHÂN BIỆT GIỮA KIỂM THỬ ỔN ĐỊNH (SMOKE TESTING) VÀ KIỂM THỬ HỢP LÝ (SANITY TESTING)]
 
 ** Software build là gì?
 Nếu phát triển một chương trình máy tính đơn giản chỉ bao gồm một tệp mã nguồn, ta chỉ cần biên dịch và liên kết một tệp này, để tạo thành một tệp thực thi.
@@ -242,7 +122,9 @@ Là loại kiểm thử phần mềm được thực hiện sau khi nhận đư�
 
 ================================================================================
 
-** Kiểm thử API:
+[KIỂM THỬ API - API TESTING]
+
+** Kiểm thử API (API Testing):
 
 Ví dụ: các bước để thay đổi mật khẩu.
 	01. User vào phần "Profile" để thay đổi mật khẩu.
@@ -257,7 +139,9 @@ Các bước 4, 5 và 6 được gọi là Syntax Testing và Functional Testing
 
 ================================================================================
 
-** Kiểm thử phần mềm tự động:
+[KIỂM THỬ TỰ ĐỘNG - AUTOMATION TESTING]
+
+** Kiểm thử phần mềm tự động (Test Automation):
 Là quá trình con người sử dụng công cụ để tự động hoá quá trình kiểm thử phần mềm. Đôi khi sẽ có những kịch bản kiểm thử thủ công lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu kiểm thử thủ công. Lúc này, cần có sự hỗ trợ của công cụ để tự động hoá quá trình kiểm thử.
 
 

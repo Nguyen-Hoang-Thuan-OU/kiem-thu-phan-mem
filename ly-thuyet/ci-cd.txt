@@ -1,4 +1,6 @@
-﻿** CI (Continuous Integration) và CD (Continuous Delivery): quá trình làm việc liên tục và tự động của phần mềm, được tích hợp vào trong vòng đời phát triển của phần mềm (Software Development Life Cycle - SDLC).
+﻿[ĐỊNH NGHĨA QUY TRÌNH CI/CD]
+
+** CI (Continuous Integration) và CD (Continuous Delivery): quá trình làm việc liên tục và tự động của phần mềm, được tích hợp vào trong vòng đời phát triển của phần mềm (Software Development Life Cycle - SDLC).
 
 Phù hợp khi làm trong dự án với nhiều team và nhiều thành viên: Jenkins, TeamCity, Azure DevOps.
 
