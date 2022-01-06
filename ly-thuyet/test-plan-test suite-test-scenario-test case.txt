@@ -19,7 +19,7 @@
 			+ Nắm được những đặc điểm kỹ thuật của sản phẩm (product specification).
 			+ Nắm được kỹ năng và trình độ kiểm thử của từng thành viên trong nhóm kiểm thử (skill & talent of test team).
 
-	* Bước 02: Xác định loại kiểm thử (Identify testing type): dùng để xác định mỗi loại kiểm thử cụ thể, thứ tự ưu tiên của từng loại so với nhân lực và trình độ kiểm thử của nhóm, nhằm một mục tiêu chung là phát hiện sớm lỗi trước khi phát hành sản phẩm và tiết kiệm chi phí.
+	* Bước 02: Xác định loại/phân loại kiểm thử (Identify testing type): dùng để xác định mỗi loại kiểm thử cụ thể, thứ tự ưu tiên của từng loại so với nhân lực và trình độ kiểm thử của nhóm, nhằm một mục tiêu chung là phát hiện sớm lỗi trước khi phát hành sản phẩm và tiết kiệm chi phí.
 
 		- Kiểm thử đơn vị (Unit test): một unit là một đơn vị/thành phần nhỏ nhất mà ta có thể kiểm thử được. Thường do người lập trình viên thực hiện kiểm thử đầu tiên vì họ là người viết ra nó.
 
