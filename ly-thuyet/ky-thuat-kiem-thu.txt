@@ -106,7 +106,7 @@ So sánh giữa kiểm thử tĩnh và động:
 
 	- Phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class).
 	- Phân tích giá trị biên (Boundary Value Analysis).
-		-> Thường được áp dụng cho các tình huống mà các đầu vào với khoảng giá trị cụ thể (ví dụ: 0-18) và ít có quan hệ ràng buộc nhau (đầu vào này và đầu vào kia không gây ảnh hưởng gì đến kết quả của bài toán, mỗi đầu vào sẽ cho ra một kết quả độc lập).
+		-> Thường được áp dụng cho các tình huống mà các đầu vào với khoảng giá trị xác định cụ thể (ví dụ: 0-18) và ít có quan hệ ràng buộc nhau (đầu vào này và đầu vào kia không gây ảnh hưởng gì đến kết quả của bài toán, mỗi đầu vào sẽ cho ra một kết quả độc lập).
 
 			Ví dụ: khoảng giá trị rõ ràng, đầu vào này không làm ảnh hướng đến kết quả của đầu vào khác
 				Điểm trung bình >= 9 --> Xuất sắc
@@ -115,7 +115,7 @@ So sánh giữa kiểm thử tĩnh và động:
 
 	- Bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect).
 	- Kiểm thử dịch chuyển/chuyển đổi trạng thái (State Transition Testing).
-		-> Thường được áp dụng cho các tình huống tập trung vào logic phức tạp, phụ thuộc vào nhau và quy tắc (rule) nghiệp vụ.
+		-> Thường được áp dụng cho các tình huống có đầu vào phức tạp, các đầu vào có mối quan hệ logic phức tạp, phụ thuộc vào nhau và quy tắc (rule) nghiệp vụ.
 
 			Ví dụ: ngoài xếp loại học sinh-sinh viên dựa trên điểm trung bình thì còn phải dựa trên điểm rèn luyện/hạnh kiểm.
 
@@ -126,13 +126,17 @@ So sánh giữa kiểm thử tĩnh và động:
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT PHÂN VÙNG - EQUIVALENCE PARTITIONING]
 
-** Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class): chia đầu vào của chương trình thành nhiều phân vùng/lớp dữ liệu, từ đó suy ra được những trường hợp cần kiểm thử. Xác định được những trường hợp tương đương hợp lệ (positive case) và không hợp lệ (negative case), giúp loại bỏ những Test Case dư thừa, chỉ chạy những Test Case có độ bao phủ cao hơn.
+** Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class - EP/EC): chia đầu vào của chương trình thành nhiều phân vùng/lớp dữ liệu, từ đó suy ra được những trường hợp cần kiểm thử. Xác định được những trường hợp tương đương hợp lệ (positive case - valid) và không hợp lệ (negative case - invalid), giúp loại bỏ những Test Case dư thừa, chỉ chạy những Test Case có độ bao phủ cao hơn.
+
+Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ kiểm thử ngẫu nhiên (Random Testing) thì sẽ có trường hợp lấy quá nhiều giá trị nằm trong cùng một phân vùng, nhưng chưa có gì đảm bảo rằng những Test Case được chọn ngẫu nhiên đó sẽ phủ được hết các trường hợp có thể xảy ra vì nếu các giá trị nằm trong cùng một phân vùng sẽ có cùng cách xử lý và cho ra cùng một kết quả. Nếu một giá trị đại diện trong nhóm đúng thì các giá trị còn lại trong nhóm cũng đúng và ngược lại.
 
 Chỉ áp dụng cho những bài toán có đầu vào là một miền giá trị xác định và các đầu vào độc lập, không có quan hệ mắt xích với nhau.
 
-Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ kiểm thử ngẫu nhiên (Random Testing) thì sẽ có trường hợp lấy quá nhiều giá trị nằm trong cùng một phân vùng, nhưng chưa có gì đảm bảo rằng những Test Case được chọn ngẫu nhiên đó sẽ phủ được hết các trường hợp có thể xảy ra vì các giá trị nằm trong cùng một phân vùng sẽ có cùng cách xử lý và cho ra cùng một kết quả.
-
 	-> Vẫn kiểm thử ở những phân vùng hợp lệ, nhưng tập trung nhất vào những phân vùng không hợp lệ (invalid) vì lập trình viên thường hay quên phân vùng không này và chỉ đi kiểm tra ở những phân vùng hợp lệ (valid).
+
+------------------------------
+
+** Lưu ý: khi chia phân vùng tương đương, từ phân vùng cha, khi chi thành các phân vùng con thì tổng các con phải đúng bằng cha, không được nhỏ hoặc lớn hơn cha.
 
 ------------------------------
 
@@ -145,8 +149,6 @@ Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ ki�
 	- Chúng lái/điều khiển/định hướng (drive) chương trình theo cùng đường, theo cùng hướng và làm cho nghiệp vụ thực hiện theo một logic nào đó. (chẳng hạn cùng nhánh if) (equivalent path).
 
 	- Chúng cho cùng kết quả với những giả thiết đưa ra.
-
-=> Chỉ cần lấy hai giá trị khác nhau nhưng nằm chung trong cùng một phân vùng đều sẽ cho ra cùng một kết quả. Nếu một giá trị đại diện trong nhóm đúng thì các giá trị còn lại trong nhóm cũng đúng và ngược lại.
 
 ------------------------------
 
@@ -187,7 +189,85 @@ Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ ki�
 
 ---------------
 
-	Ví dụ 2: kiểm thử biểu mẫu đăng nhập đơn giản.
+	Ví dụ 2: Chương trình kiểm tra một ngày tháng nhập vào có hợp lệ hay không? Người dùng cần nhập vào năm, tháng, ngày của ngày muốn kiểm tra.
+		(Ví dụ: 12/12/2017 là ngày hợp lệ, 32/12/2017 là ngày không hợp lệ)
+
+		(Phân tích: ngày-tháng-năm có mối quan hệ với nhau chứ không thể độc lập, ví dụ ngày hợp lệ có thể phụ thuộc vào năm - ngày 29-02-năm nhuận, tuy nhiên, vẫn có thể áp dụng được phân vùng tương đương.)
+
+		Không hợp lệ < 1970 < Hợp lệ -> để đơn giản thì sử dụng mốc 0
+
+		-> Tổng nhuận + không nhuận = số năm hợp lệ
+
+					nhuận			không nhuận
+		<///////|-------------------------------|-----------------------|
+			0	|					|
+				|					|
+				|					|
+					 1, 3, 5, 7			
+k hợp lệ  4, 6, 9, 11	      2		 8, 10, 12    k hợp lệ		2
+--------|--------------|--------------|--------------|--------	  ...|-------|...
+	    30 ngày	    29 ngày	  31 ngày		      28 ngày
+		|
+		|
+		|
+
+không hợp lệ	1	30    không hợp lệ
+----------------|--------|----------------	...
+
+
+		===> Có tối thiểu 18 phân vùng, chọn ra một giá trị đại diện cho từng phân vùng để kiểm thử.
+
+
+		* Hợp lệ:
+			- Phân vùng có số ngày từ 1-30 rơi vào các tháng 4, 6, 9, 11 của năm nhuận.
+
+
+		* Không hợp lệ:
+			- Phân vùng có số ngày từ 31 rơi vào các tháng 4, 6, 9, 11 của năm nhuận.
+
+---------------
+
+	Ví dụ 3: Chức năng đăng ký tài khoản yêu cầu mật khẩu phải có chứa chữ hoa, chữ thường, số, ký tự đặc biệt và chiều dài tối thiểu là 6.
+
+		Tập hợp____Thường
+		   |_______Hoa
+		   |_______Số
+		   |_______Ký tự đặc biệt
+
+		Chiều dài
+
+			=> Nên sử dụng biểu đồ venn
+
+		* Hợp lệ:
+			- Đủ 6 ký tự và có chứa chữ hoa, chữ thường, số, ký tự đặc biệt.
+
+		* Không hợp lệ:
+			- Phân vùng 1:
+				+ Chưa đủ 6 ký tự.
+
+			- Phân vùng 2:
+				+ Chỉ có chứa chữ hoa.
+				+ Chỉ có chứa chữ thường.
+				+ Chỉ có chứa số.
+				+ Chỉ có chứa ký tự đặc biệt.
+
+			- Phân vùng 3:
+				+ Có chứa chữ hoa và thường.
+				+ Có chứa chữ hoa và ký tự đặc biệt.
+				+ Có chứa chữ thường và số.
+				+ Có chứa chữ số và ký tự đặc biệt.
+
+			- Phân vùng 4:
+				+ Có chứa chữ hoa, thường và số.
+				+ Có chứa chữ hoa, thường và ký tự đặc biệt.
+				+ Có chứa chữ hoa, ký tự đặc biệt và số.
+				+ Có chứa ký tự đặc biệt, số và thường.
+
+		=> Trong đề bài chỉ ràng buộc chiều dài tối thiểu là 6 nhưng không ràng buộc chiều dài tối đa (trong đặc tả không đề cập) -> Đang ngờ, có thể gây vấn đề (Incident).
+
+---------------
+
+	Ví dụ 4: kiểm thử biểu mẫu đăng nhập đơn giản.
 		- Chỉ được phép nhập từ 6 đến 20 ký tự.
 		- Để trống hoặc không phải chữ -> Thông báo: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
 
@@ -209,18 +289,86 @@ Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ ki�
 
 			- Case 4: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
 
----------------
-
-	Ví dụ 3:
-
 ---------------------------------------------------------------------------
 
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT PHÂN TÍCH GIÁ TRỊ BIÊN - BOUNDARY VALUE ANALYSIS]
 
-** Kỹ thuật phân tích giá trị biên (Boundary Value Analysis): là trường hợp đặc biệt của phân vùng tương đương.
+** Kỹ thuật phân tích giá trị biên (Boundary Value Analysis - BVA): là trường hợp đặc biệt và bao quát của phân vùng tương đương.
 
-	Ví dụ 1: kiểm thử biểu mẫu đăng nhập đơn giản
+Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tương đương (gồm tình huống hợp lệ (valid) và không hợp lệ (invalid)), giúp hạn chế việc lựa chọn những giá trị ngẫu nhiên để kiểm thử trong kỹ thuật phân vùng tương đương.
+
+Áp dụng nguyên lý 20-80, lỗi thường tập trung ở những giá trị biên, vì vậy chỉ cần lấy những giá trị ở biên và ở gần biên để dại diện cho phân vùng đó.
+
+------------------------------
+
+** Ưu điểm:
+	- Đơn giản.
+	- Hiệu quả cho các hàm có biến độc lập.
+	- Có thể tự động sinh test case khi xác định được giá trị biên của các biến.
+
+---------------
+
+** Khuyết điểm:
+	- Không quan tâm đặc trưng của hàm, ngữ nghĩa các biến, cũng như quan hệ giữa các biến.
+	- Khó áp dụng cho trường hợp các biến có quan hệ ràng buộc nhau.
+
+------------------------------
+
+** Một số quy tắc xác định giá trị biên khi thiết kế Test Case:
+	- Giá trị nhỏ nhất (biên dưới)
+	- Giá trị nhỏ nhì (cận biên dưới)
+	- Giá trị lớn nhất (biên trên)
+	- Giá trị lớn nhì (cận biên trên)
+	- Giá trị bình thường/ngẫu nhiên
+
+------------------------------
+
+	Ví dụ 1: nhập khoảng giá trị [5, 10]
+			- Biên trên: 5 -> nhỏ nhất
+			- Cận biên trên: 5 -> nhỏ nhì
+
+			- Biên dưới: 10 -> lớn nhất
+			- Cận biên dưới: 9 -> lớn nhì
+
+			- Giá trị bình thường/ngẫu nhiên: 7
+
+---------------
+
+	Ví dụ 2: trở lại ví dụ xếp loại học sinh ở kỹ thuật phân vùng tương đương.
+
+				  trung		      xuất
+		    yếu, kém	  bình	  khá	giỏi  sắc
+	<-------|---------------|-------|-----|-----|-----|------->
+		0		5	7     8     9     10
+
+		* Hợp lệ:
+			Đoạn “yếu, kém”: 0 và 4.9
+			Đoạn “trung bình”: 5 và 6.9
+			Đoạn “khá”: 7 và 7.9
+			Đoạn “giỏi”: 8 và 8.9
+			Đoạn “xuất sắc”: 9 và 10
+
+		* Không hợp lệ:
+			Lấy giá trị đầu tiên trong đoạn > 10 là 10.1
+			Lấy giá trị cuối cùng trong đoạn < 0 là -0.1
+
+---------------
+
+	Ví dụ 3: kiểm tra số nguyên dương n có phải là số nguyên tố không
+			(màn hình console cho phép nhập số nguyên dương n
+			và xuất kết quả thông báo số đó có phải nguyên tố hay không)
+
+		(Ghi chú: số nguyên tố là số tự nhiên chỉ có hai ước số dương phân biệt là 1 và chính nó)
+
+			- Phân vùng số nguyên tố chẵn: 2
+			- Phân vùng số nguyên tố lẻ: 3
+			- Phân vùng số lẻ không phải số nguyên tố: 1
+			- Phân vùng số chẵn không là số nguyên tố: 4
+
+---------------
+
+	Ví dụ 4: kiểm thử biểu mẫu đăng nhập đơn giản
 		=> Phân vùng giữ nguyên nhưng có sự thay đổi về Test Case.
  
 			- Case 1: nhập giá trị với 5 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
@@ -233,38 +381,262 @@ Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ ki�
 
 			- Case 5: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
 
+---------------
+
+	Ví dụ 5: ngân hàng quy định không được chuyển khoản quá 10 triệu (tr) trong ngày, tối thiểu mỗi lần chuyển khoản là 1tr.
+
+		Gọi X là số tiền muốn chuyển trong ngày (X >= 1)
+		Gọi M là tổng số tiền đã chuyển trong ngày (M <= 10)
+
+		- Phân vùng 1:
+				X < 1 || X > 10
+
+		- Phân vùng 2:
+				M = 10
+
+		- Phân vùng 3:
+				X ∈ [1, 10]
+				1 <= X + M <= 10
+
+				* Hợp lệ:
+					-----------------------------------------
+					|	Input	|	Output		|
+					|---------------|-----------------------|
+					|X	|M	|	Expected	|
+					|---------------------------------------|
+					|1	|0	| Được phép chuyển khoản|
+					|---------------|-----------------------|
+					|1	|9	| Được phép chuyển khoản|
+					|---------------|-----------------------|
+					|10	|0	| Được phép chuyển khoản|
+					-----------------------------------------
+
 ---------------------------------------------------------------------------
 
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT BẢNG QUYẾT ĐỊNH - DECISION TABLE TESTING]
 
-** Kỹ thuật bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect): dùng khi phải kết hợp các điều kiện lại với nhau, khi số lượng điều kiện cần kết hợp khá lớn, dẫn đến việc không thể nhớ được một trường hợp nào đó đã được kiểm thử hay chưa.
+** Kỹ thuật bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect - DT/CE): dùng khi phải kết hợp các điều kiện đầu vào (input) lại với nhau, khi số lượng điều kiện cần kết hợp khá lớn, dẫn đến việc không thể nhớ được một trường hợp nào đó đã được kiểm thử hay chưa.
 
-	+ Bước 01: xác định các chức năng cần sử dụng để kiểm thử.
+Giúp xác định những kịch bản (Scenario) kiểm thử cho những trường hợp có logic nghiệp vụ phức tạp. Giúp xác định một cách hiệu quả sự kết hợp các đầu vào khác nhau với các tình trạng phần mềm thực thi đúng quy tắc nghiệp vụ.
 
-	+ Bước 02: xác định những điều kiện, sau đó tách ra thành những tập con và xử lý từng tập con một.
+------------------------------
 
-	+ Bước 03: xác định tất cả các sự kết hợp giữa đúng và sai.
+** Cấu trúc của bảng quyết định:
 
-		Ví dụ: biểu mẫu đăng nhập
+(1) Các điều kiện: một biến, một quan hệ hoặc một mệnh đề.
+(2) Các giá trị điều kiện: một giá trị nào đó của điều kiện, tổ hợp các giá trị điều kiện sẽ cho ra cột quy tắc (rule).
 
-			- Đúng email và mật khẩu -> Trang chủ
+-------------------------------------------------------------------------
+|(1) Các điều kiện	|(2) Các giá trị điều kiện - Quy tắc (Rule)	|
+|-----------------------|-----------------------------------------------|
+|(3) Hành động		|(4) Xảy ra hay không				|
+-------------------------------------------------------------------------
 
-			- Sai email và mật khẩu -> Thông báo lỗi
-				+ Đúng email & mật khẩu -> Trang chủ
-				+ Đúng email, sai mật khẩu -> Thông báo lỗi
-				+ Sai email, đúng mật khẩu -> Thông báo lỗi
-				+ Sai email, sai mật khẩu -> Thông báo lỗi
+(3) Hành động: một thủ tục hoặc thao tác cần thực hiện.
+(4) Xảy ra hay không: một hành động có thể xảy ra phụ thuộc vào tổ hợp các giá trị điều kiện (kết quả mong muốn có).
 
-			---------------------------------------------------------
-			|Điều kiện		|TH 1	|TH 2	|TH 3	|TH 4	|
-			|-----------------------|-------|-------|-------|-------|
-			|Email (Đ/S)		|Đúng	|Đúng	|Sai	|Sai	|
-			|-----------------------|-------|-------|-------|-------|
-			|Mật khẩu (Đ/S)		|Đúng	|Sai	|Đúng	|Sai	|
-			|-----------------------|-------|-------|-------|-------|
-			|Kết quả (Trang Chủ/Lỗi)|Tr. chủ|Lỗi	|Lỗi	|Lỗi	|
-			---------------------------------------------------------
+------------------------------
+
+** Các bước để xây dựng bảng quyết định:
+
+	Bước 01: xác định các chức năng cần sử dụng để kiểm thử.
+
+	Bước 02: xác định và liệt kê danh sách các điều kiện đầu vào, sau đó tách ra thành những tập con và xử lý từng tập con một.
+
+	Bước 03: xác định tất cả các sự kết hợp giữa đúng và sai, số lượng kết hợp giữa các giá trị điều kiện đầu vào và đặt các kết hợp đó vào trong phần (2) - Các giá trị điều kiện.
+
+	Bước 04: xác định các Test Case tương ứng cho các điều kiện được thoả mãn.
+
+	Bước 05: các hành động khi thoả điều kiện chính là kết quả mong đợi của Test Case.
+
+** Lưu ý: không quá quan trọng thứ tự các điều kiện và thứ tự thực hiện hành động.
+
+------------------------------
+
+	Ví dụ 1: biểu mẫu đăng nhập đơn giản
+
+		- Đúng email và mật khẩu -> Trang chủ
+
+		- Sai email và mật khẩu -> Thông báo lỗi
+			+ Đúng email & mật khẩu -> Trang chủ
+			+ Đúng email, sai mật khẩu -> Thông báo lỗi
+			+ Sai email, đúng mật khẩu -> Thông báo lỗi
+			+ Sai email, sai mật khẩu -> Thông báo lỗi
+
+		---------------------------------------------------------
+		|Điều kiện		|QT 1	|QT 2	|QT 3	|QT 4	|
+		|-----------------------|-------|-------|-------|-------|
+		|Email (Đ/S)		|Đúng	|Đúng	|Sai	|Sai	|
+		|-----------------------|-------|-------|-------|-------|
+		|Mật khẩu (Đ/S)		|Đúng	|Sai	|Đúng	|Sai	|
+		|-----------------------|-------|-------|-------|-------|
+		|Kết quả (Trang Chủ/Lỗi)|Tr. chủ|Lỗi	|Lỗi	|Lỗi	|
+		---------------------------------------------------------
+
+---------------
+
+	Ví dụ 2: biểu mẫu đăng nhập phức tạp
+		- Xác định các điều kiện/đầu vào: username và password.
+
+		- Mỗi đầu vào trên nhận một trong 3 giá trị:
+			rỗng (blank - B),
+			hợp lệ (valid - V),
+			không hợp lệ (invalid - I).
+
+		-> Số kết hợp giá trị các điều kiện có thể xảy ra là 9
+
+		M1: Vui lòng nhập username
+		M2: Vui lòng nhập password
+		M3: Username không hợp lệ
+		M4: Password không hợp lệ
+
+		L: Trang Login
+		H: Trang Home
+
+-----------------------------------------------------------------------------------
+|Các	|Tài khoản |  B   |  B   |  B   |  I   |  I   |  I   |  V   |  V   |  V   |
+|điều	|----------|------|------|------|------|------|------|------|------|------|
+|kiện	|Mật khẩu  |  B   |  I   |  V   |  B   |  I   |  V   |  B   |  I   |  V   |
+|---------------------------------------------------------------------------------|
+|Các	|Thông điệp|  M1  |  M1  |  M1  |  M3  |  M3  |  M3  |  M2  |  M4  |      |
+|	|lỗi	   |      |      |      |      |      |      |      |      |      |
+|hành	|----------|------|------|------|------|------|------|------|------|------|
+|	|Chuyển đến|  L   |  L   |  L   |  L   |  L   |  L   |  L   |  L   |  H   |
+|động	|trạng	   |      |      |      |      |      |      |      |      |      |
+-----------------------------------------------------------------------------------
+
+---------------
+
+** Nguyên tắc rút gọn các kết hợp các giá trị đầu vào.
+	+ Những trường hợp (cột quy tắc - rule) có cùng giá trị hành động, nhưng chỉ khác giá trị của một điều kiện duy nhất.
+
+	+ Chuyển giá trị của điều kiện khác nhau đó thành “-” và gom các cột lại thành một.
+
+	+ Lặp lại hai bước trên cho đến khi không còn các cột nào như thế.
+
+---------------
+
+** Phân tích:
+	- Khi tài khoản rỗng, bất chấp mật khẩu là giá trị gì thì đều sẽ hiển thị cùng một thông điệp lỗi và chuyển đến cùng một trang giống nhau. Khi này, các giá trị trong mật khẩu sẽ được chuyển thành “-”
+		-> Bất luận mật khẩu là gì thì kết quả vẫn không đổi.
+
+		M1: Vui lòng nhập username
+		M2: Vui lòng nhập password
+		M3: Username không hợp lệ
+		M4: Password không hợp lệ
+
+		L: Trang Login
+		H: Trang Home
+
+-------------------------------------------------------
+|Các	|Tài khoản |  B   |  I   |  V   |  V   |  V   |
+|điều	|----------|------|------|------|------|------|
+|kiện	|Mật khẩu  |  -   |  -   |  B   |  I   |  V   |
+|-----------------------------------------------------|
+|Các	|Thông điệp|  M1  |  M3  |  M2  |  M4  |      |
+|	|lỗi	   |      |      |      |      |      |
+|hành	|----------|------|------|------|------|------|
+|	|Chuyển đến|  L   |  L   |  L   |  L   |  H   |
+|động	|trạng	   |      |      |      |      |      |
+-------------------------------------------------------
+
+---------------
+
+** Các quy tắc chuyển từ bảng quyết định thành các Test Case:
+	+ Nếu giá trị các điều kiện nhập (1) đều là các giá trị luận lý (true/false) thì mỗi cột quy tắc (rule) sẽ được chuyển thành một Test Case.
+
+	+ Nếu giá trị các điều kiện nhập có nhiều giá trị (miền giá trị từ abc... xyz) thì mỗi cột quy tắc (rule) sẽ được chuyển thành nhiều Test Case bằng cách sử dụng kỹ thuật phân vùng tương đương hoặc phân tích giá trị biên vào mỗi cột.
+
+---------------
+
+	Ví dụ 3: Cho chương trình xác định một tam giác có phải là tam giác cân không, biết người dùng nhập vào chiều dài 3 cạnh a, b, c của tam giác.
+
+		* Phân tích:
+			- Đầu vào: a, b, c
+
+			- Điều kiện:
+				(a, b, c) > 0
+
+				a + b > c
+				a + c > b
+				b + c > a
+					-> tam giác
+
+				a = b || b = c || a = c
+					-> tam giác cân
+
+		* Kết luận:
+
+			- Nếu một trong các điều kiện để trở thành tam giác là sai (ví dụ: a + b < c) thì có thể lập tức kết luận tam giác đó không phải là tam giác cân.
+				-> 3 Test Case
+
+			- Nếu cả ba điều kiện để trở thành tam giác là đúng và một trong các điều kiện để trở thành tam giác cân là đúng (ví dụ: a = b) thì có thể lập tức kết luận tam giác đó là tam giác cân.
+				-> 3 Test Case
+
+			- Nếu cả ba điều kiện để trở thành tam giác là đúng nhưng không thoả bất kỳ điều kiện để trở thành tam giác cân nào thì có thể kết luận tam giác đó không phải là tam giác cân.
+				-> 1 Test Case
+
+---------------
+
+	Ví dụ 4: độc giả mượn sách không được quá 500 quyển sách trong năm (không phân biệt tên đầu sách), nhưng không được phép mượn quá 5 quyển trong một lần mượn, và phải trả các cuốn sách đã mượn mới được phép mượn tiếp nữa.
+
+		Gọi biến X là số sách được mượn (1 <= X <= 5)
+		Gọi biến M là tổng số sách đã mượn trong năm (0 <= M <= 500)
+		Gọi biến Z là trường hợp còn nợ sách (chưa trả sách đã mượn)
+
+		* Bảng quyết định:
+			-------------------------------------------------------
+			|Quy tắc 1|Quy tắc 2|Quy tắc 3|		Quy tắc 4     |
+------------------------|---------|---------|---------|-----------------------|
+|1 <= X <= 5		|    -    |    S    |    -    |		Đ	      |
+|-----------------------|---------|---------|---------|-----------------------|
+|1 <= X + M <= 500	|    -    |    -    |    S    |		Đ	      |
+|-----------------------|---------|---------|---------|-----------------------|
+|	Z		|    Đ    |    S    |    S    |		S	      |
+|-----------------------|---------|---------|---------|-----------------------|
+|	Được mượn	|    S    |    S    |    S    |		Đ	      |
+|-----------------------|---------|---------|---------|-----------------------|
+|	Mượn tối đa	|    0    |    0    |    0    |    min(5, 500 - M)    |
+-------------------------------------------------------------------------------
+
+	* Thiết kế Test Case cho Quy tắc 4 và kết hợp với phân tích giá trị biên:
+		a) 1 <= X <= 5 		---->	Đ	=> 2 biên 1 và 5
+								-> Chọn X = 1 để chạm biên dưới của X
+		a1) 1 <= X + M <= 500 	---->	Đ	=> Chọn M = 0 để chạm biên dưới của M vì X = 1
+		a2) 1 <= X + M <= 500 	---->	Đ	=> Chọn M = 499 để chạm biên trên của M vì X = 1
+
+		b) 1 <= X <= 5 		---->	Đ	=> 2 biên 1 và 5
+								-> Chọn X = 5 để chạm biên trên của X
+		b1) 1 <= X + M <= 500 	---->	Đ	=> Bắt buộc phải chọn M = 495 để chạm biên trên của M vì X = 5 nên không thể chạm biên dưới của M.
+
+		* Bảng phân tích giá trị biên:
+		-------------------------------------------------
+		|	Input	|		Output		|
+		|---------------|-------------------------------|
+		|X	|M	|Được mượn	|Mượn tối đa	|
+		|-------|-------|---------------|---------------|
+		|1	|0	|Được phép mượn	|	5	|
+		|-------|-------|---------------|---------------|
+		|1	|499	|Được phép mượn	|	1	|
+		|-------|-------|---------------|---------------|
+		|5	|495	|Được phép mượn	|	5	|
+		|-------|-------|---------------|---------------|
+		|4	|499	|Được phép mượn	|	5	|
+		-------------------------------------------------
+
+---------------
+
+	Ví dụ 5: xét học bổng cho sinh viên nếu không rớt môn nào trong học kỳ đó và có điểm trung bình từ 7.0 trở lên. Điểm tính trên thang điểm 10, điểm qua môn tính từ 5 trở lên. Với những môn học có điểm >= 4 và < 5 cũng sẽ được xem là qua môn nếu điểm trung bình học kỳ đó là 7.5 trở lên.
+
+		Gọi A là điểm trung bình môn học
+		Gọi B là điểm nhỏ nhất của môn
+
+---------------
+
+	Ví dụ 6: chương trình khuyến mãi tặng 1 loa bluethooth và miếng dán màn hình áp dụng cho những khách hàng mua dòng điện thoại cao cấp (nếu giá bán >= 20tr) diễn ra từ ngày 20/11/2017 đến hết ngày 31/12/2017. Ngoài ra, nếu đã từng dùng dòng điện thoại cao cấp của hãng A, tính từ thời điểm đã mua cho đến thời điểm mua mới, nếu khoảng thời gian này:
+			- Không quá 1 năm thì khách hàng sẽ được giảm thêm 2 triệu trên giá sản phẩm.
+			- Từ trên 1 năm đến nhỏ hơn hoặc bằng 2 năm thì khách hàng được giảm thêm 1 triệu trên giá sản phẩm.
 
 ---------------------------------------------------------------------------
 
