@@ -6,7 +6,7 @@
 		- ID định danh của Test Case.
 		- Tên/tiêu đề Test Case.
 		- Mô tả/tóm tắt Test Case.
-		- Các điều kiện tiên quyết (preconditions).
+		- Các điều kiện tiên quyết (pre-conditions).
 		- Đầu vào: các bước/quy trình kiểm thử cụ thể (test steps/test procedures) để xác minh tính năng đúng hay sai.
 		- Đầu ra mong đợi (Expected Result): kỳ vọng kết quả nhận được nếu thực hiện theo đúng các bước ở trên.
 
@@ -112,7 +112,7 @@ Có hai cách để thực thi test case:
 
 ================================================================================
 
-[LỖI PHÁT SINh TRONG QUÁ TRÌNH THỰC THI TEST CASE]
+[LỖI PHÁT SINH TRONG QUÁ TRÌNH THỰC THI TEST CASE]
 
 Lỗi (Bug/Defect) xảy ra rong quá trình QC thực thi/chạy Test Case, khi hệ thống hoạt động không được như dự kiến: kết quả thực tế (actual result) khác với kết quả mong đợi (expected result), xuất hiện ngoại lệ, null,... -> Test Case Fail
 
