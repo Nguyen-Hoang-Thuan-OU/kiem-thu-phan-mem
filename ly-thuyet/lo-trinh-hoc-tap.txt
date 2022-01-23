@@ -1,0 +1,46 @@
+[LỘ TRÌNH TRỞ THÀNH TESTER]
+
+Bước 01: kiến thức nền tảng
+	- Cơ bản về máy tính.
+	- Tin học văn phòng.
+	- Sử dụng Internet.
+	- Cơ bản về HTML, CSS, SQL,...
+	- Cơ bản về kiểm thử.
+
+Bước 02: kiến thức cơ bản về Kiểm thử Phần mềm
+	- Chiến lược kiểm thử.
+	- Loại kiểm thử.
+	- Quy trình phát triển phần mềm (Software Development Life Cycle - SDLC).
+	- Quy trình kiểm thử phần mềm (Software Testing Life Cycle - STLC).
+	- Quản lý dự án.
+
+Bước 03: kiến thức chuyên sâu về Kiểm thử Phần mềm Thủ công.
+
+Bước 04: kiến thức về Kiểm thử Phần mềm Tự động
+	- Web Testing.
+	- Mobile Testing.
+	- API Testing.
+
+================================================================================
+
+Vì sao muốn trở thành tester?
+Tester thật sự là gì?
+Những kỹ năng và tố chất cần có của một tester?
+Tiềm năng của nghề tester?
+Làm test có yêu cầu nền tảng CNTT?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
