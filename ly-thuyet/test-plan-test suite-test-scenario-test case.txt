@@ -4,14 +4,18 @@
 
 [KẾ HOẠCH KIỂM THỬ - TEST PLAN]
 
-** Chiến lược/kế hoạch kiểm thử (Test Plan): tài liệu tổng quan về việc kiểm thử một dự án, là dạng tài liệu ở mức thường cao do các test manager/test leader phát triển, bao gồm: phạm vi (scope), hướng tiếp cận, quy trình kiểm thử (Software Testing Life Cycle - STLC), tài nguyên, nhân lực, các tính năng cần và không cần kiểm thử, các công cụ và môi trường kiểm thử cần có.
+** Chiến lược/kế hoạch kiểm thử (Test Plan): tài liệu tổng quan về việc kiểm thử một dự án, là dạng tài liệu ở mức cao, thường do các test manager/test leader phát triển, bao gồm: phạm vi (scope), hướng tiếp cận, quy trình kiểm thử (Software Testing Life Cycle - STLC), tài nguyên, nhân lực, các tính năng cần và không cần kiểm thử, các công cụ và môi trường kiểm thử cần có.
 	=> Tài liệu định nghĩa ra mục tiêu kiểm thử của dự án và phương tiện/phương pháp để đạt được, xác định nổ lực và chi phí kiểm thử.
 
 --------------------
 
 ** Các bước để xây dựng Test Plan:
 
-	* Bước 01: Định nghĩa phạm vi của kiểm thử (Define scope of testing): những thành phần trong hệ thống, phần cứng, phần mềm, phần mềm trung gian được sử dụng trong hệ thống được gọi là in-scope; các thành phần của hệ thống sẽ không được kiểm thử được gọi là out-of-scope. Là bước vô cùng quan trọng đối với tất cả các bên liên quan trong hệ thống, cung cấp sự chắc chắn và thông tin chính xác về hoạt động kiểm thử đang dự định thực hiện, tất cả các thành viên trong dự án sẽ hiểu rõ những gì được và không được kiểm thử trong dự án.
+	* Bước 01: Định nghĩa phạm vi của kiểm thử (Define scope of testing): là bước vô cùng quan trọng đối với tất cả các bên liên quan trong hệ thống, cung cấp sự chắc chắn và thông tin chính xác về hoạt động kiểm thử đang dự định thực hiện, tất cả các thành viên trong dự án sẽ hiểu rõ những gì được và không được kiểm thử trong dự án.
+
+Những thành phần trong hệ thống, phần cứng, phần mềm, phần mềm trung gian được sử dụng trong hệ thống được gọi là in-scope.
+
+Những thành phần của hệ thống sẽ không được kiểm thử được gọi là out-of-scope.
 
 		- Để xác định được phạm vi:
 			+ Nắm rõ, chính xác được yêu cầu của khách hàng (precise customer requirement).
@@ -43,12 +47,16 @@
 
 		- Vấn đề 1: Thành viên trong nhóm thiếu các kỹ năng cần thiết để kiểm thử trang web.
 			-> Giải pháp: Lập kế hoạch khoá đài tạo để nâng cao kỹ năng của các thành viên.
+
 		- Vấn đề 2: Tiến độ dự án quá eo hẹp, thật khó để hoàn thành dự án đúng hạn.
 			-> Giải pháp: Đặt mức độ ưu tiên cho từng hoạt động kiểm thử (test priority).
+
 		- Vấn đề 3: Test manager có kỹ năng quản lý kém.
 			-> Giải pháp: Lập kế hoạch đào tạo cho quản lý.
+
 		- Vấn đề 4: Thiếu hợp tác, ảnh hưởng tiêu cực đến năng suất của thành viên.
 			-> Giải pháp: Khuyến khích mỗi thành viên trong nhóm thực hiện nhiệm vụ của mình và truyền cảm hứng cho họ để họ nỗ lực nhiều hơn.
+
 		- Vấn đề 5: Dự toán ngân sách sai và vượt chi phí.
 			-> Giải pháp: Thiết lập phạm vi trước khi bắt đầu công việc, chú ý nhiều đến việc lập kế hoạch dự án, liên tục theo dõi và đo lường tiến độ.
 
