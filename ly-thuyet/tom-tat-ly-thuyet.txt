@@ -1,12 +1,4 @@
-﻿Vì sao muốn trở thành tester?
-Tester thật sự là gì?
-Những kỹ năng và tố chất cần có của một tester?
-Tiềm năng của nghề tester?
-Làm test có yêu cầu nền tảng CNTT?
-
-================================================================================
-
-Tại sao phải kiểm thử phần mềm?
+﻿**********Tại sao phải kiểm thử phần mềm?**********
 
 [7 NGUYÊN LÝ TRONG KIỂM THỬ PHẦN MỀM]
 
@@ -70,6 +62,34 @@ Lỗi trên website:
 	- Kiểm thử về trải nghiệm người dùng (usability testing): có dễ dùng hay gây rối mắt, khó hiểu; nếu là website bán hàng thì việc thanh toán có dễ dàng hay không, hiện thông báo lỗi nhưng không cụ thể khiến người dùng không biết mình bị sai ở đâu; các nút bấm thiết kế quá nhỏ khiến cho những thiết bị với màn hình nhỏ khó thao tác.
 
 	- Kiểm thử bảo mật (security testing): 
+
+================================================================================
+
+[PHÂN LOẠI KIỂM THỬ]
+
+1. Cấp độ kiểm thử (Testing Level):
+
+Bàn về các công việc kiểm thử cần phải làm dựa vào sự hoàn thiện của hệ thống trong quá trình viết code.
+
+--------------------
+
+Có 4 mức hoàn thiện của hệ thống, tương ứng với 4 giai đoạn/công đoạn/mức độ:
+
+	* Unit Test: dev sẽ tiến hành viết code, tự thực hiện thêm các hoạt động đảm bảo chất lượng code bằng cách kiểm thử ngay các hàm/lớp được tạo ra.
+
+	* Integration Test:
+
+	* System Test:
+
+	* User Acceptance Test (UAT):
+
+-----------------------------------------------------------------
+
+2. Loại kiểm thử (Testing Type):
+
+-----------------------------------------------------------------
+
+3. Kỹ thuật kiểm thử (Testing Technique):
 
 ================================================================================
 
