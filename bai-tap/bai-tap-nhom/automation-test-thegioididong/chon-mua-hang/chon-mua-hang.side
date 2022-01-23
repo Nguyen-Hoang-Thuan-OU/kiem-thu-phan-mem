@@ -1,0 +1,1803 @@
+{
+  "id": "be5735b4-2aaf-40b9-bd7b-b86c11dfdd5d",
+  "version": "2.0",
+  "name": "chon-mua-hang-thegioididong",
+  "url": "https://www.thegioididong.com",
+  "tests": [{
+    "id": "f4214a1d-b859-45ba-9374-e5269ca67ba4",
+    "name": "TC_ChonMuaHang_001",
+    "commands": [{
+      "id": "41c50f76-848b-4d91-9805-f59201a961e6",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2a1e3385-f423-44f1-9a1e-221d77e9a707",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5a35438-4420-466c-9c8e-8081986389b2",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "508f2717-68e9-432c-a618-232c1e62d278",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "c4c258d6-c5ee-4fd3-9aeb-76f144b48150",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "692f7343-670e-4de6-89d9-47158414b085",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e96f4380-5609-4b19-ade7-fda325f1f249",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xám",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f4d8a93-afb2-42b5-86ce-d85bebb5fe5c",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d8dce769-6bfe-42c8-94c2-31c88f2e9de3",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.con_hang",
+      "targets": [
+        ["css=.con_hang", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"]
+      ],
+      "value": "CÒN HÀNG"
+    }, {
+      "id": "ddb42842-d5db-4c87-8466-f558c735908f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf9d0300-51ef-4561-9da4-055115d77899",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(7)",
+      "targets": [
+        ["css=.ordered:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6c102df-463b-4f8b-aeac-1ed4ea32c4c5",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2b58f908-733c-487a-a6ed-651dbafc734d",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Giỏ hàng - Thegioididong.com",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a84fb13-3ce8-4a9c-a8e6-678be57a2d63",
+      "comment": "",
+      "command": "click",
+      "target": "css=.imgsp > button",
+      "targets": [
+        ["css=.imgsp > button", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Xóa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "34913456-c811-4058-ad8a-2de1ca37c8ce",
+    "name": "TC_ChonMuaHang_002",
+    "commands": [{
+      "id": "22482d34-7567-4988-90ce-ba49051ba4b3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fb8b8c21-ea26-41ba-af6e-7e76f3230dbc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3d133b92-2ba0-488e-bfa2-a9a8e02186a8",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b0401e3-c235-4858-a8a2-e60cba768311",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "1c845958-f796-4bb5-bf7e-2df1fdae70c8",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "dd2d4113-7187-487a-b9a4-004161a69681",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c952dd1-7827-4eb2-8f63-cb65557b0619",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=128GB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "608264ba-e6d9-461f-af0c-934def259f48",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xám",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe65d7be-2a93-4dc5-bef0-342f2559ebb2",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dc61af29-47f5-4855-8e6c-e3f218fd4b05",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.con_hang",
+      "targets": [
+        ["css=.con_hang", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"]
+      ],
+      "value": "CÒN HÀNG"
+    }, {
+      "id": "f12a318f-c0e7-44bb-ac48-c91d507b2033",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e175672a-8f27-4f19-87ac-e7971dfa4ffa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div[3]/div[2]/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[2]/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6556e8a1-ec45-48fe-a0ec-68fe3a51066a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.number",
+      "targets": [
+        ["css=.number", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div[3]/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "2a42d14c-68c8-4731-8944-93294b6be076",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(7)",
+      "targets": [
+        ["css=.ordered:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "25c87b96-9997-4d22-9975-85135f3fd1a2",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Giỏ hàng - Thegioididong.com",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "27ed45ef-1818-4e32-945a-e15ae9f7bf1a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.imgsp > button",
+      "targets": [
+        ["css=.imgsp > button", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Xóa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d0ce1199-a42d-4c0e-9924-87297e3b97ff",
+    "name": "TC_ChonMuaHang_004",
+    "commands": [{
+      "id": "bee8b58f-3662-4919-b478-4c31c561a8da",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71bf1a08-8476-4ee0-b331-7ac02776d800",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c006a158-f5c9-40ba-b3ed-1d5068afb658",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2a8abf3-7a12-45c8-ae56-df67fe53336b",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "38bb4859-a1f7-428e-b685-b4b340bc250a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "4755db5b-252f-4dd7-b3ab-7348a40823fa",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1ff88b7-0dc7-4220-b80e-7d3be7ee9e83",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=128GB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c3a740e-ad29-424b-9c3c-aab51d9cd97c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xám",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5682c62e-0e0b-4f74-bc03-f901bf0fb464",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "da413dd8-aebe-464e-b448-82a58fe16b67",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.con_hang",
+      "targets": [
+        ["css=.con_hang", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"]
+      ],
+      "value": "CÒN HÀNG"
+    }, {
+      "id": "b2137b2c-9fd7-4386-9387-55d6a3008415",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e86cd148-f18a-4794-b267-a4c463e4ac4b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div[3]/div[2]/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[2]/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "440a0854-2136-48ca-a92f-d8eb42aa63f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div[3]/div[2]/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[2]/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "635bf333-00d7-458c-9c09-ff0241264c3a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.number",
+      "targets": [
+        ["css=.number", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div[3]/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "384c87ea-a4e7-4a2e-b92d-15bd01d95ad2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(7)",
+      "targets": [
+        ["css=.ordered:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4b7b601-9ca5-43ab-81d0-1984f26eca5e",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Giỏ hàng - Thegioididong.com",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "af9fb06c-8ddd-4ae5-ab3c-a4e22c9b7ce8",
+    "name": "TC_ChonMuaHang_005",
+    "commands": [{
+      "id": "f02a1a24-e403-4d1f-b5f9-2be0cd711d4d",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29b3f0e3-4f71-47a2-8c4d-17d87be5d17d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2cd8507-dd85-49ea-8b0c-9903165fc155",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "662909c4-eec7-42b1-beb3-0eb11191765e",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "d8fc69e6-a941-4a95-bf28-99fe9d638183",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "9184a83f-86f3-461c-9785-9b671060cec9",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf4dff75-9d29-4a86-a2ca-f78d957d0e86",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=128GB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b167aa7-391a-456e-9e1c-1cd6f26f75a6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xám",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7df61f3f-851f-49e0-9d83-bb9737d47045",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "86ce79b3-11f5-46f6-bd72-4f5e4368b629",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.con_hang",
+      "targets": [
+        ["css=.con_hang", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"]
+      ],
+      "value": "CÒN HÀNG"
+    }, {
+      "id": "49a34bc7-1430-4221-a91c-ed52831d6ea9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0612a9b0-f1c3-4639-b119-2d64bbb6355b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(7)",
+      "targets": [
+        ["css=.ordered:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "887fb20a-b4e3-4186-b4c9-02c12922afff",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59c39ae8-e63c-4945-80dc-419e2b2a2c41",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=Điện thoại iPhone 13 Pro Max 128GB",
+      "targets": [],
+      "value": "Điện thoại iPhone 13 Pro Max 128GB"
+    }, {
+      "id": "900b63ad-a100-4b2d-97e9-1fe554ba0d21",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.color-text",
+      "targets": [
+        ["css=.color-text", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div/aside/label/span[2]", "xpath:idRelative"],
+        ["xpath=//label/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": "Xám"
+    }, {
+      "id": "eb12228e-21a9-45b0-ba17-d79389c64a95",
+      "comment": "",
+      "command": "click",
+      "target": "css=.imgsp > button",
+      "targets": [
+        ["css=.imgsp > button", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Xóa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "1b7d376f-d688-45a5-baf6-b887df1e67d4",
+    "name": "TC_ChonMuaHang_006",
+    "commands": [{
+      "id": "ff4402d0-50a6-4b48-9d31-827ffd3c3001",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "21aa500e-bb2e-47db-acb7-dd53066fec7e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0b40fe2-ebcc-4bfd-a6a8-86c03e5df579",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "876fa2c7-c641-4323-93ed-e4911b67d6e3",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "cbe2e553-28c2-4912-a153-ab1c74fb064e",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "6ef2f8e5-5bb9-4f39-9b07-26e3954a8adf",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "481d0d37-9fde-4dc8-8f9f-2a696976a507",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=256GB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "55065b55-de1c-4ea6-bd55-3fdfd585a11c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xám",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbadc54e-697c-4879-846d-dd16066a9f49",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1aa4956a-d250-4447-81ef-092db9cb355b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.con_hang",
+      "targets": [
+        ["css=.con_hang", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"]
+      ],
+      "value": "CÒN HÀNG"
+    }, {
+      "id": "4129df0e-2cb1-4182-a68a-5acb22b30617",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2019488d-832c-4979-8f8b-05db26c52a64",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(7)",
+      "targets": [
+        ["css=.ordered:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "569d3e9c-0052-4d5b-afcc-f6b3aec9506b",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ce4030d6-96ea-4ebe-bf85-2e0dbfd37643",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=Điện thoại iPhone 13 Pro Max 256GB",
+      "targets": [
+        ["linkText=Điện thoại iPhone 13 Pro Max 128GB", "linkText"],
+        ["css=.product-item__name", "css:finder"],
+        ["xpath=//a[contains(text(),'Điện thoại iPhone 13 Pro Max 128GB')]", "xpath:link"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[2]", "xpath:href"],
+        ["xpath=//li/div[2]/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Điện thoại iPhone 13 Pro Max 128GB')]", "xpath:innerText"]
+      ],
+      "value": "Điện thoại iPhone 13 Pro Max 256GB"
+    }, {
+      "id": "83f2d9f7-f54c-42c8-a3e4-1cc30e663762",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.color-text",
+      "targets": [
+        ["css=.color-text", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div/aside/label/span[2]", "xpath:idRelative"],
+        ["xpath=//label/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": "Xám"
+    }, {
+      "id": "d360805b-a572-44a7-bf49-74717ec1fd1b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.imgsp > button",
+      "targets": [
+        ["css=.imgsp > button", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Xóa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e031df1f-a861-4f71-b304-c5d0f68f2a57",
+    "name": "TC_ChonMuaHang_007",
+    "commands": [{
+      "id": "259476cb-2d8c-4f17-bd81-879e5a343d02",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d2736a3-a1dc-417b-b3a4-624799aa283f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d999d7da-5827-4112-9306-9203ae357be2",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "efdf8918-1ae6-4dc9-ae6d-71223f102061",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "c4b79e14-a5ef-4c59-8540-337d8d71e460",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "027c8397-63cb-4fec-ab6e-1a3959291939",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1de2f49f-4108-4653-bda0-ac736fe3969d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=512GB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f181512f-eb08-474b-854b-10bf3cbe16ac",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xám",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbccb695-b667-414b-bf1e-8472f9e5da56",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b4cc7ef-b03d-4592-b4ea-70567483549c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.con_hang",
+      "targets": [
+        ["css=.con_hang", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"]
+      ],
+      "value": "CÒN HÀNG"
+    }, {
+      "id": "d7055a86-8715-4166-a238-0515742de457",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "efe16069-4db4-49e3-ae8f-bc09d778c972",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(7)",
+      "targets": [
+        ["css=.ordered:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d05804e-b2b7-491b-b771-a5c578916284",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.plChoose-proColor",
+      "targets": [
+        ["css=.plChoose-proColor", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/span[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/span[3]", "xpath:position"],
+        ["xpath=//span[contains(.,'*Vui lòng chọn khuyến mãi')]", "xpath:innerText"]
+      ],
+      "value": "*Vui lòng chọn khuyến mãi"
+    }, {
+      "id": "23110b11-1d3d-45e3-81ef-bc40bbaeaaec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(7)",
+      "targets": [
+        ["css=.ordered:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ade69b16-7c35-45e1-a306-20d1befbf7c8",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "438a1c8c-3001-4fd6-862a-bd37ba0b8868",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=Điện thoại iPhone 13 Pro Max 512GB",
+      "targets": [],
+      "value": "Điện thoại iPhone 13 Pro Max 512GB"
+    }]
+  }, {
+    "id": "f535b9af-2bd3-472f-a2d4-6a59a85ab866",
+    "name": "TC_ChonMuaHang_008",
+    "commands": [{
+      "id": "1a62d181-6671-4546-b554-8870fc2f0266",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f1fc2409-d15f-4110-9ef8-32d089cf476b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0addd23f-2a6e-4aa4-b262-cbb6e1c1ef3c",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b028baa6-b2cc-4ac8-bd73-58ccdf1631d8",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "7ca2dd1f-523d-403e-8a33-31fa2ba304eb",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "13311674-5a49-433e-b038-95f499231c48",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ac3f3ed-8de4-423c-b6b1-932af20b7093",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=1TB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de6ee95e-f261-4c51-b6b0-b6e2be7daf74",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=Xám",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "011f2ae3-28ea-4fbc-b4ed-b201a51ba60e",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "99ea5219-7e5c-40b4-bb86-75b2a62d23fb",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.five-7ngay",
+      "targets": [
+        ["css=.five-7ngay", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'HÀNG PHẢI CHUYỂN VỀ')]", "xpath:innerText"]
+      ],
+      "value": "CÒN HÀNG"
+    }]
+  }, {
+    "id": "28ef5e22-5d1f-4b65-8f80-1a8878ee920d",
+    "name": "TC_ChonMuaHang_009",
+    "commands": [{
+      "id": "9085fd58-1d5a-46a7-bb16-551331e884d7",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "676c4b80-703b-44fc-8854-9202a2c16c1d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1aa663b-3a68-48d1-937c-5dd5fec0162c",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de11c7a1-80a4-48f6-b680-baea145f11d4",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro"
+    }, {
+      "id": "d2952bae-83c0-4eac-b494-22f026fa2507",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "9bd9750f-c1e0-4373-9500-f3c7a67b7ead",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//h3[contains(.,'iPhone 13 Pro 128GB')]",
+      "targets": [
+        ["css=.item:nth-child(8) h3", "css:finder"],
+        ["xpath=//li[8]/a/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'iPhone 13 Pro 128GB')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5de67d4-1838-41a5-ad7c-3001a3322544",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=128GB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb627702-5835-4e60-90ee-728be0216d5d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Vàng đồng",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9d03268-0325-448a-9816-d515b192d70d",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "43824e9a-b298-426f-bc12-81ab16425629",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.con_hang",
+      "targets": [
+        ["css=.con_hang", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"]
+      ],
+      "value": "CÒN HÀNG"
+    }, {
+      "id": "fcc8aa88-e41d-4730-8e49-493e41d557c1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "76dddd94-4d40-4189-aba4-f2e0deff3a3f",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//p[contains(.,'Giảm giá 500,000đ')]",
+      "targets": [
+        ["css=.box-promo:nth-child(2) p", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/span/aside/div/span/p", "xpath:idRelative"],
+        ["xpath=//span/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Giảm giá 500,000đ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "579f377e-bfb7-42d3-bbb7-cce5abe5888b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(8)",
+      "targets": [
+        ["css=.ordered:nth-child(8)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ce83c7f-8a66-4cc3-a7eb-f4721f70b3f9",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1515a05a-84b9-4c48-a4af-eb9683d78c6b",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=Điện thoại iPhone 13 Pro 128GB",
+      "targets": [
+        ["linkText=Điện thoại iPhone 13 Pro 128GB", "linkText"],
+        ["css=.product-item__name", "css:finder"],
+        ["xpath=//a[contains(text(),'Điện thoại iPhone 13 Pro 128GB')]", "xpath:link"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro')])[2]", "xpath:href"],
+        ["xpath=//li/div[2]/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Điện thoại iPhone 13 Pro 128GB')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6595178-1c71-4475-bbdf-8f8e72b6ac97",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.color-text",
+      "targets": [
+        ["css=.color-text", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div/aside/label/span[2]", "xpath:idRelative"],
+        ["xpath=//label/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Vàng đồng')]", "xpath:innerText"]
+      ],
+      "value": "Vàng đồng"
+    }, {
+      "id": "4f8dc0b0-f93b-40ad-89b0-2e51d11baeb7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.imgsp > button",
+      "targets": [
+        ["css=.imgsp > button", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Xóa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f94a79c1-444c-4ae8-9656-e39166843362",
+    "name": "TC_ChonMuaHang_016",
+    "commands": [{
+      "id": "815c2ee1-b65a-406f-be9c-9f70af3f3ad0",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b9e7b355-568f-4f4f-a9b3-a91b5c258bac",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f38d58b-ed23-40b4-95d7-79586228ca24",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5d00ff3-74c8-47dd-93b7-565c4720a29f",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 7 Plus Red 256GB"
+    }, {
+      "id": "4cb0c33a-3c3b-431a-92de-614ae3fbef45",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "55f24d5c-9e0f-4fb2-83e1-f3d9f32489cf",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//h3[contains(.,'iPhone 7 Plus Red 256GB')]",
+      "targets": [
+        ["css=h3:nth-child(3)", "css:finder"],
+        ["xpath=//li[2]/a/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'iPhone 7 Plus Red 256GB')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5dc05e55-2e3f-426f-918d-0cda7253ba08",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.productstatus",
+      "targets": [
+        ["css=.productstatus", "css:finder"],
+        ["xpath=//div[3]/div[2]/div/strong", "xpath:position"]
+      ],
+      "value": "SẢN PHẨM NGỪNG KINH DOANH"
+    }]
+  }, {
+    "id": "07d2f7c4-20cc-4cb5-8e52-aa685fb0ef6b",
+    "name": "TC_ChonMuaHang_015",
+    "commands": [{
+      "id": "5fff43fc-5b6c-4fa6-8a18-be9d5c68fd6a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e62eee2b-5ad0-454a-9d05-2ae51765cb41",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "43c027b7-b0ee-404c-8e20-72caabf94c6d",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df3e8b42-d52e-4078-a860-7d79c191e0c4",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "f35d76fd-d0dc-4414-bd5f-a7eb5577c510",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "f19d2281-7640-452b-83b6-ef38af1348f8",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "72dac0fc-5136-40b1-9eda-a0671bb469fd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=1TB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e003ab2-df7c-4a19-b476-b7e35f50ac9e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=Xám",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9052956d-6f70-4cf4-a04a-a540d719b8f8",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5157837-7e17-4b58-b7ed-ce2a2abcac73",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.five-7ngay",
+      "targets": [
+        ["css=.five-7ngay", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'KHÔNG GIAO ĐƯỢC HÀNG')]", "xpath:innerText"]
+      ],
+      "value": "KHÔNG GIAO ĐƯỢC HÀNG"
+    }, {
+      "id": "a125314f-7e64-4387-8bbe-8ba35d104cff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.province > p",
+      "targets": [
+        ["css=.province > p", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/div/div/div/p", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/div/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Hồ Chí Minh')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce281683-cf43-4a30-98a1-0b6c4a2f7c86",
+      "comment": "",
+      "command": "click",
+      "target": "css=aside > .active:nth-child(1)",
+      "targets": [
+        ["css=aside > .active:nth-child(1)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Hồ Chí Minh')])[2]", "xpath:link"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/div/div/div[2]/div[2]/aside/a", "xpath:idRelative"],
+        ["xpath=//aside/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff7db7aa-381f-4dda-8bc2-c6654a5ce6d4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Quận Gò Vấp",
+      "targets": [
+        ["linkText=Quận Gò Vấp", "linkText"],
+        ["css=.scroll:nth-child(3) a:nth-child(14)", "css:finder"],
+        ["xpath=//a[contains(text(),'Quận Gò Vấp')]", "xpath:link"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/div/div[2]/div[2]/div[3]/aside/a[14]", "xpath:idRelative"],
+        ["xpath=//div[3]/aside/a[14]", "xpath:position"],
+        ["xpath=//a[contains(.,'Quận Gò Vấp')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0675e314-3f6a-4069-843c-1a6795fb4cec",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Phường 3",
+      "targets": [
+        ["linkText=Phường 3", "linkText"],
+        ["css=.lstward a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Phường 3')]", "xpath:link"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/div/div[3]/div[2]/div[2]/aside/a[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div[2]/aside/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Phường 3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de56421f-7391-4e89-a1b9-a420427fa20a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.five-7ngay",
+      "targets": [
+        ["css=.five-7ngay", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'KHÔNG GIAO ĐƯỢC HÀNG')]", "xpath:innerText"]
+      ],
+      "value": "KHÔNG GIAO ĐƯỢC HÀNG"
+    }, {
+      "id": "fe896fc3-620f-4e7b-979f-669303064073",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.cantdeli",
+      "targets": [
+        ["css=.cantdeli", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sản phẩm đã hết hàng tại địa chỉ quý khách chọn.')]", "xpath:innerText"]
+      ],
+      "value": "Sản phẩm đã hết hàng tại địa chỉ quý khách chọn."
+    }]
+  }, {
+    "id": "029f892f-06d0-4ca0-ac8d-20cd15fbde2f",
+    "name": "TC_ChonMuaHang_003",
+    "commands": [{
+      "id": "98238aaa-e2ec-42d1-8402-a03fd3e7706f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79f897a8-d731-40cc-955a-c0430d3d2bb4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ffbe15a-45ae-4d10-bb5c-ca6359f548fd",
+      "comment": "",
+      "command": "click",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acfa74cd-8d31-4a22-ba5e-ddc61dd01662",
+      "comment": "",
+      "command": "type",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iPhone 13 Pro Max"
+    }, {
+      "id": "d5390fee-4ece-4bae-824a-004268711f60",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=skw",
+      "targets": [
+        ["id=skw", "id"],
+        ["name=key", "name"],
+        ["css=#skw", "css:finder"],
+        ["xpath=//input[@id='skw']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "c11720fe-807c-4e02-9638-75c615ebf7b0",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='iPhone 13 Pro Max 128GB']",
+      "targets": [
+        ["css=.item:nth-child(5) .thumb", "css:finder"],
+        ["xpath=//img[@alt='iPhone 13 Pro Max 128GB']", "xpath:img"],
+        ["xpath=//li[5]/a/div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b8e5c0d-269e-4ecb-b21c-14ee63cb25d1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=128GB",
+      "targets": [
+        ["linkText=128GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .act", "css:finder"],
+        ["xpath=(//a[contains(text(),'128GB')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/dtdd/iphone-13-pro-max')])[9]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0da41ec5-7ac8-4c93-9464-eff1a862ab80",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xám",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "06c85a98-28ce-480b-971c-518bf37b7228",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,700)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7498115a-4623-41c5-8fb7-37d69095d998",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.con_hang",
+      "targets": [
+        ["css=.con_hang", "css:finder"],
+        ["xpath=//div[@id='thoi-gian-giao-hang']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div/div/div/span", "xpath:position"]
+      ],
+      "value": "CÒN HÀNG"
+    }, {
+      "id": "e89e28f3-e3cf-49fa-87c6-31833054305e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c69a717b-492d-442e-a140-f706fb713452",
+      "comment": "",
+      "command": "click",
+      "target": "css=.minus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div[3]/div[2]/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[2]/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "085be8f6-b1d5-4a5a-8ae7-f20514a872d1",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.number",
+      "targets": [
+        ["css=.number", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div[3]/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "78399532-0364-44cc-829c-b393577a2b78",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(7)",
+      "targets": [
+        ["css=.ordered:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "119728fa-ecbd-4452-b4dd-a322794cab43",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Giỏ hàng - Thegioididong.com",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "47004663-a378-4f00-9a58-a4f55a6d5504",
+      "comment": "",
+      "command": "click",
+      "target": "css=.imgsp > button",
+      "targets": [
+        ["css=.imgsp > button", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Xóa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "88e675ee-c007-435f-9727-e6bbde40df62",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://www.thegioididong.com/"],
+  "plugins": []
+}

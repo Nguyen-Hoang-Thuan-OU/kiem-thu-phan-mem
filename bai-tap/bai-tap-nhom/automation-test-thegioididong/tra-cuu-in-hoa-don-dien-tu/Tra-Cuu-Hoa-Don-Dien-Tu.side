@@ -1,0 +1,739 @@
+{
+  "id": "8f75b053-c6f8-4de5-af76-dac23242b9bc",
+  "version": "2.0",
+  "name": "Tra-Cuu-Hoa-Don-Dien-Tu",
+  "url": "https://hddt.thegioididong.com/",
+  "tests": [{
+    "id": "3dbb3e04-d0c8-4921-af7b-27851cb1b9de",
+    "name": "Untitled",
+    "commands": []
+  }, {
+    "id": "7e50cfb0-bed2-40c0-a0c0-7dea81eb98e7",
+    "name": "TC1",
+    "commands": [{
+      "id": "4108745e-57e5-4385-8724-3d3b542f1064",
+      "comment": "",
+      "command": "open",
+      "target": "https://hddt.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7a0b7ea-4ee1-431b-9a36-d02c0e414cb1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "596x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8fa19bd3-61ed-4d70-b889-932b14c3235b",
+      "comment": "",
+      "command": "click",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71a2d4cb-1d12-4ffb-854c-f8415ed2cde1",
+      "comment": "",
+      "command": "type",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0377588530"
+    }, {
+      "id": "2886baeb-bfdf-4f5e-b97e-f1a92db4e4b0",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91c00cc6-c5df-4ec6-bbdf-59dd08c99fb5",
+      "comment": "",
+      "command": "type",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "2375322"
+    }, {
+      "id": "7185c1ba-afd6-48b0-8ebe-eab6d0fabb6a",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "409e62af-01ab-47b9-9463-5f0b796b461f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.count",
+      "targets": [
+        ["css=.count", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a64d2ae8-b868-4a74-9f59-c38d738c21eb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.count",
+      "targets": [
+        ["css=.count", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": "Có 1 hóa đơn được tìm thấy"
+    }]
+  }, {
+    "id": "6280fb35-572a-4bdb-b0b1-0930b5a71eea",
+    "name": "TC2",
+    "commands": [{
+      "id": "808837ec-fb6d-480f-9f2d-9f0f8b2d6239",
+      "comment": "",
+      "command": "open",
+      "target": "https://hddt.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "242f2a3c-1dc9-4bc1-bba3-9805ef5a8c30",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "596x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c466964f-8ec8-47b3-a654-676ebb5caebf",
+      "comment": "",
+      "command": "type",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "00704OV2103779122"
+    }, {
+      "id": "6de26d97-ae00-482c-b8a8-cd3ac3d44d90",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cdeb05ad-6fcf-4010-a736-593a36bd3e37",
+      "comment": "",
+      "command": "type",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "2375322"
+    }, {
+      "id": "e45753d1-8277-4874-878c-fbd77ef54399",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c688209-6abc-4dc4-bd36-8745313f08e1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.count",
+      "targets": [
+        ["css=.count", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4da7e3f0-0e49-4517-be3c-55cc5c9853c1",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.count",
+      "targets": [
+        ["css=.count", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": "Có 1 hóa đơn được tìm thấy"
+    }]
+  }, {
+    "id": "229aea79-2dca-4cd0-8443-4031f4dc565c",
+    "name": "TC3",
+    "commands": [{
+      "id": "b47785ca-e2d1-41f8-8bfa-be35bc4b28fb",
+      "comment": "",
+      "command": "open",
+      "target": "https://hddt.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "005a0cf6-b4cd-4505-b6c4-f9254e4486d7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "596x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1cbb49d-7f7d-4e6a-827d-02f61d017508",
+      "comment": "",
+      "command": "click",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "515bda25-1b7f-4c79-8f9c-774773cd8102",
+      "comment": "",
+      "command": "type",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "35653187"
+    }, {
+      "id": "e6086b03-f55b-4a0e-9ab3-456b84207fb4",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1798f921-083b-45a0-9ce7-0a692a89c703",
+      "comment": "",
+      "command": "type",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "74786454"
+    }, {
+      "id": "89de8c72-4e8e-4d25-a038-02df4a31bd27",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "048d2471-991e-4ac0-bf0c-e500146dc056",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.count",
+      "targets": [
+        ["css=.count", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": "Có 0 hóa đơn được tìm thấy"
+    }]
+  }, {
+    "id": "b06e90f8-ad3f-40b1-838b-5eea1f97852d",
+    "name": "TC4",
+    "commands": [{
+      "id": "b57c5be6-2f61-48cb-8f5c-c48c4d51bb12",
+      "comment": "",
+      "command": "open",
+      "target": "https://hddt.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e20d0a30-1340-420d-b716-257d169e63a8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "596x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5459297f-884b-4a1b-907e-56ee017a2d0b",
+      "comment": "",
+      "command": "click",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5843082a-0525-4bb1-b014-25842c855851",
+      "comment": "",
+      "command": "type",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1542356"
+    }, {
+      "id": "51f960bc-76e3-441e-9622-77e0cdf5be06",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64f9e6a8-5ab9-40cb-a1e8-e040e3dd8672",
+      "comment": "",
+      "command": "type",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "2375322"
+    }, {
+      "id": "bfbb746c-6edd-4826-8d93-ec7fba390563",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f35cf66-0f78-4ff6-9d44-d5565ecc4d1c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.count",
+      "targets": [
+        ["css=.count", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": "Có 0 hóa đơn được tìm thấy"
+    }]
+  }, {
+    "id": "15a88e18-cc70-449c-a350-6999e7e52fab",
+    "name": "TC5",
+    "commands": [{
+      "id": "bbd753a8-6e8f-46d9-8c7c-581ac309381e",
+      "comment": "",
+      "command": "open",
+      "target": "https://hddt.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b84bf6ec-cdbb-4955-a797-b4e99ecde441",
+      "comment": "",
+      "command": "type",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0377588530"
+    }, {
+      "id": "1df3bdc8-d8ac-48d2-9368-6a55804acd73",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89a013e2-f96d-465b-89f0-8994ae86920d",
+      "comment": "",
+      "command": "type",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "16072001"
+    }, {
+      "id": "504dcb2d-fac0-4af8-b054-299ee2419419",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "57cd7329-0d29-4c54-9828-c3fdb27ba4b4",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.count",
+      "targets": [
+        ["css=.count", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": "Có 0 hóa đơn được tìm thấy"
+    }]
+  }, {
+    "id": "04827777-5678-45af-b060-dec3488a0911",
+    "name": "TC6",
+    "commands": [{
+      "id": "879eb588-0392-4f90-9721-7d69d6dcd045",
+      "comment": "",
+      "command": "open",
+      "target": "https://hddt.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2cd1b5a-77cb-4012-a3b1-995fc34d116f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "596x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fe42dace-deba-4a9b-a821-bbf084e725de",
+      "comment": "",
+      "command": "click",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d42caa5c-9ddc-4381-9fe0-0814abc877e6",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8756ffe8-4e75-48a5-b682-dd7b68ba6431",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3dbbe4a5-c7ce-4532-9a58-bcf6b86affab",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "73bcdfd0-f37f-4647-85c8-3eb35b2cca3d",
+    "name": "TC7",
+    "commands": [{
+      "id": "03dc98b0-b163-4d2a-aeea-4a8f76c2196b",
+      "comment": "",
+      "command": "open",
+      "target": "https://hddt.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d0a4dd87-e6ec-4b95-a771-98b3fc6e5076",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "596x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "69462d97-b8e4-45c2-8b10-734a979ac2dc",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1f2c0cb-76f8-4422-a1bc-6e9d6bd16887",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba0378a1-5b4b-4bd5-941d-5f1e06546aca",
+      "comment": "",
+      "command": "type",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "2375322"
+    }, {
+      "id": "36b09bae-52b7-44a1-9d37-7ffe1702f762",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "39ea53c1-2358-405e-be5e-be613e08fcb6",
+    "name": "TC8",
+    "commands": [{
+      "id": "4a88656c-f808-4c2b-9ee3-7fa41bcc4a46",
+      "comment": "",
+      "command": "open",
+      "target": "https://hddt.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb074362-e985-4d3d-b071-284f1a454519",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "596x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2cde831-066e-4254-b3f0-a120ac1ea589",
+      "comment": "",
+      "command": "click",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12946904-d359-48d4-a2b1-af45dcc1ed7b",
+      "comment": "",
+      "command": "type",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0377588530"
+    }, {
+      "id": "0eb7ccda-c937-47f0-a8d3-8ec2d141274f",
+      "comment": "",
+      "command": "click",
+      "target": "id=billNum",
+      "targets": [
+        ["id=billNum", "id"],
+        ["name=billNum", "name"],
+        ["css=#billNum", "css:finder"],
+        ["xpath=//input[@id='billNum']", "xpath:attributes"],
+        ["xpath=//div[@id='content_2']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6038b442-380d-49b8-84a1-1570657e68f4",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3cd745fe-282e-46d5-ba94-d2ddf9b0af77",
+      "comment": "",
+      "command": "click",
+      "target": "id=btViewbill",
+      "targets": [
+        ["id=btViewbill", "id"],
+        ["css=#btViewbill", "css:finder"],
+        ["xpath=//button[@id='btViewbill']", "xpath:attributes"],
+        ["xpath=//form[@id='frmSearchInvoice']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'TRA CỨU HÓA ĐƠN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ded2ff34-f940-4094-be9c-a1f1802f4f5e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3dbb3e04-d0c8-4921-af7b-27851cb1b9de"]
+  }, {
+    "id": "58faf54d-af75-4e7b-a20f-b230f470eaec",
+    "name": "Hóa đơn điện tử",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7e50cfb0-bed2-40c0-a0c0-7dea81eb98e7", "6280fb35-572a-4bdb-b0b1-0930b5a71eea", "229aea79-2dca-4cd0-8443-4031f4dc565c", "15a88e18-cc70-449c-a350-6999e7e52fab", "04827777-5678-45af-b060-dec3488a0911", "73bcdfd0-f37f-4647-85c8-3eb35b2cca3d", "39ea53c1-2358-405e-be5e-be613e08fcb6"]
+  }],
+  "urls": ["https://www.thegioididong.com/he-thong-sieu-thi-the-gioi-di-dong", "https://hddt.thegioididong.com/"],
+  "plugins": []
+}

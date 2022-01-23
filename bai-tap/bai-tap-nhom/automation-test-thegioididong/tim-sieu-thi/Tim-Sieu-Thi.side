@@ -1,0 +1,954 @@
+{
+  "id": "dee8237a-51d6-4c45-aa36-a334e3419e42",
+  "version": "2.0",
+  "name": "Tim-Sieu-Thi",
+  "url": "https://www.thegioididong.com/",
+  "tests": [{
+    "id": "343465d5-efbe-47d4-9555-f90eba8ab52a",
+    "name": "TC01",
+    "commands": [{
+      "id": "f4f88af7-9349-462f-9c15-3973e8707e6e",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c447658-4fc1-4402-8143-5b07fb11b5cb",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab7610fb-f9ff-4c43-b1a8-478a69867d94",
+      "comment": "",
+      "command": "click",
+      "target": "css=.province-box__store",
+      "targets": [
+        ["css=.province-box__store", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Chọn tỉnh, thành')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e25b4e9-14c4-4198-9044-a892dea761e2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Đồng Nai",
+      "targets": [
+        ["linkText=Đồng Nai", "linkText"],
+        ["css=li:nth-child(21) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Đồng Nai')]", "xpath:link"],
+        ["xpath=//div[@id='province-box__store']/div/div/ul/li[21]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/sieu-thi-the-gioi-di-dong/dong-nai')]", "xpath:href"],
+        ["xpath=//li[21]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Đồng Nai')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8582331-b334-4408-a814-56c678023eb7",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,4.666666507720947)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ff42d4c-51b3-4b17-aa0b-0c9cf8bcc42e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[3]/div/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/div/h3", "xpath:position"]
+      ],
+      "value": "Có 119 Siêu Thị Tại Đồng Nai"
+    }]
+  }, {
+    "id": "53a9b65f-886c-42aa-a0a7-07ec08b9fc55",
+    "name": "TC03",
+    "commands": [{
+      "id": "e90579f4-b005-4495-a747-8e67a7e24a83",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f9ed5e9-9990-40f8-b67a-dafeccbbbeec",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1cf47b7-05ad-4748-9ce6-ae3f81d14dcc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.province-box__store",
+      "targets": [
+        ["css=.province-box__store", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Chọn tỉnh, thành')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8759e3b2-6f2e-4937-9fa2-5a9790a2ffda",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Đồng Nai",
+      "targets": [
+        ["linkText=Đồng Nai", "linkText"],
+        ["css=li:nth-child(21) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Đồng Nai')]", "xpath:link"],
+        ["xpath=//div[@id='province-box__store']/div/div/ul/li[21]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/sieu-thi-the-gioi-di-dong/dong-nai')]", "xpath:href"],
+        ["xpath=//li[21]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Đồng Nai')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9bde631-6457-40c3-8482-b14eb8721a9e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.district-box__store",
+      "targets": [
+        ["css=.district-box__store", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Chọn quận, huyện')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "847c12c0-2353-4ba3-8b44-7691d6a197bf",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,1.3333333730697632)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "69f58635-d1a7-4a8a-b7fa-1829ac4efe1b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Huyện Xuân Lộc",
+      "targets": [
+        ["linkText=Huyện Xuân Lộc", "linkText"],
+        ["css=#district-box__store li:nth-child(9) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Huyện Xuân Lộc')]", "xpath:link"],
+        ["xpath=//div[@id='district-box__store']/div/div/ul/li[9]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/sieu-thi-the-gioi-di-dong/dong-nai/huyen-xuan-loc')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/ul/li[9]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Huyện Xuân Lộc')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "72fb476c-0b45-4b4b-98b3-12b5d9af4f75",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,9.333333015441895)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8aae642c-c347-44d5-9f64-47671b18a3fc",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[3]/div/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Có 9 Siêu Thị Tại Huyện Xuân Lộc Đồng Nai')]", "xpath:innerText"]
+      ],
+      "value": "Có 9 Siêu Thị Tại Huyện Xuân Lộc Đồng Nai"
+    }]
+  }, {
+    "id": "0d6e4cdb-0e77-4839-9838-39008594e335",
+    "name": "TC02",
+    "commands": [{
+      "id": "6e1e5444-2bdf-4ad6-9d17-cfb1d8e7ff9c",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "290c221b-5a96-4184-92bd-744c18d902ae",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e312731-403f-4f98-97c4-28a6f94f0d11",
+      "comment": "",
+      "command": "click",
+      "target": "css=.province-box__store",
+      "targets": [
+        ["css=.province-box__store", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Chọn tỉnh, thành')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "87150e3e-84d5-4d72-97b7-33967e70384c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.scroll-box__store > input",
+      "targets": [
+        ["css=.scroll-box__store > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='province-box__store']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "159572c1-7796-4734-92d6-61602857db54",
+      "comment": "",
+      "command": "type",
+      "target": "css=.scroll-box__store > input",
+      "targets": [
+        ["css=.scroll-box__store > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='province-box__store']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Đồng Nai"
+    }, {
+      "id": "8702f2b5-1f67-44fc-8582-07330e865786",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Đồng Nai",
+      "targets": [
+        ["linkText=Đồng Nai", "linkText"],
+        ["css=li:nth-child(21) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Đồng Nai')]", "xpath:link"],
+        ["xpath=//div[@id='province-box__store']/div/div/ul/li[21]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/sieu-thi-the-gioi-di-dong/dong-nai')]", "xpath:href"],
+        ["xpath=//li[21]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Đồng Nai')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6634bdb4-27ab-4a17-ac74-a8eb0c74917c",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,8.666666984558105)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85538c28-a131-48ad-8619-67dc8d7e2789",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[3]/div/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/div/h3", "xpath:position"]
+      ],
+      "value": "Có 119 Siêu Thị Tại Đồng Nai"
+    }]
+  }, {
+    "id": "15cac810-546c-4a37-bfac-ce45630bedf5",
+    "name": "TC04",
+    "commands": [{
+      "id": "d1b39e95-fac7-436e-a894-6902fa01b6ae",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "94aef831-0169-484b-8a27-7339ee728b4a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77782728-4623-4784-8492-17a0fce65fdb",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,8.666666984558105)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6845df08-a75a-4d82-a6da-4902a5a09a71",
+      "comment": "",
+      "command": "click",
+      "target": "css=.province-box__store",
+      "targets": [
+        ["css=.province-box__store", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Chọn tỉnh, thành')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6a2e04a-e6db-4efa-bc66-044ebf2514cb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Đồng Nai",
+      "targets": [
+        ["linkText=Đồng Nai", "linkText"],
+        ["css=li:nth-child(21) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Đồng Nai')]", "xpath:link"],
+        ["xpath=//div[@id='province-box__store']/div/div/ul/li[21]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/sieu-thi-the-gioi-di-dong/dong-nai')]", "xpath:href"],
+        ["xpath=//li[21]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Đồng Nai')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e32d02fe-993c-4979-accc-aaefcfc83395",
+      "comment": "",
+      "command": "click",
+      "target": "css=.district-box__store",
+      "targets": [
+        ["css=.district-box__store", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Chọn quận, huyện')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4295d0a3-8206-491e-8564-4c4b98bf8661",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,18.66666603088379)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb2ad720-c0f2-4a66-91c7-8bbf66ae7da5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Huyện Xuân Lộc",
+      "targets": [
+        ["linkText=Huyện Xuân Lộc", "linkText"],
+        ["css=#district-box__store li:nth-child(9) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Huyện Xuân Lộc')]", "xpath:link"],
+        ["xpath=//div[@id='district-box__store']/div/div/ul/li[9]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/sieu-thi-the-gioi-di-dong/dong-nai/huyen-xuan-loc')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/ul/li[9]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Huyện Xuân Lộc')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "029f6f50-3997-4ac8-873a-7fbfbafab4aa",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,4)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "03a735d0-de1e-48b0-936f-8bdc364665c8",
+      "comment": "",
+      "command": "click",
+      "target": "id=keyword",
+      "targets": [
+        ["id=keyword", "id"],
+        ["name=keyword", "name"],
+        ["css=#keyword", "css:finder"],
+        ["xpath=//input[@id='keyword']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/input", "xpath:idRelative"],
+        ["xpath=//aside/div/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6fb1f7b-e20c-4760-9bf6-05d67718f24e",
+      "comment": "",
+      "command": "type",
+      "target": "id=keyword",
+      "targets": [
+        ["id=keyword", "id"],
+        ["name=keyword", "name"],
+        ["css=#keyword", "css:finder"],
+        ["xpath=//input[@id='keyword']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/input", "xpath:idRelative"],
+        ["xpath=//aside/div/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "Suối Cát"
+    }, {
+      "id": "dcfd18ab-b6f0-42c1-96bc-14e70fbcb0b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.iconshop-search:nth-child(1)",
+      "targets": [
+        ["css=.iconshop-search:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='search-store']/a/i", "xpath:idRelative"],
+        ["xpath=//div[3]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f99e816-7b33-44ea-a2ed-d2e76ab3c616",
+      "comment": "",
+      "command": "click",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div/div/h3", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/h3", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20cb6aa4-ef1d-4dd2-9dd6-ab157e6ac8e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div/div/h3", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/h3", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c25ec87d-2621-49bb-a1f5-52aeb3a8c1e4",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div/div/h3", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/h3", "xpath:position"]
+      ],
+      "value": "Có 1 Siêu Thị Phù Hợp"
+    }]
+  }, {
+    "id": "2cc79997-c592-4ebb-9cf4-b73ddd52abde",
+    "name": "TC05",
+    "commands": [{
+      "id": "6f2bbe4d-831b-4ac2-9ecc-96b71ff4396e",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca7f1381-0b31-4a2a-9f8c-ca8a8dd9d7cd",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe1e971a-b665-4c82-bde9-233ddb58db36",
+      "comment": "",
+      "command": "click",
+      "target": "css=.province-box__store",
+      "targets": [
+        ["css=.province-box__store", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Chọn tỉnh, thành')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "27c34bd9-953d-402b-bbc9-baa0ddea3c79",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Đồng Nai",
+      "targets": [
+        ["linkText=Đồng Nai", "linkText"],
+        ["css=li:nth-child(21) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Đồng Nai')]", "xpath:link"],
+        ["xpath=//div[@id='province-box__store']/div/div/ul/li[21]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/sieu-thi-the-gioi-di-dong/dong-nai')]", "xpath:href"],
+        ["xpath=//li[21]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Đồng Nai')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbfaa969-c0e5-4814-b0de-477c6d9ade65",
+      "comment": "",
+      "command": "click",
+      "target": "css=.district-box__store",
+      "targets": [
+        ["css=.district-box__store", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Chọn quận, huyện')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e1dcf89-1754-4812-b006-75f605780756",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,4.666666507720947)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8b07fb45-38e3-448e-a73c-ab6947a755b4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Huyện Xuân Lộc",
+      "targets": [
+        ["linkText=Huyện Xuân Lộc", "linkText"],
+        ["css=#district-box__store li:nth-child(9) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Huyện Xuân Lộc')]", "xpath:link"],
+        ["xpath=//div[@id='district-box__store']/div/div/ul/li[9]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/sieu-thi-the-gioi-di-dong/dong-nai/huyen-xuan-loc')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/ul/li[9]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Huyện Xuân Lộc')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da82ffab-4a75-4c37-8347-a136f0cfacae",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,4)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9c39854-2157-4830-8013-8012495e0030",
+      "comment": "",
+      "command": "click",
+      "target": "id=keyword",
+      "targets": [
+        ["id=keyword", "id"],
+        ["name=keyword", "name"],
+        ["css=#keyword", "css:finder"],
+        ["xpath=//input[@id='keyword']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/input", "xpath:idRelative"],
+        ["xpath=//aside/div/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7eda05ca-cea3-4a49-af12-e19f6f151533",
+      "comment": "",
+      "command": "type",
+      "target": "id=keyword",
+      "targets": [
+        ["id=keyword", "id"],
+        ["name=keyword", "name"],
+        ["css=#keyword", "css:finder"],
+        ["xpath=//input[@id='keyword']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/input", "xpath:idRelative"],
+        ["xpath=//aside/div/div/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "Gò Vấp"
+    }, {
+      "id": "cc7db6c6-a01b-443e-a8a7-243f8872e55c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#search-store > a",
+      "targets": [
+        ["css=#search-store > a", "css:finder"],
+        ["xpath=//a[@onclick='SuggestSearch(event, true)']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[3]", "xpath:href"],
+        ["xpath=//div/div/div/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6293533b-216b-429b-8d71-0c85a047bd3b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.serviceatt > .alert",
+      "targets": [
+        ["css=.serviceatt > .alert", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/div", "xpath:position"]
+      ],
+      "value": "Không có kết quả phù hợp:\\n\"Gò Vấp\""
+    }]
+  }, {
+    "id": "b9f5652c-88bc-4a5d-8d4b-81b77120a070",
+    "name": "TC06",
+    "commands": [{
+      "id": "9360f90b-f245-41e5-8e3d-36c6b67ab7fc",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f642320f-cb26-4ab1-93bb-ffee1b67265c",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce1484e8-8bfc-4a0a-a49b-501f90ee6358",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,4)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b865a22c-1b34-4322-bf46-1ebe7e661448",
+      "comment": "",
+      "command": "click",
+      "target": "id=keyword",
+      "targets": [
+        ["id=keyword", "id"],
+        ["name=keyword", "name"],
+        ["css=#keyword", "css:finder"],
+        ["xpath=//input[@id='keyword']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6328098c-e3c8-4189-ade3-1bc6c1ea7548",
+      "comment": "",
+      "command": "type",
+      "target": "id=keyword",
+      "targets": [
+        ["id=keyword", "id"],
+        ["name=keyword", "name"],
+        ["css=#keyword", "css:finder"],
+        ["xpath=//input[@id='keyword']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Suối Cát"
+    }, {
+      "id": "667f7f57-76bd-4791-8354-c094864b84a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.iconshop-search:nth-child(1)",
+      "targets": [
+        ["css=.iconshop-search:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='search-store']/a/i", "xpath:idRelative"],
+        ["xpath=//div[2]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29748d44-ee97-471d-a788-f248d23b9b64",
+      "comment": "",
+      "command": "click",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div/div/h3", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/h3", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "472a4090-03a6-48c7-9bcc-5c7a73896907",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div/div/h3", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/h3", "xpath:position"]
+      ],
+      "value": "Có 3 Siêu Thị Phù Hợp"
+    }]
+  }, {
+    "id": "0dfa5fad-326c-42b5-89ec-ebc64377fa0b",
+    "name": "TC07",
+    "commands": [{
+      "id": "aefb97e3-253b-4a91-8db9-2cb311010de3",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a57c424-d394-487e-a9fe-f5497d2e3e03",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "668x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f83746b0-28e9-445f-a09f-4dd504778076",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d4e918c-31ad-43ec-a263-df0c74d48ede",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb185db1-bb46-416d-9d5f-959d29ad70bc",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,2.6666667461395264)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ce33635d-53b2-4b7c-a3bc-ea5ca27c2926",
+      "comment": "",
+      "command": "click",
+      "target": "id=keyword",
+      "targets": [
+        ["id=keyword", "id"],
+        ["name=keyword", "name"],
+        ["css=#keyword", "css:finder"],
+        ["xpath=//input[@id='keyword']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c90f9eb-463f-42d5-80a9-af89979e208f",
+      "comment": "",
+      "command": "type",
+      "target": "id=keyword",
+      "targets": [
+        ["id=keyword", "id"],
+        ["name=keyword", "name"],
+        ["css=#keyword", "css:finder"],
+        ["xpath=//input[@id='keyword']", "xpath:attributes"],
+        ["xpath=//div[@id='search-store']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "China"
+    }, {
+      "id": "c177db95-bd91-4ea2-82ca-e94a3b84f215",
+      "comment": "",
+      "command": "click",
+      "target": "css=.iconshop-search:nth-child(1)",
+      "targets": [
+        ["css=.iconshop-search:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='search-store']/a/i", "xpath:idRelative"],
+        ["xpath=//div[2]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "983385df-3375-4c73-a795-57f2e58153e6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.serviceatt > .alert",
+      "targets": [
+        ["css=.serviceatt > .alert", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/div", "xpath:position"]
+      ],
+      "value": "Không có kết quả phù hợp:\\n\"China\""
+    }]
+  }, {
+    "id": "4b8ef370-ae02-4047-9219-2179bc614adb",
+    "name": "TC08",
+    "commands": [{
+      "id": "8d032cd6-23c7-435f-a992-7627cdde38cb",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c80ae8cc-8eee-4eab-8dbc-f126e5262ad8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "668x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "89c258b4-d8ce-4286-a3e3-da7056909208",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d53b53f-7b6d-4462-8b32-436643fb4e06",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7842344d-ff19-4558-b4a5-931ca43ada8f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.neareststore",
+      "targets": [
+        ["css=.neareststore", "css:finder"],
+        ["xpath=//div[@id='storenear']/a/span", "xpath:idRelative"],
+        ["xpath=//div[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Xem siêu thị gần bạn')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9ac1c85-5f6d-4dbe-b62b-6429160cdbe1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div/h3", "xpath:idRelative"],
+        ["xpath=//div[2]/div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Danh Sách Siêu Thị Gần Bạn')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c452425-5eec-4d08-a52d-79bcea3ae751",
+      "comment": "",
+      "command": "click",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div/h3", "xpath:idRelative"],
+        ["xpath=//div[2]/div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Danh Sách Siêu Thị Gần Bạn')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1c44027-7fe8-44c3-ad73-7641fad0f11c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[2]/div/h3", "xpath:idRelative"],
+        ["xpath=//div[2]/div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Danh Sách Siêu Thị Gần Bạn')]", "xpath:innerText"]
+      ],
+      "value": "Danh Sách Siêu Thị Gần Bạn"
+    }]
+  }, {
+    "id": "a3a8d465-9dff-44f7-8a1c-a4a64164b643",
+    "name": "TC09",
+    "commands": [{
+      "id": "6782e7b0-5ae1-4319-9d9e-39537be4f579",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d86a497e-3e02-4f89-abbb-89a27debec65",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "linkText=Tìm siêu thị (3.002 shop)",
+      "targets": [
+        ["linkText=Tìm siêu thị (3.002 shop)", "linkText"],
+        ["css=.footer__col:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Tìm siêu thị (3.002 shop)')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/he-thong-sieu-thi-the-gioi-di-dong')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tìm siêu thị (3.002 shop)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1bb3dd88-bcf5-4e19-9ae4-c00c62011308",
+      "comment": "",
+      "command": "click",
+      "target": "css=.neareststore",
+      "targets": [
+        ["css=.neareststore", "css:finder"],
+        ["xpath=//div[@id='storenear']/a/span", "xpath:idRelative"],
+        ["xpath=//div[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Xem siêu thị gần bạn')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b016ac31-e86e-471b-8927-f9cdde4cf664",
+      "comment": "",
+      "command": "click",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[3]/div/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'SIÊU THỊ THẾ GIỚI DI ĐỘNG MỚI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cdf7fe16-40c2-45d2-abf9-9086f3c12177",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.conttitle > h3",
+      "targets": [
+        ["css=.conttitle > h3", "css:finder"],
+        ["xpath=//section[@id='homeTGDD']/div[2]/aside/div[3]/div/h3", "xpath:idRelative"],
+        ["xpath=//div[3]/div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'SIÊU THỊ THẾ GIỚI DI ĐỘNG MỚI')]", "xpath:innerText"]
+      ],
+      "value": "SIÊU THỊ THẾ GIỚI DI ĐỘNG MỚI"
+    }]
+  }],
+  "suites": [{
+    "id": "67dd422b-2174-4231-a4f6-7f3ab54cf3f8",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["343465d5-efbe-47d4-9555-f90eba8ab52a"]
+  }],
+  "urls": ["https://www.thegioididong.com/"],
+  "plugins": []
+}

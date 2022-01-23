@@ -61,7 +61,7 @@ time.sleep(1)
 Bước 02: Định vị giá của sản phẩm đầu tiên
 trong danh sách kết quả trả về (phần tóm tắt)
 """
-# Đinh vị phần bao toàn bộ thuộc tính bên trong
+# Định vị phần bao toàn bộ thuộc tính bên trong
 san_phan_dau_tien_trong_tom_tat = trinh_dieu_khien \
     .find_element(By.XPATH,
                   """//ul[@class='listsearch item2020 listproduct']//li[3]""")

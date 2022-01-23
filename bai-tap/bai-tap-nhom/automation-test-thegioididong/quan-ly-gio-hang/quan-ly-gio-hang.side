@@ -1,0 +1,2109 @@
+{
+  "id": "3eaa1517-39f2-4b3b-b6d2-f7933d1b6919",
+  "version": "2.0",
+  "name": "quan-ly-gio-hang-thegioididong",
+  "url": "https://www.thegioididong.com/cart",
+  "tests": [{
+    "id": "3c0656a3-b900-4614-9844-f14f9de7f435",
+    "name": "TC_GioHang_001",
+    "commands": [{
+      "id": "2e53d3f7-2bda-4cb0-944b-c0362e03d983",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "94d4729b-59a1-4d4b-a1e7-979f1ec4718e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3ab29965-60ec-4199-a355-4421030789f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.choosenumber", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e54d5657-9420-41bf-9dc4-9f69a9c82aff",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.number",
+      "targets": [],
+      "value": "3000"
+    }, {
+      "id": "a656e29a-94c3-4b05-bcbe-894998c6e999",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.number",
+      "targets": [
+        ["css=.number", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "2"
+    }]
+  }, {
+    "id": "860a1165-c03d-4abc-bc30-200e7ed6083f",
+    "name": "TC_GioHang_002",
+    "commands": [{
+      "id": "54912ed6-8861-45d8-8af6-1059773025cb",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3322caf1-fc13-4ea8-89b4-1d10256d70e3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "77a69bc2-32a4-41c1-bcb4-b9bb651562f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.minus",
+      "targets": [
+        ["css=.minus", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b79e1909-8103-4edb-b5c7-72b0dccee495",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.number",
+      "targets": [],
+      "value": "3000"
+    }, {
+      "id": "d912249d-3042-48f7-ab8c-9ea0c3148dea",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.number",
+      "targets": [
+        ["css=.number", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "1"
+    }]
+  }, {
+    "id": "7b26f7dc-7f0e-4329-95e4-baf55e3e1fed",
+    "name": "TC_GioHang_004",
+    "commands": [{
+      "id": "12aff3d1-7464-4f98-a250-05a8d6e3db24",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "057a4c05-2c76-447e-a65d-13fe151269df",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca8ae418-efd4-40fe-b40b-1e85d9d029a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.imgsp > button",
+      "targets": [
+        ["css=.imgsp > button", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Xóa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "65dcc8fe-4f6a-4dd2-bab8-e376e6533aef",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.isActive",
+      "targets": [
+        ["css=.isActive", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fdcc778f-cb46-4366-876d-467f0243a5fb",
+    "name": "TC_GioHang_003",
+    "commands": [{
+      "id": "d6175633-6100-4798-8ef2-171eca4a41d1",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b2fc8f5a-e594-4b3a-94b6-4f36dec5f700",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74de647e-bce8-4529-a99e-15746339097f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.color-text",
+      "targets": [
+        ["css=.color-text", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div/aside/label/span[2]", "xpath:idRelative"],
+        ["xpath=//label/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": "Xám"
+    }, {
+      "id": "9fb59c4e-bd2b-4c2c-908f-7a2b75219f53",
+      "comment": "",
+      "command": "click",
+      "target": "css=aside > label:nth-child(1)",
+      "targets": [
+        ["css=aside > label:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div/aside/label", "xpath:idRelative"],
+        ["xpath=//div[3]/div/aside/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Màu: Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "455b1650-846f-4757-9385-48b99cedb572",
+      "comment": "",
+      "command": "click",
+      "target": "css=.select-color:nth-child(4) > small",
+      "targets": [
+        ["css=.select-color:nth-child(4) > small", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div/aside/div/div[4]/small", "xpath:idRelative"],
+        ["xpath=//div[4]/small", "xpath:position"],
+        ["xpath=//small[contains(.,'Xanh Dương')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a4e64c1-aa4a-476a-9e9a-bc6e9d412424",
+      "comment": "",
+      "command": "waitForText",
+      "target": "css=.color-text",
+      "targets": [],
+      "value": "Xanh Dương"
+    }, {
+      "id": "55fb5404-9d8b-40b4-bcf9-c68ecacd4cd6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.color-text",
+      "targets": [
+        ["css=.color-text", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[3]/div/aside/label/span[2]", "xpath:idRelative"],
+        ["xpath=//label/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Xanh Dương')]", "xpath:innerText"]
+      ],
+      "value": "Xanh Dương"
+    }]
+  }, {
+    "id": "3b6132c9-c5f1-40e3-bd45-565a22d5dd29",
+    "name": "TC_ChuanBiGioHang_iPhone11",
+    "commands": [{
+      "id": "b552f445-d748-40cc-9cff-9832fab6703b",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/dtdd/iphone-11",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6e334763-9b95-443d-ba00-b753a155d828",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ce5ccd2f-75e1-4692-9b16-09dd458f9256",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=256GB",
+      "targets": [
+        ["linkText=256GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .box03__item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'256GB')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-11-256gb')]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'256GB')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ea0b355-f347-48b0-96ce-b03b399ce224",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,600)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef47e3e5-599c-4014-879f-d13ec9c7f1c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.color",
+      "targets": [
+        ["css=.color", "css:finder"],
+        ["xpath=//div[3]/div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38cb242d-b8e5-4840-af9d-0bc356db6628",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[3]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "53d6536b-f46f-48f4-a6eb-abb24b322e30",
+      "comment": "",
+      "command": "click",
+      "target": "css=.box-promo:nth-child(2) p",
+      "targets": [
+        ["css=.box-promo:nth-child(2) p", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/span/aside/div/span/p", "xpath:idRelative"],
+        ["xpath=//span/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Giảm giá 1,500,000đ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "65225813-6e32-4d78-97ff-e1ec75f1bf2e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(10)",
+      "targets": [
+        ["css=.ordered:nth-child(10)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d814ffe-76b7-4b15-ac1e-d397e2a249fd",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "11a527b3-8cb9-490d-b636-e205f4d45677",
+    "name": "TC_GioHang_005",
+    "commands": [{
+      "id": "ac3691b1-0378-4ad6-9db0-db707f46852a",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1e035c6-bbe8-4521-8661-759ead4025cf",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1bb9e28e-0ca9-4ad4-b3f5-1d6c5d54bcaf",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.name-price > span",
+      "targets": [
+        ["css=.name-price > span", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.990.000₫')]", "xpath:innerText"]
+      ],
+      "value": "21.990.000₫"
+    }, {
+      "id": "f28c397c-a97b-423f-b26c-62b14c33deb2",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.active > p",
+      "targets": [
+        ["css=.active > p", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[2]/aside/div/aside/div/span/p", "xpath:idRelative"],
+        ["xpath=//span/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Giảm giá 1,500,000đ')]", "xpath:innerText"]
+      ],
+      "value": "Giảm giá 1,500,000đ"
+    }, {
+      "id": "0565058f-fbaa-467f-aab1-8d6985b3b9d2",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.total-price > strong:nth-child(2)",
+      "targets": [
+        ["css=.total-price > strong:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/div/div[3]/strong[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/strong[2]", "xpath:position"]
+      ],
+      "value": "20.490.000₫"
+    }]
+  }, {
+    "id": "670bf0c7-8cfc-403f-9309-c732fdfe1853",
+    "name": "TC_GioHang_006",
+    "commands": [{
+      "id": "e87cbfcc-981b-4074-9423-123eb70b5cb7",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4264fc30-4eca-46f8-a3b0-cfb5130f74c4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "338e7e6c-dc9d-4f89-aa16-b14f2839acad",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.name-price > span",
+      "targets": [
+        ["css=.name-price > span", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.990.000₫')]", "xpath:innerText"]
+      ],
+      "value": "21.990.000₫"
+    }, {
+      "id": "03b296ef-16c5-4d2e-a24c-ef660b5f7858",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.active > p",
+      "targets": [
+        ["css=.active > p", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/ul/li/div[2]/div[2]/aside/div/aside/div[2]/span/p", "xpath:idRelative"],
+        ["xpath=//div[2]/span/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Phiếu mua hàng Bách hóa XANH 2,250,000đ')]", "xpath:innerText"]
+      ],
+      "value": "Phiếu mua hàng Bách hóa XANH 2,250,000đ"
+    }, {
+      "id": "1cbb0073-df84-4917-92c7-7fb7e3b8b77d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=strong:nth-child(2)",
+      "targets": [
+        ["css=strong:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/div/div[3]/strong[2]", "xpath:idRelative"],
+        ["xpath=//strong[2]", "xpath:position"],
+        ["xpath=//strong[contains(.,'21.990.000₫')]", "xpath:innerText"]
+      ],
+      "value": "21.990.000₫"
+    }]
+  }, {
+    "id": "51f9e5b8-2614-46a6-b8e4-bf6aff09d3cb",
+    "name": "TC_GioHang_007",
+    "commands": [{
+      "id": "10207bd0-ff6c-4115-a222-bc04d9774c41",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed38c57c-17eb-43fa-9d2a-e240447750f6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "53ad779b-fcca-4864-bfad-905bd2c32f8e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "da2eee9e-1358-4e29-8633-9c487f7242ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f0f192d-5ddc-4b92-9939-b4f282bff154",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sex-customer > span:nth-child(2)",
+      "targets": [
+        ["css=.sex-customer > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div/span", "xpath:idRelative"],
+        ["xpath=//form/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,' Anh')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6b9a6c4-3ce6-4689-be32-abf67157b84e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.sex-customer > .active",
+      "targets": [
+        ["css=.sex-customer > .active", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div/span", "xpath:idRelative"],
+        ["xpath=//form/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,' Anh')]", "xpath:innerText"]
+      ],
+      "value": "Anh"
+    }, {
+      "id": "8237106e-8c8e-4466-99d5-b6e51a6b05a1",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.yourCart > span",
+      "targets": [
+        ["css=.yourCart > span", "css:finder"],
+        ["xpath=//div[@id='app']/section/div/span", "xpath:idRelative"],
+        ["xpath=//section/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Giỏ hàng của anh')]", "xpath:innerText"]
+      ],
+      "value": "Giỏ hàng của anh"
+    }]
+  }, {
+    "id": "c99cfff1-d079-468c-b995-79295ee6e051",
+    "name": "TC_GioHang_008",
+    "commands": [{
+      "id": "c354b4a9-3395-4e1c-ac4d-db230a41fed7",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "deeef3f9-016e-41df-94e5-2c4b04c50881",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c46a2722-abcd-451c-87ee-f902d22a9fee",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "71d875a7-8c2a-4791-a4d7-3805fa658b40",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8700221a-0bd3-4b8a-99d2-1006b7f2162e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sex-customer > span:nth-child(3)",
+      "targets": [
+        ["css=.sex-customer > span:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div/span[2]", "xpath:idRelative"],
+        ["xpath=//form/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' Chị')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a77ca9fd-744d-4f6f-a90e-8fc96e51343d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.active:nth-child(3)",
+      "targets": [
+        ["css=.active:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div/span[2]", "xpath:idRelative"],
+        ["xpath=//form/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' Chị')]", "xpath:innerText"]
+      ],
+      "value": "Chị"
+    }, {
+      "id": "ec355601-69c5-40cc-bd99-aa63f8ae56d7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.yourCart > span",
+      "targets": [
+        ["css=.yourCart > span", "css:finder"],
+        ["xpath=//div[@id='app']/section/div/span", "xpath:idRelative"],
+        ["xpath=//section/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Giỏ hàng của chị')]", "xpath:innerText"]
+      ],
+      "value": "Giỏ hàng của chị"
+    }]
+  }, {
+    "id": "cf873094-ff9e-471a-a65d-6d51c5851ff4",
+    "name": "TC_ChuanBiGioHang_iPhone13",
+    "commands": [{
+      "id": "c1a4ba64-ea2d-458c-b0e6-ec648d97bc5e",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/dtdd/iphone-13-pro-max",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "df656790-2041-40bc-a69c-57a55ecee628",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7e37e75d-53f1-4a45-a18a-e15325caa654",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=128GB",
+      "targets": [
+        ["linkText=256GB", "linkText"],
+        ["css=.scrolling_inner:nth-child(1) .box03__item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'256GB')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-11-256gb')]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div/div/a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'256GB')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "25f7f7b9-c9de-4346-b341-306d0c7ebadd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xám",
+      "targets": [
+        ["linkText=Xám", "linkText"],
+        ["css=.color > .box03__item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Xám')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/dtdd/iphone-13-pro-max?code=0131491002650')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Xám')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c32a2cbb-7a0b-413f-8513-e41b5582478c",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,600)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d4ef2b6-2fea-4c00-9b65-ce7e92e9c614",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=MUA NGAY",
+      "targets": [
+        ["linkText=MUA NGAY", "linkText"],
+        ["css=.btn-buynow", "css:finder"],
+        ["xpath=//a[contains(text(),'MUA NGAY')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'javascript:void(0);')]", "xpath:href"],
+        ["xpath=//div[4]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'MUA NGAY')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e8976ec-3fa8-4e93-8adc-cb47c50cae85",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ordered:nth-child(9)",
+      "targets": [
+        ["css=.ordered:nth-child(9)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "78ee65b6-534d-4731-ba47-5cb54134b3d8",
+    "name": "TC_GioHang_012",
+    "commands": [{
+      "id": "a894468d-4a14-402a-bb18-b1a331500b3a",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3433009b-ceb2-4f8f-ba9f-94abb9c0689e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3341c881-5fd4-40ed-9ebb-bce132868b24",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "226a2214-9c24-4d9b-a4f8-8ab21643f533",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e618d5fa-7313-4d5e-8fb9-27c0737eb153",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor-customer",
+      "targets": [
+        ["css=.infor-customer", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b33980e-a6f6-4afb-afd2-81a38caacd3c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea92810b-c0af-4941-b630-2573296603e8",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b08b658-fc82-4c90-a7b1-4cdee86ecb53",
+      "comment": "",
+      "command": "type",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.dirty", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "25140552110144558292723115223549428345344505693192-123"
+    }, {
+      "id": "50b87d2a-2e71-4558-a94a-5a21c56731ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6b4d4d3-d22f-458a-b8a7-f877f149404f",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.fillname > span",
+      "targets": [],
+      "value": "Vui lòng nhập họ và tên"
+    }]
+  }, {
+    "id": "7f45f474-b7dc-43cb-8456-75ae72ac46b0",
+    "name": "TC_GioHang_013",
+    "commands": [{
+      "id": "8e79fd72-0c1f-44ed-8f25-b547f3a675f9",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "998b15bb-71b3-4238-8461-e48a0cb1dfa3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "41fdfe71-5de8-4a09-b111-834de67b4eb4",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "d2f2e7eb-f631-444d-8c76-8c0a9b1aa88c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2531d9f9-48da-467e-b629-6b2961614fb9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa5f8175-2007-43d0-a8ff-88085d4e75c9",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ffa605b-aab7-4ecf-a7d1-42d090ceb43e",
+      "comment": "",
+      "command": "type",
+      "target": "css=.phoneNumber__input",
+      "targets": [],
+      "value": "0999999999"
+    }, {
+      "id": "d7a356c0-03fb-4d58-bb4e-c9faa1a748d1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submitorder",
+      "targets": [
+        ["css=.submitorder", "css:finder"],
+        ["xpath=(//button[@type='button'])[6]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/button", "xpath:idRelative"],
+        ["xpath=//div[7]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2869536-7229-477e-a04c-4893e4152b05",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.fillname > span",
+      "targets": [],
+      "value": "Số điện thoại không hợp lệ"
+    }]
+  }, {
+    "id": "9cabc75e-8fd9-42f0-9c87-58506fed1133",
+    "name": "TC_GioHang_014",
+    "commands": [{
+      "id": "8fffabe4-e45c-4911-a141-aeda2c7db1dd",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "66397397-31c4-4182-b497-8c163db76f0d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2c0c3603-2bec-4726-9ce6-fdb40cbbde65",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "e80eaf93-0130-492e-aed7-567745dd1ac3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e6054af-c897-423b-8efb-5b583ec5bc2b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00706184-8ad2-4451-a660-0d86d3354e9f",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca946562-7e4b-4ce0-a8bc-d8d998baa649",
+      "comment": "",
+      "command": "type",
+      "target": "css=.phoneNumber__input",
+      "targets": [],
+      "value": "0abcdefghi"
+    }, {
+      "id": "56ad23b4-bc95-4573-8ffb-0b2197e107c4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submitorder",
+      "targets": [
+        ["css=.submitorder", "css:finder"],
+        ["xpath=(//button[@type='button'])[6]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/button", "xpath:idRelative"],
+        ["xpath=//div[7]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "094d43fc-0cbf-4ddf-8676-b1c6c672c2af",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.fillname > span",
+      "targets": [],
+      "value": "Số điện thoại không hợp lệ"
+    }]
+  }, {
+    "id": "7561eb89-315a-4bea-89ea-8e06f5096c7e",
+    "name": "TC_GioHang_015",
+    "commands": [{
+      "id": "23740765-1b7c-4062-8f02-201189fb2cc5",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8709f31f-19f0-46a1-9d7b-7b1bd5931fff",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71342176-87fc-4cf1-8376-60fea5fd9d38",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "34934232-c887-4105-ba05-087d01750ec5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "52b5b1c4-6e54-4c58-9acf-894b7d220b22",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor-customer",
+      "targets": [
+        ["css=.infor-customer", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "246ec259-0c73-4835-9ace-3de22fb9068b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a14344ab-7f9b-4416-a241-ad51e836797b",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "39c2fcb6-1dc2-435b-8e55-eafcf942e629",
+      "comment": "",
+      "command": "type",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.dirty", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "25140552110144558292723115223549428345344505693192-123"
+    }, {
+      "id": "82af935b-1b5e-4c55-8e03-9003e3d8764e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6e4a99c-abc5-468b-8615-bfa8d1b2f14d",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "557f43eb-e38f-437c-87a6-a195d0bcc669",
+      "comment": "",
+      "command": "type",
+      "target": "css=.phoneNumber__input",
+      "targets": [],
+      "value": "0999999999"
+    }, {
+      "id": "dc08812e-e46c-449a-87f0-b5a8f6147546",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submitorder",
+      "targets": [
+        ["css=.submitorder", "css:finder"],
+        ["xpath=(//button[@type='button'])[6]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/button", "xpath:idRelative"],
+        ["xpath=//div[7]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3ff73e5b-0539-4ddd-9a2f-f271324d9a88",
+    "name": "TC_GioHang_016",
+    "commands": [{
+      "id": "5ab7a42c-6127-4d3f-80ef-1120063f8319",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b78cadc-054f-498e-84b0-4e0b4f2e9d60",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c3e7f53-1d7d-4179-a744-1d44271d1b69",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cntry-district:nth-child(2) > .country > button",
+      "targets": [
+        ["css=.cntry-district:nth-child(2) > .country > button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='tab-1']/div/form/div/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kiên Giang')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "34f03b14-1c40-44c4-9fc5-5d9ce51b370c",
+      "comment": "",
+      "command": "click",
+      "target": "(//span[contains(text(),'Hồ Chí Minh')])[1]",
+      "targets": [
+        ["css=aside > .active", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div/div/div/div[2]/aside/span", "xpath:idRelative"],
+        ["xpath=//aside/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4aff2508-1749-4be2-8d71-6860a0f5e7af",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cntry-district:nth-child(2) > .district > button",
+      "targets": [
+        ["css=.cntry-district:nth-child(2) > .district > button", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='tab-1']/div/form/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Chọn Quận / Huyện')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd15aae3-0076-423f-97ff-dc52c0b8dbe8",
+      "comment": "",
+      "command": "click",
+      "target": "(//span[contains(text(),'Quận Gò Vấp')])[1]",
+      "targets": [
+        ["css=.active > .listName > aside:nth-child(2) > span:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div/div[2]/div/div[2]/aside[2]/span[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/aside[2]/span[3]", "xpath:position"],
+        ["xpath=//span[contains(.,'Quận Gò Vấp')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "188b70a5-494a-4488-9b67-e46ae273c7f2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.wards > button",
+      "targets": [
+        ["css=.wards > button", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='tab-1']/div/form/div[2]/button", "xpath:idRelative"],
+        ["xpath=//form/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Chọn Phường / Xã')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "43121f48-b1e7-4375-ac38-95156656d8be",
+      "comment": "",
+      "command": "click",
+      "target": "(//span[contains(text(),'Phường 3')])[1]",
+      "targets": [
+        ["css=.active > .listName > aside:nth-child(1) > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div[2]/div/div[2]/aside/span[2]", "xpath:idRelative"],
+        ["xpath=//form/div[2]/div/div[2]/aside/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Phường 3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "26a54e24-6739-4f89-a8fc-8db26e14ec0d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submitorder > b",
+      "targets": [
+        ["css=.submitorder > b", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/button/b", "xpath:idRelative"],
+        ["xpath=//button/b", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c30c0b96-799f-4636-9c41-ba9289753b65",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.filladdress__error",
+      "targets": [
+        ["css=.filladdress__error", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div[3]/small", "xpath:idRelative"],
+        ["xpath=//form/div[3]/small", "xpath:position"],
+        ["xpath=//small[contains(.,'Vui lòng nhập địa chỉ')]", "xpath:innerText"]
+      ],
+      "value": "Vui lòng nhập địa chỉ"
+    }]
+  }, {
+    "id": "e809b63c-20a9-4e17-888e-d80b0284ba90",
+    "name": "TC_GioHang_017",
+    "commands": [{
+      "id": "9504412b-e6fb-4cd0-b259-1a2c88efd4b9",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3b5e1748-d36e-4af3-8750-7f22b391bb16",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1a143752-16a0-4083-b590-22bd1cf04e51",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-address__other-addresses__item",
+      "targets": [
+        ["css=.text-address__other-addresses__item", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/div/div[2]/small", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/small", "xpath:position"],
+        ["xpath=//small[contains(.,'Thêm địa chỉ khác')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "780c4b04-c57f-41f4-af92-0935523eb746",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cntry-district:nth-child(2) > .country > button",
+      "targets": [
+        ["css=.cntry-district:nth-child(2) > .country > button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='tab-1']/div/form/div/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kiên Giang')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d59fca2e-77ec-4ded-91e0-7bcfd39820ac",
+      "comment": "",
+      "command": "click",
+      "target": "(//span[contains(text(),'Hồ Chí Minh')])[1]",
+      "targets": [
+        ["css=aside > .active", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div/div/div/div[2]/aside/span", "xpath:idRelative"],
+        ["xpath=//aside/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "52e67678-b4d1-4907-bd32-29ca4e4a2ee1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cntry-district:nth-child(2) > .district > button",
+      "targets": [
+        ["css=.cntry-district:nth-child(2) > .district > button", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='tab-1']/div/form/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Chọn Quận / Huyện')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "79c259d6-803b-4414-a60e-a8d4c0779c1f",
+      "comment": "",
+      "command": "click",
+      "target": "(//span[contains(text(),'Quận Gò Vấp')])[1]",
+      "targets": [
+        ["css=.active > .listName > aside:nth-child(2) > span:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div/div[2]/div/div[2]/aside[2]/span[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/aside[2]/span[3]", "xpath:position"],
+        ["xpath=//span[contains(.,'Quận Gò Vấp')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "111b6785-3a5a-4078-bbb6-8f923596ecf7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.wards > button",
+      "targets": [
+        ["css=.wards > button", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='tab-1']/div/form/div[2]/button", "xpath:idRelative"],
+        ["xpath=//form/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Chọn Phường / Xã')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "312916bf-47ca-4ab9-8d05-fb508a1ed9bc",
+      "comment": "",
+      "command": "click",
+      "target": "(//span[contains(text(),'Phường 3')])[1]",
+      "targets": [
+        ["css=.active > .listName > aside:nth-child(1) > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div[2]/div/div[2]/aside/span[2]", "xpath:idRelative"],
+        ["xpath=//form/div[2]/div/div[2]/aside/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Phường 3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb8ca70e-06ca-42e1-b99f-e4b203f67fff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.filladdress > .untouched",
+      "targets": [
+        ["css=.filladdress > .untouched", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//form/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "04908b09-4ce5-4255-be6e-160fca4959f4",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.filladdress > .untouched",
+      "targets": [
+        ["css=.filladdress > .untouched", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//form/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8fd0dcd2-ab7d-40be-98e5-bc79b416ad58",
+      "comment": "",
+      "command": "type",
+      "target": "css=.filladdress > .untouched",
+      "targets": [
+        ["css=.dirty", "css:finder"],
+        ["xpath=//div[@id='tab-1']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//form/div[3]/input", "xpath:position"]
+      ],
+      "value": "371 Nguyễn Kiệm"
+    }, {
+      "id": "15d17e52-f3bf-40a1-9372-e6a0750dd851",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submitorder > b",
+      "targets": [
+        ["css=.submitorder > b", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/button/b", "xpath:idRelative"],
+        ["xpath=//button/b", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c037070-9dfa-46b8-8e48-cc72f9f2efb0",
+      "comment": "",
+      "command": "verifyTitle",
+      "target": "Đặt hàng thành công - Thegioididong.com",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "99c3fd0b-3057-4710-b24c-9a11ee6e36f7",
+    "name": "TC_GioHang_018",
+    "commands": [{
+      "id": "79f190ef-9036-4895-a0ce-31603682590d",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de39b62a-e0e4-446b-99f4-14479b1e5ca2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c9e678b-9d3c-4fcc-a439-b90f22f78b39",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "3efee08a-bc0b-4236-bfbe-d1969135fd58",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6198196-7a7b-4c6a-b823-e7b35da51da8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor-customer",
+      "targets": [
+        ["css=.infor-customer", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8be70c44-84a8-4fce-b73d-aa528f0c2017",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ede566e3-1b39-4074-a32b-cb24c3dc8947",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c921396-3c3d-435b-8171-be03dcb1f2b1",
+      "comment": "",
+      "command": "type",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.dirty", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Trần An"
+    }, {
+      "id": "0b9b4943-db78-4e38-be84-2d7bb09ce6e6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b92e38a7-5c00-4706-a206-d752f4c46184",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "474bf782-65e5-4831-a8ae-cd912fea5730",
+      "comment": "",
+      "command": "type",
+      "target": "css=.phoneNumber__input",
+      "targets": [],
+      "value": "0999999999"
+    }, {
+      "id": "43070f9b-c519-4d62-ad6e-4dd6f4e04a4d",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,600)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3bc29ffb-39b3-4e5f-ac7d-e1b327a47a64",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(1) .cartnew-select",
+      "targets": [
+        ["css=li:nth-child(1) .cartnew-select", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li/label/i", "xpath:idRelative"],
+        ["xpath=//label/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60037278-8f7e-452a-96f2-1eaccd86a2bd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cough > span:nth-child(3)",
+      "targets": [
+        ["css=.cough > span:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li/form/div/span[2]", "xpath:idRelative"],
+        ["xpath=//li/form/div/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50cabc72-349a-4760-9fce-d6b04adb1899",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fillinput > .capitalize",
+      "targets": [
+        ["css=.fillinput > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//li/form/div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2fded5a8-5a6a-436f-abd4-020a00c44208",
+      "comment": "",
+      "command": "type",
+      "target": "css=.fillinput > .capitalize",
+      "targets": [
+        ["css=.changed", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//li/form/div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Lê Xuân"
+    }, {
+      "id": "a5f426e9-9495-4e66-99b3-3f217aaf2cc8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.halfwidth > .pristine",
+      "targets": [
+        ["css=.halfwidth > .pristine", "css:finder"],
+        ["xpath=(//input[@type='tel'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//li/form/div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c546d7a0-aac8-44fa-8a8a-ee511285ef3d",
+      "comment": "",
+      "command": "type",
+      "target": "css=.halfwidth:nth-child(2) > .untouched",
+      "targets": [
+        ["css=.halfwidth:nth-child(2) > .untouched", "css:finder"],
+        ["xpath=(//input[@type='tel'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//li/form/div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "0998765432"
+    }, {
+      "id": "ecbc6fbd-b3a7-4e4f-b277-9f662b30dfa2",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.submitorder",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "43fe2a27-7973-4ef7-8b72-bd91a0182ac8",
+      "comment": "",
+      "command": "//verifyTitle",
+      "target": "Đặt hàng thành công - Thegioididong.com",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3c247e03-ae6e-431b-a0df-561f0c6ada5b",
+    "name": "TC_GioHang_019",
+    "commands": [{
+      "id": "1ba68da8-c8a9-48c8-94e3-f6213fae0677",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc20855c-8399-4596-900a-f7aa3bf0dd98",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1a1d3b0f-d7e2-4b3b-b003-fafd359f3366",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "f1bbbfd0-e18e-4bf3-a63a-e326ea6cefe6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fdb8671d-ba50-45cb-ad6c-85794c1dd5a3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor-customer",
+      "targets": [
+        ["css=.infor-customer", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "42298e95-1a86-4c45-a22b-a9ff7690872b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7e0ebe6-92bd-4e8d-8067-bbd374aa5c26",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "61d3413d-9299-4431-b8b8-bdb7c0f6f7ec",
+      "comment": "",
+      "command": "type",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.dirty", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Trần An"
+    }, {
+      "id": "6bb08ad2-c9ea-415f-8952-6ea7a9794521",
+      "comment": "",
+      "command": "click",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5be15e06-4d71-4c56-942e-1dbcc0cca5ef",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87dcc30a-e45b-47b5-9f59-2e5c0809dae2",
+      "comment": "",
+      "command": "type",
+      "target": "css=.phoneNumber__input",
+      "targets": [],
+      "value": "0999999999"
+    }, {
+      "id": "7e991b81-b019-4c1b-804c-b93f95595660",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,600)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b67b77c-72a3-4507-a45e-dab167a21213",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(2) .cartnew-select",
+      "targets": [
+        ["css=li:nth-child(2) .cartnew-select", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[2]/label/i", "xpath:idRelative"],
+        ["xpath=//li[2]/label/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0bf1e4a8-66fe-4f67-9e7c-dd6e7e9914e8",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.submitorder",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a07bf8eb-7577-4d18-8d85-3ff248da1792",
+      "comment": "",
+      "command": "//verifyTitle",
+      "target": "Đặt hàng thành công - Thegioididong.com",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "761808bd-4a19-4354-8c83-57c9a086d82d",
+    "name": "TC_GioHang_021",
+    "commands": [{
+      "id": "c4a92742-d3ad-4a0f-a40a-aa9dde011bb2",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca8e72e9-d469-4914-a073-27b70a60d258",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c510236c-fcf8-4bb0-888b-9774b2891e5d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "9dbe99ec-0406-4088-a343-0c837ef4bb4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e591a086-3d9d-4167-95fd-f5002159d577",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor-customer",
+      "targets": [
+        ["css=.infor-customer", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f23baf73-1097-464b-8c9d-d4ffeae2d475",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1409aea-c81d-4ba1-9def-d0ac63e5af68",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "16f5a772-1cd0-468e-84d9-12f18698c0dd",
+      "comment": "",
+      "command": "type",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.dirty", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Trần An"
+    }, {
+      "id": "ad720fb8-70be-4868-b807-59d138eede17",
+      "comment": "",
+      "command": "click",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc2e96e5-83b4-4948-9b4c-8eb93703f6d1",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1acc4bf5-7a47-4699-81b9-75d5ae7e76e5",
+      "comment": "",
+      "command": "type",
+      "target": "css=.phoneNumber__input",
+      "targets": [],
+      "value": "0999999999"
+    }, {
+      "id": "9d4c62ae-416e-496c-9d41-8461506a8286",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,600)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa9688c8-57e7-4591-96ce-56d98edca4e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.usecode__title",
+      "targets": [
+        ["css=.usecode__title", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[7]/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Sử dụng mã giảm giá')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "26b4e9b3-2841-469c-a0d3-341a53e38fa4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.applycode__text-input > input",
+      "targets": [
+        ["css=.applycode__text-input > input", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/div/div/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b726f86-d6f9-4b2b-a0bd-2c418122c117",
+      "comment": "",
+      "command": "type",
+      "target": "css=.applycode__text-input > input",
+      "targets": [
+        ["css=.applycode__text-input > input", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/div/div/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div[3]/div/input", "xpath:position"]
+      ],
+      "value": "ABC123XYZ"
+    }, {
+      "id": "27a1e5f2-8357-4922-b182-3ff65b3ae91d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.applycode__button > button",
+      "targets": [
+        ["css=.applycode__button > button", "css:finder"],
+        ["xpath=(//button[@type='button'])[12]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/div/div/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Áp dụng')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "60847783-2f64-4183-a5bc-e80533dca5ca",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.voucher-Error",
+      "targets": [
+        ["css=.voucher-Error", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[7]/div/div/div[3]/small", "xpath:idRelative"],
+        ["xpath=//div/div/div[3]/small", "xpath:position"],
+        ["xpath=//small[contains(.,'Mã giảm giá không đúng, vui lòng kiểm tra lại. #27001')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e9753a66-09cb-4a8d-a8dc-e71e0092c58a",
+    "name": "TC_GioHang_020",
+    "commands": [{
+      "id": "be1d7750-4e51-49d1-a64a-be44aedc676f",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d48adc59-4461-4c81-b37b-9ece87ddba2c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "485f0fe0-7447-44f3-923b-075a2649a0a9",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.infor",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "8d08bca4-37a3-4a14-b13e-5916a2ad46fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor > span:nth-child(2)",
+      "targets": [
+        ["css=.infor > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sửa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0f740ce-f771-495b-8b23-009665ee4f6f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infor-customer",
+      "targets": [
+        ["css=.infor-customer", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac34b4d2-8f4f-44aa-b3be-5d2d040b8fa8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf2243aa-5a4f-4810-a50b-737f93840c03",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.fillname > .capitalize", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7aa70b04-8bff-41e9-8afb-c883599c95ea",
+      "comment": "",
+      "command": "type",
+      "target": "css=.fillname > .capitalize",
+      "targets": [
+        ["css=.dirty", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Trần An"
+    }, {
+      "id": "712127f7-c32f-4938-b5af-0faaa36cb212",
+      "comment": "",
+      "command": "click",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a0b3ade-3994-4e2b-aa5f-d342b7721053",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.phoneNumber__input",
+      "targets": [
+        ["css=.phoneNumber__input", "css:finder"],
+        ["xpath=//input[@type='tel']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/section/div[2]/div[2]/form/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6cf26330-5c91-45d1-ac1d-0954b43d483f",
+      "comment": "",
+      "command": "type",
+      "target": "css=.phoneNumber__input",
+      "targets": [],
+      "value": "0999999999"
+    }, {
+      "id": "4bd0b1d7-6df0-402a-817e-d3c84e087fff",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,600)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2de392ed-c3e0-460d-9bf3-3f5162db4016",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(3) .cartnew-select",
+      "targets": [
+        ["css=li:nth-child(3) .cartnew-select", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[3]/label/i", "xpath:idRelative"],
+        ["xpath=//li[3]/label/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce268368-749d-4880-a8be-c185fa31b51b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infocompany > .fillinput:nth-child(1) > .untouched",
+      "targets": [
+        ["css=.infocompany > .fillinput:nth-child(1) > .untouched", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[3]/form/div/input", "xpath:idRelative"],
+        ["xpath=//li[3]/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "56541e00-c082-4073-a10f-499e9a286783",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.infocompany > .fillinput:nth-child(1) > .untouched",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf3a98ee-6ab1-4d3a-a7b9-e0aa427ff40e",
+      "comment": "",
+      "command": "type",
+      "target": "css=.infocompany > .fillinput:nth-child(1) > .untouched",
+      "targets": [
+        ["css=.changed", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[3]/form/div/input", "xpath:idRelative"],
+        ["xpath=//li[3]/form/div/input", "xpath:position"]
+      ],
+      "value": "A"
+    }, {
+      "id": "1eeaa62d-7c4a-4284-adde-d2dc5785fbc2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.infocompany > .fillinput:nth-child(2) > .untouched",
+      "targets": [
+        ["css=.infocompany > .fillinput:nth-child(2) > .untouched", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[3]/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//li[3]/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6bcb0fb9-02b4-4cdd-ab67-c77fff09c08c",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.infocompany > .fillinput:nth-child(2) > .untouched",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fdbe6441-049c-425d-89e4-aaf6eebd7df7",
+      "comment": "",
+      "command": "type",
+      "target": "css=.infocompany > .fillinput:nth-child(2) > .untouched",
+      "targets": [
+        ["css=.fillinput:nth-child(2) > .dirty", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[3]/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//li[3]/form/div[2]/input", "xpath:position"]
+      ],
+      "value": "B"
+    }, {
+      "id": "87f70a41-0ee3-43d8-b3e5-34d33ff9cac2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fillinput:nth-child(3) > .untouched",
+      "targets": [
+        ["css=.fillinput:nth-child(3) > .untouched", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[3]/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//li[3]/form/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8532a495-b0a7-4320-963a-d40d16f1e0f7",
+      "comment": "",
+      "command": "type",
+      "target": "css=.fillinput:nth-child(3) > .untouched",
+      "targets": [
+        ["css=.fillinput:nth-child(3) > .untouched", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[3]/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//li[3]/form/div[3]/input", "xpath:position"]
+      ],
+      "value": "0504030405"
+    }, {
+      "id": "cce32353-594c-4729-9bc3-9e09196c820c",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.submitorder",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cd9f8a73-f14f-4f8b-89d6-9ca4c75c0544",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.error",
+      "targets": [
+        ["css=.error", "css:finder"],
+        ["xpath=//div[@id='app']/section/div[2]/div[5]/ul/li[3]/form/div[3]/small", "xpath:idRelative"],
+        ["xpath=//form/div[3]/small", "xpath:position"],
+        ["xpath=//small[contains(.,'Vui lòng nhập mã số thuế')]", "xpath:innerText"]
+      ],
+      "value": "Vui lòng nhập mã số thuế"
+    }]
+  }, {
+    "id": "1d2e87f7-ed1d-448a-bcd8-24fe850303e4",
+    "name": "TC_GioHang_022",
+    "commands": [{
+      "id": "bfc9bf60-9bcb-424e-85df-cff2b7ff98f6",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.thegioididong.com/cart",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b6e83d00-d67c-417e-ab35-09242dd95657",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x700",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7e6bdf88-f2eb-4fcb-bc85-b00671f91fb2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Mua thêm sản phẩm khác",
+      "targets": [
+        ["linkText=Mua thêm sản phẩm khác", "linkText"],
+        ["css=.buymore", "css:finder"],
+        ["xpath=//a[contains(text(),'Mua thêm sản phẩm khác')]", "xpath:link"],
+        ["xpath=//div[@id='app']/section/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'https://www.thegioididong.com')])[2]", "xpath:href"],
+        ["xpath=//section/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Mua thêm sản phẩm khác')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c4b3821b-d8f5-43c6-9d00-3b8b0366f053",
+      "comment": "",
+      "command": "verifyTitle",
+      "target": "Thegioididong.com - Điện thoại, Laptop, Phụ kiện, Đồng hồ chính hãng",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cc2413bd-5153-4557-ae58-9df7e817e1db",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://www.thegioididong.com/cart"],
+  "plugins": []
+}
