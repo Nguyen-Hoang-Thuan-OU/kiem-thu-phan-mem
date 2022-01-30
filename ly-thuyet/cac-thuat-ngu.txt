@@ -1,0 +1,72 @@
+﻿[ĐỊNH NGHĨA CÁC THUẬT NGỮ VỀ LỖI]
+
+ --------------------------------------------------------------------------------
+| We can say that a MISTAKE made by humans during coding is called ERROR,	 |
+| an ERROR found during the testing phase is called DEFECT,			 |
+| a DEFECT to be resolved by development team is called a BUG			 |
+| and when a build does not meet its specifications then it is termed as FAILURE |
+|--------------------------------------------------------------------------------|
+| LỖI LẦM của lập trình viên trong quá trình làm phần mềm được gọi là VẤN ĐỀ,	 |
+| VẤN ĐỀ được kiểm thử viên phát hiên được gọi là KHIẾM KHUYẾT,			 |
+| KHIẾM KHUYẾT đã được phát hiện và thừa nhận được gọi là LỖI,			 |
+| phần mềm không đúng với đặc tả và mong đợi của khách hàng được gọi là THẤT BẠI |
+ --------------------------------------------------------------------------------
+
+================================================================================
+
+* Mistake (lỗi lầm): một "mistake" được gây ra bởi sự bất cẩn lập trình viên được gọi là "error", nó có thể nằm yên cho đến khi có ai đó phát hiện ra nó.
+
+--------------------
+
+* Error (vấn đề): một "error" được kiểm thử viên tìm ra được thì gọi là "defect".
+
+--------------------
+
+* Defect (khiếm khuyết): sau khi hai bên trao đổi, lập trình viên thừa nhận "defect" này đúng là do họ gây ra và cần được khắc phục thì được thì được gọi là "bug".
+
+--------------------
+
+* Fault (sai sót): những sai sót do dư, thiếu hoặc không đúng các yêu cầu phần mềm cần thực hiện.
+	-> Error và fault gọi chung là bug.
+
+--------------------
+
+* Bug (lỗi): những sai sót xuất hiện trong phần mềm đã được thừa nhận, khiến cho phần mềm hoạt động không được như mong đợi.
+
+--------------------
+
+* Failure (thất bại/hỏng): xảy ra khi các sai sót (fault) được thực thi. Hoặc nếu phần mềm có thể không có sai sót nhưng bản build không khớp với yêu cầu (requirement), làm sai với mong muốn của người dùng và khiến người dùng không chấp nhận sử dụng cũng được gọi là "failure".
+
+--------------------
+
+* Incident (biến cố): là những trường hợp mà khi kiểm thử phần mềm có những thực thi đáng nghi ngờ (chưa xác định được có lỗi hay không), nguyên nhân của nó có thể là do cấu hình môi trường kiểm thử không đúng, dữ liệu dùng kiểm thử sai hoặc do lỗi của kiểm thử viên,... nhưng không được mô tả trong đặc tả yêu cầu. Trong môi trường kiểm thử, nếu xảy ra biến thì thì cũng nên xem xét, phân tích để cải thiện quy trình kiểm thử.
+
+	- Incident được xem là lỗi (defect hoặc bug) khi nguyên nhân của vấn đề thuộc chính thành phần/mô-đun đang kiểm thử.
+		Ví dụ: khi tích hợp các hệ thống lại với nhau, nếu hoạt động riêng lẻ sẽ không phát sinh lỗi nhưng khi tích hợp lại khiến vận hành không đúng với đặc tả yêu cầu, ta xác định đây là một biến cố và chỉ xảy ra trong môi trường kiểm thử.
+
+	- Incident không được xem là lỗi khi đó chỉ là lỗi của quá trình/môi trường kiểm thử, ví dụ: mạng có vấn đề trong lúc kiểm thử, cấu hình môi trường kiểm thử chưa đúng, dữ liệu kiểm thử bị sai,...
+
+	-> Xảy ra khi kết quả mong muốn khác với kết quả thực tế trong quá trình kiểm thử.
+
+================================================================================
+
+[CÁC THUẬT NGỮ KHÁC]
+
+* Stub/Mock: khi tính năng của đội ngũ này phụ thuộc vào đội ngũ kia, các đối tượng giả/mẫu code được sử dụng để mô phỏng lại hoạt động và giúp nghiệp vụ vẫn được vận hành dù đang thiếu thành phần.
+	Ví dụ 1: đội ngũ làm API chưa giao sản phẩm thì đội ngũ Front-End chỉ cần xác định được đầu vào, cấu trúc đầu ra và giả lập lại.
+	Ví dụ 2: chức năng thanh toán đơn hàng đang thiếu thanh toán trực tuyến, ta viết stub để giả lập cho thành phần đó.
+
+* Driver: một mẫu code để truyền dữ liệu kiểm thử (Test Data) đến mẫu code khác (mô-đun cần kiểm thử) để thực thi kiểm thử, nhận và in ra kết quả. Nơi để gọi chức năng cần kiểm thử và truyền Test Data vào cho nó.
+	Ví dụ: chuẩn bị 1 bộ dữ liệu kiểm thử với 4 dòng dữ liệu khác nhau tương ứng với 4 tình huống sử dụng cho 1 chức năng, sau đó viết một mẫu code để tự động lấy từng dòng dữ liệu trong bộ dữ liệu kiểm thử và kiểm tra kết quả thực thi trả về.
+
+
+
+
+
+
+
+
+
+
+
+
