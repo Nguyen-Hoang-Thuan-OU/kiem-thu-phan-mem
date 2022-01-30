@@ -1,0 +1,820 @@
+﻿[KHÁI NIỆM KIỂM THỬ TĨNH - STATIC TESTING]
+
+** Kiểm thử tĩnh (Static Testing): thường dành cho các chuyên gia với nhiều năm kinh nghiệm trong lĩnh vực kiểm thử. Họ sẽ đánh giá sản phẩm trong giai đoạn tài liệu hoá (agile: product backlog) để bước đầu phát hiện ra các lỗi tiềm ẩn, đánh giá nghiệp vụ có phù hợp với thực tế, phương pháp tiếp cận có vấn đề,... mà không cần phải thực thi mã nguồn chương trình. Từ đó đưa ra được những cảnh báo từ sớm về những điểm đáng nghi ngờ trong mã nguồn hoặc trong thiết kế; giúp tăng khả năng bảo trì mã nguồn và các thiết kế của phần mềm, tránh được những rủi ro trong công đoạn phát triển.
+
+=> Kiểm thử (phân tích và đánh giá) khi chưa có sản phẩm.
+
+-------------------------------------------------
+
+[PHÂN LOẠI KIỂM THỬ TĨNH]
+
+** Hai kỹ thuật được sử dụng thường xuyên trong kiểm thử tĩnh là đánh giá (Review) và phân tích tĩnh (Static Analysis):
+
+	- Kỹ thuật đánh giá (Review): cùng thảo luận để tìm và gỡ bỏ các lỗi, những điều chưa rõ trong các tài liệu trước khi chúng được sử dụng trong quy trình phát triển. Kỹ thuật review kiểm thử bất cứ thứ gì được tài liệu hoá như: đặc tả yêu cầu, sơ đồ thiết kế hệ thống, mã nguồn, kế hoạch kiểm thử, các Test Case.
+		-> Tham khảo ý kiến của các chuyên gia.
+
+-------------------
+
+	* Thành phần tham gia:
+		- Người quản lý (Manager): quyết định xem có cần phải đánh giá hay không.
+		- Người điều hành: xác định những loại tài liệu cần nghiên cứu trong quá trình đánh giá.
+		- Người đánh giá (Reviewer): người đưa ra các đánh giá dựa trên sự hiểu biết và kinh nghiệm.
+		- Người phụ trách chức năng/mô hình: giới thiệu cho mọi người về chức năng/mô hình mà mình sắp phát triển.
+		- Thư ký: ghi chép lại những hoạt động/vấn đề trong buổi đánh giá.
+
+-------------------
+
+	* Các loại review:
+		- Formal review (chính quy): được thực hiện theo quy trình chính thức, có kế hoạch (6 bước/công đoạn); cần phải ghi lại tài liệu và biên bản.
+			+ Inspectation: người quản lý và điều hành dự án sẽ đưa ra các kịch bản và bộ quy tắc để đánh giá cho từng giai đoạn, các tài liệu phát triển phần mềm để các bên có liên quan cùng đánh giá.
+			+ Technical Review: người có đầy đủ chuyên môn đưa ra các phân tích, quyết định cho một vấn đề nào đó. Những người đánh giá (reviewer) có thể đánh giá chéo cho nhau.
+
+		- Informal review (không chính quy): khi thực hiện không xác định trước các bước, quy trình thực hiện; không cần phải ghi lại tài liệu hay biên bản.
+			+ Walkthrought: nội bộ nhóm họp, người phụ trách chức năng đó sẽ giải thích cho mọi người về tính năng và bắt đầu thu thập ý kiến.
+			+ Informal: không đi theo các công đoạn đánh giá.
+
+-------------------
+
+	* Các công đoạn review:
+		- Planning: người phụ trách chức năng/mô hình sẽ lên kế hoạch, mời những ai có đủ nhiệm vụ tham gia buổi đánh giá.
+		- Kick-off: bắt đầu thực hiện đánh giá.
+		- Preparation: chuẩn bị tài liệu cho những người đánh giá (reviewer) đọc và tự tiến hành đánh giá trên tài liệu trước khi bắt đầu một cuộc họp chính quy.
+		- Review Meeting: khi cuộc họp diễn ra, thư ký sẽ ghi lại tất cả các đánh giá của reviewer để yêu cầu chỉnh sửa.
+		- Rework: tiến hành chỉnh sửa những thứ đã được thống nhất trong buổi họp đánh giá dựa trên các đánh giá của reviewer.
+		- Follow-up: theo dõi những chỉnh sửa xem liệu có theo đúng với những đánh giá của reviewer.
+
+------------------------------
+
+	- Kỹ thuật phân tích tĩnh (Static Analysis): sử dụng công cụ tự động phân tích mã nguồn để tìm ra các vấn đề của cấu trúc chương trình (Source Code) hoặc những điểm yếu của chương trình, các mô hình phần mềm (Model),... mà không cần thực thi chương trình.
+		Ví dụ: IDE cảnh báo biến khai báo nhưng chưa sử dụng, cảnh báo biến có sử dụng nhưng không khởi tạo giá trị,...
+
+		-> Sử dụng công cụ để tự động kiểm tra quy chuẩn lập trình.
+
+-------------------
+
+	** Các vấn đề thường được phát hiện:
+		- Tham chiếu đến biến nhưng giá trị của nó chưa được chỉ định (Undefined).
+		- Biến khai báo nhưng không được sử dụng.
+		- Phát hiện các hàm và thủ tục không được gọi.
+		- Vi phạm chuẩn lập trình: cách đặt tên biến, tên hàm,...
+		- Chương trình thiếu tính an toàn (Security).
+		- Sử dụng các cú pháp không chính xác trong ngôn ngữ lập trình hay một ngôn ngữ thiết kế phần mềm đang sử dụng.
+
+==============================================================================
+
+[KHÁI NIỆM KIỂM THỬ ĐỘNG - DYNAMIC TESTING]
+
+** Kiểm thử động (Dynamic Testing): kiểm thử khi thực thi hệ thống, truyền dữ liệu vào và so sánh kết quả kiểm thử để biết hệ thống xử lý đúng hay sai. Có thể được thực hiện thủ công (Manual) hoặc tự động (Automation).
+
+-------------------------------------------------
+
+[PHÂN LOẠI KIỂM THỬ ĐỘNG]
+
+** Kiểm thử hộp đen/dựa trên đặc tả yêu cầu (Specification Based/Behavior Based/Black-box Testing).
+	-> Kiểm thử chức năng (Functional Testing) + Phi chức năng (Non-Functional Testing).
+
+** Kiểm thử hộp trắng (Structure Based Testing/White-box Testing).
+	-> Kiểm thử cấu trúc (Structural Testing).
+
+=> Kiểm thử hộp xám (Gray-box Testing/Grey-box Testing).
+	= Kiểm thử hộp đen + Kiểm thử hộp trắng
+
+==============================================================================
+
+[BẢNG SO SÁNH GIỮA KIỂM THỬ TĨNH & KIỂM THỬ ĐỘNG]
+
+So sánh giữa kiểm thử tĩnh và động:
+
+-----------------------------------------------------------------
+|	Kiểm thử tĩnh		|	Kiểm thử động		|
+|-------------------------------|-------------------------------|
+|Xem mã nguồn, không thực thi	|Thực thi mã nguồn		|
+|-------------------------------|-------------------------------|
+|Thực hiện trong quy trình	|Thực hiện trong quy trình	|
+|Verfication			|Validation			|
+|-------------------------------|-------------------------------|
+|Code inspection, walk through,	|Black-box testing,		|
+|code reviews, desk checking	|white-box testing		|
+-----------------------------------------------------------------
+
+==============================================================================
+
+[KIỂM THỬ ĐỘNG - DYNAMIC TESTING]
+[KHÁI NIỆM KIỂM THỬ HỘP ĐEN - BLACK BOX TESTING]
+
+** Kiểm thử hộp đen/dựa trên đặc tả yêu cầu (Requirements-Specification Based Testing/Behavior Based Testing/Black Box Testing):
+
+	- Khi thiết kế sẽ phải dựa theo bảng đặc tả yêu cầu phần mềm (Software Requirements Specification - SRS) để thiết kế vì có thể đây là thông tin duy nhất làm cơ sở cho việc kiểm thử.
+
+	- Khi kiểm thử không cần phải quan tâm đến cấu trúc, thiết kế, xử lý, cách triển khai bên trong hệ thống, công nghệ, dịch vụ mà hệ thống đang sử dụng,... mà chỉ cần có dữ liệu đầu vào và dữ liệu đầu ra. Xét xem liệu dữ liệu đầu vào (input/expected result) và dữ liệu đầu ra mong muốn (output/actual result) có khớp với nhau để từ đó đi đến kết luận Test Case đó PASS hay FAIL, chứ không cần quan tâm hệ thống sẽ phải xử lý thế nào để có được đầu ra.
+
+		=> Đóng vai trò như người dùng cuối (end-user) để sử dụng hệ thống trong giai đoạn đã hoàn thiện hoặc gần hoàn thiện (tương tác thông qua giao diện người dùng), sau đó kết hợp và so sánh với bảng đặc tả yêu cầu để đánh giá/kết luận rằng đầu ra (ouput) có khớp với đầu vào (input) hay không.
+			-> Kiểm thử những gì mà hệ thống làm được (WHAT),
+				không quan tâm làm như thế nào (HOW).
+
+------------------------------
+
+[ƯU ĐIỂM VÀ KHUYẾT ĐIỂM CỦA KIỂM THỬ HỘP ĐEN]
+
+** Ưu điểm:
+	- Không cần truy cập mã nguồn, không cần có kiến thức chuyên sâu về lập trình mà chỉ cần biết một chút về logic xử lý.
+	- Tách biệt khung nhìn (cách nhìn nhận vấn đề) của người dùng (về trải nghiệm tình năng) và lập trình viên.
+	- Nhiều người có thể tham gia kiểm thử.
+
+** Khuyết điểm:
+	- Không hiệu quả do không thấy được logic xử lý bên trong của hệ thống.
+	- Khó khăn trong việc thiết kế Test Case, có thể dẫn đến thiết kế không đầy đủ đối với những người thiếu kinh nghiệm.
+	- Khó phủ hết các trường hợp cụ thể nếu chưa biết đến các kỹ thuật thiết kế Test Case.
+	- Không có định hướng kiểm thử rõ ràng.
+
+------------------------------
+
+[QUY TRÌNH THỰC HIỆN KIỂM THỬ HỘP ĐEN]
+
+** Các bước/quy trình để thực hiện kiểm thử hộp đen:
+
+	Bước 01: Phân tích các đặc tả chức năng của các thành phần hệ thống.
+	Bước 02: Thiết kế Test Case để kiểm thử.
+	Bước 03: Thực thi các Test Case để kiểm thử.
+	Bước 04: So sánh kết quả đạt được (actual result) với kết quả mong muốn (expected result) trong từng Test Case.
+	Bước 05: Lập báo cáo kết quả kiểm thử.
+
+------------------------------
+
+[CÁC LOẠI KIỂM THỬ HỘP ĐEN]
+
+** Phân loại các loại kiểm thử hộp đen:
+
+	- Kiểm thử chức năng (Functional Testing): kiểm thử các chức năng/tính năng được chỉ định của hệ thống, tính an toàn của hệ thống (Security Testing), kiểm thử sự tương tác của hệ thống với các thành phần khác được chỉ định.
+		-> Kiểm thử những thứ mà ta có thể tương tác được với nó.
+
+		//Lưu ý: tính an toàn của hệ thống (Security Testing) không phải là kiểm thử phi chức năng (Non-functional Testing)//
+
+		* Kiểm thử có sự thay đổi (change):
+
+			+ Kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) để xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo.
+				-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng yêu cầu (Retesting/Confirmation Testing).
+
+			+ Khi tích hợp một tính năng mới vào bên trong của hệ thống, thay đổi mã nguồn, thay đổi môi trường hệ thống,... cần kiểm tra lại những tính năng, mô-đun, một tập các Test Case đã được thiết kế từ trước và có liên quan với chức năng vừa được tích hợp/thay đổi (ví dụ: đăng ký, đăng nhập, quên mật khẩu,...) để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ sự thay đổi đó. Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy (Regression Testing).
+				-> Thay đổi/phát triển và tích hợp tính năng > Xác minh rằng những tính năng cũ vẫn chạy ổn định sau khi đã thay đổi/tích hợp tính năng mới (Regression Testing).
+
+---------------
+
+	- Kiểm thử phi chức năng (Non-functional Testing): tập trung kiểm thử các khía cạnh hành vi của hệ thống như tính tiện dụng (usability), tính khả chuyển (portability), hiệu năng hệ thống (Performance Testing) như kiểm tra tải (Load Test) hay kiểm tra sự ổn định (Stress Test),...
+
+------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+
+** Phân loại (một cách tương đối) các kỹ thuật kiểm thử hộp đen:
+
+	- Phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class).
+	- Phân tích giá trị biên (Boundary Value Analysis).
+		-> Thường được áp dụng cho các tình huống mà các đầu vào với khoảng giá trị xác định cụ thể (ví dụ: 0-18) và ít có quan hệ ràng buộc nhau (đầu vào này và đầu vào kia không gây ảnh hưởng gì đến kết quả của bài toán, mỗi đầu vào sẽ cho ra một kết quả độc lập).
+
+			Ví dụ: khoảng giá trị rõ ràng, đầu vào này không làm ảnh hướng đến kết quả của đầu vào khác
+				Điểm trung bình >= 9 --> Xuất sắc
+				Điểm trung bình >= 8 --> Giỏi
+				Điểm trung bình >= 7 --> Khá
+
+	- Bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect).
+	- Kiểm thử dịch chuyển/chuyển đổi trạng thái (State Transition Testing).
+		-> Thường được áp dụng cho các tình huống có đầu vào phức tạp, các đầu vào có mối quan hệ logic phức tạp, phụ thuộc vào nhau và quy tắc (rule) nghiệp vụ.
+
+			Ví dụ: ngoài xếp loại học sinh-sinh viên dựa trên điểm trung bình thì còn phải dựa trên điểm rèn luyện/hạnh kiểm.
+
+	- Kiểm thử các trường hợp/tình huống sử dụng dựa trên lược đồ (Use Case Testing).
+
+==============================================================================
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT PHÂN VÙNG - EQUIVALENCE PARTITIONING]
+
+** Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class - EP/EC): chia đầu vào của chương trình thành nhiều phân vùng/lớp dữ liệu, từ đó suy ra được những trường hợp cần kiểm thử. Xác định được những trường hợp tương đương hợp lệ (positive case - valid) và không hợp lệ (negative case - invalid), giúp loại bỏ những Test Case dư thừa, chỉ chạy những Test Case có độ bao phủ cao hơn.
+
+Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ kiểm thử ngẫu nhiên (Random Testing) thì sẽ có trường hợp lấy quá nhiều giá trị nằm trong cùng một phân vùng, nhưng chưa có gì đảm bảo rằng những Test Case được chọn ngẫu nhiên đó sẽ phủ được hết các trường hợp có thể xảy ra vì nếu các giá trị nằm trong cùng một phân vùng sẽ có cùng cách xử lý và cho ra cùng một kết quả. Nếu một giá trị đại diện trong nhóm đúng thì các giá trị còn lại trong nhóm cũng đúng và ngược lại.
+
+Chỉ áp dụng cho những bài toán có đầu vào là một miền giá trị xác định và các đầu vào độc lập, không có quan hệ mắt xích với nhau.
+
+	-> Vẫn kiểm thử ở những phân vùng hợp lệ, nhưng tập trung nhất vào những phân vùng không hợp lệ (invalid) vì lập trình viên thường hay quên phân vùng không này và chỉ đi kiểm tra ở những phân vùng hợp lệ (valid).
+
+------------------------------
+
+** Lưu ý: khi chia phân vùng tương đương, từ phân vùng cha, khi chi thành các phân vùng con thì tổng các con phải đúng bằng cha, không được nhỏ hoặc lớn hơn cha.
+
+------------------------------
+
+** Hai phân vùng được gọi là tương đương với nhau:
+	- Khi chúng tương tự nhau (intuitive similarity).
+
+	- Trong tài liệu đặc tả có mô tả hai phần tử nằm trong cùng một phân vùng phải có cùng một cách thức xử lý (specified as equivalent).
+		Ví dụ: 0 > điểm > 10 là trường hợp không hợp lệ và sẽ có cùng cách xử lý.
+
+	- Chúng lái/điều khiển/định hướng (drive) chương trình theo cùng đường, theo cùng hướng và làm cho nghiệp vụ thực hiện theo một logic nào đó. (chẳng hạn cùng nhánh if) (equivalent path).
+
+	- Chúng cho cùng kết quả với những giả thiết đưa ra.
+
+------------------------------
+
+** Ưu điểm:
+	- Phân vùng tương đương là phân chia một tập các điều kiện kiểm thử thành các tập con có các giá trị tương đương nhau và kiểm thử các tập con này.
+	- Giúp giảm thiếu số lượng Test Case không cần thiết, phủ được các đầu vào khi kiểm thử.
+	- Có thể áp dụng tất cả mức độ kiểm thử (Unit Test, System Test, Acceptance Test,...).
+
+------------------------------
+
+	Ví dụ 1: Xếp loại cuối năm học sinh dựa trên điểm trung bình (ĐTB) như sau:
+			[0, 5) 0 ≤ ĐTB < 5: yếu, kém
+			[5, 7) 5 ≤ ĐTB < 7: trung bình
+			[7, 8) 7 ≤ ĐTB < 8: khá
+			[8, 9) 8 ≤ ĐTB < 9: giỏi
+			[9, 10] 9 <= ĐTB <= 10: xuất sắc
+		Biết điểm trung bình làm tròn 1 chữ số thập phân.
+
+		Để kiểm thử hệ thống này, ta có thể chia thành 7 phân vùng tương đương, trong đó:
+			- 5 phân vùng hợp lệ (valid): [0, 5), [5, 7), [7, 8), [8, 9), [9, 10].
+			- 2 phân vùng không hợp lệ (invalid): < 0 và > 10
+
+				  trung		      xuất
+		    yếu, kém	  bình	  khá	giỏi  sắc
+	<-------|---------------|-------|-----|-----|-----|------->
+		0		5	7     8     9     10
+
+	|---|--| |----------------------|----------------| |--|---|
+	    |				|
+	phân vùng		    phân vùng		   phân vùng
+	không hợp lệ		    hợp lệ		   không hợp lệ
+	(invalid)		    (valid)		   (invalid)
+
+
+	-> Tester không nên chỉ test những gì trong đặc tả yêu cầu, mà còn phải nghĩ ra những thứ không được đề cập. Trong ví dụ trên, 2 phần vùng không hợp lệ (invalid) không được đề cập trong đặc tả, nhưng vẫn cần được kiểm thử.
+
+	-> Khi thiết kế Test Case cần phải đảm bảo tất cả các phân vùng (valid & invalid) được kiểm thử qua ít nhất một lần. Ví dụ trên ít nhất cần kiểm thử 7 điểm trung bình sau đại diện với 7 phân vùng: - 5.0, 5.5, 7.5, 8.5, 9.5, 12.0
+
+---------------
+
+	Ví dụ 2: Chương trình kiểm tra một ngày tháng nhập vào có hợp lệ hay không? Người dùng cần nhập vào năm, tháng, ngày của ngày muốn kiểm tra.
+		(Ví dụ: 12/12/2017 là ngày hợp lệ, 32/12/2017 là ngày không hợp lệ)
+
+		(Phân tích: ngày-tháng-năm có mối quan hệ với nhau chứ không thể độc lập, ví dụ ngày hợp lệ có thể phụ thuộc vào năm - ngày 29-02-năm nhuận, tuy nhiên, vẫn có thể áp dụng được phân vùng tương đương.)
+
+		Không hợp lệ < 1970 < Hợp lệ -> để đơn giản thì sử dụng mốc 0
+
+		-> Tổng nhuận + không nhuận = số năm hợp lệ
+
+					nhuận			không nhuận
+		<///////|-------------------------------|-----------------------|
+			0	|					|
+				|					|
+				|					|
+					 1, 3, 5, 7			
+k hợp lệ  4, 6, 9, 11	      2		 8, 10, 12    k hợp lệ		2
+--------|--------------|--------------|--------------|--------	  ...|-------|...
+	    30 ngày	    29 ngày	  31 ngày		      28 ngày
+		|
+		|
+		|
+
+không hợp lệ	1	30    không hợp lệ
+----------------|--------|----------------	...
+
+
+		===> Có tối thiểu 18 phân vùng, chọn ra một giá trị đại diện cho từng phân vùng để kiểm thử.
+
+
+		* Hợp lệ:
+			- Phân vùng có số ngày từ 1-30 rơi vào các tháng 4, 6, 9, 11 của năm nhuận.
+
+
+		* Không hợp lệ:
+			- Phân vùng có số ngày từ 31 rơi vào các tháng 4, 6, 9, 11 của năm nhuận.
+
+---------------
+
+	Ví dụ 3: Chức năng đăng ký tài khoản yêu cầu mật khẩu phải có chứa chữ hoa, chữ thường, số, ký tự đặc biệt và chiều dài tối thiểu là 6.
+
+		Tập hợp____Thường
+		   |_______Hoa
+		   |_______Số
+		   |_______Ký tự đặc biệt
+
+		Chiều dài
+
+			=> Nên sử dụng biểu đồ venn
+
+		* Hợp lệ:
+			- Đủ 6 ký tự và có chứa chữ hoa, chữ thường, số, ký tự đặc biệt.
+
+		* Không hợp lệ:
+			- Phân vùng 1:
+				+ Chưa đủ 6 ký tự.
+
+			- Phân vùng 2:
+				+ Chỉ có chứa chữ hoa.
+				+ Chỉ có chứa chữ thường.
+				+ Chỉ có chứa số.
+				+ Chỉ có chứa ký tự đặc biệt.
+
+			- Phân vùng 3:
+				+ Có chứa chữ hoa và thường.
+				+ Có chứa chữ hoa và ký tự đặc biệt.
+				+ Có chứa chữ thường và số.
+				+ Có chứa chữ số và ký tự đặc biệt.
+
+			- Phân vùng 4:
+				+ Có chứa chữ hoa, thường và số.
+				+ Có chứa chữ hoa, thường và ký tự đặc biệt.
+				+ Có chứa chữ hoa, ký tự đặc biệt và số.
+				+ Có chứa ký tự đặc biệt, số và thường.
+
+		=> Trong đề bài chỉ ràng buộc chiều dài tối thiểu là 6 nhưng không ràng buộc chiều dài tối đa (trong đặc tả không đề cập) -> Đang ngờ, có thể gây vấn đề (Incident).
+
+---------------
+
+	Ví dụ 4: kiểm thử biểu mẫu đăng nhập đơn giản.
+		- Chỉ được phép nhập từ 6 đến 20 ký tự.
+		- Để trống hoặc không phải chữ -> Thông báo: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
+
+		* Hợp lệ:
+			+ Phân vùng 1: nhập giá trị hợp lệ từ 6 -> 20 ký tự.
+
+		* Không hợp lệ:
+			+ Phân vùng 2: nhập giá trị không hợp lệ < 6  ký tự.
+			+ Phân vùng 3: nhập giá trị không hợp lệ > 20  ký tự.
+			+ Phân vùng 4: trường hợp để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ.
+
+		=> 4 Test Case cụ thể.
+
+			- Case 1: nhập giá trị từ 6 -> 20 ký tự => pass
+
+			- Case 2: nhập giá trị < 6 ký tự (có thể nhập 1, 2, 3, ..., 5 ký tự) => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+
+			- Case 3: nhập giá trị > 20 ký tự (có thể nhập 21, 22, 23,... ký tự) => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+
+			- Case 4: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT PHÂN TÍCH GIÁ TRỊ BIÊN - BOUNDARY VALUE ANALYSIS]
+
+** Kỹ thuật phân tích giá trị biên (Boundary Value Analysis - BVA): là trường hợp đặc biệt và bao quát của phân vùng tương đương.
+
+Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tương đương (gồm tình huống hợp lệ (valid) và không hợp lệ (invalid)), giúp hạn chế việc lựa chọn những giá trị ngẫu nhiên để kiểm thử trong kỹ thuật phân vùng tương đương.
+
+Áp dụng nguyên lý 20-80, lỗi thường tập trung ở những giá trị biên, vì vậy chỉ cần lấy những giá trị ở biên và ở gần biên để dại diện cho phân vùng đó.
+
+------------------------------
+
+** Ưu điểm:
+	- Đơn giản.
+	- Hiệu quả cho các hàm có biến độc lập.
+	- Có thể tự động sinh test case khi xác định được giá trị biên của các biến.
+
+---------------
+
+** Khuyết điểm:
+	- Không quan tâm đặc trưng của hàm, ngữ nghĩa các biến, cũng như quan hệ giữa các biến.
+	- Khó áp dụng cho trường hợp các biến có quan hệ ràng buộc nhau.
+
+------------------------------
+
+** Một số quy tắc xác định giá trị biên khi thiết kế Test Case:
+	- Giá trị nhỏ nhất (biên dưới)
+	- Giá trị nhỏ nhì (cận biên dưới)
+	- Giá trị lớn nhất (biên trên)
+	- Giá trị lớn nhì (cận biên trên)
+	- Giá trị bình thường/ngẫu nhiên
+
+------------------------------
+
+	Ví dụ 1: nhập khoảng giá trị [5, 10]
+			- Biên trên: 5 -> nhỏ nhất
+			- Cận biên trên: 5 -> nhỏ nhì
+
+			- Biên dưới: 10 -> lớn nhất
+			- Cận biên dưới: 9 -> lớn nhì
+
+			- Giá trị bình thường/ngẫu nhiên: 7
+
+---------------
+
+	Ví dụ 2: trở lại ví dụ xếp loại học sinh ở kỹ thuật phân vùng tương đương.
+
+				  trung		      xuất
+		    yếu, kém	  bình	  khá	giỏi  sắc
+	<-------|---------------|-------|-----|-----|-----|------->
+		0		5	7     8     9     10
+
+		* Hợp lệ:
+			Đoạn “yếu, kém”: 0 và 4.9
+			Đoạn “trung bình”: 5 và 6.9
+			Đoạn “khá”: 7 và 7.9
+			Đoạn “giỏi”: 8 và 8.9
+			Đoạn “xuất sắc”: 9 và 10
+
+		* Không hợp lệ:
+			Lấy giá trị đầu tiên trong đoạn > 10 là 10.1
+			Lấy giá trị cuối cùng trong đoạn < 0 là -0.1
+
+---------------
+
+	Ví dụ 3: kiểm tra số nguyên dương n có phải là số nguyên tố không
+			(màn hình console cho phép nhập số nguyên dương n
+			và xuất kết quả thông báo số đó có phải nguyên tố hay không)
+
+		(Ghi chú: số nguyên tố là số tự nhiên chỉ có hai ước số dương phân biệt là 1 và chính nó)
+
+			- Phân vùng số nguyên tố chẵn: 2
+			- Phân vùng số nguyên tố lẻ: 3
+			- Phân vùng số lẻ không phải số nguyên tố: 1
+			- Phân vùng số chẵn không là số nguyên tố: 4
+
+---------------
+
+	Ví dụ 4: kiểm thử biểu mẫu đăng nhập đơn giản
+		=> Phân vùng giữ nguyên nhưng có sự thay đổi về Test Case.
+ 
+			- Case 1: nhập giá trị với 5 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+
+			- Case 2: nhập giá trị với 6 ký tự => pass
+
+			- Case 3: nhập giá trị với 20 ký tự => pass
+
+			- Case 4: nhập giá trị với 21 ký tự => Hiển thị lỗi: "Bạn chỉ được phép nhập chuỗi có độ dài từ 6 -> 20 ký tự".
+
+			- Case 5: để trống, không nhập gì hoặc nhập ký tự không phải dạng chữ => Hiển thị lỗi: "Tên người dùng chưa hợp lệ! Vui lòng nhập ký tự chữ".
+
+---------------
+
+	Ví dụ 5: ngân hàng quy định không được chuyển khoản quá 10 triệu (tr) trong ngày, tối thiểu mỗi lần chuyển khoản là 1tr.
+
+		Gọi X là số tiền muốn chuyển trong ngày (X >= 1)
+		Gọi M là tổng số tiền đã chuyển trong ngày (M <= 10)
+
+		- Phân vùng 1:
+				X < 1 || X > 10
+
+		- Phân vùng 2:
+				M = 10
+
+		- Phân vùng 3:
+				X ∈ [1, 10]
+				1 <= X + M <= 10
+
+				* Hợp lệ:
+					-----------------------------------------
+					|	Input	|	Output		|
+					|---------------|-----------------------|
+					|X	|M	|	Expected	|
+					|---------------------------------------|
+					|1	|0	| Được phép chuyển khoản|
+					|---------------|-----------------------|
+					|1	|9	| Được phép chuyển khoản|
+					|---------------|-----------------------|
+					|10	|0	| Được phép chuyển khoản|
+					-----------------------------------------
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT BẢNG QUYẾT ĐỊNH - DECISION TABLE TESTING]
+
+** Kỹ thuật bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect - DT/CE): dùng khi phải kết hợp các điều kiện đầu vào (input) lại với nhau, khi số lượng điều kiện cần kết hợp khá lớn, dẫn đến việc không thể nhớ được một trường hợp nào đó đã được kiểm thử hay chưa.
+
+Giúp xác định những kịch bản (Scenario) kiểm thử cho những trường hợp có logic nghiệp vụ phức tạp. Giúp xác định một cách hiệu quả sự kết hợp các đầu vào khác nhau với các tình trạng phần mềm thực thi đúng quy tắc nghiệp vụ.
+
+------------------------------
+
+** Cấu trúc của bảng quyết định:
+
+(1) Các điều kiện: một biến, một quan hệ hoặc một mệnh đề.
+(2) Các giá trị điều kiện: một giá trị nào đó của điều kiện, tổ hợp các giá trị điều kiện sẽ cho ra cột quy tắc (rule).
+
+-------------------------------------------------------------------------
+|(1) Các điều kiện	|(2) Các giá trị điều kiện - Quy tắc (Rule)	|
+|-----------------------|-----------------------------------------------|
+|(3) Hành động		|(4) Xảy ra hay không				|
+-------------------------------------------------------------------------
+
+(3) Hành động: một thủ tục hoặc thao tác cần thực hiện.
+(4) Xảy ra hay không: một hành động có thể xảy ra phụ thuộc vào tổ hợp các giá trị điều kiện (kết quả mong muốn có).
+
+------------------------------
+
+** Các bước để xây dựng bảng quyết định:
+
+	Bước 01: xác định các chức năng cần sử dụng để kiểm thử.
+
+	Bước 02: xác định và liệt kê danh sách các điều kiện đầu vào, sau đó tách ra thành những tập con và xử lý từng tập con một.
+
+	Bước 03: xác định tất cả các sự kết hợp giữa đúng và sai, số lượng kết hợp giữa các giá trị điều kiện đầu vào và đặt các kết hợp đó vào trong phần (2) - Các giá trị điều kiện.
+
+	Bước 04: xác định các Test Case tương ứng cho các điều kiện được thoả mãn.
+
+	Bước 05: các hành động khi thoả điều kiện chính là kết quả mong đợi của Test Case.
+
+** Lưu ý: không quá quan trọng thứ tự các điều kiện và thứ tự thực hiện hành động.
+
+------------------------------
+
+	Ví dụ 1: biểu mẫu đăng nhập đơn giản
+
+		- Đúng email và mật khẩu -> Trang chủ
+
+		- Sai email và mật khẩu -> Thông báo lỗi
+			+ Đúng email & mật khẩu -> Trang chủ
+			+ Đúng email, sai mật khẩu -> Thông báo lỗi
+			+ Sai email, đúng mật khẩu -> Thông báo lỗi
+			+ Sai email, sai mật khẩu -> Thông báo lỗi
+
+		---------------------------------------------------------
+		|Điều kiện		|QT 1	|QT 2	|QT 3	|QT 4	|
+		|-----------------------|-------|-------|-------|-------|
+		|Email (Đ/S)		|Đúng	|Đúng	|Sai	|Sai	|
+		|-----------------------|-------|-------|-------|-------|
+		|Mật khẩu (Đ/S)		|Đúng	|Sai	|Đúng	|Sai	|
+		|-----------------------|-------|-------|-------|-------|
+		|Kết quả (Trang Chủ/Lỗi)|Tr. chủ|Lỗi	|Lỗi	|Lỗi	|
+		---------------------------------------------------------
+
+---------------
+
+	Ví dụ 2: biểu mẫu đăng nhập phức tạp
+		- Xác định các điều kiện/đầu vào: username và password.
+
+		- Mỗi đầu vào trên nhận một trong 3 giá trị:
+			rỗng (blank - B),
+			hợp lệ (valid - V),
+			không hợp lệ (invalid - I).
+
+		-> Số kết hợp giá trị các điều kiện có thể xảy ra là 9
+
+		M1: Vui lòng nhập username
+		M2: Vui lòng nhập password
+		M3: Username không hợp lệ
+		M4: Password không hợp lệ
+
+		L: Trang Login
+		H: Trang Home
+
+-----------------------------------------------------------------------------------
+|Các	|Tài khoản |  B   |  B   |  B   |  I   |  I   |  I   |  V   |  V   |  V   |
+|điều	|----------|------|------|------|------|------|------|------|------|------|
+|kiện	|Mật khẩu  |  B   |  I   |  V   |  B   |  I   |  V   |  B   |  I   |  V   |
+|---------------------------------------------------------------------------------|
+|Các	|Thông điệp|  M1  |  M1  |  M1  |  M3  |  M3  |  M3  |  M2  |  M4  |      |
+|	|lỗi	   |      |      |      |      |      |      |      |      |      |
+|hành	|----------|------|------|------|------|------|------|------|------|------|
+|	|Chuyển đến|  L   |  L   |  L   |  L   |  L   |  L   |  L   |  L   |  H   |
+|động	|trạng	   |      |      |      |      |      |      |      |      |      |
+-----------------------------------------------------------------------------------
+
+---------------
+
+** Nguyên tắc rút gọn các kết hợp các giá trị đầu vào.
+	+ Những trường hợp (cột quy tắc - rule) có cùng giá trị hành động, nhưng chỉ khác giá trị của một điều kiện duy nhất.
+
+	+ Chuyển giá trị của điều kiện khác nhau đó thành “-” và gom các cột lại thành một.
+
+	+ Lặp lại hai bước trên cho đến khi không còn các cột nào như thế.
+
+---------------
+
+** Phân tích:
+	- Khi tài khoản rỗng, bất chấp mật khẩu là giá trị gì thì đều sẽ hiển thị cùng một thông điệp lỗi và chuyển đến cùng một trang giống nhau. Khi này, các giá trị trong mật khẩu sẽ được chuyển thành “-”
+		-> Bất luận mật khẩu là gì thì kết quả vẫn không đổi.
+
+		M1: Vui lòng nhập username
+		M2: Vui lòng nhập password
+		M3: Username không hợp lệ
+		M4: Password không hợp lệ
+
+		L: Trang Login
+		H: Trang Home
+
+-------------------------------------------------------
+|Các	|Tài khoản |  B   |  I   |  V   |  V   |  V   |
+|điều	|----------|------|------|------|------|------|
+|kiện	|Mật khẩu  |  -   |  -   |  B   |  I   |  V   |
+|-----------------------------------------------------|
+|Các	|Thông điệp|  M1  |  M3  |  M2  |  M4  |      |
+|	|lỗi	   |      |      |      |      |      |
+|hành	|----------|------|------|------|------|------|
+|	|Chuyển đến|  L   |  L   |  L   |  L   |  H   |
+|động	|trạng	   |      |      |      |      |      |
+-------------------------------------------------------
+
+---------------
+
+** Các quy tắc chuyển từ bảng quyết định thành các Test Case:
+	+ Nếu giá trị các điều kiện nhập (1) đều là các giá trị luận lý (true/false) thì mỗi cột quy tắc (rule) sẽ được chuyển thành một Test Case.
+
+	+ Nếu giá trị các điều kiện nhập có nhiều giá trị (miền giá trị từ abc... xyz) thì mỗi cột quy tắc (rule) sẽ được chuyển thành nhiều Test Case bằng cách sử dụng kỹ thuật phân vùng tương đương hoặc phân tích giá trị biên vào mỗi cột.
+
+---------------
+
+	Ví dụ 3: Cho chương trình xác định một tam giác có phải là tam giác cân không, biết người dùng nhập vào chiều dài 3 cạnh a, b, c của tam giác.
+
+		* Phân tích:
+			- Đầu vào: a, b, c
+
+			- Điều kiện:
+				(a, b, c) > 0
+
+				a + b > c
+				a + c > b
+				b + c > a
+					-> tam giác
+
+				a = b || b = c || a = c
+					-> tam giác cân
+
+		* Kết luận:
+
+			- Nếu một trong các điều kiện để trở thành tam giác là sai (ví dụ: a + b < c) thì có thể lập tức kết luận tam giác đó không phải là tam giác cân.
+				-> 3 Test Case
+
+			- Nếu cả ba điều kiện để trở thành tam giác là đúng và một trong các điều kiện để trở thành tam giác cân là đúng (ví dụ: a = b) thì có thể lập tức kết luận tam giác đó là tam giác cân.
+				-> 3 Test Case
+
+			- Nếu cả ba điều kiện để trở thành tam giác là đúng nhưng không thoả bất kỳ điều kiện để trở thành tam giác cân nào thì có thể kết luận tam giác đó không phải là tam giác cân.
+				-> 1 Test Case
+
+---------------
+
+	Ví dụ 4: độc giả mượn sách không được quá 500 quyển sách trong năm (không phân biệt tên đầu sách), nhưng không được phép mượn quá 5 quyển trong một lần mượn, và phải trả các cuốn sách đã mượn mới được phép mượn tiếp nữa.
+
+		Gọi biến X là số sách được mượn (1 <= X <= 5)
+		Gọi biến M là tổng số sách đã mượn trong năm (0 <= M <= 500)
+		Gọi biến Z là trường hợp còn nợ sách (chưa trả sách đã mượn)
+
+		* Bảng quyết định:
+			-------------------------------------------------------
+			|Quy tắc 1|Quy tắc 2|Quy tắc 3|		Quy tắc 4     |
+------------------------|---------|---------|---------|-----------------------|
+|1 <= X <= 5		|    -    |    S    |    -    |		Đ	      |
+|-----------------------|---------|---------|---------|-----------------------|
+|1 <= X + M <= 500	|    -    |    -    |    S    |		Đ	      |
+|-----------------------|---------|---------|---------|-----------------------|
+|	Z		|    Đ    |    S    |    S    |		S	      |
+|-----------------------|---------|---------|---------|-----------------------|
+|	Được mượn	|    S    |    S    |    S    |		Đ	      |
+|-----------------------|---------|---------|---------|-----------------------|
+|	Mượn tối đa	|    0    |    0    |    0    |    min(5, 500 - M)    |
+-------------------------------------------------------------------------------
+
+	* Thiết kế Test Case cho Quy tắc 4 và kết hợp với phân tích giá trị biên:
+		a) 1 <= X <= 5 		---->	Đ	=> 2 biên 1 và 5
+								-> Chọn X = 1 để chạm biên dưới của X
+		a1) 1 <= X + M <= 500 	---->	Đ	=> Chọn M = 0 để chạm biên dưới của M vì X = 1
+		a2) 1 <= X + M <= 500 	---->	Đ	=> Chọn M = 499 để chạm biên trên của M vì X = 1
+
+		b) 1 <= X <= 5 		---->	Đ	=> 2 biên 1 và 5
+								-> Chọn X = 5 để chạm biên trên của X
+		b1) 1 <= X + M <= 500 	---->	Đ	=> Bắt buộc phải chọn M = 495 để chạm biên trên của M vì X = 5 nên không thể chạm biên dưới của M.
+
+		* Bảng phân tích giá trị biên:
+		-------------------------------------------------
+		|	Input	|		Output		|
+		|---------------|-------------------------------|
+		|X	|M	|Được mượn	|Mượn tối đa	|
+		|-------|-------|---------------|---------------|
+		|1	|0	|Được phép mượn	|	5	|
+		|-------|-------|---------------|---------------|
+		|1	|499	|Được phép mượn	|	1	|
+		|-------|-------|---------------|---------------|
+		|5	|495	|Được phép mượn	|	5	|
+		|-------|-------|---------------|---------------|
+		|4	|499	|Được phép mượn	|	5	|
+		-------------------------------------------------
+
+---------------
+
+	Ví dụ 5: xét học bổng cho sinh viên nếu không rớt môn nào trong học kỳ đó và có điểm trung bình từ 7.0 trở lên. Điểm tính trên thang điểm 10, điểm qua môn tính từ 5 trở lên. Với những môn học có điểm >= 4 và < 5 cũng sẽ được xem là qua môn nếu điểm trung bình học kỳ đó là 7.5 trở lên.
+
+		Gọi A là điểm trung bình môn học
+		Gọi B là điểm nhỏ nhất của môn
+
+---------------
+
+	Ví dụ 6: chương trình khuyến mãi tặng 1 loa bluethooth và miếng dán màn hình áp dụng cho những khách hàng mua dòng điện thoại cao cấp (nếu giá bán >= 20tr) diễn ra từ ngày 20/11/2017 đến hết ngày 31/12/2017. Ngoài ra, nếu đã từng dùng dòng điện thoại cao cấp của hãng A, tính từ thời điểm đã mua cho đến thời điểm mua mới, nếu khoảng thời gian này:
+			- Không quá 1 năm thì khách hàng sẽ được giảm thêm 2 triệu trên giá sản phẩm.
+			- Từ trên 1 năm đến nhỏ hơn hoặc bằng 2 năm thì khách hàng được giảm thêm 1 triệu trên giá sản phẩm.
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT CHUYỂN ĐỔI TRẠNG THÁI - STATE TRANSITION TESTING]
+
+** Kỹ thuật chuyển đổi trạng thái (State Transition Testing): khi một vài phần của hệ thống được mô tả bằng trạng thái, khi hệ thống ở một trạng thái này và chuyển sang một hệ thống khác theo một quy tác nào đó của phần mềm. Mô hình chuyển đổi sẽ bao gồm bốn phần: trạng thái, phiên chuyển đổi, sự kiện, hành động-kết quả.
+
+	Ví dụ 1: từ trạng thái đăng nhập -> đăng nhập thành công
+
+	Ví dụ 2: nhập mã pin
+		-> đúng -> đăng nhập thành công
+
+		-> sai -> thử lại -> sai 3 lần -> khoá thẻ
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
+[KỸ THUẬT KIỂM THỬ CÁC TÌNH HUỐNG SỬ DỤNG DỰA TRÊN LƯỢC ĐỒ - USE CASE TESTING]
+
+** Kỹ thuật kiểm thử các trường hợp/tình huống sử dụng dựa trên lược đồ (Use Case Testing): lược đồ tình huống sử dụng (Use Case Diagram) rất dễ hiểu đối với khách hàng vì nó tóm tắt được các tính năng cần có của hệ thống mà người dùng sẽ sử dụng dưới dạng sơ đồ, thường được sử dụng để thảo luận với khách hàng.
+
+Logic hoạt động trên lược đồ Use Case thường gần sát với logic thực tế, vì vậy, việc kiểm thử dựa trên lược đồ này sẽ giúp giảm thiểu rủi ro trong việc kiểm tra/xác nhận logic hoạt động.
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ ...]
+[KỸ THUẬT THEO CẶP - ALL PAIRS TESTING]
+
+** Kiểm thử theo cặp/cặp đôi (All-Pairs Testing/Pairwise Testing): dành cho những trường hợp phải kiểm thử một lượng lớn dữ liệu, giúp lấy ra những trường hợp tiêu biểu, loại bỏ sự dư thừa lặp lại. Được sử dụng trong các dự án yêu cầu cần phải kết hợp những đoạn code, trường hợp, điều kiện, tham số đầu vào rời rạc... lại với nhau để kiểm thử. (Khác với bảng quyết định vì BQĐ sẽ kiểm thử hết toàn bộ trường hợp của dữ liệu thay vì chọn ra những trường hợp tiêu biểu.)
+
+	+ Bước 01: xác định số lượng đầu vào.
+
+	+ Bước 02: tính tổng số trạng thái sẽ có bằng cách nhân các trường hợp lại với nhau.
+
+	+ Bước 03: kết hợp hai giá trị đầu vào lớn nhất, tiêu biểu nhất.
+
+	+ Bước 04: thực hiện ánh xạ các giá trị lại với nhau.
+
+		Ví dụ: kiểm tra đăng nhập với 100 tài khoản + mật khẩu, 3 phân quyền: quản trị viên, người dùng và khách.
+			- Bước 01:
+				100 tên tài khoản -> 2 giá trị (đúng/sai).
+				100 mật khẩu -> 2 giá trị (đúng/sai).
+				3 phân quyền -> 3 giá trị.
+
+			- Bước 02: số trường hợp: 2 x 2 x 3 => 12 trường hợp.
+
+			- Bước 03: vì tài khoản và mật khẩu đều có chung 2 giá trị là đúng và sai -> 3 phân quyền x 2 trường hợp => 6 Test Case
+
+			- Bước 04: kết hợp các trường hợp của các giá trị.
+
+==============================================================================
+
+[KIỂM THỬ ĐỘNG - DYNAMIC TESTING]
+[KHÁI NIỆM KIỂM THỬ HỘP TRẮNG - WHITE BOX TESTING]
+
+** Kiểm thử hộp trắng (Structure Based/White Box Testing): ngoài yêu cầu kiểm thử viên phải có những kiến thức về kiểm thử, còn yêu cầu phải có khả năng lập trình để thực hiện kiểm thử trên cấu trúc, thiết kế, xử lý, cách triển khai bên trong hệ thống,... để làm rõ từng đơn vị hoặc đoạn mã nguồn không phù hợp.
+
+Vì có sự khó khăn khi về mặt chi phí và đòi hỏi phải có sự am hiểu sâu về cấu trúc bên trong của hệ thông đang kiểm thử nên thường quá trình này sẽ được thực hiện bởi chính các lập trình viên thiết kế ra mô-đun/chương trình đó.
+
+	=> Do chính các lập trình viên thực hiện vì nó yêu cầu một người phải hiểu rõ về nghiệp vụ, phân tích được logic và toàn bộ cấu trúc mã nguồn bên trong của hệ thống.
+
+------------------------------
+
+** Phân loại các kỹ thuật kiểm thử hộp trắng:
+
+	- Kiểm thử đường dẫn cơ sở (Basis Path Testing).
+
+	- Kiểm thử cấu trúc điều khiển (Control Structure Testing).
+		+ Kiểm thử luồng điều khiển (Control Flow Testing) / Bao phủ (Coverage Testing).
+			* Phủ câu lệnh/dòng lệnh (Statement Coverage).
+			* Phủ quyết định (Decision Coverage).
+			* Phủ nhánh (Branch Coverage).
+			* Phủ đường (Path Coverage).
+			* Phủ điều kiện (Condition Coverage).
+			* Phủ đa điều kiện (Multiple Condition Coverage - MCC).
+
+		+ Kiểm thử luồng dữ liệu (Data Flow Testing).
+
+		+ Kiểm thử vòng lặp (Loop Testing).
+
+==============================================================================
+
+[KIỂM THỬ ĐỘNG - DYNAMIC TESTING]
+[KHÁI NIỆM KIỂM THỬ HỘP XÁM - GRAY BOX TESTING]
+
+** Kiểm thử hộp xám (Gray-box Testing/Grey-box Testing): là sự kết hợp giữa kiểm thử hộp đen và hộp trắng, mục đích là để tìm kiếm các khiếm khuyết (nếu có) do cấu trúc không đúng hoặc việc sử dụng hệ thống không đúng cách.
+
+Cho phép thấy được kiến trúc bên trong: mô hình, lược đồ thiết kế của hệ thống thông qua tài liệu, thấy được cơ sở dữ liệu bên trong và thực hiện một số truy vấn để xác nhận kết quả,... từ đó giúp cho việc chuẩn bị dữ liệu và kịch bản kiểm thử được tốt hơn.
+
+==============================================================================
+
+[KHÁI NIỆM KIỂM THỬ DỰA TRÊN KINH NGHIỆM - EXPERIENCED BASED TESTING]
+
+** Kiểm thử dựa trên kinh nghiệm (Experienced Based Testing): trong thực tế, không phải lúc nào nghiệp vụ mà ta kiểm thử cũng có đầy đủ các tài liệu mô tả. Sẽ có trường hợp các tính năng được mô tả và thiết kế bằng lời thay vì được ghi chép vào trong một tài liệu mô tả nghiệp rõ ràng.
+	
+	=> Được sinh ra để giải quyết những vấn đề mô tả và thiết kế tính năng bằng lời thay vì được ghi chép vào trong tài liệu.
+
+------------------------------
+
+** Phân loại các kỹ thuật kiểm thử dựa trên kinh nghiệm:
+
+	- Đoán lỗi (Error Guessing).
+
+	- Kiểm thử thăm dò (Exploratory Testing).
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ DỰA TRÊN KINH NGHIỆM]
+[KỸ THUẬT ĐOÁN LỖI - ERROR GUESSING]
+
+** Kỹ thuật đoán lỗi (Error Guessing): chủ yếu dựa vào kinh nghiệm, sự am hiểu về hệ thống hoặc dựa vào những dự án đã trải qua, những bug đã tìm được,... vì vậy không phù hợp với người mới. Có thể giúp tìm ra những lỗi mà thậm chí không có trong Test Case (exploratory testing).
+
+	Ví dụ: lỗi chia cho 0, gửi yêu cầu không kèm giá trị hoặc chứa giá trị/ký tự đặc biệt, quyên xoá tài khoản test,...
+
+
+
