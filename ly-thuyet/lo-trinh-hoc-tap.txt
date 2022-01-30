@@ -24,9 +24,27 @@ Bước 04: kiến thức về Kiểm thử Phần mềm Tự động
 ================================================================================
 
 Vì sao muốn trở thành tester?
+
+--------------------
+
 Tester thật sự là gì?
+
+--------------------
+
 Những kỹ năng và tố chất cần có của một tester?
+
+- Cẩn thận: cần có sự chủ động.
+- Tò mò: tìm hiểu sâu và không tin là đúng.
+- Phán đoán: có thể tích luỹ trong quá trình làm việc.
+- Tư duy logic: suy ra được kết quả từ những bước trước đó, đánh giá kết quả xử lý của hệ thống có đúng với logic.
+- Tư duy phản biện: nghi ngờ những gì được mô tả và thực hiện ngược lại.
+
+--------------------
+
 Tiềm năng của nghề tester?
+
+--------------------
+
 Làm test có yêu cầu nền tảng CNTT?
 
 
