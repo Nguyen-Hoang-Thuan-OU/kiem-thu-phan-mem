@@ -1,0 +1,150 @@
+[PHÂN LOẠI KIỂM THỬ - TYPE/CATEGORY/CLASSIFY]
+
+Chia các kỹ thuật và vấn đề liên quan đến kiểm thử thành các nhóm khác nhau. Có hơn 100 loại kiểm thử khác nhau, vì vậy không đáng để quan tâm rằng kỹ thuật kiểm thử này thuộc nhóm kiểm thử nào.
+	-> Mục tiêu cuối cùng là để so sánh kết quả mong đợi với kết quả thực tế.
+
+ -------------------------------------------------------------------------------
+| You can do Functional Testing (A Type)| Muốn kiểm thử một LOẠI nào đó		|
+| during System Testing (A Level)	| diễn ra trong GIAI ĐOẠN nào đó	|
+| using Black Box Testing (A Method)	| bằng KỸ THUẬT/PHƯƠNG PHÁP nào đó	|
+ -------------------------------------------------------------------------------
+
+Ví dụ: kiểm thử CHỨC NĂNG [Đăng nhập] trong GIAI ĐOẠN hệ thống đã gần hoàn chỉnh bằng KỸ THUẬT kiểm thử hộp đen.
+
+================================================================================
+
+[PHÂN LOẠI THEO LOẠI]
+
+1. Loại kiểm thử (Testing Type): mục tiêu/mục đích, đối tượng kiểm thử cụ thể.
+
+Functional Testing
+Non-Functional Testing
+
+Ví dụ: type: GUI, method: manual
+
+================================================================================
+
+[PHÂN LOẠI THEO MỨC ĐỘ/CẤP ĐỘ]
+
+2. Mức độ/cấp độ kiểm thử (Testing Level): bàn về các công việc kiểm thử cần phải thực hiện dựa vào sự hoàn thiện của hệ thống trong quá trình viết code, mỗi mức hoàn thiện khác nhau sẽ có những loại kiểm thử khác nhau.
+
+Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại này chỉ tập trung vào kiểm thử khi đã có code.
+
+-----------------------------------------------------------------
+
+** Có 4 mức hoàn thiện của hệ thống, tương ứng với 4 giai đoạn/công đoạn/mức độ:
+
+	* Kiểm thử đơn vị (Unit test): code được viết ra phải khả năng kiểm thử được và lập trình viên tự thực hiện các hoạt động đảm bảo chất lượng cho từng đơn vị code riêng lẻ bằng cách kiểm thử các hàm, lớp mà mình vừa mới viết ra xong. Mục đích để đảm bảo mã nguồn viết cho đơn vị nào đó đúng với đặc tả yêu cầu, xác nhận mã nguồn trong đơn vị đó có thể thực thi.
+
+		- Một đơn vị là thành phần nhỏ nhất có thể kiểm thử được. Nó có thể là một hàm, một thủ tục, một lớp, hoặc một phương thức.
+		- Các lỗi tìm thấy và sửa trong giai đoạn kiểm thử đơn vị thường không cần ghi nhận vào trong tài liệu.
+
+	-> Lập trình viên tự viết code để kiểm thử từng đơn vị code do mình vừa mới viết ra xong.
+
+--------------------
+
+	* Kiểm thử tích hợp (Integration test): kiểm thử viên (TDD) hoặc lập trình viên sẽ thực hiện kiểm thử cho các thành phần riêng lẻ (các hàm, lớp) đang hoạt động tốt, để xem khi được tích hợp lại với nhau (thành một cụm chức năng) sẽ có tương thích và hoạt động/tương tác đúng hay không. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
+
+	-> Kiểm thử khi các hàm, lớp được gom thành một cụm chức năng.
+
+		Ví dụ: DAO + DTO + DBUtil
+			-> Chức năng thêm-xoá-sửa-tìm kiếm.
+
+		- Các chiến lược tích hợp:
+			+ Chiến lược Big-bang: đợi đến khi hoàn thành xong tất cả các đơn vị/thành phần thì mới tích hợp cùng một lúc để có hệ thống đầy đủ.
+
+			+ Chiến lược Incremental (tăng dần): chiến lược này kiểm thử từng phần riêng biệt, giúp sớm phát hiện lỗi và dễ dàng cô lập để tìm ra nguyên nhân. Sẽ gặp trường hợp tình năng này chờ tính năng kia phát triển, cần phát triển các stub & driver để thực hiện kiểm thử trước.
+
+			* Hai chiến lược incremental thường được sử dụng là top-down và bottom-up:
+				- Chiến lược top-down: hệ thống được xây dựng theo từng giai đoạn, bắt đầu từ thành phần cao nhất (top) gọi các thành phần khác ở cấp thấp hơn. Kiểm thử theo chiến lược này yêu cầu sự tương tác giữa các thành phần phải được kiểm thử trước khi xây dựng các thành phần. Các thành phần ở cấp thấp hơn chưa xây dựng sẽ được thay thế bằng stub.
+				- Chiến lược bottom-up: chiến lược này ngược lại với chiến lược top-down, các thành phần được tích hợp theo thứ tự từ dưới lên. Các thành phần ở trên chưa xây dựng sẽ được thay thế bằng driver.
+
+--------------------
+
+	* Kiểm thử hệ thống (System test): do đội ngũ tester độc lập thực hiện để đảm bảo tính khách quan, kiểm thử khi các thành phần đã được tích hợp thành một hệ thống hoàn chỉnh để kiểm tra phần mềm về tổng thế mọi mặt có tuân thủ các đặc tả yêu cầu của người dùng. Nhóm kiểm thử chỉ dựa trên đặc tả yêu cầu mà không được xem mã nguồn hệ thống. Đặc tả yêu cầu thường chứa các yêu cầu chức năng (functional) và các yêu cầu phi chức năng (non-functional) cần được kiểm thử.
+
+	-> Kiểm thử khi chức năng được tổng hợp thành một hệ thống và tạm dùng được.
+
+		Ví dụ: Giao diện đồ họa người dùng (GUI) + API + Back-end
+			-> Một hệ thống gần như hoàn hảo.
+
+		- Yêu cầu chức năng (Functional Requirement): các yêu cầu chỉ định các chức năng của hệ thống hoặc các thành phần cần được thực hiện, nó chỉ định chi tiết những gì (WHAT) hệ thống cần làm. Trong suốt quá trình kiểm thử chức năng, ta cần thực hiện các kiểm tra chức năng như: cài đặt, chạy thử ứng dụng trên máy cục bộ, hệ điều hành cục bộ, kiểm tra các chức năng của ứng dụng, các xử lý chuỗi, văn bản như sao chép (copy), dán (paste) cho các ký tự mở rộng,...
+
+		- Yêu cầu phi chức năng (Non-Functional Requirement): những yêu cầu không liên quan đến dịch vụ được chỉ định, mà liên quan đến những thuộc tính ràng buộc hệ thống:
+			+ Kiểm thử tính tin cậy (Reliabilty Tesing).
+			+ Kiểm thử tính tiện dụng (Usablilty Testing).
+			+ Kiểm thử tính hiệu quả (Efficiency Testing).
+			+ Kiểm thử khả năng bảo trì (Maintainablity Testing).
+			+ Kiểm thử tính khả chuyển (Portable Testing).
+			+ Kiểm thử hiệu năng (Performance Testing).
+
+--------------------
+
+	* Kiểm thử chấp nhận (User Acceptance Test - UAT): đưa cho khách hàng sử dụng thử và nhận phản hồi để đảm bảo sản phẩm phần mềm hoạt động đúng những gì khách hàng mong đợi và khách hàng chấp nhận sản phẩm – thanh toán hợp đồng.
+		- Alpha Test: người trong công ty (in-house) đóng vai trò người dùng phía khách hàng để tiến hành kiểm thử trong môi trường phát triển và phản hồi lại cho developer.
+		- Beta Test: công khai đưa cho những người từ phía khách hàng (external) dùng thử sản phẩm và đưa ra phản hồi trước khi phát hành phiên bản chính thức.
+
+	-> Sản phẩm đúng với yêu cầu và khách hàng sẵn sàng thanh toán hợp đồng.
+
+================================================================================
+
+[PHÂN LOẠI THEO KỸ THUẬT/PHƯƠNG PHÁP]
+
+3. Kỹ thuật/phương pháp kiểm thử (Testing Technique/Method): cách thức cụ thể để tiến hành kiểm thử, cho ra được các Test Case để xác minh kết quả mong đợi với kết quả thực tế.
+
+** Kiểm thử tĩnh (Static Testing): kiểm thử mà không cần thực thi hệ thống, tìm sai sót bằng cách đọc tài liệu đặc tả yêu cầu (SRS), tài liệu thiết kế, đọc mã nguồn để kiểm tra về quy chuẩn lập trình,...
+	- Kỹ thuật đánh giá (Review): tham khảo ý kiến của các chuyên gia.
+	- Kỹ thuật phân tích tĩnh (Static Analysis): sử dụng công cụ để tự động kiểm tra quy chuẩn lập trình.
+
+-----------------------------------------------------------------
+
+** Kiểm thử động (Dynamic Testing): kiểm thử khi thực thi hệ thống để biết hệ thống xử lý đúng hay sai.
+
+	* Kiểm thử hộp đen/dựa trên đặc tả yêu cầu (Specification Based/Behavior Based/Black-box Testing): che kín các xử lý bên trong.
+		- Kiểm thử chức năng (Functional Testing)
+		- Phi chức năng (Non-Functional Testing).
+
+	* Kiểm thử hộp trắng (Structure Based Testing/White-box Testing): được phép xem bên trong "ruột, gan" của mã nguồn để tìm sai sót.
+		- Kiểm thử đường dẫn cơ sở (Basis Path Testing).
+		- Kiểm thử cấu trúc điều khiển (Control Structure Testing).
+
+================================================================================
+
+Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số vấn đề về thắt cổ chai (bottleneck) hoặc hiệu năng của hệ thống khi số lượng người dùng bắt đầu nhiều.
+
+* Cần kiểm thử về:
+	- Speed: tốc độ và thời gian hệ thống phản hồi cho người dùng nhanh hay chậm, có ổn định hay không.
+	- Capacity: sức chứa số lượng người truy cập cùng một lúc.
+	- Stability: tính ổn định theo thời gian dài dưới các tải khác nhau.
+	- Scalability: khả năng tự động co giãn (hạ tầng, tối ưu mã nguồn) của hệ thống để đáp ứng nhu cầu của người dùng.
+
+* Các loại kiểm thử hiệu năng:
+	- Kiểm thử tính bền vững (Endurance Testing): kiểm tra hành vi của hệ thống với lượng tải đáng kể được thực hiện trong một khoảng thời gian dài. Sự tiêu thụ bộ nhớ thường là nguyên nhân dẫn đến failure của hệ thống.
+		Ví dụ: một chức năng vẫn hoạt động tốt khi thực hiện kiểm thử trong 1 giờ, nhưng cũng cùng yêu cầu đó nếu thực hiện liên tục trong 3 giờ thì hệ thống phát sinh vấn đề do rò rỉ bộ nhớ (Leak Memory).
+
+	- Scalability: kiểm thử để đo khả năng mở rộng cho các yêu cầu phi chức năng.
+
+	- Volume Testing (Capacity): kiểm thử hệ thống với một lượng dữ liệu nhất định, sức tải mà CSDL cho phép.
+
+	- Load Test: kiểm tra khả năng chịu tải của phần mềm thực hiện bằng cách chạy hàng loạt test, tăng dần và liên tục sức tải cho đến khi hệ thống không thể thực thi được nữa. Mục đích để biết được cách hành xử của hệ thống khi nó quá tải và phát hiện những lỗi mà không thể phát hiện ở các trường hợp thông thường. Với cách tiếp cận này, Test Case thường được thiết kế xung quanh giá trị biên (cận biên lớn nhất) để xác định mức độ tắc nghẽn hiệu suất.
+		Ví dụ: bản yêu cầu nêu rằng hệ thống có khả năng chịu tải 300 giao tác trên một giây thì ban đầu kiểm tra dưới 300 giao tác trên giây, và tăng dần cho đến khi hệ thống không thể thực thi được nữa.
+
+	- Stress test: kiểm tra hệ thống với những giá trị ngoài phạm vi (abnormal conditions) đã được thiết kế. Mục đích để xác định những điểm giới hạn/gãy (breaking point) của hệ thống và theo dõi cách hệ thống phục hồi.
+
+* Hồi quy: kiểm thử lại những gì đã từng kiểm thử để xác nhận rằng code vẫn đang ổn. Vì có trường hợp code vẫn đang ổn do trước đó đã có thực hiện kiểm thử, nhưng sau khi thêm tính năng mới thì không còn ổn nữa, lúc này cần phải kiểm thử lại.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
