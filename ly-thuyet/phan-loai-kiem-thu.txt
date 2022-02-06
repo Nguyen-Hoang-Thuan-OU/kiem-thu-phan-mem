@@ -83,6 +83,7 @@ Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại n
 
 			+ Chiến lược Incremental (tăng dần): chiến lược này kiểm thử từng phần riêng biệt, giúp sớm phát hiện lỗi và dễ dàng cô lập để tìm ra nguyên nhân. Sẽ gặp trường hợp tình năng này chờ tính năng kia phát triển, cần phát triển các stub & driver để thực hiện kiểm thử trước.
 
+
 			* Hai chiến lược incremental thường được sử dụng là top-down và bottom-up:
 				- Chiến lược top-down: hệ thống được xây dựng theo từng giai đoạn, bắt đầu từ thành phần cao nhất (top) gọi các thành phần khác ở cấp thấp hơn. Kiểm thử theo chiến lược này yêu cầu sự tương tác giữa các thành phần phải được kiểm thử trước khi xây dựng các thành phần. Các thành phần ở cấp thấp hơn chưa xây dựng sẽ được thay thế bằng stub.
 				- Chiến lược bottom-up: chiến lược này ngược lại với chiến lược top-down, các thành phần được tích hợp theo thứ tự từ dưới lên. Các thành phần ở trên chưa xây dựng sẽ được thay thế bằng driver.
@@ -128,10 +129,61 @@ Sẽ có giao diện/màn hình với các trang, biểu mẫu để người d�
 
 2. Loại kiểm thử (Testing Type): mục tiêu/mục đích, đối tượng kiểm thử cụ thể.
 
-Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp độ (level, mức hoàn thiện của hệ thống) mà chuyển sang dạng (type) kiểm thử chức năng để xem các chức năng có chạy đúng hay không.
+Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp độ (level, mức hoàn thiện của hệ thống) mà chuyển sang kiểm thử ở dạng (type) để kiểm tra xem các chức năng có hoạt động đúng và tiện dụng cho người dùng hay không.
 
-	- Functional Testing
-	- Non-Functional Testing
+
+* Kiểm thử chức năng (Functional Testing): dựa theo các yêu cầu chức năng của hệ thống.
+	- Kiểm tra tiến trình làm phần mềm: requirements (đúng/sai/bất hợp lý - đủ/thừa/thiếu).
+	- Kiểm tra những chức năng đã thiết kế có hoạt động đúng.
+
+		-> Kiểm thử tính năng của phần mềm.
+
+			Ví dụ 1: kiểm tra giới hạn số lần nhập sai mã pin để tránh trường hợp bị mất tiền do đánh rơi thẻ.
+
+			Ví dụ 2: kiểm tra thực hiện một phép tính trên ứng dụng máy tính bỏ túi của Windows.
+
+-----------------------------------------------------------------
+
+* Kiểm thử phi chức năng (Non-Functional Testing): dựa theo các yêu cầu phi chức năng của hệ thống.
+	- Kiểm tra chất lượng về mặt trải nghiệm của người dùng: nhanh/chậm - tốt/tệ - đẹp/xấu.
+
+		-> Kiểm thử trải nghiệm của người dùng về phần mềm.
+
+			Ví dụ 1: kiểm tra tốc độ phản hồi của hệ thống khi xử lý 1 nút nhấn (Performance Testing).
+
+			Ví dụ 2: kiểm tra xem hệ thống chịu được bao nhiêu người dùng truy cập cùng một lúc để xử lý trong khoảng thời gian cao điểm, ví dụ: đăng ký môn học,... (Load Testing).
+
+-----------------------------------------------------------------
+
+** Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số vấn đề về thắt cổ chai (bottleneck) hoặc hiệu năng của hệ thống khi số lượng người dùng bắt đầu nhiều.
+
+--------------------
+
+* Cần kiểm thử về:
+	- Speed: tốc độ và thời gian hệ thống phản hồi cho người dùng nhanh hay chậm, có ổn định hay không.
+
+	- Capacity: sức chứa số lượng người truy cập cùng một lúc.
+
+	- Stability: tính ổn định theo thời gian dài dưới các tải khác nhau.
+
+	- Scalability: khả năng tự động co giãn (hạ tầng, tối ưu mã nguồn) của hệ thống để đáp ứng nhu cầu của người dùng.
+
+--------------------
+
+* Các loại kiểm thử hiệu năng:
+	- Tính bền vững (Endurance Testing): kiểm tra hành vi của hệ thống với lượng tải đáng kể được thực hiện trong một khoảng thời gian dài. Sự tiêu thụ bộ nhớ thường là nguyên nhân dẫn đến failure của hệ thống.
+		Ví dụ: một chức năng vẫn hoạt động tốt khi thực hiện kiểm thử trong 1 giờ, nhưng cũng cùng yêu cầu đó nếu thực hiện liên tục trong 3 giờ thì hệ thống phát sinh vấn đề do rò rỉ bộ nhớ (Leak Memory).
+
+	- Tính mở rộng (Scalability): kiểm thử để đo khả năng mở rộng cho các yêu cầu phi chức năng.
+
+	- Sức chứa (Volume Testing/Capacity): kiểm thử hệ thống với một lượng dữ liệu nhất định, sức tải mà CSDL cho phép.
+
+	- Chịu tải (Load Test): kiểm tra khả năng chịu tải của phần mềm thực hiện bằng cách chạy hàng loạt test, tăng dần và liên tục sức tải cho đến khi hệ thống không thể thực thi được nữa. Mục đích để biết được cách hành xử của hệ thống khi nó quá tải và phát hiện những lỗi mà không thể phát hiện ở các trường hợp thông thường. Với cách tiếp cận này, Test Case thường được thiết kế xung quanh giá trị biên (cận biên lớn nhất) để xác định mức độ tắc nghẽn hiệu suất.
+		Ví dụ: bản yêu cầu nêu rằng hệ thống có khả năng chịu tải 300 giao tác trên một giây thì ban đầu kiểm tra dưới 300 giao tác trên giây, và tăng dần cho đến khi hệ thống không thể thực thi được nữa.
+
+	- Chịu rủi ro (Stress Test): kiểm tra hệ thống với những giá trị ngoài phạm vi (abnormal conditions) đã được thiết kế. Mục đích để xác định những điểm giới hạn/gãy (breaking point) của hệ thống và theo dõi cách hệ thống phục hồi.
+
+-----------------------------------------------------------------
 
 Ví dụ:
 	- Type: GUI
@@ -160,29 +212,6 @@ Ví dụ:
 		- Kiểm thử cấu trúc điều khiển (Control Structure Testing).
 
 ================================================================================
-
-** Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số vấn đề về thắt cổ chai (bottleneck) hoặc hiệu năng của hệ thống khi số lượng người dùng bắt đầu nhiều.
-
-* Cần kiểm thử về:
-	- Speed: tốc độ và thời gian hệ thống phản hồi cho người dùng nhanh hay chậm, có ổn định hay không.
-	- Capacity: sức chứa số lượng người truy cập cùng một lúc.
-	- Stability: tính ổn định theo thời gian dài dưới các tải khác nhau.
-	- Scalability: khả năng tự động co giãn (hạ tầng, tối ưu mã nguồn) của hệ thống để đáp ứng nhu cầu của người dùng.
-
-* Các loại kiểm thử hiệu năng:
-	- Kiểm thử tính bền vững (Endurance Testing): kiểm tra hành vi của hệ thống với lượng tải đáng kể được thực hiện trong một khoảng thời gian dài. Sự tiêu thụ bộ nhớ thường là nguyên nhân dẫn đến failure của hệ thống.
-		Ví dụ: một chức năng vẫn hoạt động tốt khi thực hiện kiểm thử trong 1 giờ, nhưng cũng cùng yêu cầu đó nếu thực hiện liên tục trong 3 giờ thì hệ thống phát sinh vấn đề do rò rỉ bộ nhớ (Leak Memory).
-
-	- Scalability: kiểm thử để đo khả năng mở rộng cho các yêu cầu phi chức năng.
-
-	- Volume Testing (Capacity): kiểm thử hệ thống với một lượng dữ liệu nhất định, sức tải mà CSDL cho phép.
-
-	- Load Test: kiểm tra khả năng chịu tải của phần mềm thực hiện bằng cách chạy hàng loạt test, tăng dần và liên tục sức tải cho đến khi hệ thống không thể thực thi được nữa. Mục đích để biết được cách hành xử của hệ thống khi nó quá tải và phát hiện những lỗi mà không thể phát hiện ở các trường hợp thông thường. Với cách tiếp cận này, Test Case thường được thiết kế xung quanh giá trị biên (cận biên lớn nhất) để xác định mức độ tắc nghẽn hiệu suất.
-		Ví dụ: bản yêu cầu nêu rằng hệ thống có khả năng chịu tải 300 giao tác trên một giây thì ban đầu kiểm tra dưới 300 giao tác trên giây, và tăng dần cho đến khi hệ thống không thể thực thi được nữa.
-
-	- Stress test: kiểm tra hệ thống với những giá trị ngoài phạm vi (abnormal conditions) đã được thiết kế. Mục đích để xác định những điểm giới hạn/gãy (breaking point) của hệ thống và theo dõi cách hệ thống phục hồi.
-
------------------------------------------------------------------
 
 ** Hồi quy: kiểm thử lại những gì đã từng kiểm thử khi trong code có sự thay đổi để xác nhận rằng code vẫn đang ổn. Trước đó code đã ổn do đã có thực hiện kiểm thử, sau khi thêm tính năng mới thì cần phải kiểm thử lại để đảm bảo rằng code vẫn sẽ ổn.
 	-> Code đang ổn, nếu không có sửa đổi thì code vẫn phải ổn.
