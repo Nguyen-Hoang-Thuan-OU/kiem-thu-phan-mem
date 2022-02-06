@@ -1,6 +1,6 @@
 ﻿[TẠI SAO PHẢI KIỂM THỬ PHẦN MỀM?]
 
-Việc phát triển ứng dụng đã rất dễ dàng nhờ vào sự hỗ trợ của các framework nhưng vẫn phải giữ được chất lượng của sản phẩm trước khi đến được tay của khách hàng, cũng như sớm phát hiện được những trường hợp sai, dư, thiếu so với mong muốn của khách hàng.
+Việc phát triển phần mềm đã rất dễ dàng nhờ vào sự hỗ trợ của các framework nhưng vẫn phải giữ được chất lượng của sản phẩm trước khi đến được tay của khách hàng, cũng như sớm phát hiện được những trường hợp sai, dư, thiếu so với mong muốn của khách hàng.
 	-> Giảm tối đa chi phí khi phát sinh vấn đề.
 
 ================================================================================
@@ -51,35 +51,6 @@ Viết code chỉ là một phần trong quá trình làm phần mềm. Trước
 Không đơn giản chỉ là kiểm thử trên một phần mềm đã được viết và biên dịch sang tập tin nhị phân (hay phần mềm đã được triển khai lên Server) để tìm lỗi trong quá trình vận hành. Kiểm thử phần mềm là một quá trình (process) liên quan đến việc so sánh/đánh giá/đo lường/kiểm tra (comparing/evaluating/measure/check) giữa kết quả thực tế (actual - what is) với kết quả mong đợi (expected - what ought to be).
 
 	=> So sánh giữa kết quả mong đợi với kết quả thực tế để tìm lỗi (defect testing), đảm bảo rằng phần mềm hoạt động đúng với dự kiến/mục tiêu/đặc tả yêu cầu và người dùng hài lòng với phần mềm (validation testing).
-
-----------------------------------------
-
-* Kiểm tra Functional Requirements:
-	- Kiểm tra tiến trình làm phần mềm: requirements (đúng/sai/bất hợp lý - đủ/thừa/thiếu).
-	- Kiểm tra những chức năng đã thiết kế có hoạt động đúng.
-
-		Ví dụ 1: kiểm tra giới hạn số lần nhập sai mã pin để tránh trường hợp bị mất tiền do đánh rơi thẻ.
-
-		Ví dụ 2: kiểm tra thực hiện một phép tính trên ứng dụng máy tính bỏ túi của Windows.
-
---------------------
-
-* Kiểm tra Non-Functional Requirements:
-	- Kiểm tra chất lượng về mặt trải nghiệm của người dùng: nhanh/chậm - tốt/tệ - đẹp/xấu.
-
-		Ví dụ 1: kiểm tra tốc độ phản hồi của hệ thống khi xử lý 1 nút nhấn (Performance Testing).
-
-		Ví dụ 2: kiểm tra xem hệ thống chịu được bao nhiêu người dùng truy cập cùng một lúc để xử lý trong khoảng thời gian cao điểm, ví dụ: đăng ký môn học,... (Load Testing).
-
-----------------------------------------
-
-[QUY TRÌNH KIỂM THỬ]
-
-[Thiết kế Test Case]
-	-> [Chuẩn bị dữ liệu test]
-		-> [Chạy chương trình test dữ liệu]
-			-> [So sánh kết quả với test case]
-				->[Viết báo cáo]
 
 ================================================================================
 
@@ -150,6 +121,7 @@ Trong tài liệu kế hoạch kiểm thử (Test Plan) sẽ có các tiêu chu�
 
 	- Đến hạn bàn giao kết quả kiểm thử (deadline).
 	- Thực thi hết các Test Case.
+	- Tất cả các lỗi (bug) tìm ra đều đã được close.
 	- Tỷ lệ lỗi ở mức cho phép (không thể hết lỗi).
 	- ...
 
@@ -311,12 +283,32 @@ V-Model là một mô hình quy trình phát triển phần mềm (SDLC) dựa t
 
 ** Những bước mà kiểm thử viên cần thực hiện trong một dự án thực tế:
 
-	Bước 01: Hiểu về dự án (đặt câu hỏi, trao đổi với khách hàng, lãnh đạo và thành viên trong nhóm).
-	Bước 02: Thiết lập kế hoạch/chiến lược kiểm thử (test plan).
-	Bước 03: Thiết lập các kịch bản kiểm thử (test scenarios, độ ưu tiên,...).
-	Bước 04: Thiết lập các tình huống kiểm thử (test cases).
-	Bước 05: Thực thi kiểm thử.
-	Bước 06: Báo cáo kết quả kiểm thử chính thức.
+	01. Hiểu về dự án: đặt câu hỏi, trao đổi với khách hàng, lãnh đạo, thành viên trong nhóm,....
+	02. Thiết lập kế hoạch/chiến lược kiểm thử (Test Plan).
+	03. Thiết lập các kịch bản kiểm thử (Test Scenarios, độ ưu tiên,...).
+	04. Thiết lập các tình huống kiểm thử (Test Cases).
+	05. Thực thi kiểm thử (Test Run/Test Execution).
+	06. Báo cáo kết quả kiểm thử chính thức (Test Report).
+
+----------------------------------------
+
+[SOFTWARE/SYSTEMS TESTING LIFE CYCLE - STLC]
+
+** Quy trình/vòng đời kiểm thử phần mềm (Software/Systems Testing Life Cycle - STLC):
+
+01. Requirement Analysis/Elicitation
+
+	-> 02. Test Planning/Strategizing
+
+		-> 03. Test Design/Test Case Development
+
+			-> 04. Test Environment Setup
+
+				-> 05. Test Run/Execution
+
+					-> 06. Defect Logging and Result Analysis
+
+						-> 07. Test/Project Closure
 
 ================================================================================
 
@@ -351,7 +343,7 @@ Lỗi trên website:
 
 ================================================================================
 
-[PHÂN BIỆT GIỮA KIỂM THỬ ỔN ĐỊNH (SMOKE TESTING) VÀ KIỂM THỬ HỢP LÝ (SANITY TESTING)]
+[SMOKE TESTING VÀ SANITY TESTING]
 
 ** Software build là gì?
 Nếu phát triển một chương trình máy tính đơn giản chỉ bao gồm một tệp mã nguồn, ta chỉ cần biên dịch và liên kết một tệp này, để tạo thành một tệp thực thi.
@@ -402,7 +394,7 @@ Là loại kiểm thử phần mềm được thực hiện sau khi nhận đư�
 
 [KIỂM THỬ API - API TESTING]
 
-** Kiểm thử API (API Testing): API là dịch vụ do một số nguồn khác cung cấp để Client sử dụng (tách biệt giao diện và xử lý), cần có cơ chế để kiểm thử riêng phần xử lý ở phía sau.
+** Kiểm thử API (API Testing): API là cầu nối, dịch vụ do một số nguồn khác cung cấp để Client sử dụng (tách biệt giao diện và xử lý), cần có cơ chế để kiểm thử riêng phần xử lý ở phía sau.
 
 Ví dụ: các bước để thay đổi mật khẩu.
 	01. User vào phần "Profile" để thay đổi mật khẩu.
