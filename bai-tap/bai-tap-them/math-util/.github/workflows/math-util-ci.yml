@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: bai-tap/bai-tap-them
+        working-directory: bai-tap/bai-tap-them/math-util
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
