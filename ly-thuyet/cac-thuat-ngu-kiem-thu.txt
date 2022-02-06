@@ -31,7 +31,7 @@
 
 --------------------
 
-* Bug (lỗi): những sai sót xuất hiện trong phần mềm đã được thừa nhận, khiến cho phần mềm hoạt động không được như mong đợi.
+* Bug (lỗi): những sai sót xuất hiện trong phần mềm đã được thừa nhận, khiến cho phần mềm hoạt động không được như mong đợi yêu cầu của khách hàng.
 
 --------------------
 
