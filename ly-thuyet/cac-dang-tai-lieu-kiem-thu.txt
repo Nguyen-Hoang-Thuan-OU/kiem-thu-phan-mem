@@ -1,0 +1,337 @@
+﻿**********Test Plan, Test Suite, Test Scenario, Test Case, Checklist, Test Report, Traceability Matrix, Bug Report**********
+
+https://fulcrum.rocks/blog/qa-documentation-test-strategy-test-plan-test-case/
+
+* IEEE 829 (đã được thay thế bằng ISO/IEC/IEEE 29119): tiêu chuẩn cần tuân theo khi viết những tài liệu kiểm thử (Software test documentation/Test specification).
+
+================================================================================
+
+[KẾ HOẠCH KIỂM THỬ - TEST PLAN]
+
+Những app khác nhau sẽ có những độ phức tạp khác nhau về mặt tính năng. Lúc này, việc kiểm thử không thể tuỳ hứng được mà phải có kế hoạch kiểm thử rõ ràng và đội ngũ kiểm thử viên (tester) có thể bắt đầu công việc của mình.
+
+* Lập kế hoạch kiểm thử để trả lời được những câu hỏi:
+
+	01. Môi trường: dựa vào SRS để hoạch định kế hoạch, chuẩn bị môi trường và thiết bị tương ứng (nguyên lý: kiểm thử dựa vào ngữ cảnh).
+		Ví dụ:
+			- Nếu là ứng dụng di động thì phải tương thích với tất cả các loại màn hình, tương thích với hệ điều hành (Android, IOS), hỗ trợ vân tay nếu cần.
+
+			- Nếu là ứng dụng bán hàng ở quầy thu ngân thì phải chuẩn bị môi trường vì các thao tác khi này sẽ hoàn toàn là cảm ứng chứ không sử dụng chuột.
+
+--------------------
+
+	02. Thời gian bắt đầu: ngay trong quá trình lấy yêu cầu (requirement), khi viết các user story đầu tiên, khi làm product backlog. Liệt kê ra những mô-đun, chức năng cần kiểm thử sớm.
+
+--------------------
+
+	03. Nhân lực và chức năng cần kiểm thử: Tester phải đọc các tài liệu để chuẩn bị cho kịch bản kiểm thử (Test Scenario). Với những hệ thống phức tạp thì mỗi người sẽ kiểm thử một phần chức năng và trên các loại thiết bị khác nhau với hệ điều hành khác nhau.
+
+----------------------------------------
+
+** Chiến lược/kế hoạch kiểm thử (Test Plan): tài liệu tổng quan về việc kiểm thử một dự án, thường do các Test Manager/Test Leader/QC Manager phối hợp với PM/PO/BA để lấy thông tin và lập kế hoạch trong giai đoạn đầu của quy trình phát triển phần mềm (SDLC). Test Plan có thể là một tập tin .docx, .xlsx, .pdf,... hoặc tài liệu trực tuyến.
+
+Bao gồm: phạm vi kiểm thử (scope), hướng tiếp cận, quy trình kiểm thử (Software Testing Life Cycle - STLC), tài nguyên sử dụng, nhân lực, lịch trình cho các hoạt động kiểm thử, các tính năng cần và không cần kiểm thử, các công cụ và môi trường kiểm thử cần có.
+
+- Các giả thiết khi kiểm thử phần mềm.
+- Giới thiệu tài liệu Test Plan.
+- Danh sách các Test Case để kiểm thử phần mềm.
+- Danh sách các tính năng (feature) sẽ được kiểm thử.
+- Danh sách các sản phẩm (deliverabled) sẽ được kiểm thử.
+- Xác định ưu tiên cách tiệp cận cho việc kiểm thử.
+- Tài nguyên sử dụng cho việc kiểm thử.
+- Nêu các rủi ro có thể xảy ra trong quá trình kiểm thử.
+- Lịch trình các task, phiên bản (milestone) cần đạt được.
+
+	=> Tài liệu định nghĩa ra mục tiêu kiểm thử, cách tiếp cận của dự án và phương tiện/phương pháp để đạt được, xác định nổ lực (effort) và chi phí kiểm thử.
+
+----------------------------------------
+
+** Các bước để xây dựng Test Plan:
+
+	* Bước 01: Định nghĩa phạm vi của kiểm thử (Define scope of testing): là bước vô cùng quan trọng đối với tất cả các bên liên quan trong hệ thống, cung cấp sự chắc chắn và thông tin chính xác về hoạt động kiểm thử đang dự định thực hiện, tất cả các thành viên trong dự án sẽ hiểu rõ những gì được và không được kiểm thử trong dự án.
+
+Những thành phần trong hệ thống, phần cứng, phần mềm, phần mềm trung gian được sử dụng trong hệ thống được gọi là in-scope.
+
+Những thành phần của hệ thống sẽ không được kiểm thử được gọi là out-of-scope.
+
+		- Để xác định được phạm vi:
+			+ Nắm rõ, chính xác được yêu cầu của khách hàng (precise customer requirement).
+			+ Xác định được ngân sách của dự án (project budget).
+			+ Nắm được những đặc điểm kỹ thuật của sản phẩm (product specification).
+			+ Nắm được kỹ năng và trình độ kiểm thử của từng thành viên trong nhóm kiểm thử (skill & talent of test team).
+
+--------------------
+
+	* Bước 02: Xác định loại/phân loại kiểm thử (Identify testing type): dùng để xác định mỗi loại kiểm thử cụ thể, thứ tự ưu tiên của từng loại so với nhân lực và trình độ kiểm thử của nhóm, nhằm một mục tiêu chung là phát hiện sớm lỗi trước khi phát hành sản phẩm và tiết kiệm chi phí.
+
+		- Kiểm thử đơn vị (Unit Test), Kiểm thử tích hợp (Integration Test), Kiểm thử hệ thống (System Test), Kiểm thử chấp nhận (Acceptance Testing).
+
+		- Kiểm thử API (API testing): API là cầu nối chuyển giao thông tin giữa Client với Server, không thực hiện bất kỳ hành động nghiệp vụ (business logic) nào.
+
+		- Kiểm thử cài đặt/gỡ bỏ cài đặt (Install/UnInstall testing):
+			- Kiểm thử cài đặt: xác minh phần mềm đã được cài đặt với tất cả các thành phần cần thiết và các ứng dụng đang hoạt động như mong đợi.
+			- Kiểm thử gỡ bỏ cài đặt: được thực hiện để xác minh liệu rằng tất cả các thành phần của ứng dụng có bị loại bỏ trong quá trình hay không. Tất cả các tập tin liên quan đến ứng dụng cùng cấu trúc thư mục của nó phải được gỡ bỏ sau khi quá trình gỡ bỏ thành công.
+
+		- Kiểm thử Agile (Agile testing): là phương pháp kiểm thử phần mềm tuân theo một số quy tắc của bản tuyên ngôn (manifesto) agile, xem việc phát triển phần mềm như là khách hàng của việc kiểm thử.
+
+--------------------
+
+	* Bước 03: Tạo và lưu trữ tài liệu về những vấn đề và hướng giải quyết (Document risk & issue): các test manager/test leader cần phải tính toán được vấn đề, rủi ro tiềm ẩn trong phần mềm và hướng giải quyết.
+
+		- Vấn đề 1: Thành viên trong nhóm thiếu các kỹ năng cần thiết để kiểm thử trang web.
+			-> Giải pháp: Lập kế hoạch khoá đài tạo để nâng cao kỹ năng của các thành viên.
+
+		- Vấn đề 2: Tiến độ dự án quá eo hẹp, thật khó để hoàn thành dự án đúng hạn.
+			-> Giải pháp: Đặt mức độ ưu tiên cho từng hoạt động kiểm thử (test priority).
+
+		- Vấn đề 3: Test manager có kỹ năng quản lý kém.
+			-> Giải pháp: Lập kế hoạch đào tạo cho quản lý.
+
+		- Vấn đề 4: Thiếu hợp tác, ảnh hưởng tiêu cực đến năng suất của thành viên.
+			-> Giải pháp: Khuyến khích mỗi thành viên trong nhóm thực hiện nhiệm vụ của mình và truyền cảm hứng cho họ để họ nỗ lực nhiều hơn.
+
+		- Vấn đề 5: Dự toán ngân sách sai và vượt chi phí.
+			-> Giải pháp: Thiết lập phạm vi trước khi bắt đầu công việc, chú ý nhiều đến việc lập kế hoạch dự án, liên tục theo dõi và đo lường tiến độ.
+
+--------------------
+
+	* Bước 04: Xác định thành viên thực hiện và thời điểm thực hiện kiểm thử (Create test logistic):
+		- Xác định thành viên: ước tính ngân sách của dự án và lựa chọn thành viên dựa theo khả năng của từng thành viên có phù hợp với công việc (khả năng hiểu yêu cầu và quan điểm của khách hàng, mong muốn chất lượng tốt, chú ý đến từng chi tiết nhỏ, có tinh thần hợp tác nhóm tốt.)
+
+		- Xác định thời điểm: cần kết hợp với các hoạt động khác, bắt đầu kiểm thử khi đã có: tài liệu đặc tả yêu cầu, nguồn nhân lực và môi trường kiểm thử.
+
+================================================================================
+
+[KỊCH BẢN KIỂM THỬ - TEST SCENARIO]
+
+* Kịch bản (Scenario): gồm nhiều tình huống (case) khác nhau.
+
+--------------------
+
+** Kịch bản kiểm thử (Test Scenario): được lập sau khi nhận được yêu cầu/tài liệu kiểm thử (Test Document) từ phía khách hàng để xác định ra những chức năng cần kiểm thử. Mỗi chức năng/yêu cầu sẽ tương ứng với một kịch bản (scenario) mà trong mỗi kịch bản sẽ có nhiều tình huống (case) khác nhau. Một Test Scenario có thể bao gồm nhiều Test Scenario nhỏ hơn bên trong.
+	=> Là một kịch bản chứa nhiều Test Case có liên quan đến kịch bản đó (chỉ nêu mục đích chứ không nêu các bước kiểm thử).
+
+	Ví dụ: Kịch bản kiểm thử (Test Scenario) chỉ nêu mục đích
+		- Kiểm tra chức năng đăng nhập.
+		- Kiểm tra chức năng tìm kiếm.
+		- Kiểm tra chức năng thanh toán.
+		- Xác minh tính năng khôi phục.
+		- Xác minh tính năng huỷ đăng nhập.
+
+---------------------------------------------------------------------------------
+|Tên mô-đun/	|ID của kịch bản|Tên của kịch		|Số lượng tình huống	|
+|ID của yêu cầu	|kiểm thử	|bản kiểm thử		|kiểm thử (Test Cases)	|
+|---------------|---------------|-----------------------|-----------------------|
+|Mô-đun		|TS_Login_001	|Kiểm tra tính năng	|	4		|
+|đăng nhập	|		|đăng nhập		|			|
+|---------------|---------------|-----------------------|-----------------------|
+|Mô-đun		|TS_Login_002	|Xác minh tính năng	|	2		|
+|đăng nhập	|		|khôi phục		|			|
+|---------------|---------------|-----------------------|-----------------------|
+|Mô-đun		|TS_Login_003	|Xác minh tính năng huỷ	|	2		|
+|đăng nhập	|		|đăng nhập		|			|
+---------------------------------------------------------------------------------
+
+================================================================================
+
+[TÌNH HUỐNG KIỂM THỬ - TEST CASE]
+
+* Tình huống (Case): ngữ cảnh sử dụng hệ thống và câu chuyện sau đó. Bao gồm: bộ dữ liệu đầu vào, thao tác đầu vào, nút nhấn, kết quả trả về.
+	-> Đưa dữ liệu vào và nhận kết quả trả ra.
+		-> Test Case: những gì muốn kiểm thử.
+		-> Test Run: đợt kiểm thử của Test Case (mỗi Test Case có thể có nhiều đợt).
+
+* Chức năng (Functional): trả lời được câu hỏi what/goal/target.
+
+* Phiên bản phần mềm được phát hành (Release): số Test Case sẽ tương ứng với tiến độ làm (số tính năng cung cấp cho thị trường theo đợt).
+
+--------------------
+
+** Tình huống kiểm thử (Test Case): một dạng tài liệu QC/Tester lập để tập hợp/ghi chép lại những tình huống sử dụng/kiểm thử theo dạng từng bước cụ thể liên tiếp nhau (step by step) đi kèm với dữ liệu kiểm thử (test data), điều kiện tiên quyết (precondition) và hậu điều kiện (postcondition) nếu có,... để kiểm tra tính đúng đắn về hành vi (behavior) và chức năng (functionality) của một hệ thống. Và việc lập tài liệu một cách chi tiết cũng sẽ giúp những người đến sau dễ dàng hơn trong việc bảo trì Test Case.
+
+Những tình huống kiểm thử này được thực thi để tìm ra lỗi cho một kịch bản kiểm thử (Test Scenario), với mục đích kiểm tra/xác minh (verify) tính năng cụ thể của hệ thống đúng hay sai (so với yêu cầu, xử lý kết quả), kết quả trả về là PASSED hay FAILED.
+
+	=> Tập hợp bộ dữ liệu đầu vào, các điều kiện tiên, bước thực hiện, kết quả mong đợi, kết quả thực tế,... giúp tìm ra lỗi trong các yêu cầu (requirement) hoặc thiết kế (design) của ứng dụng, so sánh kết quả mong đợi với kết quả thực tế để xác định (verify) xem hệ thống có hoạt động theo yêu cầu của khách hàng hay không.
+
+----------------------------------------
+
+** Công việc QC/Tester cần làm để thiết kế được Test Case:
+
+	- Đọc tài liệu đặc tả yêu cầu phần mềm (Software Requirements Specification - SRS) và tài liệu thiết kế phần mềm (Software Design Document - SDD), có thể đọc ngay trong lúc đang viết.
+
+	- Hình dung trong đầu cách người dùng, các tình huống (cases) sử dụng app.
+
+		-> Viết ra kịch bản (scenario) và tình huống (case) kiểm thử.
+
+--------------------
+
+** Cần đảm bảo Test Case đã bao gồm hết tất cả các tình huống, vì một chức năng có thể có nhiều tình huống xảy ra, để chứng minh rằng tính năng hoạt động đúng như mô tả và thiết kế:
+	- Tình huống thành công.
+	- Tình huống thất bại.
+		+ Thất bại do sự vô ý của người dùng (bật phím Caps Lock trong quá trình nhập,..).
+		+ Thất bại trong nhiều lần do cố tình phá.
+
+		Ví dụ 1: Trong Test Scenario - Kiểm tra chức năng đăng nhập.
+
+			* Kiểm tra phản hồi của hệ thống đăng nhập:
+				- Có thông báo khi thất bại?
+				- Có vào đúng phân quyền (role) khi thành công?
+
+			* Chức năng (Functional):
+			- Khi nhập tài khoản và mật khẩu hợp lệ.
+			- Khi nhập tài khoản và mật khẩu không hợp lệ.
+			- Khi nhập tài khoản hợp lệ nhưng mật khẩu không hợp lệ.
+			- Khi nhập tài khoản không hợp lệ, có hiển thị nút [Đăng ký].
+			- Khi nhấn nút [Đăng nhập] nhưng bỏ trống tài khoản và mật khẩu.
+			- Khi nhấn nút [Duy trì trạng thái đăng nhập].
+			- Tính năng [Quên mật khẩu] có hoạt động đúng như mong đợi.
+			- Sau khi đã thay đổi mật khẩu thành công.
+			- Khi nhập tài khoản chưa xác thực bằng email.
+			- Phản hồi của hệ thống khi nhấn các phím [Enter], [Tab],...
+
+			* Phi chức năng (Non-functional):
+			- Hệ thống không bắt đăng nhập lại khi nhấn phím mũi tên quay về (Alt + <) sau khi đã đăng nhập thành công.
+			- Tắt website mà không đăng xuất, sau đó mở lại website để xem hệ thống có yêu cầu đăng nhập lại (cookie, session).
+			- Khi đăng nhập thất bại quá số lần quy định (ví dụ: 5 lần).
+			- Tính năng ẩn mật khẩu ở ô nhập mật khẩu có hoạt động tốt.
+			- Ô nhập mật khẩu có cho phép sao chép và dán để xem mật khẩu.
+			- Thời gian (session) tự động thoát khi không thao tác trong thời gian dài.
+			- Các ô nhập dữ liệu có đủ nhãn (label) hoặc gợi ý từ (placeholder).
+			- Kiểm tra về giao diện (UI): màu sắc, kiểu chữ, cỡ chữ,...
+			- Kiểm tra có hỗ trợ trên các trình duyệt.
+
+--------------------
+
+		Ví dụ 2: Trong Test Scenario - Kiểm tra chức năng gửi email.
+
+			* Kiểm tra phản hồi của hệ thống gửi email:
+
+			- Phản ứng của nút [Gửi] khi không nhập địa chỉ email.
+			- Phản ứng của nút [Gửi] khi không nhập tiêu đề email.
+			- Phản ứng của nút [Gửi] khi địa chỉ email không có thật/không tồn tại trên Server.
+
+----------------------------------------
+
+** Vậy cần bao nhiêu Test Case thì đủ cho một Test Scenario?
+
+Trong số bảy nguyên lý kiểm thử phần mềm, có một nguyên lý nói "Không thể kiểm thử hết toàn bộ (Exhaustive testing is not possible)". Số tổ hợp các trường hợp (cases) sử dụng hệ thống của người dùng là vô chừng, vì vậy, cần phải có cách để dừng việc viết Test Case mà vẫn tự tin kết luận rằng hệ thống có thể sử dụng ổn định với xác suất lỗi thấp nhất.
+
+-> Áp dụng thêm những kỹ thuật thiết kế Test Case (hộp trắng, hộp đen, hộp xám, kinh nghiệm,...) để tăng tính hiệu quả bằng cách giới hạn số Test Case phải viết nhưng vẫn đảm bảo thử qua tất cả các trường hợp cần phải thử.
+
+================================================================================
+
+[BÁO CÁO LỖI - BUG REPORT]
+
+* Bug: được gọi là lỗi khi lập trình viên thừa nhận và chấp nhận sửa.
+
+----------------------------------------
+
+** Cấu trúc của Bug Report:
+
+- Date: ngày tạo ra lỗi.
+- Assigned to: lỗi này đã được chuyển giao cho người nào.
+- Status: tình trạng của lỗi
+	+ New: mới tìm ra.
+	+ Open: cả nhóm họp với nhau để phân tích và xác định đúng là lỗi, bắt đầu đưa cho lập trình viên để sửa.
+	+ In process: lập trình viên đang tiến hành sửa lỗi.
+	+ Fixed: lỗi đã được sửa xong.
+	+ Close: đóng quá trình sửa lỗi.
+- Title: tiêu đề tóm tắt của lỗi.
+- Summary/Description: giải thích chi tiết cho tiêu đề của lỗi.
+- Environments (OS/Browser): môi trường xảy ra lỗi (hệ điều hành/trình duyệt và phiên bản).
+- Step to re-produce: các bước để tái hiện lại lỗi.
+	1. Truy cập trang...
+	2. Ở mục...
+	3. Giao diện bị lệch 3px...
+- Expected results: kết quả mong đợi.
+- Actual results: kết quả thực tế nhận được.
+- Evidence: bằng chứng về lỗi, thường là hình chụp hoặc video.
+- Severity: mức độ nghiêm trọng của lỗi, có ảnh hưởng (impact) trực tiếp đến các chức năng chính của hệ thống.
+- Priority level: mức độ ưu tiên, thứ tự (order) để sửa của lỗi.
+- Additional information: thông tin cung cấp thêm về lỗi.
+
+----------------------------------------
+
+** Cách viết Bug Report chuẩn
+
+* Tiêu đề tóm tắt: [Tên dự án][Môi trường] Những gì đã xảy ra và thời gian xảy ra lỗi?
+	Ví dụ: [Facebook][iPad][UAT] The "POST" button does not work when input more than 1000 characters in content.
+
+* Mô tả:
+	- Platform (browser, devices,...)
+	- Version (app, web)
+	- Expected
+	- Actual
+	- Evidence
+
+================================================================================
+
+[BỘ KIỂM THỬ - TEST SUITE]
+
+** Bộ kiểm thử/Bộ xác nhận (Test Suite/Validation Suite): tập hợp của các Test Case cho một mục đích nhất định. Trong kiểm thử tự động, nó có thể có nghĩa là một tập hợp các kịch bản kiểm thử tự động (Test Script) sẽ được thực thi trong cùng một lần kiểm thử cụ thể.
+
+Các Test Case và Test Script trong Test Suite đều được sắp xếp theo thứ tự. Ví dụ: Test Case [Đăng ký] sẽ được đặt ở trước Test Case [Đăng nhập].
+
+Bản chất của Test Suite là mô tả thật rõ ràng mục tiêu và đích đến của các trường hợp kiểm thử (Test Case). Khi có hàng nghìn Test Case, sử dụng Test Suite sẽ giúp phân loại các Test Case theo từng tình huống kiểm thử khác nhau, chẳng hạn như kiểm thử chức năng hoặc cho các tính năng riêng biệt của phần mềm.
+
+Ngoài ra, Test Suite cũng có các bước khác nhau, có thể sử dụng để xác định các bước hiện tại của quá trình kiểm thử, như đã kích hoạt, đang trong tiến trình hoặc đã hoàn thành.
+
+	Ví dụ 1: Regression Test Suite được chạy để xác minh những tính năng cũ.
+
+	Ví dụ 2: Test Suite cho những tính năng quan trọng nhất của hệ thống.
+
+	Ví dụ 3: Test Suite dành riêng cho từng dạng (type) kiểm thử như Smoke Test Suite or Security Test Suite,...
+
+	Ví dụ 4: Test Suite - Mua một sản phẩm
+			Test Case 1: Đăng nhập
+			Test Case 2: Thêm sản phẩm vào giỏ hàng
+			Test Case 3: Thanh toán
+			Test Case 4: Đăng xuất
+	(Mỗi Test Case ở trên đều phụ thuộc vào sự thành công của các Test Case trước đó. Ví dụ: không thể thanh toán nếu không thể thêm sản phẩm vào giỏ hàng. Do đó, nếu đang chạy bộ Test Suite ở chế độ tuần tự, ta có thể chọn dừng việc thực thi bộ Test Suite nếu một trường hợp thử nghiệm duy nhất không vượt qua
+
+================================================================================
+
+[DANH SÁCH TÓM TẮT TÌNH HUỐNG SỬ DỤNG - CHECKLIST]
+
+Checklist là một danh sách các Test Case được thực thi trong một thủ tục (procedure) xác định, nó giúp ta nhanh chóng nắm được các Test Case đã được thực thi hết hay chưa và có bao nhiêu test bị fail.
+
+* Cấu trúc mẫu:
+
+Procedure | Expected Result | Actual Result | Status | Comment
+
+================================================================================
+
+[KẾT QUẢ KIỂM THỬ - TEST REPORT]
+
+Test Report được viết sau khi đã thực hiện kiểm thử, được dùng để lưu lại kết quả kiểm thử phần mềm một cách có tổ chức, mô tả điều kiện và môi trường kiểm thử, so sánh kết quả kiểm thử với mục tiêu kiểm thử đề ra.
+	-> Xác định độ đo và phân tích kết quả.
+
+================================================================================
+
+[MA TRẬN LƯU VẾT - TRACEABILITY MATRIX]
+
+Traceability Matrix là một bảng để lưu vết (trace) các yêu cầu trong vòng đời phát triển phần mềm (SDLC). Mỗi yêu cầu bảng này được liên kết đến một Test Case để quá trình kiểm thử được thực hiện.
+
+Ngoài ra, Bug ID cũng được liên kết đến yêu cầu này.
+
+Mục đích chính của bảng này:
+	- Đảm bảo phần mềm phát triển như yêu cầu đề cập.
+	- Thuận tiện tìm nguyên nhân chính (root cause) gây ra bug.
+	- Lưu vết các tài liệu được phát triển trong vòng đời phát triển phần mềm.
+
+================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
