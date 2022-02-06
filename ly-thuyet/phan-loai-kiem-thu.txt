@@ -13,37 +13,65 @@ Ví dụ: kiểm thử CHỨC NĂNG [Đăng nhập] trong GIAI ĐOẠN hệ th�
 
 ================================================================================
 
-[PHÂN LOẠI THEO LOẠI]
-
-1. Loại kiểm thử (Testing Type): mục tiêu/mục đích, đối tượng kiểm thử cụ thể.
-
-Functional Testing
-Non-Functional Testing
-
-Ví dụ: type: GUI, method: manual
-
-================================================================================
-
 [PHÂN LOẠI THEO MỨC ĐỘ/CẤP ĐỘ]
 
-2. Mức độ/cấp độ kiểm thử (Testing Level): bàn về các công việc kiểm thử cần phải thực hiện dựa vào sự hoàn thiện của hệ thống trong quá trình viết code, mỗi mức hoàn thiện khác nhau sẽ có những loại kiểm thử khác nhau.
+1. Mức độ/cấp độ kiểm thử (Testing Level): bàn về các công việc kiểm thử cần phải thực hiện dựa vào sự hoàn thiện của hệ thống trong quá trình viết code, mỗi mức hoàn thiện khác nhau sẽ có những loại kiểm thử khác nhau.
 
 Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại này chỉ tập trung vào kiểm thử khi đã có code.
+
+	-> Kiểm thử dựa trên sự hoàn thiện của hệ thống về phía code.
+
+--------------------
+
+** Kiểm tra code đúng bằng cách:
+	- Kiểm thử tĩnh: không thực thi code mà chỉ đọc code bằng mắt và tư duy.
+	- Kiểm thử động: thực thi code để xem hành xử của hàm, hệ thống.
+
+--------------------
+
+** Quy tắc đặt tên gói (package) trong code:
+	- Đặt ngược theo tên miền (Domain name).
+	- Dấu chấm trong tên gói chính là phân cấp thư mục.
+		Ví dụ:
+			com
+			   microsoft
+				sqlserver
+				   jdbc
+				      ... class để sử dụng Java nối sang SQL Serever
+				   adonet
+				      ... class để sử dụng C# nối sang SQL Serever
+
+				visualstudio
+				   adonet
+				      ... class khác
+
+				vscode
+
+			- Tên miền: https://www.microsoft.com/
+			- Tên gói: com.microsoft.sqlserver.adonet
+
+	-> Giúp gom nhóm, phân chia các dự án/gói thư viện (.jar, .dll), cây thư mục mã nguồn (Source Code) của cùng 1 công ty (sau này là của các công ty khác) để cùng sống chung với nhau nhau mà lại không bị trộn lẫn với nhau.
 
 -----------------------------------------------------------------
 
 ** Có 4 mức hoàn thiện của hệ thống, tương ứng với 4 giai đoạn/công đoạn/mức độ:
 
-	* Kiểm thử đơn vị (Unit test): code được viết ra phải khả năng kiểm thử được và lập trình viên tự thực hiện các hoạt động đảm bảo chất lượng cho từng đơn vị code riêng lẻ bằng cách kiểm thử các hàm, lớp mà mình vừa mới viết ra xong. Mục đích để đảm bảo mã nguồn viết cho đơn vị nào đó đúng với đặc tả yêu cầu, xác nhận mã nguồn trong đơn vị đó có thể thực thi.
+	* Kiểm thử đơn vị (Unit Test): code được viết ra phải khả năng kiểm thử được và lập trình viên tự thực hiện các hoạt động đảm bảo chất lượng cho từng đơn vị code riêng lẻ bằng cách kiểm thử các hàm, lớp mà mình vừa mới viết ra xong. Mục đích để đảm bảo mã nguồn viết cho đơn vị nào đó đúng với đặc tả yêu cầu, xác nhận mã nguồn trong đơn vị đó có thể thực thi.
 
 		- Một đơn vị là thành phần nhỏ nhất có thể kiểm thử được. Nó có thể là một hàm, một thủ tục, một lớp, hoặc một phương thức.
 		- Các lỗi tìm thấy và sửa trong giai đoạn kiểm thử đơn vị thường không cần ghi nhận vào trong tài liệu.
 
 	-> Lập trình viên tự viết code để kiểm thử từng đơn vị code do mình vừa mới viết ra xong.
 
+
+		* Test-driven development (TDD)/Test First Development: viết test trước khi viết code chính. Suy nghĩ và đưa ra những tình huống sử dụng để viết test trước và lập trình ra những chương trình chạy đúng test đã viết.
+			-> Viết code làm sao để PASS được kết quả test.
+
+		* Data-driven testing (DDT)/Table-driven testing/Parameterized testing: tham số hoá dữ liệu kiểm thử, kiểm thử hướng dữ liệu, tách hẳn bộ dữ liệu kiểm thử ra một nơi để dễ dàng kiểm tra xem bộ dữ liệu còn thiếu hay đủ.
+
 --------------------
 
-	* Kiểm thử tích hợp (Integration test): kiểm thử viên (TDD) hoặc lập trình viên sẽ thực hiện kiểm thử cho các thành phần riêng lẻ (các hàm, lớp) đang hoạt động tốt, để xem khi được tích hợp lại với nhau (thành một cụm chức năng) sẽ có tương thích và hoạt động/tương tác đúng hay không. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
+	* Kiểm thử tích hợp (Integration Test): kiểm thử viên (TDD) hoặc lập trình viên sẽ thực hiện kiểm thử cho các thành phần riêng lẻ (các hàm, lớp) đang hoạt động tốt, để xem khi được tích hợp lại với nhau (thành một cụm chức năng) sẽ có tương thích và hoạt động/tương tác đúng hay không. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
 
 	-> Kiểm thử khi các hàm, lớp được gom thành một cụm chức năng.
 
@@ -61,7 +89,7 @@ Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại n
 
 --------------------
 
-	* Kiểm thử hệ thống (System test): do đội ngũ tester độc lập thực hiện để đảm bảo tính khách quan, kiểm thử khi các thành phần đã được tích hợp thành một hệ thống hoàn chỉnh để kiểm tra phần mềm về tổng thế mọi mặt có tuân thủ các đặc tả yêu cầu của người dùng. Nhóm kiểm thử chỉ dựa trên đặc tả yêu cầu mà không được xem mã nguồn hệ thống. Đặc tả yêu cầu thường chứa các yêu cầu chức năng (functional) và các yêu cầu phi chức năng (non-functional) cần được kiểm thử.
+	* Kiểm thử hệ thống (System Test): do đội ngũ tester độc lập thực hiện để đảm bảo tính khách quan, kiểm thử khi các thành phần đã được tích hợp thành một hệ thống hoàn chỉnh để kiểm tra phần mềm về tổng thế mọi mặt có tuân thủ các đặc tả yêu cầu của người dùng. Nhóm kiểm thử chỉ dựa trên đặc tả yêu cầu mà không được xem mã nguồn hệ thống. Đặc tả yêu cầu thường chứa các yêu cầu chức năng (functional) và các yêu cầu phi chức năng (non-functional) cần được kiểm thử.
 
 	-> Kiểm thử khi chức năng được tổng hợp thành một hệ thống và tạm dùng được.
 
@@ -85,6 +113,29 @@ Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại n
 		- Beta Test: công khai đưa cho những người từ phía khách hàng (external) dùng thử sản phẩm và đưa ra phản hồi trước khi phát hành phiên bản chính thức.
 
 	-> Sản phẩm đúng với yêu cầu và khách hàng sẵn sàng thanh toán hợp đồng.
+
+-----------------------------------------------------------------
+
+Ngoại trừ Unit Test, 3 cấp độ còn lại (Integration Test, System Test, User Acceptance Test - UAT) của việc kiểm thử khi phần mềm đã thành hình, khi code được ráp với giao diện người dùng (UI). Khi này, ta sẽ chuyển sang kiểm thử dưới góc nhìn của người dùng.
+	-> Góc nhìn của người dùng là góc nhìn về mặt tính năng, không quan tâm về mặt xử lý.
+
+Sẽ có giao diện/màn hình với các trang, biểu mẫu để người dùng có thể tương tác và nhập dữ liệu vào, người dùng có thể nhấn nút và xem kết quả trả về (có thể là một trang khác).
+	-> Người dùng không quan tâm phần hậu trường (các hàm được chạy đằng sau UI), chỉ quan tâm họ làm được gì với hệ thống.
+
+================================================================================
+
+[PHÂN LOẠI THEO LOẠI]
+
+2. Loại kiểm thử (Testing Type): mục tiêu/mục đích, đối tượng kiểm thử cụ thể.
+
+Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp độ (level, mức hoàn thiện của hệ thống) mà chuyển sang dạng (type) kiểm thử chức năng để xem các chức năng có chạy đúng hay không.
+
+	- Functional Testing
+	- Non-Functional Testing
+
+Ví dụ:
+	- Type: GUI
+	- Method: manual
 
 ================================================================================
 
@@ -110,7 +161,7 @@ Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại n
 
 ================================================================================
 
-Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số vấn đề về thắt cổ chai (bottleneck) hoặc hiệu năng của hệ thống khi số lượng người dùng bắt đầu nhiều.
+** Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số vấn đề về thắt cổ chai (bottleneck) hoặc hiệu năng của hệ thống khi số lượng người dùng bắt đầu nhiều.
 
 * Cần kiểm thử về:
 	- Speed: tốc độ và thời gian hệ thống phản hồi cho người dùng nhanh hay chậm, có ổn định hay không.
@@ -131,9 +182,15 @@ Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số 
 
 	- Stress test: kiểm tra hệ thống với những giá trị ngoài phạm vi (abnormal conditions) đã được thiết kế. Mục đích để xác định những điểm giới hạn/gãy (breaking point) của hệ thống và theo dõi cách hệ thống phục hồi.
 
-* Hồi quy: kiểm thử lại những gì đã từng kiểm thử để xác nhận rằng code vẫn đang ổn. Vì có trường hợp code vẫn đang ổn do trước đó đã có thực hiện kiểm thử, nhưng sau khi thêm tính năng mới thì không còn ổn nữa, lúc này cần phải kiểm thử lại.
+-----------------------------------------------------------------
 
+** Hồi quy: kiểm thử lại những gì đã từng kiểm thử khi trong code có sự thay đổi để xác nhận rằng code vẫn đang ổn. Trước đó code đã ổn do đã có thực hiện kiểm thử, sau khi thêm tính năng mới thì cần phải kiểm thử lại để đảm bảo rằng code vẫn sẽ ổn.
+	-> Code đang ổn, nếu không có sửa đổi thì code vẫn phải ổn.
 
+-----------------------------------------------------------------
+
+API: những hàm có thể gọi từ xa (trên Internet thông qua URL) và trả về giá trị (thay vì số hoặc chuỗi thì trả về đối tượng dưới dạng chuỗi JSON hoặc XML). API không cần giao diện vì được tạo ra để các hệ thống khác gọi.
+	- API Testing: kiểm thử hàm trả về giá trị đúng hay sai.
 
 
 
