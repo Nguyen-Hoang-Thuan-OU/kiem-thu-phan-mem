@@ -136,7 +136,7 @@ So sánh giữa kiểm thử tĩnh và động:
 	Bước 01: Phân tích các đặc tả chức năng của các thành phần hệ thống.
 	Bước 02: Thiết kế Test Case để kiểm thử.
 	Bước 03: Thực thi các Test Case để kiểm thử.
-	Bước 04: So sánh kết quả đạt được (actual result) với kết quả mong muốn (expected result) trong từng Test Case.
+	Bước 04: So sánh kết thực tế (actual result) với kết quả mong đợi (expected result) trong từng Test Case.
 	Bước 05: Lập báo cáo kết quả kiểm thử.
 
 ------------------------------
@@ -153,14 +153,25 @@ So sánh giữa kiểm thử tĩnh và động:
 		* Kiểm thử có sự thay đổi (change):
 
 			+ Kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) để xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo.
-				-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng yêu cầu (Retesting/Confirmation Testing).
+				-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng yêu cầu ban đầu (Retesting/Confirmation Testing).
 
-			+ Khi tích hợp một tính năng mới vào bên trong của hệ thống, thay đổi mã nguồn, thay đổi môi trường hệ thống,... cần kiểm tra lại những tính năng, mô-đun, một tập các Test Case đã được thiết kế từ trước và có liên quan với chức năng vừa được tích hợp/thay đổi (ví dụ: đăng ký, đăng nhập, quên mật khẩu,...) để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ sự thay đổi đó. Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy (Regression Testing).
-				-> Thay đổi/phát triển và tích hợp tính năng > Xác minh rằng những tính năng cũ vẫn chạy ổn định sau khi đã thay đổi/tích hợp tính năng mới (Regression Testing).
+			+ Khi tích hợp một tính năng mới vào bên trong của hệ thống, thay đổi mã nguồn, thay đổi môi trường hệ thống,... Lúc này, cần kiểm tra lại những tính năng, mô-đun cũ bằng cách thực thi hết tất cả các Test Case đã được thiết kế từ trước và có liên quan với chức năng vừa được tích hợp/thay đổi (ví dụ: đăng ký, đăng nhập, quên mật khẩu,...) để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ sự thay đổi đó. Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy (Regression Testing).
+				-> Xác minh rằng những tính năng cũ vẫn chạy ổn định sau khi đã thay đổi mã nguồn hoặc môi trường hệ thống (Regression Testing).
 
 ---------------
 
-	- Kiểm thử phi chức năng (Non-functional Testing): tập trung kiểm thử các khía cạnh hành vi của hệ thống như tính tiện dụng (usability), tính khả chuyển (portability), hiệu năng hệ thống (Performance Testing) như kiểm tra tải (Load Test) hay kiểm tra sự ổn định (Stress Test),...
+	- Kiểm thử phi chức năng (Non-functional Testing): tập trung kiểm thử các khía cạnh hành vi của hệ thống.
+		-> Kiểm thử về chất lượng.
+
+			* Kiểm thử tính tin cậy (Reliabilty Tesing).
+			* Kiểm thử tính tiện dụng (Usablilty Testing).
+			* Kiểm thử tính hiệu quả (Efficiency Testing).
+			* Kiểm thử khả năng bảo trì (Maintainablity Testing).
+			* Kiểm thử tính khả chuyển (Portable Testing).
+			* Kiểm thử hiệu năng (Performance Testing).
+				+ Kiểm tra tải (Load Test).
+				+ Kiểm tra sự ổn định (Stress Test).
+				+ ...
 
 ------------------------------
 
@@ -170,16 +181,16 @@ So sánh giữa kiểm thử tĩnh và động:
 
 	- Phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class).
 	- Phân tích giá trị biên (Boundary Value Analysis).
-		-> Thường được áp dụng cho các tình huống mà các đầu vào với khoảng giá trị xác định cụ thể (ví dụ: 0-18) và ít có quan hệ ràng buộc nhau (đầu vào này và đầu vào kia không gây ảnh hưởng gì đến kết quả của bài toán, mỗi đầu vào sẽ cho ra một kết quả độc lập).
+		-> Thường được áp dụng cho các tình huống mà các đầu vào với khoảng giá trị xác định cụ thể (ví dụ: 0-18) và không có quan hệ mắt xích, ràng buộc nhau (đầu vào này và đầu vào kia không gây ảnh hưởng gì đến kết quả của bài toán, mỗi đầu vào sẽ cho ra một kết quả độc lập).
 
-			Ví dụ: khoảng giá trị rõ ràng, đầu vào này không làm ảnh hướng đến kết quả của đầu vào khác
+			Ví dụ: khoảng giá trị rõ ràng, đầu vào (điểm trung bình) có thể độc lập quyết định kết quả mà không phải phụ thuộc vào những đầu vào khác
 				Điểm trung bình >= 9 --> Xuất sắc
 				Điểm trung bình >= 8 --> Giỏi
 				Điểm trung bình >= 7 --> Khá
 
 	- Bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect).
 	- Kiểm thử dịch chuyển/chuyển đổi trạng thái (State Transition Testing).
-		-> Thường được áp dụng cho các tình huống có đầu vào phức tạp, các đầu vào có mối quan hệ logic phức tạp, phụ thuộc vào nhau và quy tắc (rule) nghiệp vụ.
+		-> Thường được áp dụng cho các tình huống có đầu vào phức tạp, các đầu vào có mối quan hệ logic phức tạp, phụ thuộc chặt chẽ vào nhau và có ràng buộc quy tắc (rule) nghiệp vụ.
 
 			Ví dụ: ngoài xếp loại học sinh-sinh viên dựa trên điểm trung bình thì còn phải dựa trên điểm rèn luyện/hạnh kiểm.
 
@@ -192,15 +203,23 @@ So sánh giữa kiểm thử tĩnh và động:
 
 ** Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class - EP/EC): chia đầu vào của chương trình thành nhiều phân vùng/lớp dữ liệu, từ đó suy ra được những trường hợp cần kiểm thử. Xác định được những trường hợp tương đương hợp lệ (positive case - valid) và không hợp lệ (negative case - invalid), giúp loại bỏ những Test Case dư thừa, chỉ chạy những Test Case có độ bao phủ cao hơn.
 
-Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ kiểm thử ngẫu nhiên (Random Testing) thì sẽ có trường hợp lấy quá nhiều giá trị nằm trong cùng một phân vùng, nhưng chưa có gì đảm bảo rằng những Test Case được chọn ngẫu nhiên đó sẽ phủ được hết các trường hợp có thể xảy ra vì nếu các giá trị nằm trong cùng một phân vùng sẽ có cùng cách xử lý và cho ra cùng một kết quả. Nếu một giá trị đại diện trong nhóm đúng thì các giá trị còn lại trong nhóm cũng đúng và ngược lại.
-
-Chỉ áp dụng cho những bài toán có đầu vào là một miền giá trị xác định và các đầu vào độc lập, không có quan hệ mắt xích với nhau.
+Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ kiểm thử ngẫu nhiên (Random Testing) thì sẽ có trường hợp lấy quá nhiều giá trị nằm trong cùng một phân vùng, và chưa có gì đảm bảo rằng những Test Case được chọn ngẫu nhiên đó sẽ phủ được hết các trường hợp có thể xảy ra vì nếu các giá trị nằm trong cùng một phân vùng sẽ có cùng cách xử lý và cho ra cùng một kết quả. Nếu một giá trị đại diện trong nhóm đúng thì các giá trị còn lại trong nhóm cũng đúng và ngược lại.
+	-> Nên chọn một giá trị đại diện cho toàn bộ phân vùng.
 
 	-> Vẫn kiểm thử ở những phân vùng hợp lệ, nhưng tập trung nhất vào những phân vùng không hợp lệ (invalid) vì lập trình viên thường hay quên phân vùng không này và chỉ đi kiểm tra ở những phân vùng hợp lệ (valid).
+
+Trong trường hợp các giá trị đầu vào có phụ thuộc lẫn nhau, muốn áp dụng phân vùng tương đương thì ta nhân tổ hợp các trường hợp.
 
 ------------------------------
 
 ** Lưu ý: khi chia phân vùng tương đương, từ phân vùng cha, khi chi thành các phân vùng con thì tổng các con phải đúng bằng cha, không được nhỏ hoặc lớn hơn cha.
+
+------------------------------
+
+** Ưu điểm:
+	- Phân vùng tương đương là phân chia một tập các điều kiện kiểm thử thành các tập con có các giá trị tương đương nhau và kiểm thử các tập con này.
+	- Giúp giảm thiếu số lượng Test Case không cần thiết, phủ được các đầu vào khi kiểm thử.
+	- Có thể áp dụng tất cả mức độ kiểm thử (Unit Test, Integration Test, System Test, Acceptance Test).
 
 ------------------------------
 
@@ -210,28 +229,23 @@ Chỉ áp dụng cho những bài toán có đầu vào là một miền giá tr
 	- Trong tài liệu đặc tả có mô tả hai phần tử nằm trong cùng một phân vùng phải có cùng một cách thức xử lý (specified as equivalent).
 		Ví dụ: 0 > điểm > 10 là trường hợp không hợp lệ và sẽ có cùng cách xử lý.
 
-	- Chúng lái/điều khiển/định hướng (drive) chương trình theo cùng đường, theo cùng hướng và làm cho nghiệp vụ thực hiện theo một logic nào đó. (chẳng hạn cùng nhánh if) (equivalent path).
+	- Chúng điều khiển/định hướng (drive) chương trình theo cùng đường/hướng và làm cho nghiệp vụ thực hiện theo một logic nào đó, chẳng hạn cùng nhánh if. (equivalent path).
 
 	- Chúng cho cùng kết quả với những giả thiết đưa ra.
 
-------------------------------
-
-** Ưu điểm:
-	- Phân vùng tương đương là phân chia một tập các điều kiện kiểm thử thành các tập con có các giá trị tương đương nhau và kiểm thử các tập con này.
-	- Giúp giảm thiếu số lượng Test Case không cần thiết, phủ được các đầu vào khi kiểm thử.
-	- Có thể áp dụng tất cả mức độ kiểm thử (Unit Test, System Test, Acceptance Test,...).
+		-> Lấy một vài giá trị ngẫu nhiên trong phân vùng sẽ cho ra cùng 1 kết quả.
 
 ------------------------------
 
 	Ví dụ 1: Xếp loại cuối năm học sinh dựa trên điểm trung bình (ĐTB) như sau:
-			[0, 5) 0 ≤ ĐTB < 5: yếu, kém
-			[5, 7) 5 ≤ ĐTB < 7: trung bình
-			[7, 8) 7 ≤ ĐTB < 8: khá
-			[8, 9) 8 ≤ ĐTB < 9: giỏi
-			[9, 10] 9 <= ĐTB <= 10: xuất sắc
+			[0, 5)	| 0 ≤ ĐTB < 5: yếu, kém
+			[5, 7)	| 5 ≤ ĐTB < 7: trung bình
+			[7, 8)	| 7 ≤ ĐTB < 8: khá
+			[8, 9)	| 8 ≤ ĐTB < 9: giỏi
+			[9, 10]	| 9 <= ĐTB <= 10: xuất sắc
 		Biết điểm trung bình làm tròn 1 chữ số thập phân.
 
-		Để kiểm thử hệ thống này, ta có thể chia thành 7 phân vùng tương đương, trong đó:
+		** Để kiểm thử hệ thống này, ta có thể chia thành 7 phân vùng tương đương, trong đó:
 			- 5 phân vùng hợp lệ (valid): [0, 5), [5, 7), [7, 8), [8, 9), [9, 10].
 			- 2 phân vùng không hợp lệ (invalid): < 0 và > 10
 
@@ -249,18 +263,18 @@ Chỉ áp dụng cho những bài toán có đầu vào là một miền giá tr
 
 	-> Tester không nên chỉ test những gì trong đặc tả yêu cầu, mà còn phải nghĩ ra những thứ không được đề cập. Trong ví dụ trên, 2 phần vùng không hợp lệ (invalid) không được đề cập trong đặc tả, nhưng vẫn cần được kiểm thử.
 
-	-> Khi thiết kế Test Case cần phải đảm bảo tất cả các phân vùng (valid & invalid) được kiểm thử qua ít nhất một lần. Ví dụ trên ít nhất cần kiểm thử 7 điểm trung bình sau đại diện với 7 phân vùng: - 5.0, 5.5, 7.5, 8.5, 9.5, 12.0
+	-> Khi thiết kế Test Case cần phải đảm bảo tất cả các phân vùng (valid & invalid) được kiểm thử qua ít nhất một lần. Ví dụ trên, cần kiểm thử ít nhất 7 điểm trung bình sau đại diện với 7 phân vùng: - 5.0, 5.5, 7.5, 8.5, 9.5, 12.0
 
 ---------------
 
 	Ví dụ 2: Chương trình kiểm tra một ngày tháng nhập vào có hợp lệ hay không? Người dùng cần nhập vào năm, tháng, ngày của ngày muốn kiểm tra.
 		(Ví dụ: 12/12/2017 là ngày hợp lệ, 32/12/2017 là ngày không hợp lệ)
 
-		(Phân tích: ngày-tháng-năm có mối quan hệ với nhau chứ không thể độc lập, ví dụ ngày hợp lệ có thể phụ thuộc vào năm - ngày 29-02-năm nhuận, tuy nhiên, vẫn có thể áp dụng được phân vùng tương đương.)
+		** Phân tích: ngày-tháng-năm có mối quan hệ với nhau chứ không thể độc lập, ví dụ ngày hợp lệ có thể phụ thuộc vào năm - ngày 29-02-năm nhuận, do đó phải phân vùng cho ngày-tháng-năm gắn liền với nhau. Tuy nhiên, vẫn có thể áp dụng được phân vùng tương đương.
 
-		Không hợp lệ < 1970 < Hợp lệ -> để đơn giản thì sử dụng mốc 0
+		Năm: không hợp lệ < 1970 | 0 < Hợp lệ -> để đơn giản thì sử dụng mốc 0
 
-		-> Tổng nhuận + không nhuận = số năm hợp lệ
+		-> Tổng số năm nhuận + không nhuận = số năm hợp lệ
 
 					nhuận			không nhuận
 		<///////|-------------------------------|-----------------------|
@@ -279,15 +293,20 @@ không hợp lệ	1	30    không hợp lệ
 ----------------|--------|----------------	...
 
 
+		-> Tổng số tháng có 29, 30, 31 ngày = số tháng hợp lệ
+
 		===> Có tối thiểu 18 phân vùng, chọn ra một giá trị đại diện cho từng phân vùng để kiểm thử.
 
 
 		* Hợp lệ:
 			- Phân vùng có số ngày từ 1-30 rơi vào các tháng 4, 6, 9, 11 của năm nhuận.
+			- Phân vùng có số ngày từ 1-29 rơi vào các tháng 2 của năm nhuận.
+			- Phân vùng có số ngày từ 1-31 rơi vào các tháng 1, 3, 5, 7, 8, 10, 12 của năm nhuận.
 
 
 		* Không hợp lệ:
 			- Phân vùng có số ngày từ 31 rơi vào các tháng 4, 6, 9, 11 của năm nhuận.
+			- Phân vùng có số ngày từ 30 rơi vào các tháng 2 của năm nhuận.
 
 ---------------
 
@@ -327,7 +346,8 @@ không hợp lệ	1	30    không hợp lệ
 				+ Có chứa chữ hoa, ký tự đặc biệt và số.
 				+ Có chứa ký tự đặc biệt, số và thường.
 
-		=> Trong đề bài chỉ ràng buộc chiều dài tối thiểu là 6 nhưng không ràng buộc chiều dài tối đa (trong đặc tả không đề cập) -> Đang ngờ, có thể gây vấn đề (Incident).
+		=> Trong đề bài chỉ ràng buộc chiều dài tối thiểu là 6 nhưng không ràng buộc chiều dài tối đa (trong đặc tả không đề cập)
+			-> Đang ngờ, có thể gây vấn đề (Incident).
 
 ---------------
 
@@ -358,18 +378,18 @@ không hợp lệ	1	30    không hợp lệ
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT PHÂN TÍCH GIÁ TRỊ BIÊN - BOUNDARY VALUE ANALYSIS]
 
-** Kỹ thuật phân tích giá trị biên (Boundary Value Analysis - BVA): là trường hợp đặc biệt và bao quát của phân vùng tương đương.
+** Kỹ thuật phân tích giá trị biên (Boundary Value Analysis - BVA): là trường hợp đặc biệt và bao quát của phân vùng tương đương. Thay vì lấy những giá trị ngẫu nhiên của một phân vùng thì ta chỉ cần lấy những giá trị nằm ở gần biên.
 
 Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tương đương (gồm tình huống hợp lệ (valid) và không hợp lệ (invalid)), giúp hạn chế việc lựa chọn những giá trị ngẫu nhiên để kiểm thử trong kỹ thuật phân vùng tương đương.
 
-Áp dụng nguyên lý 20-80, lỗi thường tập trung ở những giá trị biên, vì vậy chỉ cần lấy những giá trị ở biên và ở gần biên để dại diện cho phân vùng đó.
+Áp dụng nguyên lý 20-80, lỗi thường tập trung ở những giá trị biên, vì vậy chỉ cần lấy những giá trị ở biên và ở gần biên để đại diện cho phân vùng đó.
 
 ------------------------------
 
 ** Ưu điểm:
 	- Đơn giản.
 	- Hiệu quả cho các hàm có biến độc lập.
-	- Có thể tự động sinh test case khi xác định được giá trị biên của các biến.
+	- Có thể tự động sinh Test Case khi xác định được giá trị biên của các biến.
 
 ---------------
 
@@ -380,17 +400,18 @@ Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tư
 ------------------------------
 
 ** Một số quy tắc xác định giá trị biên khi thiết kế Test Case:
-	- Giá trị nhỏ nhất (biên dưới)
-	- Giá trị nhỏ nhì (cận biên dưới)
-	- Giá trị lớn nhất (biên trên)
-	- Giá trị lớn nhì (cận biên trên)
-	- Giá trị bình thường/ngẫu nhiên
+	- Giá trị nhỏ nhất (biên dưới).
+	- Giá trị nhỏ nhì (cận biên dưới).
+	- Giá trị lớn nhất (biên trên).
+	- Giá trị lớn nhì (cận biên trên).
+	- Giá trị bình thường/ngẫu nhiên.
+-> Tuỳ vào yêu cầu mà ta chỉ cần lấy 2 (nhỏ nhất và lớn nhất) hoặc lấy cả 5 giá trị cho một phân vùng.
 
 ------------------------------
 
 	Ví dụ 1: nhập khoảng giá trị [5, 10]
 			- Biên trên: 5 -> nhỏ nhất
-			- Cận biên trên: 5 -> nhỏ nhì
+			- Cận biên trên: 6 -> nhỏ nhì
 
 			- Biên dưới: 10 -> lớn nhất
 			- Cận biên dưới: 9 -> lớn nhì
@@ -424,6 +445,11 @@ Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tư
 			và xuất kết quả thông báo số đó có phải nguyên tố hay không)
 
 		(Ghi chú: số nguyên tố là số tự nhiên chỉ có hai ước số dương phân biệt là 1 và chính nó)
+
+		- Số nguyên tố được nhập vào phải là số nguyên
+			+ Phải là số nguyên dương
+				+ Không phải số nguyên tố
+				+ Là số nguyên tố
 
 			- Phân vùng số nguyên tố chẵn: 2
 			- Phân vùng số nguyên tố lẻ: 3
@@ -462,17 +488,17 @@ Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tư
 				X ∈ [1, 10]
 				1 <= X + M <= 10
 
-				* Hợp lệ:
+				* Phân vùng 1 - Hợp lệ:
 					-----------------------------------------
 					|	Input	|	Output		|
 					|---------------|-----------------------|
 					|X	|M	|	Expected	|
-					|---------------------------------------|
-					|1	|0	| Được phép chuyển khoản|
-					|---------------|-----------------------|
-					|1	|9	| Được phép chuyển khoản|
-					|---------------|-----------------------|
-					|10	|0	| Được phép chuyển khoản|
+					|-------|-------|-----------------------|
+					|1	|0	|Được phép chuyển khoản	|
+					|-------|-------|-----------------------|
+					|1	|9	|Được phép chuyển khoản	|
+					|-------|-------|-----------------------|
+					|10	|0	|Được phép chuyển khoản	|
 					-----------------------------------------
 
 ---------------------------------------------------------------------------
