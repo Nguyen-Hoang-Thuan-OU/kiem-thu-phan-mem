@@ -88,8 +88,6 @@ Không đơn giản chỉ là kiểm thử trên một phần mềm đã đượ
 * Lập trình viên (Developer): tự kiểm tra code (từng hàm, lớp) của mình để những dòng code được viết ra phải đều đảm bảo về chất lượng.
 	-> Unit Test: kiểm thử từng đơn vị code (hàm, lớp) do chính mình viết ra.
 
-	* Test-driven development (TDD): đưa ra những tình huống sử dụng để viết test trước và lập trình ra những chương trình chạy đúng test đã viết.
-
 --------------------
 
 * Kiểm thử viên (Tester): đội ngũ (độc lập) chuyên tìm lỗi của lập trình viên trong quá trình phát triển phần mềm, ghi nhận lỗi vào bug database để đánh giá năng lực làm việc, giúp đảm bảo sản phẩm đủ chất lượng trước khi phát hành.
