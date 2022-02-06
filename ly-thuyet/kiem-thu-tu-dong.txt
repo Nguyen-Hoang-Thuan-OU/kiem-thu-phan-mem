@@ -11,9 +11,9 @@ Máy tính sẽ thay mặt con người tự động hoá việc thực thi các
 
 ------------------------------
 
-Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
-	- Chủ động lập trình để thực hiện các thao tác.
-	- Ghi hình lại các bước dạng kịch bản (Record & Replay/Playback).
+** Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
+	- Chủ động lập trình để tự động thực hiện các thao tác.
+	- Ghi hình lại các bước dạng kịch bản và tự động theo tác lại (Record & Replay/Playback).
 
 ========================================================================
 
@@ -83,7 +83,9 @@ Có nhiều cách để viết kịch bản kiểm thử tự động (Test Scri
 [CÁC CÔNG CỤ KIỂM THỬ TỰ ĐỘNG]
 
 ** Các công cụ hỗ trợ kiểm thử tự động hai trong một - Studio (Functional Automation Testing Tools): Katalon, Telerik, Ranorex, TestComplete, Watir, HP QTP/UFT...
+
 	-> Dựa trên framework kiểm thử tự động mã nguồn mở (test automation framework) Selenium (web), Appium (desktop, mobile),...
+
 	-> Lưu lại các phần tử website dưới dạng đối tượng trong Element Repository (Object Repository) và cho phép tái sử dụng trong các Test Case khác nhau của cùng một dự án.
 
 ========================================================================
@@ -91,11 +93,11 @@ Có nhiều cách để viết kịch bản kiểm thử tự động (Test Scri
 [CÁCH THIẾT KẾ KỊCH BẢN KIỂM THỬ TỰ ĐỘNG - TEST SCRIPT]
 
 ** Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
-	- Chủ động lập trình bằng cách sử dụng Selenium, WebDriver.exe và kiến thức lập trình hướng đối tượng để viết Test Script.
-		-> Sử dụng thư viện lập trình Selenium.
+	- Chủ động lập trình bằng cách sử dụng Selenium, WebDriver.exe và kiến thức lập trình hướng đối tượng (OOP) để viết Test Script.
+		-> Sử dụng thư viện lập trình Selenium và ngôn ngữ lập trình.
 
-	- Ghi hình lại các bước dạng kịch bản (Record & Replay/Playback): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các test case ở mức cơ bản.
-Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện và cho phép can thiệp, chỉnh sửa lại các bước. Có thể chuyển thành ngôn ngữ lập trình (Java, C#, Python,...) và cho phép chỉnh sửa lại theo phong cách lập trình nếu cần.
+	- Ghi hình lại các bước dạng kịch bản (Record & Replay/Playback): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các Test Case ở mức cơ bản.
+Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện và cho phép can thiệp, chỉnh sửa lại các bước. Có thể chuyển thành ngôn ngữ lập trình (Java, C#, Python,...) và cho phép chỉnh sửa lại theo phong cách lập trình nếu cần thiết.
 		-> Sử dụng công cụ đồ hoạ Selenium IDE.
 		-> Sử dụng công cụ record + code: Katalon,...
 
@@ -103,7 +105,19 @@ Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện v
 
 [SỬ DỤNG WEBDRIVER ĐỂ THIẾT KẾ KỊCH BẢN KIỂM THỬ TỰ ĐỘNG]
 
-** Viết kịch bản kiểm thử tự động bằng việc chủ động lập trình:
+Có nhiều hãng thiết kế trình duyệt web nhưng tất cả đều tuân theo chuẩn do tổ chức tiêu chuẩn quốc tế chính cho World Wide Web (World Wide Web Consortium - W3C) đưa ra. Trong bộ tiêu chuẩn khi thiết kế trình duyệt có một tiêu chuẩn nói rằng: "mọi trình duyệt nên cho phép lập trình viên điều khiển được hoạt động của trình duyệt thông qua code" (mặc định sẽ được người dùng điều khiển thông qua các ô nhập, nút nhấn, mở tab mới, lưu dấu trang,...) để giúp cho QC tự động hoá quá trình kiểm thử website.
+
+Lúc này, trình duyệt chính là một đối tượng (object) cung cấp các hàm cho các lập trình viên.
+
+	-> Cho phép code đóng vai người dùng để sử dụng trình duyệt.
+
+------------------------------
+
+** Quy trình viết kịch bản kiểm thử tự động bằng việc chủ động lập trình:
+
+	Python				     Firefox WebDriver	FireFox
+	Java			Selenium     ChromeDriver	Chrome
+	C#				     OperaDriver	Opera
 
 |Ngôn ngữ lập trình|--->|Thư viện lập trình|--->|WebDriver|--->|Trình duyệt|
 							^		|
@@ -112,20 +126,20 @@ Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện v
 
 ------------------------------
 
-** Thư viện lập trình:
+** Thư viện lập trình (Selenium): tập hợp các class với các phương thức/hàm được đóng gói với một định dạng cụ thể (.jar, .dll, .exe,...) nhằm cung cấp các lệnh để lập trình viên kết nối với WebDriver.
 
-Bộ thư viện trong lập trình (tập hợp các class với các phương thức/hàm) được đóng với một định dạng cụ thể (jar, dll,...).
+----------------
 
-** WebDriver (phần trung gian để kết nối, người em song sinh với trình duyệt, ví dụ: ChromeDriver, OperaDriver, Firefox WebDriver,...)
+** WebDriver: ứng dụng/cầu nối trung gian (người em song sinh với trình duyệt) vì theo quy chuẩn của W3C thì trình duyệt phải được thiết kế mở. Bao gồm: ChromeDriver, OperaDriver, Firefox WebDriver,... Đại diện cho một đối tượng (object) trình duyệt và cung cấp các hàm.
 
-Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đoạn code chạy song song với trình duyệt, có kết nối với thư viện lập trình, từ đó cho phép ngôn ngữ lập trình can thiệp vào trình duyệt để kiểm thử web app bằng code tự động.
-	-> Là một tập tin nhị phân và biết cách giao tiếp với trình duyệt và ngôn ngữ lập trình.
+Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đoạn code chạy song song với trình duyệt, có kết nối với thư viện lập trình (Selenium), từ đó cho phép ngôn ngữ lập trình (Python, Java, C#,...) can thiệp vào trình duyệt để kiểm thử web app bằng code tự động.
+	-> Tập tin nhị phân biết cách giao tiếp với trình duyệt và thư viện lập trình.
 
 ========================================================================
 
 [CÁC BƯỚC CẦN THỰC HIỆN KHI SỬ DỤNG WEBDRIVER ĐỂ THIẾT KẾ KỊCH BẢN KIỂM THỬ TỰ ĐỘNG]
 
-** Các yêu cầu để viết được code/kịch bản mô phỏng các thao tác của QC/Người dùng.
+** Các yêu cầu để viết kịch bản kiểm thử (Test Script):
 	- Cần thư viện tương ứng: Selenium (tuỳ vào ngôn ngữ lập trình).
 	- Cần có phần trung gian để kết nối với trình duyệt, thay con người điều khiển trình duyệt: WebDriver (tuỳ vào trình duyệt và phiên bản của trình duyệt).
 
@@ -135,16 +149,20 @@ Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đo�
 
 	Bước 01: copy file ChromeDriver.exe vào trong cùng thư mục chứa code hoặc môi trường ảo (venv - python) để dễ quản lý và sử dụng. Báo cho máy ảo biết phải kết nối với ChromeDriver.exe.
 
+----------------
+
 	Bước 02: khai báo thư viện lập trình WebDriver tương ứng với trình duyệt đang sử dụng vào trong code.
 
-Khi đưa WebDriver vào trong code bằng cách tải thư viện lập trình thì lúc này cả trình duyệt (nhờ WebDriver đại diện) được xem là một đối tượng và chiếm bộ nhớ RAM trong máy, ta có thể thoải mái gọi hàm để điều khiển/yêu cầu trình duyệt thực hiện các thao tác một cách tự động.
+		Khi đưa WebDriver vào trong code bằng cách tải thư viện lập trình thì lúc này cả trình duyệt (nhờ WebDriver đại diện) được xem là một đối tượng (object), được tải về máy và chiếm bộ nhớ trong RAM, ta có thể thoải mái gọi hàm để điều khiển/yêu cầu trình duyệt thực hiện các thao tác một cách tự động.
+
+----------------
 
 	Bước 03: sử dụng đối tượng đại diện trong trình duyệt (ví dụ: trinh_dieu_khien_trinh_duyet) để tìm/định vị các phần tử website.
 
-Mỗi thành phần/thẻ xuất hiện trong cây DOM trên website (web element/web control/tag/component) khi này đều được xem là đối tượng vì nó có giá trị (id, name, color, type,...).
+		Mỗi thành phần/thẻ xuất hiện trong cây DOM trên website (web element/web control/tag/component) khi này đều được xem là đối tượng vì nó có giá trị (id, name, color, type,...).
 
-	Ví dụ: thẻ <div>, <h>, <span>,...
-		-> đều được xem là đối tượng vì có mô tả, đặc tính và hành vi.
+			Ví dụ: thẻ <div>, <h>, <span>,...
+				-> Đều được xem là đối tượng vì có mô tả, đặc tính và hành vi.
 
 Vì đã là một đối tượng nên ta hoàn toàn có thể nhờ trình duyệt tìm giúp ta các thẻ nào đó, khi đó ta sẽ tham chiếu đến thẻ tìm thấy qua loại dữ liệu WebElement (input, button, radio button, checkbox...).
 
@@ -165,7 +183,7 @@ Có nhiều cách để tìm thẻ: id, name, class, đường dẫn đến th�
 Khi W3C chuẩn hoá HTML, họ đã đưa ra những kỹ thuật để định vị các thẻ (tag) trong website, kỹ thuật để tìm ra/xác định/chỉ định một thẻ/phần tử (web element) nào đó tại vị trí nào đó trong hàng nghìn thẻ/phần tử khác.
 	-> Kỹ thuật Selector (CSS Selector, XPath,...) - kỹ thuật định vị một thẻ/phần tử (web element) bất kỳ trong website.
 
--------------------------
+------------------------------
 
 XPath: tìm duyệt/định vị thẻ một cách tương đối trong website (web element locator).
 	-> Lần mò theo cây DOM của webiste.
@@ -179,7 +197,7 @@ Dựa trên ngôn ngữ XML (bố của HTML), mô tả theo cặp thẻ và đ�
 		<i> - Italic
 		<u> - Underline
 
--------------------------
+------------------------------
 
 CSS Selector: dấu chấm đại diện cho class, dấu thăng đại diện cho các thuộc tính bên trong.
 
@@ -203,7 +221,7 @@ Trong quá trình thao tác (thường là chuyển trang), do đây là hai lu�
 
 * Assert: dừng việc test ngay khi có test case trả về kết quả fail để có thể điều tra và fix lỗi này ngay, tất cả các Test Case còn lại chưa được chạy đều sẽ bị dừng lại.
 
--------------------------
+------------------------------
 
 * Verify (Soft Assert): vẫn tiếp tục thực hiện kiểm thử tất cả các test case khác dù có test case trả về kết quả fail, ta sẽ nhận được danh sách kết quả sau khi tất cả các test case thực hiện xong bằng cách gọi hàm assertAll().
 
