@@ -1,9 +1,135 @@
 ﻿[ĐỊNH NGHĨA QUY TRÌNH CI/CD]
 
-** CI (Continuous Integration) và CD (Continuous Delivery): quá trình làm việc liên tục và tự động của phần mềm, được tích hợp vào trong vòng đời phát triển của phần mềm (Software Development Life Cycle - SDLC).
+** CI (Continuous Integration) và CD (Continuous Delivery): quá trình làm việc liên tục và tự động của phần mềm khi có bất kỳ ai đưa code lên Server, được tích hợp vào trong vòng đời phát triển của phần mềm (Software Development Life Cycle - SDLC).
 
 Phù hợp khi làm trong dự án với nhiều team và nhiều thành viên: Jenkins, TeamCity, Azure DevOps.
 
 - Hạn chế lỗi khi commit code lên vì CI/CD sẽ tự động kiểm tra đoạn code do ta vừa commit, nếu hợp lệ mới cho phép commit.
 - Tự động chạy một bộ test nào đó để xem code vừa được commit có ảnh hưởng đến những tính năng khác.
 - Tự động build ứng dụng.
+
+================================================================================
+
+[QUY TRÌNH CONTINUOUS INTEGRATION (CI)]
+
+* Server trung tâm chứa code: GitHub, GitLab, Bitbucket,...
+
+* Kiểm tra code: SonarQube,...
+
+* Tự động biên dịch và đóng gói (build): Jenkins, GitHub Action, Bamboo, TeamCity, Jarvis,...
+
+* Staging Server: Server trung gian để triển khai hệ thống, Server chứa hệ thống đã được build (.exe, .war).
+
+----------------------------------------
+
+Hai lập trình viên cùng làm một dự án:
+
+Dev 1:
+	- Code trên máy local.
+	- Thực hiện Unit Test.
+				Đẩy code lên
+				------------>
+						Server trung tâm chứa code.
+						Muốn code lên Server phải ổn
+						thì phải gài thêm 1 số công cụ
+						để tự động kiểm tra code:
+							- Kiểm tra quy chuẩn viết code,...
+							- Tự động chạy các Unit Test.
+
+						1. Ổn (xanh) -----> Đóng gói (.exe, .war)
+
+				Tự động đẩy code
+				<------------
+
+	Server khác (Staging Server)
+
+						2. Không ổn (đỏ): Tự động gửi email cho dev để báo.
+
+
+Dev 2:
+	- Code trên máy local.
+	- Thực hiện Unit Test.
+				Đẩy code lên
+				------------>
+						...
+
+================================================================================
+
+[CÁCH CHƠI VỚI CI]
+
+** Cách 00: sử dụng sức người để build hệ thống và kiểm tra code.
+
+	- Khi các thành viên trong nhóm đẩy code lên Server thì phải thông báo cho một ai đó, người này sẽ kéo hết code về máy và build hệ thống thủ công, chạy kiểm thử để ra được màu Xanh-Đỏ.
+		+ Nếu xanh: đóng gói hệ thống thành file .jar, .war,... và upload lên máy test để QC kiểm tra.
+		+ Nếu đỏ: gửi email thông báo.
+
+----------------------------------------
+
+** Cách 01: sử dụng một Server riêng để build hệ thống và kiểm tra code.
+
+	- Server có cài ứng dụng để tự động kéo code từ GitHub, GitLab, Bitbucket... về.
+
+	- Để build được hệ thống (được viết bằng Java), Server cần có:
+		+ JDK.
+		+ JUnit.
+		+ Công cụ Ant/Maven để biên dịch và đóng gói hệ thống.
+		+ Jenkins, Bamboo, TeamCity, Jarvis,...
+
+	- Mỗi khi có ai đẩy code lên thì GitHub sẽ báo cho các công cụ tự động biên dịch và đóng gói.
+
+	- Các công cụ tự động biên dịch và đóng gói sẽ tự kéo code về và chạy test.
+		+ Nếu xanh: đóng gói hệ thống thành file .jar, .war,... và upload lên máy test để QC kiểm tra.
+		+ Nếu đỏ: gửi email thông báo.
+
+----------------------------------------
+
+** Cách 02: sử dụng Microsoft Azure.
+	- Trên nền tảng này đã có toàn bộ công cụ cần thiết, ta chỉ việc khai báo và cấu hình (Azure DevOps).
+
+----------------------------------------
+
+** Cách 03: sử dụng GitHub Actions.
+
+	- CI đã được tích hợp sẵn vào GitHub, muốn sử dụng thì ta chỉ cần khai báo thứ ta cần trên GitHub Actions bằng các câu lệnh được viết thuần bằng chữ.
+
+	- Khai báo, chỉ cho GitHub Actions tự động thực hiện (dành cho Java): JDK, Ant, nơi lưu file .jar, .war, đẩy sang Server khác,...
+		+ File cấu hình này được viết bằng một ngôn ngữ đánh dấu (markup language) là YAML (.yml). Đây là loại ngôn ngữ lightweight, sử dụng thẻ tên và thụt lề (giống Python).
+		+ Lưu những lệnh cấu hình này vào trong 1 file và cất trong kho chứa code.
+
+----------------------------------------
+
+Trên GitHub có Webhooks, là một cơ chế cho phép lắng nghe (hoạt động theo kiểu Web Service) để các công cụ độc lập có thể tự động gọi nhau, khi trên GitHub có bất kỳ sự thay đổi nào thì nó sẽ gửi một thông điệp POST sang công cụ độc lập.
+
+================================================================================
+
+[THỰC HIỆN QUY TRÌNH CI TRÊN MÁY CỤC BỘ]
+
+Mặc định khi biên dịch (build. class) và quá trình đói gói (dist .war, .jar, .ear) không quan tâm code có được Unit Test hay không, nếu có thì cũng không quan tâm Unit Test đang xanh hay đỏ.
+	-> Chỉ tập trung vào biên dịch và đóng gói app.
+
+Khi Unit Test đang đỏ tức là có vấn đề về code thì không nên biên dịch và đóng gói app. Cần phải cá nhân hoá lại quá trình bằng cách bắt tiến trình ra file .jar phải đi qua bộ test và test xanh thì mới ra được file .jar.
+
+Trong Java, chỉ quan tâm 2 thư mục src và test vì khi đưa lên Server thì 2 thư mục này có thể tạo ra 2 thư mục build và dist bất cứ lúc nào.
+
+Trong NetBeans, khi nhấn F6 (Clean & Build) thì nó sẽ đọc tập tin build-impl.xml (Ant) trong thư mục nbproject để biết phải làm gì tiếp theo. Đây cũng là nơi để chỉnh sửa quy trình build bằng cách thêm test vào <target depends="init,compile,test,...>.
+
+-------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
