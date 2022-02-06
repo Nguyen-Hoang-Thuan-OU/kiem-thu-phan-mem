@@ -155,6 +155,16 @@ Những tình huống kiểm thử này được thực thi để tìm ra lỗi 
 
 ----------------------------------------
 
+** Quy trình kiểm thử với Test Case:
+
+[Thiết kế Test Case]
+	-> [Chuẩn bị dữ liệu test]
+		-> [Chạy chương trình để test dữ liệu]
+			-> [So sánh kết quả với Test Case]
+				->[Viết báo cáo]
+
+----------------------------------------
+
 ** Công việc QC/Tester cần làm để thiết kế được Test Case:
 
 	- Đọc tài liệu đặc tả yêu cầu phần mềm (Software Requirements Specification - SRS) và tài liệu thiết kế phần mềm (Software Design Document - SDD), có thể đọc ngay trong lúc đang viết.
@@ -229,7 +239,7 @@ Trong số bảy nguyên lý kiểm thử phần mềm, có một nguyên lý n�
 ** Cấu trúc của Bug Report:
 
 - Date: ngày tạo ra lỗi.
-- Assigned to: lỗi này đã được chuyển giao cho người nào.
+- Assigned to: lỗi này đã được chuyển giao cho người nào (tester hoặc dev).
 - Status: tình trạng của lỗi
 	+ New: mới tìm ra.
 	+ Open: cả nhóm họp với nhau để phân tích và xác định đúng là lỗi, bắt đầu đưa cho lập trình viên để sửa.
@@ -239,12 +249,12 @@ Trong số bảy nguyên lý kiểm thử phần mềm, có một nguyên lý n�
 - Title: tiêu đề tóm tắt của lỗi.
 - Summary/Description: giải thích chi tiết cho tiêu đề của lỗi.
 - Environments (OS/Browser): môi trường xảy ra lỗi (hệ điều hành/trình duyệt và phiên bản).
-- Step to re-produce: các bước để tái hiện lại lỗi.
+- Step to re-produce: các bước để tái hiện lại lỗi (thử tự tái hiện trước 2 lần).
 	1. Truy cập trang...
 	2. Ở mục...
-	3. Giao diện bị lệch 3px...
+	3. Bấm vào nút [abc]...
 - Expected results: kết quả mong đợi.
-- Actual results: kết quả thực tế nhận được.
+- Actual results: kết quả thực tế nhận được (không hoạt động, không thành công,...).
 - Evidence: bằng chứng về lỗi, thường là hình chụp hoặc video.
 - Severity: mức độ nghiêm trọng của lỗi, có ảnh hưởng (impact) trực tiếp đến các chức năng chính của hệ thống.
 - Priority level: mức độ ưu tiên, thứ tự (order) để sửa của lỗi.
@@ -252,9 +262,10 @@ Trong số bảy nguyên lý kiểm thử phần mềm, có một nguyên lý n�
 
 ----------------------------------------
 
-** Cách viết Bug Report chuẩn
+** Cách viết Bug Report nhanh:
 
 * Tiêu đề tóm tắt: [Tên dự án][Môi trường] Những gì đã xảy ra và thời gian xảy ra lỗi?
+
 	Ví dụ: [Facebook][iPad][UAT] The "POST" button does not work when input more than 1000 characters in content.
 
 * Mô tả:
