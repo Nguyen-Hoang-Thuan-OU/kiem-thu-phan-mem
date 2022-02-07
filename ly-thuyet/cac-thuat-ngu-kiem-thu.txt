@@ -18,7 +18,7 @@
 
 --------------------
 
-* Error (vấn đề): một "error" được kiểm thử viên tìm ra được thì gọi là "defect".
+* Error (vấn đề): một "error" được kiểm thử viên tìm ra khiến hệ thống không được hoàn hảo được thì gọi là "defect".
 
 --------------------
 
