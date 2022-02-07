@@ -12,7 +12,7 @@
 ---
 
 #### Test Reports - Word
-![Test Reports - Word](https://github.com/Nguyen-Hoang-Thuan-OU/kiem-thu-phan-mem/blob/main/bai-tap/bai-tap-nhom/images/thegioididong-test-report-page-8.png "Test Reports - Word")
+![Test Reports - Word](https://github.com/Nguyen-Hoang-Thuan-OU/kiem-thu-phan-mem/blob/main/bai-tap/bai-tap-nhom/images/thegioididong-test-report-test-result-and-bug.png "Test Reports - Word")
 
 ---
 
