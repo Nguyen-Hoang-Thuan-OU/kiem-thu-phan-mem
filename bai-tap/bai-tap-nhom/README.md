@@ -7,7 +7,7 @@
 - Test Scripts using Selenium IDE and WebDriver.
 - Test Reports using Software Test Documentation (STD) template IEEE 829/IEEE 29119.
 
-### Brief:
+#### Brief:
 A project using black-box testing techniques to design Test Cases and run automation Test Scripts using Selenium to test main functions of the website, such as: Search products, Filter products, Add to cart, Make payments,...
 
 #### Technology:
