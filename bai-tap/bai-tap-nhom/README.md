@@ -10,7 +10,7 @@
 ![Test Cases]()
 
 #### Test Reports
-![Test Reports]()
+![Test Reports](https://github.com/Nguyen-Hoang-Thuan-OU/kiem-thu-phan-mem/blob/main/bai-tap/bai-tap-nhom/images/test-report-thegioididong-page-8.png)
 
 #### Test Scripts
 ![Test Scripts]()
