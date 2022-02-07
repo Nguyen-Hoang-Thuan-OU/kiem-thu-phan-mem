@@ -5,7 +5,7 @@
 ---
 
 ### You will find in this folder/directory the following stuff:
-- Test Cases using Black-box Testing technique.
+- Test Cases using Black-box Testing techniques.
 - Test Scripts using Selenium IDE and WebDriver.
 - Test Reports using Software Test Documentation (STD) template IEEE 829/IEEE 29119.
 
