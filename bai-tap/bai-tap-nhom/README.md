@@ -2,6 +2,8 @@
 
 *Nov 2021 - Jan 2022 (2 months) | Semester 10/12*
 
+---
+
 ### You will find in this folder/directory the following stuff:
 - Test Cases using Black-box Testing technique.
 - Test Scripts using Selenium IDE and WebDriver.
