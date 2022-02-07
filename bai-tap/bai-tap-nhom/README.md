@@ -5,11 +5,11 @@
 * Test Scripts using Selenium IDE and WebDriver.
 * Test Reports using Software Test Documentation (STD) template IEEE 829/IEEE 29119.
 #### Member:
-* ![Võ Thị Anh Thư](https://github.com/thu113 "Võ Thị Anh Thư")
-* ![Nguyễn Thị Ngọc Nhi](https://github.com/NhiNguyen0310 "Nguyễn Thị Ngọc Nhi")
-* ![Mai Thị Thùy Trang](https://github.com/ThuyTrangMai "Mai Thị Thùy Trang")
-* ![Phan Thị Minh Trang](https://github.com/phanminhtrang "Phan Thị Minh Trang")
-* ![Nguyễn Hoàng Thuận](https://github.com/Nguyen-Hoang-Thuan-OU/ "Nguyễn Hoàng Thuận")
+* [Võ Thị Anh Thư](https://github.com/thu113 "Võ Thị Anh Thư")
+* [Nguyễn Thị Ngọc Nhi](https://github.com/NhiNguyen0310 "Nguyễn Thị Ngọc Nhi")
+* [Mai Thị Thùy Trang](https://github.com/ThuyTrangMai "Mai Thị Thùy Trang")
+* [Phan Thị Minh Trang](https://github.com/phanminhtrang "Phan Thị Minh Trang")
+* [Nguyễn Hoàng Thuận](https://github.com/Nguyen-Hoang-Thuan-OU/ "Nguyễn Hoàng Thuận")
 
 ### Screenshot:
 #### Test Cases
