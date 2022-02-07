@@ -17,8 +17,8 @@
 ---
 
 #### Test Scripts - Selenium IDE & WebDriver
-![Test Scripts - Selenium IDE 1](https://github.com/Nguyen-Hoang-Thuan-OU/kiem-thu-phan-mem/blob/main/bai-tap/bai-tap-nhom/images/thegioididong-test-script-selenium-ide.png "Test Scripts - Selenium IDE")
+![Test Scripts - Selenium IDE](https://github.com/Nguyen-Hoang-Thuan-OU/kiem-thu-phan-mem/blob/main/bai-tap/bai-tap-nhom/images/thegioididong-test-script-selenium-ide.png "Test Scripts - Selenium IDE")
 
-![Test Scripts - Selenium WebDriver](https://github.com/Nguyen-Hoang-Thuan-OU/kiem-thu-phan-mem/blob/main/bai-tap/bai-tap-nhom/images/thegioididong-test-script-selenium-webdriver.png "Test Scripts - Selenium WebDriver 2")
+![Test Scripts - Selenium WebDriver](https://github.com/Nguyen-Hoang-Thuan-OU/kiem-thu-phan-mem/blob/main/bai-tap/bai-tap-nhom/images/thegioididong-test-script-selenium-webdriver.png "Test Scripts - Selenium WebDriver")
 
 © 2022 Bản quyền thuộc về Nguyễn Hoàng Thuận
