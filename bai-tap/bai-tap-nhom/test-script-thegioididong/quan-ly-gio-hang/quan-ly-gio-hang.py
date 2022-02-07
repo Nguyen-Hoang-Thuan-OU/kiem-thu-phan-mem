@@ -33,8 +33,7 @@ except:
 o_tim_kiem = trinh_dieu_khien \
     .find_element(By.ID, "skw")
 
-# Nhập thủ công sản phẩm cần tìm
-# trong cửa sổ dòng lệnh trên PyCharm
+# Nhập thủ công sản phẩm cần tìm trong cửa sổ dòng lệnh trên PyCharm
 # san_pham_can_tim = input("Nhập sản phẩm cần tìm: ")
 # o_tim_kiem.send_keys(san_pham_can_tim)
 
