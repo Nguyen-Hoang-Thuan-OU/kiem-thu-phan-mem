@@ -5,7 +5,8 @@
 * Test Scripts using Selenium IDE and WebDriver.
 * Test Reports using Software Test Documentation (STD) template IEEE 829/IEEE 29119.
 
-#### Brief: A Test Plan using black-box testing techniques to design Test Cases and run automation Test Scripts using Selenium to test main functions of the website, such as: Search products, Filter products, Add to cart, Make payments,...
+#### Brief:
+A Test Plan using black-box testing techniques to design Test Cases and run automation Test Scripts using Selenium to test main functions of the website, such as: Search products, Filter products, Add to cart, Make payments,...
 
 #### Member:
 * [Võ Thị Anh Thư](https://github.com/thu113 "Võ Thị Anh Thư")
@@ -14,7 +15,8 @@
 * [Phan Thị Minh Trang](https://github.com/phanminhtrang "Phan Thị Minh Trang")
 * [Nguyễn Hoàng Thuận](https://github.com/Nguyen-Hoang-Thuan-OU/ "Nguyễn Hoàng Thuận")
 
-#### Role: List Test Scenarios, write Test Cases and run Test Scripts to test [Buy products] and [Shopping cart management] functions.
+#### Role:
+List Test Scenarios, write Test Cases and run Test Scripts to test [Buy products] and [Shopping cart management] functions.
 
 ---
 
