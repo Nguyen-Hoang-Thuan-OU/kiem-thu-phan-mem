@@ -7,7 +7,7 @@
 	Ví dụ 2: kiểm thử về đa ngôn ngữ trên một hệ thống.
 		-> Đã hiểu quy trình kiểm thử thủ công => Thiết kế kiểm thử tự động
 
-Máy tính sẽ thay mặt con người tự động hoá việc thực thi các test case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai thông qua email,...). Có thể thực thi kiểm thử tự động định kỳ theo một khung giờ cố định mà không cần đến sự can thiệp và giám sát của con người. Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
+Máy tính sẽ thay mặt con người tự động hoá việc thực thi các Test Case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng sai thông qua email,...). Có thể thực thi kiểm thử tự động định kỳ theo một khung giờ cố định mà không cần đến sự can thiệp và giám sát của con người. Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing).
 
 ------------------------------
 
@@ -32,28 +32,39 @@ Máy tính sẽ thay mặt con người tự động hoá việc thực thi các
 
 [NHỮNG LƯU Ý KHI KIỂM THỬ TỰ ĐỘNG]
 
-* Nên sử dụng kiểm thử tự động khi:
+* Nên áp dụng kiểm thử tự động cho:
 	- Các dự án lớn và trọng điểm, những dự án dài hạn và tốn nguồn nhân lực.
 	- Những dự án yêu cầu kiểm thử thường xuyên trong cùng một lĩnh vực (kiểm thử lặp lại một tính năng).
 	- Những yêu cầu không thường xuyên thay đổi.
-	- Truy cập ứng dụng để kiểm tra chịu tải và hiệu suất với nhiều người dùng ảo (Kiểm thử hiệu năng - Performance Testing).
+	- Kiểm thử hiệu năng (Performance Testing): giả lập nhiều người sử dụng cùng một lúc,...
 	- Kiểm tra tính ổn định của phần mềm trên quan điểm của kiểm thử thủ công.
 	- Tính khả dụng của thời gian.
+	- So sánh những điểm ảnh (pixel), màu sắc,... của hình ảnh.
+	- So sánh những bảng tính (spreadsheets) với rất nhiều dòng và cột.
+	- Chạy song song trên nhiều trình duyệt cùng một lúc.
+
+	* Ưu tiên áp dụng cho:
+		+ Những Test Case passed (Positive).
+		+ Test theo thứ tự, ví dụ: đăng ký > đăng nhập > tìm kiếm > chọn mua > thanh toán.
+		+ Kiểm thử giao diện (UI): phân trang, ô nhập, nút nhấn,...
+		+ Kiểm thử hiệu năng (Performance Testing).
 
 ------------------------------
 
-* Những test case có thể kiểm thử tự động:
-	- Rủi ro cao - các test case quan trọng.
-	- Những test case được thực hiện nhiều lần.
-	- Những test case khó thực hiện thủ công.
-	- Những test case tốn thời gian của con người.
+* Những Test Case có thể kiểm thử tự động:
+	- Rủi ro cao - các Test Case quan trọng.
+	- Những Test Case được thực hiện nhiều lần.
+	- Những Test Case khó thực hiện thủ công.
+	- Những Test Case tốn thời gian của con người.
 
 ------------------------------
 
-* Những test case không phù hợp để kiểm thử tự động:
-	- Những test case được thiết kế mới và chưa được thực hiện thủ công ít nhất một lần.
-	- Những test case có các yêu cầu thường xuyên thay đổi (do khách hàng chưa quyết định được tính năng).
-	- Những test case được thực hiện đột xuất, không có kế hoạch, kịch bản, tese case và tài liệu (ad-hoc).
+* Những Test Case không phù hợp để kiểm thử tự động:
+	- Những Test Case được thiết kế mới và chưa được thực hiện thủ công ít nhất một lần.
+	- Những Test Case có các yêu cầu thường xuyên thay đổi (do khách hàng chưa quyết định được tính năng, hay thay đổi yêu cầu phần mềm,...).
+	- Những Test Case được thực hiện đột xuất, không có kế hoạch, kịch bản hay tài liệu tham khảo (ad-hoc).
+	- Những Test Case liên tục failed.
+	- Những hệ thống áp dụng quá nhiều thiết kế đồ hoạ (hiệu ứng).
 
 ------------------------------
 
@@ -88,18 +99,25 @@ Máy tính sẽ thay mặt con người tự động hoá việc thực thi các
 
 	-> Lưu lại các phần tử website dưới dạng đối tượng trong Element Repository (Object Repository) và cho phép tái sử dụng trong các Test Case khác nhau của cùng một dự án.
 
+------------------------------
+
+** Selenium Suite:
+	1. Selenium IDE.
+	2. Selenium WebDriver + RC.
+	3. Selenium Grid.
+
 ========================================================================
 
 [CÁCH THIẾT KẾ KỊCH BẢN KIỂM THỬ TỰ ĐỘNG - TEST SCRIPT]
 
 ** Có nhiều cách để viết kịch bản kiểm thử tự động (Test Script):
-	- Chủ động lập trình bằng cách sử dụng Selenium, WebDriver.exe và kiến thức lập trình hướng đối tượng (OOP) để viết Test Script.
+	- Chủ động lập trình bằng cách sử dụng Selenium, WebDriver và kiến thức lập trình hướng đối tượng (OOP) để viết Test Script (Page Object Model - POM).
 		-> Sử dụng thư viện lập trình Selenium và ngôn ngữ lập trình.
 
-	- Ghi hình lại các bước dạng kịch bản (Record & Replay/Playback): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các Test Case ở mức cơ bản.
+	- Ghi hình lại các bước dạng kịch bản (Linear: Record & Replay/Playback): dùng một phần mềm đã được viết sẵn chuyên phục vụ cho việc ghi hình các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các Test Case ở mức cơ bản.
 Sau khi ghi hình xong, sẽ in ra một tập các bước đã thực hiện và cho phép can thiệp, chỉnh sửa lại các bước. Có thể chuyển thành ngôn ngữ lập trình (Java, C#, Python,...) và cho phép chỉnh sửa lại theo phong cách lập trình nếu cần thiết.
 		-> Sử dụng công cụ đồ hoạ Selenium IDE.
-		-> Sử dụng công cụ record + code: Katalon,...
+		-> Sử dụng công cụ record + code: Katalon (keyword driven),...
 
 ========================================================================
 
@@ -115,14 +133,14 @@ Lúc này, trình duyệt chính là một đối tượng (object) cung cấp c
 
 ** Quy trình viết kịch bản kiểm thử tự động bằng việc chủ động lập trình:
 
-	Python				     Firefox WebDriver	FireFox
-	Java			Selenium     ChromeDriver	Chrome
-	C#				     OperaDriver	Opera
+	Python			Selenium     Firefox WebDriver	FireFox
+	Java			Client	     ChromeDriver	Chrome
+	C#			Library	     OperaDriver	Opera
 
 |Ngôn ngữ lập trình|--->|Thư viện lập trình|--->|WebDriver|--->|Trình duyệt|
 							^		|
-							|_______________|
-							HTTP over HTTP Server
+					    JSON	|_______________|
+			Wire Protocol Over HTTP		HTTP over HTTP Server
 
 ------------------------------
 
@@ -219,11 +237,11 @@ Trong quá trình thao tác (thường là chuyển trang), do đây là hai lu�
 
 [XÁC MINH TRONG SELENIUM IDE VỚI ASSERT VÀ VERIFY]
 
-* Assert: dừng việc test ngay khi có test case trả về kết quả fail để có thể điều tra và fix lỗi này ngay, tất cả các Test Case còn lại chưa được chạy đều sẽ bị dừng lại.
+* Assert: dừng việc test ngay khi có Test Case trả về kết quả fail để có thể điều tra và fix lỗi này ngay, tất cả các Test Case còn lại chưa được chạy đều sẽ bị dừng lại.
 
 ------------------------------
 
-* Verify (Soft Assert): vẫn tiếp tục thực hiện kiểm thử tất cả các test case khác dù có test case trả về kết quả fail, ta sẽ nhận được danh sách kết quả sau khi tất cả các test case thực hiện xong bằng cách gọi hàm assertAll().
+* Verify (Soft Assert): vẫn tiếp tục thực hiện kiểm thử tất cả các Test Case khác dù có Test Case trả về kết quả fail, ta sẽ nhận được danh sách kết quả sau khi tất cả các Test Case thực hiện xong bằng cách gọi hàm assertAll().
 
 ========================================================================
 
