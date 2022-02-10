@@ -12,30 +12,32 @@
 | phần mềm không đúng với đặc tả và mong đợi của khách hàng được gọi là THẤT BẠI |
  --------------------------------------------------------------------------------
 
+-> Hình thái của lỗi rất đa dạng, có thể xảy ra ở bất kỳ công đoạn nào (phân tích, thiết kế, hiện thực,...).
+
 ================================================================================
 
-* Mistake (lỗi lầm): một "mistake" được gây ra bởi sự bất cẩn lập trình viên được gọi là "error", nó có thể nằm yên cho đến khi có ai đó phát hiện ra nó.
+* Mistake (lỗi lầm): một "mistake" được gây ra bởi sự bất cẩn lập trình viên thì được gọi là "error", nhưng có thể chưa ai đó phát hiện ra.
 
 --------------------
 
-* Error (vấn đề): một "error" được kiểm thử viên tìm ra khiến hệ thống không được hoàn hảo được thì gọi là "defect".
+* Error (vấn đề): một "error" được ai đó phát hiện ra được thì gọi là "defect", nhưng lúc này chưa thể khẳng định đây có đúng là vấn đề.
 
 --------------------
 
-* Defect (khiếm khuyết): sau khi hai bên trao đổi, lập trình viên thừa nhận "defect" này đúng là do họ gây ra và cần được khắc phục thì được thì được gọi là "bug".
+* Defect (khiếm khuyết): sau khi hai bên trao đổi, "defect" được thì được gọi là "bug" khi lập trình viên thừa nhận đúng là do họ gây ra và cần được khắc phục.
 
 --------------------
 
-* Fault (sai sót): những sai sót do dư, thiếu hoặc không đúng các yêu cầu phần mềm cần thực hiện.
+* Fault (sai sót): những sai sót do dư, thiếu hoặc không đúng các yêu cầu phần mềm cần thực hiện (requirement/specification), bản build không khớp với yêu cầu, làm sai với mong muốn của người dùng.
 	-> Error và fault gọi chung là bug.
 
 --------------------
 
-* Bug (lỗi): những sai sót xuất hiện trong phần mềm đã được thừa nhận, khiến cho phần mềm hoạt động không được như mong đợi yêu cầu của khách hàng.
+* Bug (lỗi): những vấn đề/sai sót xuất hiện trong phần mềm đã được thừa nhận, khiến cho phần mềm hoạt động không được như mong đợi yêu cầu của khách hàng.
 
 --------------------
 
-* Failure (thất bại/hỏng): xảy ra khi các sai sót (fault) được thực thi. Hoặc nếu phần mềm có thể không có sai sót nhưng bản build không khớp với yêu cầu (requirement), làm sai với mong muốn của người dùng và khiến người dùng không chấp nhận sử dụng cũng được gọi là "failure".
+* Failure (thất bại/hỏng): xảy ra khi các "fault" được thực thi, hoặc làm đúng nhưng hệ thống hoạt động không đúng với yêu cầu và khiến người dùng không chấp nhận sử dụng cũng thì được gọi là "failure".
 
 --------------------
 
