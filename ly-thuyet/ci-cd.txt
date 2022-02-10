@@ -1,24 +1,110 @@
-﻿[ĐỊNH NGHĨA QUY TRÌNH CI/CD]
+﻿* Agile: tập trung vào quy trình phát triển, liên tục thay đổi và cho ra sản phẩm.
 
-** CI (Continuous Integration) và CD (Continuous Delivery): quá trình làm việc liên tục và tự động của phần mềm khi có bất kỳ ai đưa code lên Server, được tích hợp vào trong vòng đời phát triển của phần mềm (Software Development Life Cycle - SDLC).
+-----------------------
+
+* CI/CD: vòng đời phát triển được định nghĩa trước của phần mềm, nhấn mạnh về các công cụ để tự động hoá.
+
+-----------------------
+
+* DevOps: là sự kết hợp giữa nhiều triết lý văn hóa, biện pháp thực hành và công cụ giúp tăng khả năng phân phối ứng dụng và dịch vụ của một tổ chức ở tốc độ cao: phát triển và cải tiến sản phẩm ở nhịp độ nhanh hơn các tổ chức sử dụng quy trình quản lý cơ sở hạ tầng và phát triển phần mềm truyền thống. Tốc độ này cho phép các tổ chức phục vụ khách hàng tốt hơn và cạnh tranh hiệu quả hơn trên thị trường.
+
+================================================================================
+
+* Biên dịch (Building): giai đoạn biên dịch toàn bộ phần mềm (và thư viện), chuyển mã nguồn thành mã máy. Là quá trình quyết định kiến trúc (32-bit hoặc 64-bit) và hệ điều hành (Windows, Lunix, MacOS,...)
+
+-----------------------
+
+* Đóng gói (Packaging): giai đoạn đưa phần mềm của mình (tệp thực thi, thư viện, tệp tài nguyên, cấu trúc thư mục,...) đến người dùng cuối bằng việc tạo ra một file cài đặt (.exe,...) hoặc gói tất cả vào một file nén (.zip, .rar,...) và sẵn sàng cho giai đoạn triển khai.
+
+-----------------------
+
+* Triển khai (Deployment): giai đoạn xác định nơi mà phần mềm sẽ được cài đặt lên và chạy. Có thể đưa lên Internet (kèm hướng dẫn giải nén và cài đặt) để mọi người có thể tải, gửi email chứa sản phẩm đến cho khách hàng, cài đặt trực tiếp lên thiết bị cá nhân của người dùng hoặc host phần mềm lên một Server cục bộ.
+
+----------------------------------------
+
+** Giai địan viết code:
+
+* IDE (Integrated Development Environment): môi trường phát triển ứng dụng, tích hợp nhiều thứ vào trong một. Mỗi trường để hỗ trợ cho việc viết code.
+	- Netbeans, IntelliJ, Visual Studio,...
+
+-----------------------
+
+* Mã nguồn (Source code): mã hoá (code) là đưa ra các này nhưng nói về cái khác. Mã nguồn chỉ có con người hiểu, máy không hiểu.
+	- Java: .java
+
+	- C/C++:
+		.c
+		.cpp
+
+	- C#: .cs
+
+	Ví dụ: 	if ()
+		for ()
+
+-----------------------
+
+* Biên dịch: chuyển mã nguồn thành ngôn ngữ máy (biến đổi thành mã nhị phân 0101010 - byte code/machine code/binary code/MSIL) để máy có thể hiểu được nó cần phải làm gì, lúc này phần mềm đã sẵn sàng để chạy.
+	- Java: .java	-> .class
+
+	- C/C++:
+		.c	-> .obj
+		.cpp	-> .o
+
+	- C#: .cs	-> .obj, .o
+
+	Ví dụ: 	if ()	-> Biên dịch
+		for ()	   thành mã nhị phân
+
+-----------------------
+
+* Đóng gói: gom toàn bộ file lại thành một tập tin duy nhất để đem đi bắn, tặng,...
+	- Java: .java	-> .class		-> .apk, .war, .jar
+
+	- C/C++:
+		.c	-> .obj			-> .exe (chứa hàm main để chạy)
+		.cpp	-> .o			-> .dll (thư viện để hỗ trợ cho .exe)
+
+	- C#: .cs	-> .obj, .o		-> .exe, .dll
+
+	Ví dụ: 	if ()	-> Biên dịch
+		for ()	   thành mã nhị phân
+
+================================================================================
+
+[ĐỊNH NGHĨA QUY TRÌNH CI/CD]
+
+** CI/CD (Continuous Integration/Continuous Delivery): quá trình làm việc liên tục và tự động của phần mềm khi có bất kỳ ai đưa code lên Server, được tích hợp vào trong vòng đời phát triển của phần mềm (Software Development Life Cycle - SDLC). Áp dụng triệt để CI/CD sẽ tạo thuận lợi cho quá trình phát triển phần mềm theo hướng linh hoạt (Agile), vì khách hàng có thể nhanh chóng được tiếp cận, trải nghiệm vừa đưa ra những phản hồi về những sự thay đổi.
 
 Phù hợp khi làm trong dự án với nhiều team và nhiều thành viên: Jenkins, TeamCity, Azure DevOps.
 
-- Hạn chế lỗi khi commit code lên vì CI/CD sẽ tự động kiểm tra đoạn code do ta vừa commit, nếu hợp lệ mới cho phép commit.
-- Tự động chạy một bộ test nào đó để xem code vừa được commit có ảnh hưởng đến những tính năng khác.
-- Tự động build ứng dụng.
+-----------------------
+
+* CI (Continuous Integration): là kỹ thuật được áp dụng khi các thành viên trong nhóm liên tục (tần suất mỗi ngày hoặc mỗi giờ) hợp nhất (integrate/merge) công việc (mã nguồn) của họ vào kho lưu trữ chung.
+
+Trong lịch sử, tích hợp là một hoạt động kỹ thuật tốn kém. Vì vậy, để tránh sự cố, CI nhấn mạnh các công cụ tự động hóa nhằm thúc đẩy quá trình biên dịch và kiểm thử tự động. Mục tiêu chính là tìm và khắc phục lỗi nhanh hơn, cải thiện chất lượng phần mềm, giảm thời gian bỏ ra để thẩm định và phát hành các bản cập nhật mới.
+
+-----------------------
+
+* CD (Continuous Delivery): là quá trình tự động đóng gói và triển khai những gì mà CI đã biên dịch và kiểm thử. Những thay đổi trong mã nguồn (dù là nhỏ nhất) đều sẽ được tự động đóng gói và kiểm thử. Áp dụng CD để biên dịch, cấu hình, đóng gói và điều phối việc triển khai của phần mềm theo cách một cách nào đó để nó có thể được phát hành bất cứ lúc nào với mức chi phí thấp và tính tự động hóa cao.
+
+----------------------------------------
+
+** Ưu điểm:
+	- Hạn chế lỗi khi commit code lên vì CI/CD sẽ tự động kiểm tra đoạn code do ta vừa commit, nếu hợp lệ mới cho phép commit.
+	- Tự động chạy một bộ test nào đó để xem code vừa được commit có ảnh hưởng đến những tính năng khác.
+	- Tự động build ứng dụng.
 
 ================================================================================
 
 [QUY TRÌNH CONTINUOUS INTEGRATION (CI)]
 
-* Server trung tâm chứa code: GitHub, GitLab, Bitbucket,...
+* Server trung tâm (chung) chứa code: GitHub, GitLab, Bitbucket,...
 
 * Kiểm tra code: SonarQube,...
 
-* Tự động biên dịch và đóng gói (build): Jenkins, GitHub Action, Bamboo, TeamCity, Jarvis,...
+* Tự động biên dịch và đóng gói: Jenkins, GitHub Action, Bamboo, TeamCity, Jarvis,...
 
-* Staging Server: Server trung gian để triển khai hệ thống, Server chứa hệ thống đã được build (.exe, .war).
+* Staging Server: Server trung gian để triển khai hệ thống, Server chứa hệ thống đã được đóng gói (.exe, .war).
 
 ----------------------------------------
 
@@ -103,15 +189,27 @@ Trên GitHub có Webhooks, là một cơ chế cho phép lắng nghe (hoạt đ�
 ================================================================================
 
 [THỰC HIỆN QUY TRÌNH CI TRÊN MÁY CỤC BỘ]
+(bằng Java)
 
-Mặc định khi biên dịch (build. class) và quá trình đói gói (dist .war, .jar, .ear) không quan tâm code có được Unit Test hay không, nếu có thì cũng không quan tâm Unit Test đang xanh hay đỏ.
+* JDK\bin
+	- java.exe: máy ảo Java. Vì máy ảo chỉ hiểu file .class nên muốn chạy thì phải cần javac.exe để biến dịch trước.
+	- javac.exe: trình biên dịch (biến file .jar -> .class)
+	- jar.exe: giúp đóng gói thành file .jar (do Ant và Maven lo).
+
+* Hai công cụ đặc biệt giúp đóng gói hệ thống thành .apk
+
+Ant, Maven	-> .jar, .war
+
+----------------------------------------
+
+Mặc định khi biên dịch (build .class) và quá trình đói gói (dist .war, .jar, .ear) không quan tâm code có được Unit Test hay không, nếu có thì cũng không quan tâm Unit Test đang xanh hay đỏ.
 	-> Chỉ tập trung vào biên dịch và đóng gói app.
 
-Khi Unit Test đang đỏ tức là có vấn đề về code thì không nên biên dịch và đóng gói app. Cần phải cá nhân hoá lại quá trình bằng cách bắt tiến trình ra file .jar phải đi qua bộ test và test xanh thì mới ra được file .jar.
+Khi Unit Test đang đỏ tức là có vấn đề về code thì không nên biên dịch và đóng gói app. Vì vậy, cần phải cá nhân hoá lại quá trình bằng cách bắt tiến trình ra file .jar phải đi qua bộ test và test xanh thì mới ra được file .jar.
 
-Trong Java, chỉ quan tâm 2 thư mục src và test vì khi đưa lên Server thì 2 thư mục này có thể tạo ra 2 thư mục build và dist bất cứ lúc nào.
+Trong Java, chỉ quan tâm 2 thư mục src và test vì khi đưa lên Server vì 2 thư mục này có thể tạo ra 2 thư mục build và dist bất cứ lúc nào.
 
-Trong NetBeans, khi nhấn F6 (Clean & Build) thì nó sẽ đọc tập tin build-impl.xml (Ant) trong thư mục nbproject để biết phải làm gì tiếp theo. Đây cũng là nơi để chỉnh sửa quy trình build bằng cách thêm test vào <target depends="init,compile,test,...>.
+Trong NetBeans, khi nhấn Shift + F11 (Clean & Build), thực chất thì Netbeans sẽ không làm gì mà sẽ gọi 2 thằng khác làm giùm (gọi JDK và Javac.exe), nó sẽ đọc tập tin build-impl.xml (Ant) trong thư mục nbproject để biết phải làm gì tiếp theo. Đây cũng là nơi để chỉnh sửa quy trình build bằng cách thêm test vào <target depends="init,compile,test,...>.
 
 -------------------
 
