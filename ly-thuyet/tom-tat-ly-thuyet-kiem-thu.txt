@@ -44,17 +44,51 @@ Sản phẩm chất lượng là khi người dùng hài lòng và chấp nhận
 
 ================================================================================
 
-[ĐỊNH NGHĨA VỀ KIỂM THỬ]
+[ĐỊNH NGHĨA VỀ KIỂM THỬ PHỀN MỀM]
+
+* Bug: sai sót, khiến phần mềm hoạt động trong thực tế (actual) không được như mong đợi (expected).
+
+----------------------------------------
 
 Viết code chỉ là một phần trong quá trình làm phần mềm. Trước công đoạn viết code là công đoạn thu thập, phân tích và thiết kế. Sau công đoạn viết code là kiểm thử, triển khai và bảo trì.
 
 Không đơn giản chỉ là kiểm thử trên một phần mềm đã được viết và biên dịch sang tập tin nhị phân (hay phần mềm đã được triển khai lên Server) để tìm lỗi trong quá trình vận hành. Kiểm thử phần mềm là một quá trình (process) liên quan đến việc so sánh/đánh giá/đo lường/kiểm tra (comparing/evaluating/measure/check) giữa kết quả thực tế (actual - what is) với kết quả mong đợi (expected - what ought to be).
 
-	=> So sánh giữa kết quả mong đợi với kết quả thực tế để tìm lỗi (defect testing), đảm bảo rằng phần mềm hoạt động đúng với dự kiến/mục tiêu/đặc tả yêu cầu và người dùng hài lòng với phần mềm (validation testing).
+	-> So sánh (compare) giữa kết quả mong đợi (expected) với kết quả thực tế (actual) để tìm lỗi (defect testing), đảm bảo (verify/check) rằng phần mềm hoạt động đúng với dự kiến/mục tiêu/đặc tả yêu cầu (specification/requirement) và người dùng hài lòng với phần mềm (validation testing).
+
+Bên cạnh đó, ta còn kiểm thử về chất lượng hệ thống (attribute), độ hài lòng của người dùng khi sử dụng hệ thống.
+	-> Trải nghiệm của người dùng khi sử dụng hệ thống.
+
+=> So sánh kết quả (yêu cầu, thiết kế, tính năng,...) để tìm lỗi của tính năng (functional requirement) và đo lường chất lượng của phần mềm về mặt trải nghiệm (non-functional requirement).
+
+----------------------------------------
+
+Ví dụ 1: chức năng của phần mềm
+	- Mong đợi (expected - what ought to be): yêu cầu có 6 chức năng.
+	- Thực tế (actual - what is): khách hàng yêu cầu có 9 chức năng.
+		-> Lỗi phân tích yêu cầu.
+
+--------------------
+
+Ví dụ 2: phần mềm quản lý học tập
+	- Mong đợi (expected - what ought to be): sinh viên được xem điểm, phòng quản lý đào đạo có quyền can thiệp điểm.
+	- Thực tế (actual - what is): cả sinh viên và phòng quản lý đào đạo có quyền can thiệp điểm.
+		-> Lỗi không thoả mãn thiết kế.
+
+--------------------
+
+Ví dụ 3: phần mềm tính tiền
+	- Mong đợi (expected - what ought to be): mua 3 phần đồ ăn/thức uống thì tổng tiền phải là 100k.
+	- Thực tế (actual - what is): 3 phần đồ ăn/thức uống thì tổng tiền không phải là 100k.
+		-> Lỗi tính toán xử, lý không đúng.
 
 ================================================================================
 
 [ĐỐI TƯỢNG THAM GIA VÀO QUÁ TRÌNH KIỂM THỬ]
+
+Theo suy nghĩ thông thường thì người kiểm thử phải là một người khác (độc lập với người làm ra phần mềm) để đảm bảo tính khách quan và phải có một phần mềm hoàn chỉnh thì mới có thể tiến hành kiểm thử được. Nhưng để đảm bảo chất lượng phần mềm và giảm chi phí khi phát sinh lỗi thì quá trình kiểm thử phải bắt đầu càng sớm càng tốt và trong giai đoạn bắt đầu phát triển thì người lập trình ra phần mềm cũng phải tham gia vào quá trình kiểm thử.
+
+--------------------
 
 * Lập trình viên (Developer): tự kiểm tra code (từng hàm, lớp) của mình để những dòng code được viết ra phải đều đảm bảo về chất lượng.
 	-> Unit Test: kiểm thử từng đơn vị code (hàm, lớp) do chính mình viết ra.
@@ -65,7 +99,7 @@ Không đơn giản chỉ là kiểm thử trên một phần mềm đã đượ
 
 	- Functional Requirements: các hàm, màn hình, nút nhấn,...
 
-	- Non-Functional Requirements: trải nghiệm/cảm giác sử dụng,...
+	- Non-Functional Requirements: ràng buộc, trải nghiệm sử dụng,...
 
 	-> Thiết kế và thực thi quá trình kiểm thử (thủ công và tự động).
 
@@ -73,8 +107,16 @@ Không đơn giản chỉ là kiểm thử trên một phần mềm đã đượ
 
 * Test Manager/Lead/Architect: sếp của kiểm thử viên, hoạch định/lên kế hoạch/chiến lược kiểm thử, bố trí nhân lực và vật lực (Server, trang thiết bị,...).
 
+--------------------
 
-Khu vực ảnh hưởng: QA > QC > Test (QC là một phần của QA và việc kiểm thử là một phần nhỏ của QC)
+* End-User: người dùng cuối tham gia sử dụng thử hệ thống để xác nhận rằng hệ thống có thể dùng được và phù hợp với nhu cầu của họ hay không.
+	-> User Acceptance Testing (UAT): quan trọng nhất vì hệ thống làm ra là để người dùng sử dụng.
+
+	Ví dụ: mạng xã hội Google+ sử dụng tốt, ít lỗi nhưng vẫn không phù hợp với nhu cầu và thói quen sử dụng của người dùng vì đã có FaceBook, Twitter,...
+
+----------------------------------------
+
+Khu vực ảnh hưởng: QA > QC > Test (QC là một phần của QA và việc test là một phần nhỏ của QC)
 
 	- Quality Assurance - QA (Đảm bảo chất lượng): bắt đầu trước và trong suốt quá trình tiến hành dự án để cho ra sản phẩm. Tập trung vào ngăn ngừa, đảm bảo xem có làm theo đúng thao tác/quy trình (không quan tâm chi tiết cách làm) do chính nơi đó tự quy định ra hay không: có họp hằng tháng chưa, có xem lại kết quả và đánh giá chất lượng chưa, có chia sẻ kinh nghiệm cá nhân với nhau không,...
 		-> Người nhìn mọi việc diễn ra xuyên suốt và đảm bảo quy trình đã được thực hiện đầy đủ (không phán xét đúng sai) để ngăn ngừa lỗi.
@@ -95,13 +137,6 @@ Khu vực ảnh hưởng: QA > QC > Test (QC là một phần của QA và việ
 |-----------------------|-----------------------|-------------------------------|
 |Xuyên suốt quy trình	|Trước khi phát hành	|GĐ phát triển hoặc kiểm thử	|
 ---------------------------------------------------------------------------------
-
---------------------
-
-* End-User: người dùng cuối tham gia sử dụng thử hệ thống để xác nhận rằng hệ thống có thể dùng được và phù hợp với nhu cầu của họ hay không.
-	-> User Acceptance Testing (UAT): quan trọng nhất vì hệ thống làm ra là để người dùng sử dụng.
-
-	Ví dụ: mạng xã hội Google+ sử dụng tốt, ít lỗi nhưng vẫn không phù hợp với nhu cầu và thói quen sử dụng của người dùng vì đã có FaceBook, Twitter,...
 
 ================================================================================
 
@@ -131,49 +166,78 @@ Trong tài liệu kế hoạch kiểm thử (Test Plan) sẽ có các tiêu chu�
 
 ** 7 nguyên tắc/nguyên lý/phương châm/nguồn gốc căn bản của kiểm thử phần mềm để định hướng cách kiểm thử sao cho đúng nhất:
 
-	01. Kiểm thử để chứng minh sự hiện diện của lỗi (Testing shows presence of defects): để chứng minh phần mềm CÓ LỖI vì lỗi luôn tiềm ẩn chứ không phải để khẳng định rằng phần mềm này không có lỗi (bug-free). Cả công ty lớn hay nhỏ thì sản phẩm đều có thể có lỗi, chỉ là có thể tìm ra lỗi hay lỗi đột nhiên xuất hiện. Vì vậy, cần thiết kế Test Case để tìm ra được càng nhiều lỗi càng tốt.
+	01. Kiểm thử để chứng minh sự hiện diện của lỗi (Testing shows presence of defects): để chứng minh phần mềm (hệ thống phức tạp được cấu thành từ nhiều thành phần) CÓ LỖI vì lỗi luôn tiềm ẩn chứ không phải để khẳng định rằng phần mềm này không có lỗi (bug-free). Cả công ty lớn hay nhỏ thì sản phẩm đều có thể có lỗi, chỉ là có thể tìm ra lỗi hay lỗi đột nhiên xuất hiện. Vì vậy, cần thiết kế Test Case để tìm ra được càng nhiều lỗi càng tốt.
 
 		-> Để tìm ra lỗi chứ không phải để chứng minh phần mềm không có lỗi.
 
+		(-> Giúp định hình cách làm việc và biết điểm dừng.)
+
 --------------------
 
-	02. Không thể kiểm thử hết toàn bộ (Exhaustive testing is not possible): trong phần mềm sẽ có rất nhiều chức năng, yêu cầu, loại kiểm thử,... được thực hiện trên nhiều môi trường, nền tảng, công nghệ,... tạo nên số tổ hợp các trường hợp cần kiểm thử là rất lớn, nên ta không bao giờ có thể kiểm thử hết được toàn bộ những chức năng của phần mềm, tất cả các kịch bản, đầu vào và đầu ra. Vì vậy, cần sử dụng những phương pháp phân tích rủi ro dựa trên mức độ ưu tiên,... để tập trung kiểm thử những chức năng chính, chức năng quan trọng, chức năng có nguy cơ lỗi cao trên những môi trường thường xuyên được sử dụng nhất để đảm bảo sản phẩm hoạt động ổn (sử dụng nguyên lý quy nạp: tìm quy luật có thể áp dụng chung cho một loạt - áp dụng các kỹ thuật kiểm thử).
+	02. Không thể kiểm thử hết toàn bộ (Exhaustive testing is not possible): trong phần mềm sẽ có rất nhiều chức năng, yêu cầu, loại kiểm thử,... được thực hiện trên nhiều môi trường, nền tảng, công nghệ,... tạo nên số tổ hợp các trường hợp cần kiểm thử là rất lớn, nên ta không bao giờ có thể kiểm thử hết được toàn bộ những chức năng của phần mềm, tất cả các kịch bản, đầu vào và đầu ra. Vì vậy, cần sử dụng những phương pháp phân tích rủi ro dựa trên mức độ ưu tiên,... để tập trung kiểm thử những chức năng chính, chức năng quan trọng, chức năng có nguy cơ lỗi cao trên những môi trường thường xuyên được sử dụng nhất để đảm bảo sản phẩm hoạt động ổn định (sử dụng nguyên lý quy nạp: tìm quy luật có thể áp dụng chung cho một loạt - áp dụng các kỹ thuật kiểm thử).
 
-		Ví dụ: kiểm thử website tiki.vn. Đại đa số là người Việt truy cập và mua hàng thông qua các trình duyệt Chrome, CốcCốc; chức năng mua hàng sẽ là chức năng cần được ưu tiên kiểm thử trước.
+		Ví dụ 1: kiểm thử phép cộng trong ứng dụng Máy tính
+			* Cộng 2 số.
+				- Cộng 2 số dương.
+					+ Số dương dưới 1000.
+					+ Số dương trên 1000.
+					  (định dạng in ra với dấu phẩy phân cách)
+				- Cộng 2 số âm.
+					  (định dạng in ra dấu cộng chính là trừ).
+				- Cộng 2 số dương và âm.
 
-		-> Kiểm thử được hết tất cả các trường hợp (tổ hợp sử dụng) là bất khả thi, cần áp dụng các kỹ thuật kiểm thử để đảm bảo phần mềm ổn và có thể phát hành.
+
+			* Cộng 1 dãy số.
+				- Toàn bộ là số dương.
+				- Toàn bộ là số âm.
+				- Số dương và âm lẫn lộn.
+			...
+			-> Số tổ hợp phép toán là vô chừng.
+
+		Ví dụ 2: kiểm thử website bán hàng, đại đa số là người Việt truy cập và mua hàng thông qua các trình duyệt Chrome, CốcCốc; chức năng mua hàng sẽ là chức năng cần được ưu tiên kiểm thử trước.
+			-> Ưu tiên môi trường và chức năng.
+
+		-> Kiểm thử được hết tất cả các trường hợp/tổ hợp/tình huống sử dụng là bất khả thi, cần áp dụng các kỹ thuật kiểm thử để đảm bảo phần mềm ổn và có thể phát hành.
 
 --------------------
 
 	03. Kiểm thử càng sớm càng tốt (Early testing): kiểm thử nên được thực hiện càng sớm càng tốt trong tất cả các giao đoạn (5-6 pha, 5-6 công đoạn)/vòng đời của việc phát triển phần mềm, từ lúc thu thập những yêu cầu của khách hàng đến lúc phát triển và xây dựng hệ thống (kiểm thử từ khi chưa có một dòng code nào được viết ra). Vì kiểm thử ở những giai đoạn đầu sẽ giúp sớm phát hiện bug, tiết kiệm chi phí khi phát sinh lỗi, giúp giai đoạn chuyển giao hệ thống đúng thời hạn và chất lượng đúng như dự kiến.
 
-		-> Bắt đầu kiểm thử ngay từ bước thu thập yêu cầu, vì yêu cầu sai thì UAT là vô nghĩa.
+		-> Kiểm thử sớm, nên bắt đầu ngay từ bước thu thập yêu cầu vì yêu cầu sai thì UAT là vô nghĩa.
 
 --------------------
 
-	04. Lỗi thường được phân bố tập trung (Defect clustering): lỗi (bug) thường xuất hiện ở những chức năng chính, nơi nào xuất hiện nhiều lỗi thì khả năng cao những nơi gần đó cũng sẽ đang có rất nhiều lỗi. Quy luật 80/20 - Pareto: khoảng 80% kết quả là do 20% nguyên nhân gây ra (80% tổng số bug trong chương trình là do 20% chức năng quan trọng gây ra).
+* Nguyên lý Pareto (nhà toán học người Ý):
+	- Rất ít người giàu (20%) nhưng chiếm phần lớn tổng số tài sản (80%).
+	- 80% doanh số đến từ 20% khách hàng khủng.
+	- 80% lợi nhuận đến từ 20% nhóm các sản phẩm.
+	- 20% giây phút thăng hoa giúp giải quyết 80% khối lượng công việc.
 
-		-> Cần tập trung kiểm thử ở những mô-đun/chức năng quan trọng, có tương tác với hệ thống khác (chiếm 20% tổng số mô-đun của toàn hệ thống) vì chúng thường tập trung chiếm 80% tổng số lỗi.
+	04. Sự phân bố của lỗi (Defect clustering): lỗi (bug) thường tập trung xuất hiện ở những chức năng chính, khi tích hợp hệ thống. Cần tập trung nguồn lực để tìm ra lỗi ở các chức năng quan trọng (chiếm tổng cộng 20%) vì nơi nào xuất hiện nhiều lỗi thì khả năng cao những nơi gần đó cũng sẽ đang có rất nhiều lỗi (chiếm tổng cộng 80%). Nguyên lý 80/20: khoảng 80% kết quả là do 20% nguyên nhân gây ra.
+
+		-> Tập trung kiểm thử ở những mô-đun/chức năng quan trọng, có tương tác với hệ thống khác (chiếm 20% tổng số mô-đun của toàn hệ thống) vì chúng thường tập trung chiếm 80% tổng số lỗi (bug) trong hệ thống.
 
 --------------------
 
-	05. Nghịch lý thuốc trừ sâu (Pesticide paradox): cùng một Test Case, quy trình kiểm thử, kỹ thuật kiểm thử, bộ dữ liệu kiểm thử,... nếu kiểm thử lặp lại nhiều lần (lặp lại bộ Test Case) cho cùng 1 chức năng sẽ khiến xác suất tìm ra lỗi thấp hơn do sự chủ quan và đạt tới giới hạn của sự sáng tạo. Nếu không tìm ra được lỗi thì nên đổi kỹ thuật kiểm thử, cải thiện Test Case,... Khi một tính năng mới được thêm vào thì nên kiểm thử hồi quy (Regression Testing) để đảm bảo rằng tính năng mới này không làm ảnh hưởng đến những tính năng vốn đã có của hệ thống.
+	05. Nghịch lý thuốc trừ sâu (Pesticide paradox): nếu kiểm thử lặp lại nhiều lần cho cùng 1 chức năng bằng cùng một bộ Test Case, quy trình kiểm thử, kỹ thuật kiểm thử, bộ dữ liệu kiểm thử,... sẽ khiến xác suất tìm ra lỗi thấp hơn do đã quen việc và dẫn đến sự chủ quan hoặc đạt tới giới hạn của sự sáng tạo. Nếu không tìm ra được lỗi thì nên đổi kỹ thuật kiểm thử, cải thiện Test Case, môi trường kiểm thử, mô-đun cần kiểm thử,... để có sự hoán chuyển trong công việc và kích thích sự sáng tạo. Khi một tính năng mới được thêm vào thì nên kiểm thử hồi quy (Regression Testing) để đảm bảo rằng tính năng mới này không làm ảnh hưởng đến những tính năng vốn đã có của hệ thống.
 
 		-> Làm một công việc lặp lại quá nhiều lần sẽ gây chủ quan, vì vậy cần liên tục cập nhật, cải thiện các phương pháp và kỹ thuật kiểm thử, thay đổi môi trường/công cụ kiểm thử để luôn luôn có cách nhìn mới cho cùng một vấn đề.
 
 --------------------
 
-	06. Kiểm thử phụ thuộc vào ngữ cảnh (Testing is context dependent): mỗi lĩnh vực sẽ có những yêu cầu/chức năng/ràng buộc khác nhau, tương ứng với đó là những kỹ thuật kiểm thử khác nhau, kiểm thử cho di động sẽ khác kiểm thử cho website và desktop. Vì vậy, chỉ tập trung kiểm thử ở những chức năng được yêu cầu.
+	06. Kiểm thử phụ thuộc vào ngữ cảnh (Testing is context dependent): tuỳ vào loại hệ thống, môi trường hệ thống chạy, thiết bị hệ thống cần dùng thêm, mỗi lĩnh vực,... sẽ có những yêu cầu/chức năng/ràng buộc khác nhau, tương ứng với đó là những kỹ thuật kiểm thử khác nhau, kiểm thử cho di động sẽ khác kiểm thử cho website và desktop. Vì vậy, chỉ tập trung kiểm thử ở những chức năng được yêu cầu.
 
 		Ví dụ: khi kiểm thử phần mềm máy tính cầm tay, nếu đối tượng sử dụng là học sinh cấp 1 thì chỉ nên tập trung kiểm thử những chức năng tính toán công, trừ, nhân, chia.
 
-		-> Tuỳ vào môi trường, lĩnh vực kiểm thử mà sẽ có những chức năng cần áp dụng những kỹ thuật kiểm thử khác nhau trên các loại màn hình và độ phân giải khác nhau.
+		-> Tuỳ vào hệ thống, môi trường, lĩnh vực kiểm thử mà sẽ có những chức năng cần áp dụng những kỹ thuật kiểm thử khác nhau trên các loại màn hình và độ phân giải khác nhau.
 
 --------------------
 
-	07. Ảo tưởng về việc hết lỗi/không còn lỗi (Absence of errors fallacy): vì bản chất của phần mềm là luôn luôn có lỗi nên chớ vội mừng và phát hành phần mềm khi không tìm thấy lỗi trong phần mềm, vì có thể là do kiểm thử viên kiểm thử chưa tới, kịch bản và bộ test case chưa thật sự tốt. Lúc này, cần áp dụng thêm nhiều kỹ thuật kiểm thử để tìm lỗi. Giả sử nếu phần mềm đã hết 99% lỗi (99% bug-free) nhưng nếu không phù hợp với nhu cầu sử dụng thực tế của người dùng (UAT) thì phần mềm đấy cũng trở nên vô dụng.
+	07. Ảo tưởng về việc hết lỗi/không còn lỗi (Absence of errors fallacy): vì bản chất của phần mềm là luôn luôn có lỗi nên chớ vội mừng và phát hành phần mềm khi không tìm thấy lỗi trong phần mềm, vì có thể là do kiểm thử viên kiểm thử chưa tới, kịch bản và bộ Test Case chưa thật sự tốt,... Lúc này, cần áp dụng thêm nhiều kỹ thuật kiểm thử để tìm lỗi. Giả sử nếu phần mềm chất lượng và đã hết 99% lỗi (99% bug-free), nhưng nếu không phù hợp với nhu cầu sử dụng thực tế và sự hài lòng của người dùng (UAT) thì phần mềm đấy cũng trở nên vô dụng do không phục vụ được công việc hằng ngày của người dùng.
 
-		-> Lỗi đạt mức tối thiểu chứ không thể hết, nhưng quan trọng là phần mềm phải đáp ứng nhu cầu thực tế của người dùng.
+		Ví dụ: những tựa game có nhiều phần, có thể phần sau rất ít lỗi và có nhiều cải tiến nhưng vẫn không được người dùng đón nhận vì đơn giản phiên bản trước đã quá tốt và những cải tiến không phù hợp với nhau cầu sử dụng của họ.
+
+		-> Lỗi đạt mức tối thiểu chứ không thể hết, nhưng quan trọng là phần mềm phải đáp ứng nhu cầu sử dụng thực tế của người dùng (chất lượng ở mức chấp nhận được nhưng quan trọng là trải nghiệm của nhóm người dùng mà sản phẩm hướng đến).
 
 --------------------
 
@@ -257,7 +321,7 @@ V-Model là một mô hình quy trình phát triển phần mềm (SDLC) dựa t
 (Requirement)---------------------------------------------------(Acceptance Test)
 	\							 ^
 	 v							/
-	(Specificatio)------------------------------------(System Test)
+	(Specification)---------------------------------(System Test)
 		\					 ^
 		 v					/
 		(Design)------------------------(Integration Test)
