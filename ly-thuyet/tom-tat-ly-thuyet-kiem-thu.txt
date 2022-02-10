@@ -241,7 +241,7 @@ Trong tài liệu kế hoạch kiểm thử (Test Plan) sẽ có các tiêu chu�
 
 --------------------
 
-=> Những tiêu chí phải tuân theo trong suốt quá trình kiểm thử để biết nên và không nên làm gì.
+=> Những tiêu chí phải tuân theo trong suốt quá trình kiểm thử để biết nên và không nên làm gì. Giúp quá trình kiểm thử được tối ưu nhất mà không làm sai lệch mục tiêu, giúp xác định rằng ta đang theo đúng chiến lược để kiểm thử.
 
 ================================================================================
 
