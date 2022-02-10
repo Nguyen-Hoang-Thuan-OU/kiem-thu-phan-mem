@@ -1,6 +1,14 @@
 [PHÂN LOẠI KIỂM THỬ - TYPE/CATEGORY/CLASSIFY]
 
-Chia các kỹ thuật và vấn đề liên quan đến kiểm thử thành các nhóm khác nhau. Có hơn 100 loại kiểm thử khác nhau, vì vậy không đáng để quan tâm rằng kỹ thuật kiểm thử này thuộc nhóm kiểm thử nào.
+Cùng một đối tượng, ta có thể nhìn ở rất nhiều góc nhìn khác nhau.
+	Ví dụ: đối tượng sinh viên
+		- Lứa tuổi: tuổi thanh xuân.
+		- Trình độ học vấn: trình độ cao (cao đẳng, đại học).
+		- Giới tính: nam/nữ/giới tính thứ ba.
+		- Học tập: chuyên ngành Kỹ thuật phần mềm,...
+		- Hoạt động xã hội: có tham gia và không tham gia.
+
+Kiểm thử phần mềm cũng tương tự, ta có thể chia những vấn đề liên quan đến kiểm thử thành những nhóm khác nhau. Có hơn 100 loại kiểm thử khác nhau, vì vậy không đáng để quan tâm rằng kỹ thuật kiểm thử này thuộc nhóm kiểm thử nào.
 	-> Mục tiêu cuối cùng là để so sánh kết quả mong đợi với kết quả thực tế.
 
  -------------------------------------------------------------------------------
@@ -15,21 +23,21 @@ Ví dụ: kiểm thử CHỨC NĂNG [Đăng nhập] trong GIAI ĐOẠN hệ th�
 
 [PHÂN LOẠI THEO MỨC ĐỘ/CẤP ĐỘ]
 
-1. Mức độ/cấp độ kiểm thử (Testing Level): bàn về các công việc kiểm thử cần phải thực hiện dựa vào sự hoàn thiện của hệ thống trong quá trình viết code, mỗi mức hoàn thiện khác nhau sẽ có những loại kiểm thử khác nhau.
+1. Mức độ/cấp độ kiểm thử (Testing Level): bàn về các công việc kiểm thử được thực hiện dựa vào sự hoàn thiện của hệ thống trong quá trình viết code, mỗi mức hoàn thiện khác nhau sẽ có những loại kiểm thử khác nhau.
 
-Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại này chỉ tập trung vào kiểm thử khi đã có code.
+Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết kế), nhưng phân loại này chỉ tập trung vào kiểm thử khi đã có code.
 
 	-> Kiểm thử dựa trên sự hoàn thiện của hệ thống về phía code.
 
---------------------
+----------------------------------------
 
 ** Kiểm tra code đúng bằng cách:
 	- Kiểm thử tĩnh: không thực thi code mà chỉ đọc code bằng mắt và tư duy.
 	- Kiểm thử động: thực thi code để xem hành xử của hàm, hệ thống.
 
---------------------
+----------------------------------------
 
-** Quy tắc đặt tên gói (package) trong code:
+** Quy tắc đặt tên gói (package/namespace) trong code:
 	- Đặt ngược theo tên miền (Domain name).
 	- Dấu chấm trong tên gói chính là phân cấp thư mục.
 		Ví dụ:
@@ -50,28 +58,77 @@ Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại n
 			- Tên miền: https://www.microsoft.com/
 			- Tên gói: com.microsoft.sqlserver.adonet
 
-	-> Giúp gom nhóm, phân chia các dự án/gói thư viện (.jar, .dll), cây thư mục mã nguồn (Source Code) của cùng 1 công ty (sau này là của các công ty khác) để cùng sống chung với nhau nhau mà lại không bị trộn lẫn với nhau.
+	-> Giúp gom nhóm, phân chia các dự án/gói thư viện (.jar, .dll), cây thư mục mã nguồn (source code) của cùng 1 công ty (sau này là của các công ty khác, của toàn cầu) để cùng sống chung với nhau nhau mà lại không bị trộn lẫn với nhau.
 
 -----------------------------------------------------------------
 
 ** Có 4 mức hoàn thiện của hệ thống, tương ứng với 4 giai đoạn/công đoạn/mức độ:
 
-	* Kiểm thử đơn vị (Unit Test): code được viết ra phải khả năng kiểm thử được và lập trình viên tự thực hiện các hoạt động đảm bảo chất lượng cho từng đơn vị code riêng lẻ bằng cách kiểm thử các hàm, lớp mà mình vừa mới viết ra xong. Mục đích để đảm bảo mã nguồn viết cho đơn vị nào đó đúng với đặc tả yêu cầu, xác nhận mã nguồn trong đơn vị đó có thể thực thi.
+	* Kiểm thử đơn vị (Unit Test): code được viết ra phải có khả năng kiểm thử được và lập trình viên tự thực hiện các hoạt động đảm bảo chất lượng cho từng đơn vị code riêng lẻ bằng cách kiểm thử các hàm, lớp mà mình vừa mới viết ra xong (trung bình 10 dòng code được viết ra là đã tiềm ẩn lỗi). Mục đích để đảm bảo mã nguồn viết cho đơn vị nào đó đúng với đặc tả yêu cầu, xác nhận mã nguồn trong đơn vị đó có thể thực thi.
 
-		- Một đơn vị là thành phần nhỏ nhất có thể kiểm thử được. Nó có thể là một hàm, một thủ tục, một lớp, hoặc một phương thức.
+		- Một đơn vị (Unit) là thành phần nhỏ nhất có thể kiểm thử được. Nó có thể là một hàm, một thủ tục, một lớp, hoặc một phương thức (vì trong OOP, đơn vị cơ bản nhất là đối tượng, bên trong chứa các hành vi/phương thức).
+			+ Lập trình thủ tục: hàm (OOP: phương thức, hành vi, method).
+			+ Lập trình hướng đối tượng: lớp.
 		- Các lỗi tìm thấy và sửa trong giai đoạn kiểm thử đơn vị thường không cần ghi nhận vào trong tài liệu.
 
-	-> Lập trình viên tự viết code để kiểm thử từng đơn vị code do mình vừa mới viết ra xong.
-
-
-		* Test-driven development (TDD)/Test First Development: viết test trước khi viết code chính. Suy nghĩ và đưa ra những tình huống sử dụng để viết test trước và lập trình ra những chương trình chạy đúng test đã viết.
-			-> Viết code làm sao để PASS được kết quả test.
-
-		* Data-driven testing (DDT)/Table-driven testing/Parameterized testing: tham số hoá dữ liệu kiểm thử, kiểm thử hướng dữ liệu, tách hẳn bộ dữ liệu kiểm thử ra một nơi để dễ dàng kiểm tra xem bộ dữ liệu còn thiếu hay đủ.
+	-> Lập trình viên tự viết code để kiểm thử từng đơn vị code do chính mình viết ra (viết code để kiểm thử code).
 
 --------------------
 
-	* Kiểm thử tích hợp (Integration Test): kiểm thử viên (TDD) hoặc lập trình viên sẽ thực hiện kiểm thử cho các thành phần riêng lẻ (các hàm, lớp) đang hoạt động tốt, để xem khi được tích hợp lại với nhau (thành một cụm chức năng) sẽ có tương thích và hoạt động/tương tác đúng hay không. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
+		* Cách kiểm thử những hàm/lớp được viết ra:
+
+			1. Tạo mới đối tượng, gọi hàm, truyền dữ liệu vào và xem kết quả.
+				// Viết code để thử hàm/lớp ngay trong main()
+				// { System.out.println(); }
+				// { Console.WriteLine(); }
+
+				-> Tự nhìn từng case bằng mất để kết luận.
+
+			2. Ghi ra log file (.txt). Bản chất vẫn là gọi hàm để chạy nhưng kết quả sẽ in ra riêng một tập tin.
+
+				-> Tự nhìn log file bằng mất để kết luận.
+
+			3. Sử dụng các framework (Unit testing frameworks): sử dụng thêm bộ thư viện khác (.jar, .dll,...) để hỗ trợ kiểm thử các hàm/lớp. Kỹ thuật này giúp tự động hoá việc kiểm tra kết quả, tích hợp trong quy trình CI/CD và DevOps.
+
+				- C#: NUnit, MsTest, XUnit,...
+				- Java: JUnit, TestNG,...
+				- Python: pytest,...
+
+				-> Viết code để kiểm thử code.
+
+
+				* So sánh kết quả mong đợi (expected result) với kết quả thực tế (actual result):
+					- Xanh: tất cả các case đều chạy đúng như mong đợi.
+					- Đỏ: chỉ cần duy nhất 1 case chạy không đúng như mong đợi.
+					-> Xanh: đóng gói và tích hợp quy trình CI/CD.
+
+				* Ưu điểm:
+					+ Giúp tách biệt giữa code chính và code test.
+					+ Tự động so sánh, tổng kết và thông báo kết quả.
+
+
+		* Test-driven development (TDD)/Test First Development: phát triển phần mềm luôn hướng về chất lượng bằng việc kiểm thử song song với viết code. Là kỹ thuật viết code mà trong đó ta phải luôn nghĩ đến việc viết test trước khi viết code chính (các hàm/lớp) để sản phẩm có chất lượng ngay trong quá trình viết code mà không cần mời nhóm QC/Tester tham gia. Suy nghĩ và đưa ra những tình huống sử dụng (case) để viết test trước và lập trình ra những chương trình chạy đúng test đã viết.
+
+			Viết code > Chạy Test > Xem kết quả xanh hay đỏ
+			> Sửa code (bổ sung hàm - refactoring)
+			> Chạy lại Test > Xem kết quả vẫn xanh hay đỏ
+
+			-> Viết code làm sao để PASS được kết quả test.
+
+
+		* Data-driven testing (DDT)/Table-driven testing/Parameterized testing: tham số hoá dữ liệu kiểm thử, kiểm thử hướng dữ liệu, tách hẳn bộ dữ liệu kiểm thử ra một nơi để dễ dàng kiểm tra xem bộ dữ liệu còn thiếu hay đủ.
+			-> Truyền bộ dữ liệu từ bên ngoài vào code.
+
+
+		* Test Initializer & Finalizer: ghi chú (annotation) để máy ảo biết phải làm gì.
+			- setUp() / @Before: 
+			- tearDown() / @After:
+			- setUpClass() / @BeforeClass:
+			- tearDownClass() / @AfterClass:
+
+----------------------------------------
+
+	* Kiểm thử tích hợp (Integration Test): kiểm thử viên hoặc lập trình viên sẽ thực hiện kiểm thử cho các thành phần riêng lẻ (các hàm, lớp) đang hoạt động tốt, để xem khi được tích hợp lại với nhau (thành một cụm chức năng) sẽ có tương thích và hoạt động/tương tác đúng hay không. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
 
 	-> Kiểm thử khi các hàm, lớp được gom thành một cụm chức năng.
 
@@ -88,18 +145,18 @@ Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại n
 				- Chiến lược top-down: hệ thống được xây dựng theo từng giai đoạn, bắt đầu từ thành phần cao nhất (top) gọi các thành phần khác ở cấp thấp hơn. Kiểm thử theo chiến lược này yêu cầu sự tương tác giữa các thành phần phải được kiểm thử trước khi xây dựng các thành phần. Các thành phần ở cấp thấp hơn chưa xây dựng sẽ được thay thế bằng stub.
 				- Chiến lược bottom-up: chiến lược này ngược lại với chiến lược top-down, các thành phần được tích hợp theo thứ tự từ dưới lên. Các thành phần ở trên chưa xây dựng sẽ được thay thế bằng driver.
 
---------------------
+----------------------------------------
 
 	* Kiểm thử hệ thống (System Test): do đội ngũ tester độc lập thực hiện để đảm bảo tính khách quan, kiểm thử khi các thành phần đã được tích hợp thành một hệ thống hoàn chỉnh để kiểm tra phần mềm về tổng thế mọi mặt có tuân thủ các đặc tả yêu cầu của người dùng. Nhóm kiểm thử chỉ dựa trên đặc tả yêu cầu mà không được xem mã nguồn hệ thống. Đặc tả yêu cầu thường chứa các yêu cầu chức năng (functional) và các yêu cầu phi chức năng (non-functional) cần được kiểm thử.
 
 	-> Kiểm thử khi chức năng được tổng hợp thành một hệ thống và tạm dùng được.
 
-		Ví dụ: Giao diện đồ họa người dùng (GUI) + API + Back-end
+		Ví dụ: Giao diện đồ họa người dùng (GUI) + API + Back-end + các trang
 			-> Một hệ thống gần như hoàn hảo.
 
 		- Yêu cầu chức năng (Functional Requirement): các yêu cầu chỉ định các chức năng của hệ thống hoặc các thành phần cần được thực hiện, nó chỉ định chi tiết những gì (WHAT) hệ thống cần làm. Trong suốt quá trình kiểm thử chức năng, ta cần thực hiện các kiểm tra chức năng như: cài đặt, chạy thử ứng dụng trên máy cục bộ, hệ điều hành cục bộ, kiểm tra các chức năng của ứng dụng, các xử lý chuỗi, văn bản như sao chép (copy), dán (paste) cho các ký tự mở rộng,...
 
-		- Yêu cầu phi chức năng (Non-Functional Requirement): những yêu cầu không liên quan đến dịch vụ được chỉ định, mà liên quan đến những thuộc tính ràng buộc hệ thống:
+		- Yêu cầu phi chức năng (Non-Functional Requirement): những yêu cầu không liên quan đến dịch vụ được chỉ định, mà liên quan đến những thuộc tính ràng buộc hệ thống, chất lượng và trải nghiệm:
 			+ Kiểm thử tính tin cậy (Reliabilty Tesing).
 			+ Kiểm thử tính tiện dụng (Usablilty Testing).
 			+ Kiểm thử tính hiệu quả (Efficiency Testing).
@@ -107,9 +164,9 @@ Trước khi có code thì đã tiến hành kiểm thử, nhưng phân loại n
 			+ Kiểm thử tính khả chuyển (Portable Testing).
 			+ Kiểm thử hiệu năng (Performance Testing).
 
---------------------
+----------------------------------------
 
-	* Kiểm thử chấp nhận (User Acceptance Test - UAT): đưa cho khách hàng sử dụng thử và nhận phản hồi để đảm bảo sản phẩm phần mềm hoạt động đúng những gì khách hàng mong đợi và khách hàng chấp nhận sản phẩm – thanh toán hợp đồng.
+	* Kiểm thử chấp nhận (User Acceptance Test - UAT): đưa cho khách hàng sử dụng thử và nhận phản hồi để đảm bảo sản phẩm phần mềm hoạt động đúng những gì khách hàng mong đợi, khách hàng hài lòng và chấp nhận sản phẩm – thanh toán hợp đồng.
 		- Alpha Test: người trong công ty (in-house) đóng vai trò người dùng phía khách hàng để tiến hành kiểm thử trong môi trường phát triển và phản hồi lại cho developer.
 		- Beta Test: công khai đưa cho những người từ phía khách hàng (external) dùng thử sản phẩm và đưa ra phản hồi trước khi phát hành phiên bản chính thức.
 
@@ -157,7 +214,7 @@ Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp
 
 ** Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số vấn đề về thắt cổ chai (bottleneck) hoặc hiệu năng của hệ thống khi số lượng người dùng bắt đầu nhiều.
 
---------------------
+----------------------------------------
 
 * Cần kiểm thử về:
 	- Speed: tốc độ và thời gian hệ thống phản hồi cho người dùng nhanh hay chậm, có ổn định hay không.
