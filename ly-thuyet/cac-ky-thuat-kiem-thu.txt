@@ -478,28 +478,39 @@ Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tư
 		Gọi X là số tiền muốn chuyển trong ngày (X >= 1)
 		Gọi M là tổng số tiền đã chuyển trong ngày (M <= 10)
 
-		- Phân vùng 1:
+		- Phân vùng 1: không chuyển được
 				X < 1 || X > 10
 
-		- Phân vùng 2:
+		- Phân vùng 2: không chuyển được
 				M = 10
 
-		- Phân vùng 3:
+		- Phân vùng 3: chuyển được
 				X ∈ [1, 10]
 				1 <= X + M <= 10
 
-				* Phân vùng 1 - Hợp lệ:
-					-----------------------------------------
-					|	Input	|	Output		|
-					|---------------|-----------------------|
-					|X	|M	|	Expected	|
-					|-------|-------|-----------------------|
-					|1	|0	|Được phép chuyển khoản	|
-					|-------|-------|-----------------------|
-					|1	|9	|Được phép chuyển khoản	|
-					|-------|-------|-----------------------|
-					|10	|0	|Được phép chuyển khoản	|
-					-----------------------------------------
+				-------------------------------------------------
+				|	Input	|	Output			|
+				|---------------|-------------------------------|
+				|X	|M	|	Expected		|
+			--------|-------|-------|-------------------------------|
+			|Hợp	|1	|0	|Được phép chuyển khoản		|
+			|lệ	|-------|-------|-------------------------------|
+			|	|1	|9	|Được phép chuyển khoản		|
+			|	|-------|-------|-------------------------------|
+			|	|2	|8	|Được phép chuyển khoản		|
+			|	|-------|-------|-------------------------------|
+			|	|5	|5	|Được phép chuyển khoản		|
+			|	|-------|-------|-------------------------------|
+			|	|9	|1	|Được phép chuyển khoản		|
+			|	|-------|-------|-------------------------------|
+			|	|10	|0	|Được phép chuyển khoản		|
+			|-------------------------------------------------------|
+			|Không	|0	|1	|Không được phép chuyển khoản	|
+			|hợp	|-------|-------|-------------------------------|
+			|lệ	|1	|10	|Không được phép chuyển khoản	|
+			|	|-------|-------|-------------------------------|
+			|	|11	|1	|Không được phép chuyển khoản	|
+			---------------------------------------------------------
 
 ---------------------------------------------------------------------------
 
@@ -510,12 +521,22 @@ Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tư
 
 Giúp xác định những kịch bản (Scenario) kiểm thử cho những trường hợp có logic nghiệp vụ phức tạp. Giúp xác định một cách hiệu quả sự kết hợp các đầu vào khác nhau với các tình trạng phần mềm thực thi đúng quy tắc nghiệp vụ.
 
+Nên được sử dụng trong những chương trình có nhiều lệnh rẽ nhánh (if-else, switch-case) và các biến đầu vào có mối quan hệ với nhau.
+
 ------------------------------
 
 ** Cấu trúc của bảng quyết định:
 
-(1) Các điều kiện: một biến, một quan hệ hoặc một mệnh đề.
-(2) Các giá trị điều kiện: một giá trị nào đó của điều kiện, tổ hợp các giá trị điều kiện sẽ cho ra cột quy tắc (rule).
+(1) Các điều kiện: có thể là một biến, một quan hệ hoặc một biểu thức mệnh đề nào đó.
+	Ví dụ:
+		- Tài khoản.
+		- Mật khẩu.
+
+(2) Các giá trị điều kiện: một giá trị nào đó của điều kiện, tổ hợp các giá trị điều kiện sẽ cho ra cột quy tắc/thoả quy tắc (rule).
+	Ví dụ:
+		- Để trống.
+		- Hợp lệ.
+		- Không hợp lệ.
 
 -------------------------------------------------------------------------
 |(1) Các điều kiện	|(2) Các giá trị điều kiện - Quy tắc (Rule)	|
@@ -524,7 +545,18 @@ Giúp xác định những kịch bản (Scenario) kiểm thử cho những trư
 -------------------------------------------------------------------------
 
 (3) Hành động: một thủ tục hoặc thao tác cần thực hiện.
+	Ví dụ:
+		- Trạng thái đăng nhập.
+
+		- Chuyển đến trang chủ.
+
 (4) Xảy ra hay không: một hành động có thể xảy ra phụ thuộc vào tổ hợp các giá trị điều kiện (kết quả mong muốn có).
+	Ví dụ:
+		- Đăng nhập thành công.
+		- Đăng nhập thất bại.
+
+		- Được chuyển đến trang chủ.
+		- Không được chuyển đến trang chủ.
 
 ------------------------------
 
@@ -534,13 +566,14 @@ Giúp xác định những kịch bản (Scenario) kiểm thử cho những trư
 
 	Bước 02: xác định và liệt kê danh sách các điều kiện đầu vào, sau đó tách ra thành những tập con và xử lý từng tập con một.
 
-	Bước 03: xác định tất cả các sự kết hợp giữa đúng và sai, số lượng kết hợp giữa các giá trị điều kiện đầu vào và đặt các kết hợp đó vào trong phần (2) - Các giá trị điều kiện.
+	Bước 03: tính số lượng kết hợp giữa đúng và sai, số lượng kết hợp giữa các giá trị điều kiện đầu vào và đặt các kết hợp đó vào trong phần (2) - Các giá trị điều kiện.
 
 	Bước 04: xác định các Test Case tương ứng cho các điều kiện được thoả mãn.
 
 	Bước 05: các hành động khi thoả điều kiện chính là kết quả mong đợi của Test Case.
 
-** Lưu ý: không quá quan trọng thứ tự các điều kiện và thứ tự thực hiện hành động.
+
+* Lưu ý: không quá quan trọng thứ tự các điều kiện và thứ tự thực hiện hành động.
 
 ------------------------------
 
@@ -570,36 +603,38 @@ Giúp xác định những kịch bản (Scenario) kiểm thử cho những trư
 		- Xác định các điều kiện/đầu vào: username và password.
 
 		- Mỗi đầu vào trên nhận một trong 3 giá trị:
-			rỗng (blank - B),
-			hợp lệ (valid - V),
-			không hợp lệ (invalid - I).
+			+ Rỗng (Blank - B),
+			+ Hợp lệ (Valid - V),
+			+ Không hợp lệ (Invalid - I).
 
 		-> Số kết hợp giá trị các điều kiện có thể xảy ra là 9
 
-		M1: Vui lòng nhập username
-		M2: Vui lòng nhập password
-		M3: Username không hợp lệ
-		M4: Password không hợp lệ
-
-		L: Trang Login
-		H: Trang Home
+		     (1)    (2)    (3)    (4)    (5)    (6)    (7)    (8)    (9)
 
 -----------------------------------------------------------------------------------
 |Các	|Tài khoản |  B   |  B   |  B   |  I   |  I   |  I   |  V   |  V   |  V   |
 |điều	|----------|------|------|------|------|------|------|------|------|------|
 |kiện	|Mật khẩu  |  B   |  I   |  V   |  B   |  I   |  V   |  B   |  I   |  V   |
 |---------------------------------------------------------------------------------|
-|Các	|Thông điệp|  M1  |  M1  |  M1  |  M3  |  M3  |  M3  |  M2  |  M4  |      |
-|	|lỗi	   |      |      |      |      |      |      |      |      |      |
+|	|Thông điệp|  M1  |  M1  |  M1  |  M3  |  M3  |  M3  |  M2  |  M4  |      |
+|Các	|lỗi	   |      |      |      |      |      |      |      |      |      |
 |hành	|----------|------|------|------|------|------|------|------|------|------|
-|	|Chuyển đến|  L   |  L   |  L   |  L   |  L   |  L   |  L   |  L   |  H   |
-|động	|trạng	   |      |      |      |      |      |      |      |      |      |
+|động	|Chuyển đến|  L   |  L   |  L   |  L   |  L   |  L   |  L   |  L   |  H   |
+|	|trang	   |      |      |      |      |      |      |      |      |      |
 -----------------------------------------------------------------------------------
+
+			M1: Vui lòng nhập username
+			M2: Vui lòng nhập password
+			M3: Username không hợp lệ
+			M4: Password không hợp lệ
+
+			L: Trang Login
+			H: Trang Home
 
 ---------------
 
 ** Nguyên tắc rút gọn các kết hợp các giá trị đầu vào.
-	+ Những trường hợp (cột quy tắc - rule) có cùng giá trị hành động, nhưng chỉ khác giá trị của một điều kiện duy nhất.
+	+ Những trường hợp (cột quy tắc - rule) có cùng giá trị hành động (4), nhưng chỉ khác giá trị của một điều kiện duy nhất (2).
 
 	+ Chuyển giá trị của điều kiện khác nhau đó thành “-” và gom các cột lại thành một.
 
@@ -609,27 +644,28 @@ Giúp xác định những kịch bản (Scenario) kiểm thử cho những trư
 
 ** Phân tích:
 	- Khi tài khoản rỗng, bất chấp mật khẩu là giá trị gì thì đều sẽ hiển thị cùng một thông điệp lỗi và chuyển đến cùng một trang giống nhau. Khi này, các giá trị trong mật khẩu sẽ được chuyển thành “-”
-		-> Bất luận mật khẩu là gì thì kết quả vẫn không đổi.
+		-> Bất luận mật khẩu là gì thì kết quả vẫn không đổi (M1 & L).
 
-		M1: Vui lòng nhập username
-		M2: Vui lòng nhập password
-		M3: Username không hợp lệ
-		M4: Password không hợp lệ
+	- Tương tự với tài khoản không hợp lệ.
+		-> Bất luận mật khẩu là gì thì kết quả vẫn không đổi (M3 & L).
 
-		L: Trang Login
-		H: Trang Home
+	--------------------------------------------------------------------
+	|Các	|Tài khoản 		|  B   |  I   |  V   |  V   |  V   |
+	|điều	|-----------------------|------|------|------|------|------|
+	|kiện	|Mật khẩu  		|  -   |  -   |  B   |  I   |  V   |
+	|------------------------------------------------------------------|
+	|Các	|Thông điệp lỗi		|  M1  |  M3  |  M2  |  M4  |      |
+	|hành	|-----------------------|------|------|------|------|------|
+	|động	|Chuyển đến trang	|  L   |  L   |  L   |  L   |  H   |
+	--------------------------------------------------------------------
 
--------------------------------------------------------
-|Các	|Tài khoản |  B   |  I   |  V   |  V   |  V   |
-|điều	|----------|------|------|------|------|------|
-|kiện	|Mật khẩu  |  -   |  -   |  B   |  I   |  V   |
-|-----------------------------------------------------|
-|Các	|Thông điệp|  M1  |  M3  |  M2  |  M4  |      |
-|	|lỗi	   |      |      |      |      |      |
-|hành	|----------|------|------|------|------|------|
-|	|Chuyển đến|  L   |  L   |  L   |  L   |  H   |
-|động	|trạng	   |      |      |      |      |      |
--------------------------------------------------------
+			M1: Vui lòng nhập username
+			M2: Vui lòng nhập password
+			M3: Username không hợp lệ
+			M4: Password không hợp lệ
+
+			L: Trang Login
+			H: Trang Home
 
 ---------------
 
@@ -637,6 +673,39 @@ Giúp xác định những kịch bản (Scenario) kiểm thử cho những trư
 	+ Nếu giá trị các điều kiện nhập (1) đều là các giá trị luận lý (true/false) thì mỗi cột quy tắc (rule) sẽ được chuyển thành một Test Case.
 
 	+ Nếu giá trị các điều kiện nhập có nhiều giá trị (miền giá trị từ abc... xyz) thì mỗi cột quy tắc (rule) sẽ được chuyển thành nhiều Test Case bằng cách sử dụng kỹ thuật phân vùng tương đương hoặc phân tích giá trị biên vào mỗi cột.
+
+	-------------------------------------------------------------------------
+	|Test	|Tài khoản	|Mật khẩu	|Thông báo lỗi	|Chuyển đến	|
+	|Case	|		|		|		|trang		|
+	|-------|---------------|---------------|---------------|---------------|
+	|TC_001	|[Rỗng]		|abc		|	M1	|	L	|
+	|-------|---------------|---------------|---------------|---------------|
+	|TC_002	|blah (k hợp lệ)|abc		|	M3	|	L	|
+	|-------|---------------|---------------|---------------|---------------|
+	|TC_003	|An (hợp lệ)	|[Rỗng]		|	M2	|	L	|
+	|-------|---------------|---------------|---------------|---------------|
+	|TC_004	|An (hợp lệ)	|[Các giá trị	|	M1	|	L	|
+	|	|		|của phân vùng	|		|		|
+	|	|		|không hợp lệ]	|		|		|
+	|	|		|VD: a9, aA9,...|		|		|
+	|-------|---------------|---------------|---------------|---------------|
+	|TC_005	|An (hợp lệ)	|aA!1Aa (hợp lệ)|	M1	|	L	|
+	-------------------------------------------------------------------------
+
+	* TC_005: sử kỹ thuật phân tích giá trị biên để lấy những:
+			+ Giá trị nhỏ nhất (phải có).
+			+ Giá trị cận nhỏ nhất.
+			+ Giá trị bất kỳ.
+			+ Giá trị cận lớn nhất.
+			+ Giá trị lớn nhất (phải có).
+
+			M1: Vui lòng nhập username
+			M2: Vui lòng nhập password
+			M3: Username không hợp lệ
+			M4: Password không hợp lệ
+
+			L: Trang Login
+			H: Trang Home
 
 ---------------
 
@@ -646,14 +715,15 @@ Giúp xác định những kịch bản (Scenario) kiểm thử cho những trư
 			- Đầu vào: a, b, c
 
 			- Điều kiện:
-				(a, b, c) > 0
+				1. (a, b, c) > 0
 
-				a + b > c
-				a + c > b
-				b + c > a
-					-> tam giác
+				2.
+					a + b > c
+					a + c > b
+					b + c > a
+						-> tam giác
 
-				a = b || b = c || a = c
+				3. a = b || b = c || a = c
 					-> tam giác cân
 
 		* Kết luận:
@@ -667,60 +737,138 @@ Giúp xác định những kịch bản (Scenario) kiểm thử cho những trư
 			- Nếu cả ba điều kiện để trở thành tam giác là đúng nhưng không thoả bất kỳ điều kiện để trở thành tam giác cân nào thì có thể kết luận tam giác đó không phải là tam giác cân.
 				-> 1 Test Case
 
+	------------------------------------------------------------------
+	|Các	|a+b > c|  S   |  -   |  -   |  Đ   |  Đ   |  Đ   |  Đ   |
+	|điều	|-------|------|------|------|------|------|------|------|
+	|kiện	|a+c > b|  -   |  S   |  -   |  Đ   |  Đ   |  Đ   |  Đ   |
+	|	|-------|------|------|------|------|------|------|------|
+	|	|b+c > a|  -   |  -   |  S   |  Đ   |  Đ   |  Đ   |  Đ   |
+	|	|--------------------------------------------------------|
+	|	|a = b	|  -   |  -   |  -   |  Đ   |  -   |  -   |  S   |
+	|	|-------|------|------|------|------|------|------|------|
+	|	|b = c	|  -   |  -   |  -   |  -   |  Đ   |  -   |  S   |
+	|	|-------|------|------|------|------|------|------|------|
+	|	|a = c	|  -   |  -   |  -   |  -   |  -   |  Đ   |  S   |
+	|----------------------------------------------------------------|
+	|H.động	|TG cân	|  S   |  S   |  S   |  Đ   |  Đ   |  Đ   |  S   |
+	------------------------------------------------------------------
+
 ---------------
 
 	Ví dụ 4: độc giả mượn sách không được quá 500 quyển sách trong năm (không phân biệt tên đầu sách), nhưng không được phép mượn quá 5 quyển trong một lần mượn, và phải trả các cuốn sách đã mượn mới được phép mượn tiếp nữa.
 
-		Gọi biến X là số sách được mượn (1 <= X <= 5)
-		Gọi biến M là tổng số sách đã mượn trong năm (0 <= M <= 500)
-		Gọi biến Z là trường hợp còn nợ sách (chưa trả sách đã mượn)
+	* Điều kiện:
+		1. Gọi biến X là số sách được mượn trong mỗi lần mượn (1 <= X <= 5)
+		2. Gọi biến M là tổng số sách đã mượn trong năm (0 <= X + M <= 500)
+		3. Gọi biến Z là trường hợp không còn nợ sách (đã trả hết sách đã mượn)
+			-> Là giá trị Đúng/Sai (không phải là một giá trị cụ thể).
 
 		* Bảng quyết định:
-			-------------------------------------------------------
-			|Quy tắc 1|Quy tắc 2|Quy tắc 3|		Quy tắc 4     |
-------------------------|---------|---------|---------|-----------------------|
-|1 <= X <= 5		|    -    |    S    |    -    |		Đ	      |
-|-----------------------|---------|---------|---------|-----------------------|
-|1 <= X + M <= 500	|    -    |    -    |    S    |		Đ	      |
-|-----------------------|---------|---------|---------|-----------------------|
-|	Z		|    Đ    |    S    |    S    |		S	      |
-|-----------------------|---------|---------|---------|-----------------------|
-|	Được mượn	|    S    |    S    |    S    |		Đ	      |
-|-----------------------|---------|---------|---------|-----------------------|
-|	Mượn tối đa	|    0    |    0    |    0    |    min(5, 500 - M)    |
--------------------------------------------------------------------------------
+						-------------------------------------------------------
+						|Quy tắc 1|Quy tắc 2|Quy tắc 3|		Quy tắc 4     |
+		--------------------------------|---------|---------|---------|-----------------------|
+		|Các	|1 <= X <= 5		|    -    |    S    |    -    |		Đ	      |
+		|điều	|-----------------------|---------|---------|---------|-----------------------|
+		|kiện	|1 <= X + M <= 500	|    -    |    -    |    S    |		Đ	      |
+		|	|-----------------------|---------|---------|---------|-----------------------|
+		|	|	Z		|    S    |    Đ    |    Đ    |		Đ	      |
+		|-------------------------------------------------------------------------------------|
+		|Các	|	Được mượn	|    S    |    S    |    S    |		Đ	      |
+		|hành	|-----------------------|---------|---------|---------|-----------------------|
+		|động	|	Mượn tối đa	|    0    |    0    |    0    |    min(5, 500 - M)    |
+		|	|			|         |         |         | 500-m < 5 ? 500-m : 5 |
+		---------------------------------------------------------------------------------------
 
 	* Thiết kế Test Case cho Quy tắc 4 và kết hợp với phân tích giá trị biên:
-		a) 1 <= X <= 5 		---->	Đ	=> 2 biên 1 và 5
-								-> Chọn X = 1 để chạm biên dưới của X
-		a1) 1 <= X + M <= 500 	---->	Đ	=> Chọn M = 0 để chạm biên dưới của M vì X = 1
-		a2) 1 <= X + M <= 500 	---->	Đ	=> Chọn M = 499 để chạm biên trên của M vì X = 1
+	a) 1 <= X <= 5 		---->	Đ	=> 2 biên 1 và 5
+							-> Chọn X = 1 để chạm biên dưới của X
+	a1) 1 <= X + M <= 500 	---->	Đ	=> Chọn M = 0 để chạm biên dưới của M vì X = 1
+	a2) 1 <= X + M <= 500 	---->	Đ	=> Chọn M = 499 để chạm biên trên của M vì X = 1
 
-		b) 1 <= X <= 5 		---->	Đ	=> 2 biên 1 và 5
-								-> Chọn X = 5 để chạm biên trên của X
-		b1) 1 <= X + M <= 500 	---->	Đ	=> Bắt buộc phải chọn M = 495 để chạm biên trên của M vì X = 5 nên không thể chạm biên dưới của M.
+	b) 1 <= X <= 5 		---->	Đ	=> 2 biên 1 và 5
+							-> Chọn X = 5 để chạm biên trên của X
+	b1) 1 <= X + M <= 500 	---->	Đ	=> Bắt buộc phải chọn M = 495 để chạm biên trên của M
+							(Không thể chạm biên dưới "1 < = X + M" khi X = 5)
 
-		* Bảng phân tích giá trị biên:
-		-------------------------------------------------
-		|	Input	|		Output		|
-		|---------------|-------------------------------|
-		|X	|M	|Được mượn	|Mượn tối đa	|
-		|-------|-------|---------------|---------------|
-		|1	|0	|Được phép mượn	|	5	|
-		|-------|-------|---------------|---------------|
-		|1	|499	|Được phép mượn	|	1	|
-		|-------|-------|---------------|---------------|
-		|5	|495	|Được phép mượn	|	5	|
-		|-------|-------|---------------|---------------|
-		|4	|499	|Được phép mượn	|	5	|
-		-------------------------------------------------
+		* Test Case: áp dụng thêm kỹ thuật phân tích giá trị biên để sinh Test Case cho những giá trị không phải là luận lý (Đúng/Sai), đảm bảo bộ dữ liệu có ít nhất hai giá trị tối thiểu và tối đa.
+		-------------------------------------------------------------------------
+		|Test	|Dữ liệu đầu vào	|	Kết quả mong đợi		|
+		|Cases	|-----------------------|---------------------------------------|
+		|	|Z	|X	|M (X+M)|	Được mượn	|Mượn tối đa	|
+		|-------|-------|-------|-------|-----------------------|---------------|
+
+		* Z là Đúng/Sai nên chỉ cần một Test Case với Z mang giá trị Sai, những giá trị còn lại hợp lệ
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_01.1|S	|1	|499	|Không được phép mượn	|	0	|	// Quy tắc 1
+		|-------|-------|-------|-------|-----------------------|---------------|
+
+		* Z là Đúng, X là Sai, những giá trị còn lại hợp lệ (áp dụng thêm kỹ thuật PTGTB)
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_02.1|Đ	|6	|494	|Không được phép mượn	|	0	|	// Quy tắc 2
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_02.2|Đ	|0	|500	|Không được phép mượn	|	0	|
+		|-------|-------|-------|-------|-----------------------|---------------|
+
+		* Z là Đúng, M (X + M) là Sai, những giá trị còn lại hợp lệ (áp dụng thêm kỹ thuật PTGTB)
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_03.1|Đ	|5	|496	|Không được phép mượn	|	0	|	// Quy tắc 3
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_03.2|Đ	|1	|500	|Không được phép mượn	|	0	|
+		|-------|-------|-------|-------|-----------------------|---------------|
+
+		* Z là Đúng, những giá trị còn lại hợp lệ (áp dụng thêm kỹ thuật PTGTB)
+
+			* X đạt tối thiểu và tối đa, M (X + M) đạt tối đa
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_04.1|Đ	|1	|499	|Được phép mượn		|	1	|	// Quy tắc 4
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_04.2|Đ	|5	|495	|Được phép mượn		|	5	|
+		|-------|-------|-------|-------|-----------------------|---------------|
+
+			* M (X + M) đạt tối thiểu và cận tối đa
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_04.3|Đ	|1	|0	|Được phép mượn		|	5	|
+		|-------|-------|-------|-------|-----------------------|---------------|
+		|TC_04.4|Đ	|4	|495	|Được phép mượn		|	5	|
+		-------------------------------------------------------------------------
 
 ---------------
 
 	Ví dụ 5: xét học bổng cho sinh viên nếu không rớt môn nào trong học kỳ đó và có điểm trung bình từ 7.0 trở lên. Điểm tính trên thang điểm 10, điểm qua môn tính từ 5 trở lên. Với những môn học có điểm >= 4 và < 5 cũng sẽ được xem là qua môn nếu điểm trung bình học kỳ đó là 7.5 trở lên.
 
-		Gọi A là điểm trung bình môn học
-		Gọi B là điểm nhỏ nhất của môn
+		* Điều kiện xét học bổng:
+			- Không rớt môn nào trong học kỳ đó.
+				+ Điểm qua môn >= 5.0.
+				+ Điểm qua môn >= 4 và < 5 khi điểm trung bình học kỳ đó >= 7.5.
+
+			- Điểm trung bình >= 7.0.
+
+		Gọi A là môn có điểm nhỏ nhất trong tất cả các môn
+			4 <= A < 5
+			5 <= A <= 10
+		Gọi B là điểm trung bình tất cả các môn của học kỳ đó
+			7 <= B < 7.5
+			7.5 <= B <= 10
+
+		* Bảng quyết định:
+		------------------------------------------------------------------------------------------
+		|Các	|	A	|   [0, 4)   |   [4, 5)   |   [4, 5)   |   [5, 10]  |   [5, 10]  |
+		|điều	|---------------|------------|------------|------------|------------|------------|
+		|kiện	|	B	|      -     |  [0, 7.5)  | [7.5, +∞)  |  [0, 7.0)  | [7.0, +∞)  |  
+		|-----------------------------------------------------------------------------------------
+		|Hành	|Được nhận	|      S     |      S     |      Đ     |      S     |      Đ     |  
+		|động	|học bổng	|            |            |            |            |            |  
+		------------------------------------------------------------------------------------------
+
+		* Test Case cho quy tắc 5: giả sử học kỳ có 3 môn
+		-----------------------------------------
+		|Dữ liệu đầu vào|Kết quả mong đợi	|
+		|---------------|-----------------------|
+		|Điểm các môn	|Có được học bổng	|
+		|---------------------------------------|
+		|[5, 8, 8]	|	Được học bổng	|
+		|[10, 10, 10]	|	Được học bổng	|
+		-----------------------------------------
 
 ---------------
 
@@ -733,23 +881,171 @@ Giúp xác định những kịch bản (Scenario) kiểm thử cho những trư
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT CHUYỂN ĐỔI TRẠNG THÁI - STATE TRANSITION TESTING]
 
-** Kỹ thuật chuyển đổi trạng thái (State Transition Testing): khi một vài phần của hệ thống được mô tả bằng trạng thái, khi hệ thống ở một trạng thái này và chuyển sang một hệ thống khác theo một quy tác nào đó của phần mềm. Mô hình chuyển đổi sẽ bao gồm bốn phần: trạng thái, phiên chuyển đổi, sự kiện, hành động-kết quả.
+* Sơ đồ trạng thái (State Diagram) biểu diễn trạng thái của hệ thống và các sự kiện làm chuyển đổi từ trạng thái này sang trạng thái khác. Tuỳ vào những trạng thái khác nhau mà hệ thống sẽ có những cách xử lý khác nhau tương ứng với trạng thái đó.
+
+---------------
+
+** Kỹ thuật chuyển đổi trạng thái (State Transition Testing): khi một vài phần của hệ thống được mô tả bằng trạng thái, khi hệ thống đang ở một trạng thái này và chuyển sang một thái này khác (trong một phiên làm việc) theo một quy tắc nào đó của phần mềm.
+	-> Kiểm thử quá trình chuyển đổi giữa các form, các trang trên website,...
+
+------------------------------
+
+Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
+
+	1. Các trạng thái (states) phần mềm có thể xảy ra.
+
+	2. Sự dịch chuyển/phiên chuyển đổi (transitions) từ trạng thái này sang trạng thái khác.
+
+	3. Các sự kiện (events) dẫn đến sự dịch chuyển trạng thái.
+
+	4. Các hành động/kết quả (actions) là kết quả của việc dịch chuyển trạng thái (hành xử của hệ thống sau khi rơi vào trạng thái đó).
+
+------------------------------
 
 	Ví dụ 1: từ trạng thái đăng nhập -> đăng nhập thành công
+
+---------------
 
 	Ví dụ 2: nhập mã pin
 		-> đúng -> đăng nhập thành công
 
 		-> sai -> thử lại -> sai 3 lần -> khoá thẻ
 
+---------------
+
+	Ví dụ 3: quy trình sửa lỗi (fix bug) của một hệ thống bug tracking
+		- Tester phát hiện bug và tạo báo cáo bug (bug report) bắt đầu với trạng thái “Open”.
+		- Developer xem xét nếu thấy nó không phải bug thì chuyển bug sang thái “Won't Fix” và giải thích cho tester.
+		- Nếu tester cũng đồng ý đó không phải bug thì chuyển bug sang trạng thái “Closed”, ngược lại chuyển về trạng thái “Open”.
+		- Nếu tester kiểm tra qua bug đã được fix và thấy ổn thì chuyển bug sang trạng thái “Closed”, ngược lại chuyển nó về trạng thái “Open” và yêu cầu developer fix lại.
+		- Sau khi bug đã đóng, nhưng quá trình test sau đó lại thấy nó tái xuất hiện thì tester có thể chuyển nó về trạng thái “Open” và yêu cầu developer tiếp tục fix.
+
+		* Các trạng thái (states): O = Open, IP = In Progress, WF = Won't Fix, T = Testing, C = Closed.
+
+		* Các dịch chuyển (transitions):
+			- Open -> In Progress, Won't Fix
+			- In Progress -> Won't Fix, Testing
+			- Won't Fix -> Open, Close
+			- Testing -> Open, Closed
+			- Closed -> Open
+
+		* Các sự kiện (events):
+			- E1: bắt đầu fix bug
+			- E2: không phải bug
+			- E3: bug đã được fix
+			- E4: xác nhận bug đã được fix
+			- E5: bug được fix chưa đúng hoặc chưa đầy đủ
+			- E6: xác nhận không phải bug
+			- E7: bug cần fix
+			- E8: tái xuất hiện bug
+
+		* Các hành động kết quả (actions): khi có bất cự sự thay đổi trạng thái nào của bug, hệ thống sẽ gửi email thông báo đến tất cả các thành viên có liên quan đến bug đó vế trạng thái hiện tại của bug.
+
+		* Bảng mô tả trạng thái:
+		-----------------------------------------------------------------
+		|	|  E1  |  E2  |  E3  |  E4  |  E5  |  E6  |  E7  |  E8  |
+		|-------|------|------|------|------|------|------|------|------|
+		|  O    |  IP  |  WF  |      |      |      |      |      |      |	O = Open
+		|-------|------|------|------|------|------|------|------|------|
+		|  IP   |      |  WF  |  T   |      |      |      |      |      |	IP = In Progress
+		|-------|------|------|------|------|------|------|------|------|
+		|  T    |      |      |      |  C   |  O   |      |      |      |	T = Testing
+		|-------|------|------|------|------|------|------|------|------|
+		|  C    |      |      |      |      |      |      |      |  O   |	C = Closed
+		|-------|------|------|------|------|------|------|------|------|
+		|  WF   |      |      |      |      |      |  C   |  O   |      |	WF = Won't Fix
+		-----------------------------------------------------------------
+
+		* Dựa vào bảng trạng thái có thể thiết kế 9 test case hợp lệ:
+			O -> IP, O -> WF
+			IP -> WF, IP -> T
+			T -> C, T -> O
+			C -> O
+			WF -> C, WF -> O
+			và một vài trường hợp không hợp lệ.
+
+---------------
+
+	Ví dụ 4: Một hệ thống quản lý cho phép gửi và nhận tin nhắn trong hệ thống.
+		* khi người dùng nhận tin mới có trạng thái là tin chưa đọc,
+		  nếu người nhận mở ra đọc thì tin đó thành trạng thái đã đọc.
+
+		* Sau khi đọc tin, người dùng cũng có thế chuyển nó thành tin chưa đọc để ghi nhớ.
+
+		* Người dùng cũng có thể xóa tin tức, ban đầu tin xóa tạm nằm trong thùng rác,
+		  trong 24h kể từ lúc xóa người dùng có thể phục hồi lại trạng thái trước khi xóa,
+		  sau khoảng thời gian này tin sẽ bị xóa vĩnh viễn.
+
+---------------
+
+	Ví dụ 5: chức năng cho phép đăng bài viết
+		* Một bài viết khi đăng mới chỉ được phép cập nhật
+		  hoặc xóa trong vòng 15 phút kể từ lúc submit đăng bài,
+		  sau khoảng thời gian này bài viết không được phép chính sửa hay xóa nữa
+		  và bài viết sẽ tự động được xuất bản trên hệ thống để người khác có thể đọc.
+
+		* Khi vừa soạn xong bài viết hoặc trong vòng 15 phút từ lúc submit bài viết,
+		  tác giả bài viết có quyền bấm nút “Publish” để chủ động xuất bản bài viết,
+		  và tất nhiên không được xóa hoặc cập nhật bài viết sau khi đã xuất bản.
+
+		* Sau khi một bài viết được xuất bản,
+		  tác giả bài viết muốn xóa hoặc cập nhật bài viết cần phải liên hệ với admin thực hiện.
+
+		* Sau khi admin chỉnh sửa bài viết đã xuất bản,
+		  bài viết đó vẫn ở trạng thái xuất bản để người khác đọc.
+
+
+		* Sơ đồ trạng thái:
+
+			E3: (system) tự động công bố sau 15p
+	-----------------------------------------------------------------	-------------------------
+	|								|	|			|
+	|	E4: (owner) chủ động công bố				|	|E1: cập nhật trong 15p	|
+	|	-----------------					|	|	---------	|
+	|	|		|					|	|	|	|	|
+	|	|		|	E1: cập nhật trong 15p		|	|	v	|	|
+	|	|	(Bài viết mới)-------------------------->(Bài viết đã được cập nhật)	|	|
+	|	|	   |	\						|	|	|	|
+	|	|	   |	 \	E2: xoá trong 15p			|	---------	|
+	|	|	   |	  ------------------------------		|			|
+	|	|	   |					\		| E2: xoá trong 15p	|
+	|	|	   |E3: (system) tự động công bố sau 15p \		|			|
+	|	|	   |					  \		|			|
+	|	|	   |	E6: (admin) cập nhật		   \		|			|
+	|	|	   |	-----------------		    \		|			|
+	|	|	   |	|		|		     \		|			|
+	|	|	   v	V		| E5: xoá (admin)     v		v			|
+	|	------->(Bài viết đã được công bố)-------------->(Bài viết đã được xoá)			|
+	|			^	^								|
+	|			|	|								|
+	-------------------------	-----------------------------------------------------------------
+							E4: (owner) chủ động công bố
+
+		* Bảng mô tả trạng thái:
+		----------------------------------------------------------------
+		|	 |   E1   |   E2   |   E3   |   E4   |   E5   |   E6   |
+		|--------|--------|--------|--------|--------|--------|--------|
+		|  Mới   |Cập nhật|  Xoá   |        |        |        |        |
+		|--------|--------|--------|--------|--------|--------|--------|
+		|Cập nhật|	  |        |        |        |        |        |
+		|--------|--------|--------|--------|--------|--------|--------|
+		|Công bố |	  |        |        |        |        |        |
+		|--------|--------|--------|--------|--------|--------|--------|
+		|  Xoá   | 	  |        |        |        |        |        |
+		----------------------------------------------------------------
+
 ---------------------------------------------------------------------------
 
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT KIỂM THỬ CÁC TÌNH HUỐNG SỬ DỤNG DỰA TRÊN LƯỢC ĐỒ - USE CASE TESTING]
 
-** Kỹ thuật kiểm thử các trường hợp/tình huống sử dụng dựa trên lược đồ (Use Case Testing): lược đồ tình huống sử dụng (Use Case Diagram) rất dễ hiểu đối với khách hàng vì nó tóm tắt được các tính năng cần có của hệ thống mà người dùng sẽ sử dụng dưới dạng sơ đồ, thường được sử dụng để thảo luận với khách hàng.
+** Kỹ thuật kiểm thử các trường hợp/tình huống sử dụng dựa trên lược đồ (Use Case Testing): lược đồ tình huống sử dụng (Use Case Diagram) rất dễ hiểu đối với khách hàng vì nó tóm tắt được các tính năng cần có của hệ thống mà người dùng sẽ sử dụng dưới dạng sơ đồ, thường được sử dụng để thảo luận và xác minh với khách hàng về yêu cầu của phần mềm (software requirements).
 
-Logic hoạt động trên lược đồ Use Case thường gần sát với logic thực tế, vì vậy, việc kiểm thử dựa trên lược đồ này sẽ giúp giảm thiểu rủi ro trong việc kiểm tra/xác nhận logic hoạt động.
+Logic hoạt động trên lược đồ Use Case thường gần sát với logic thực tế, vì vậy, việc kiểm thử dựa trên lược đồ này sẽ giúp giảm thiểu rủi ro trong việc kiểm tra/xác nhận logic hoạt động (luồng xử lý) và quy tắc nghiệp vụ.
+
+Kỹ thuật này là nền tảng phát triển các Test Case trong cấp độ kiểm thử hệ thống (System Testing) và kiểm thử chấp nhận (Acceptance Testing) do các Use Case đại diện cho khả năng sử dụng thực tế của người dùng.
+
+Khi kiểm thử, Tester sẽ dựa vào bản đặc tả (Use Case Description) để thiết kế Test Case cho các Use Case. Cần kiểm thử kịch bản thành công của Use Case và cho các kịch bản thay thế, ngoại lệ của Use Case.
 
 ---------------------------------------------------------------------------
 
@@ -821,7 +1117,9 @@ Cho phép thấy được kiến trúc bên trong: mô hình, lược đồ thi�
 
 [KHÁI NIỆM KIỂM THỬ DỰA TRÊN KINH NGHIỆM - EXPERIENCED BASED TESTING]
 
-** Kiểm thử dựa trên kinh nghiệm (Experienced Based Testing): trong thực tế, không phải lúc nào nghiệp vụ mà ta kiểm thử cũng có đầy đủ các tài liệu mô tả. Sẽ có trường hợp các tính năng được mô tả và thiết kế bằng lời thay vì được ghi chép vào trong một tài liệu mô tả nghiệp rõ ràng.
+** Kiểm thử dựa trên kinh nghiệm (Experienced Based Testing): trong thực tế, không phải lúc nào nghiệp vụ mà ta kiểm thử cũng có đầy đủ các tài liệu đặc tả, nhất là khi phát triển hệ thống theo quy trình Agile. Sẽ có trường hợp các tính năng được mô tả và thiết kế bằng lời thay vì được ghi chép vào trong một tài liệu đặc tả nghiệp rõ ràng.
+
+Không có cơ sở để kiểm thử -> kiểm thử dựa trên kinh nghiệm.
 	
 	=> Được sinh ra để giải quyết những vấn đề mô tả và thiết kế tính năng bằng lời thay vì được ghi chép vào trong tài liệu.
 
@@ -838,9 +1136,45 @@ Cho phép thấy được kiến trúc bên trong: mô hình, lược đồ thi�
 [CÁC KỸ THUẬT KIỂM THỬ DỰA TRÊN KINH NGHIỆM]
 [KỸ THUẬT ĐOÁN LỖI - ERROR GUESSING]
 
-** Kỹ thuật đoán lỗi (Error Guessing): chủ yếu dựa vào kinh nghiệm, sự am hiểu về hệ thống hoặc dựa vào những dự án đã trải qua, những bug đã tìm được,... vì vậy không phù hợp với người mới. Có thể giúp tìm ra những lỗi mà thậm chí không có trong Test Case (exploratory testing).
+** Kỹ thuật đoán lỗi (Error Guessing): chủ yếu dựa vào kỹ năng, kinh nghiệm, trực giác, sự am hiểu của kiểm thử viên về hệ thống hoặc dựa vào những dự án tương tự đã trải qua, những bug đã tìm được,... Từ đó sẽ giúp đoán được nguy cơ tìm ẩn khi đi vào vận hành trong thực tế, vì vậy, không phù hợp với người mới. Có thể giúp tìm ra những lỗi mà thậm chí không có trong Test Case (exploratory testing).
 
-	Ví dụ: lỗi chia cho 0, gửi yêu cầu không kèm giá trị hoặc chứa giá trị/ký tự đặc biệt, quyên xoá tài khoản test,...
+Thường được áp dụng sau khi tất cả các kỹ thuật "chính thức" đã được áp dụng.
+
+Những Test Case đoán lỗi thường tập trung vào những điểm yếu, đáng nghi ngờ của hệ thống hoặc những khía cạnh của hệ thống đã từng tìm thấy vấn đề khi kiểm thử các hệ thống tương tự trước đây.
+
+	-> Dự đoán nguy cơ tiềm ẩn và thiết kế Test Case tập trung vào những điểm yếu, đáng nghi ngờ của hệ thống
+
+	Ví dụ: lỗi chia cho 0, gửi yêu cầu không kèm giá trị hoặc chứa giá trị/ký tự đặc biệt, quên xoá tài khoản test,...
+
+
+---------------------------------------------------------------------------
+
+[CÁC KỸ THUẬT KIỂM THỬ DỰA TRÊN KINH NGHIỆM]
+[KIỂM THỬ THĂM DÒ - EXPLORATORY TESTING]
+
+** Kiểm thử thăm dò (Exploratory Testing): làm rõ hệ thống có gì, không có gì, cái nào làm việc tốt, cái nào làm việc chưa tốt để kiểm thử viên có cơ sở và đưa ra quyết định những gì cần kiểm thử tiếp theo.
+
+Đây là kỹ thuật tiếp cận có cấu trúc kết hợp kiến thức, sự quan sát, kinh nghiệm của các kiểm thử viên để kiểm thử những chổ đặc tả yêu cầu bị thiếu, không đầy đủ (poor specifications) hoặc có nhiều áp lực thời gian thực hiện.
+
+Kỹ thuật này tập trung thực thi kiểm thử hơn là việc lên kế hoạch kiểm thử. Việc thiết kế Test Case và thực thi Test Case được thực hiện song song, và cũng không cần một tài liệu chính quy về Test Condition, Test Case hoặc Test Script.
+
+Kiểm thử thăm dò sẽ phát huy hiệu quả nếu được thực hiện trong các giai đoạn đầu của vòng đời phát triển phần mềm, khi mã nguồn trải qua những thay đổi nhanh chóng.
+
+Lập trình viên sử dụng kiểm thử thăm dò để thực hiện các Unit Test, còn kiểm thử viên có thể làm quen hệ thống bằng kỹ thuật này.
+
+	-> Đưa ra quyết định những gì cần kiểm thử tiếp theo khi thiếu đặc tả yêu cầu hoặc thời gian thực hiện.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
