@@ -40,7 +40,7 @@ Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết 
 ** Quy tắc đặt tên gói (package/namespace) trong code:
 	- Đặt ngược theo tên miền (Domain name).
 	- Dấu chấm trong tên gói chính là phân cấp thư mục.
-		Ví dụ:
+		Ví dụ: tên-miền.tên-công-ty.tên-dự-án.tên-gói-thư-viện
 			com
 			   microsoft
 				sqlserver
@@ -116,8 +116,8 @@ Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết 
 			-> Viết code làm sao để PASS được kết quả test.
 
 
-		* Data-driven testing (DDT)/Table-driven testing/Parameterized testing: tham số hoá dữ liệu kiểm thử, kiểm thử hướng dữ liệu, tách hẳn bộ dữ liệu kiểm thử ra một nơi để dễ dàng kiểm tra xem bộ dữ liệu còn thiếu hay đủ.
-			-> Truyền bộ dữ liệu từ bên ngoài vào code.
+		* Data-driven testing (DDT)/Table-driven testing/Parameterized testing: là phương pháp mà dữ liệu kiểm thử sẽ được lưu riêng trong một mảng (trong code), bảng (CSDL) hoặc trang tính. Là phương pháp tham số hoá dữ liệu kiểm thử, kiểm thử hướng dữ liệu, tách hẳn bộ dữ liệu kiểm thử ra một nơi riêng để dễ dàng kiểm tra xem bộ dữ liệu còn thiếu hay đủ, sau đó liên tục ánh xạ bộ dữ liệu trở lại nơi gọi hàm (nơi assert).
+			-> Phương pháp truyền bộ dữ liệu từ bên ngoài vào code.
 
 
 		* Test Initializer & Finalizer: ghi chú (annotation) để máy ảo biết phải làm gì.
@@ -138,12 +138,12 @@ Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết 
 		- Các chiến lược tích hợp:
 			+ Chiến lược Big-bang: đợi đến khi hoàn thành xong tất cả các đơn vị/thành phần thì mới tích hợp cùng một lúc để có hệ thống đầy đủ.
 
-			+ Chiến lược Incremental (tăng dần): chiến lược này kiểm thử từng phần riêng biệt, giúp sớm phát hiện lỗi và dễ dàng cô lập để tìm ra nguyên nhân. Sẽ gặp trường hợp tình năng này chờ tính năng kia phát triển, cần phát triển các stub & driver để thực hiện kiểm thử trước.
+			+ Chiến lược Incremental (tăng dần): chiến lược này kiểm thử từng phần riêng biệt, giúp sớm phát hiện lỗi và dễ dàng cô lập để tìm ra nguyên nhân. Sẽ gặp trường hợp tình năng này chờ tính năng kia phát triển, cần phát triển thêm các Stub & Driver để thực hiện kiểm thử trước.
 
 
 			* Hai chiến lược incremental thường được sử dụng là top-down và bottom-up:
-				- Chiến lược top-down: hệ thống được xây dựng theo từng giai đoạn, bắt đầu từ thành phần cao nhất (top) gọi các thành phần khác ở cấp thấp hơn. Kiểm thử theo chiến lược này yêu cầu sự tương tác giữa các thành phần phải được kiểm thử trước khi xây dựng các thành phần. Các thành phần ở cấp thấp hơn chưa xây dựng sẽ được thay thế bằng stub.
-				- Chiến lược bottom-up: chiến lược này ngược lại với chiến lược top-down, các thành phần được tích hợp theo thứ tự từ dưới lên. Các thành phần ở trên chưa xây dựng sẽ được thay thế bằng driver.
+				- Chiến lược top-down: hệ thống được xây dựng theo từng giai đoạn, bắt đầu từ thành phần cao nhất (top) gọi các thành phần khác ở cấp thấp hơn. Kiểm thử theo chiến lược này yêu cầu sự tương tác giữa các thành phần phải được kiểm thử trước khi xây dựng các thành phần, các mô-đun chính/quan trọng (cấp cao hơn) sẽ được ưu tiên kiểm thử trước rồi mới kiểm thử đến các mô-đun phụ (cấp thấp hơn). Các mô-đun phụ (cấp thấp hơn) chưa xây dựng thì sẽ được thay thế bằng Stub. Sau đó, các mô-đun này sẽ được tích hợp lại với nhau.
+				- Chiến lược bottom-up: chiến lược này ngược lại với chiến lược top-down, các thành phần được tích hợp theo thứ tự từ dưới lên. Khi kiểm thử, các mô-đun phụ (cấp thấp hơn) sẽ được ưu tiên kiểm thử trước rồi mới đến các mô-đun chính (cấp cao hơn). Các mô-đun chính (cấp cao hơn) chưa xây dựng sẽ được thay thế bằng Driver, . Sau đó, các mô-đun này sẽ được tích hợp lại với nhau.
 
 ----------------------------------------
 
