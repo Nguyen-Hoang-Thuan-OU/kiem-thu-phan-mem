@@ -316,6 +316,8 @@ V-Model là một mô hình quy trình phát triển phần mềm (SDLC) dựa t
 
 => Cho phép kế hoạch kiểm thử bắt đầu sớm nhất có thể.
 
+V-Model ra đời trước mô hình Agile. Agile đưa ra khái niệm TDD để kiểm thử song song với quá trình viết code, nhưng V-Model thì không nói cụ thể phải kiểm thử như thế nào trong quá trình viết code (có thể kiểm thử tự dọ: mời thành viên khác cùng tham gia đánh giá, Unit Test có thể sử dụng System.out.println,...) mà chỉ đề cập đến phải kiểm thử càng sớm càng tốt.
+
 --------------------
 
 (Requirement)---------------------------------------------------(Acceptance Test)
