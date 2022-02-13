@@ -881,7 +881,7 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT CHUYỂN ĐỔI TRẠNG THÁI - STATE TRANSITION TESTING]
 
-* Sơ đồ trạng thái (State Diagram) biểu diễn trạng thái của hệ thống và các sự kiện làm chuyển đổi từ trạng thái này sang trạng thái khác. Tuỳ vào những trạng thái khác nhau mà hệ thống sẽ có những cách xử lý khác nhau tương ứng với trạng thái đó.
+* Sơ đồ trạng thái (State Diagram): biểu diễn trạng thái (state) của hệ thống và các sự kiện (event) làm chuyển đổi (transition) từ trạng thái này sang trạng thái khác. Tuỳ vào những trạng thái khác nhau mà hệ thống sẽ có những cách xử lý (action) khác nhau tương ứng với trạng thái đó.
 
 ---------------
 
@@ -899,6 +899,8 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 	3. Các sự kiện (events) dẫn đến sự dịch chuyển trạng thái.
 
 	4. Các hành động/kết quả (actions) là kết quả của việc dịch chuyển trạng thái (hành xử của hệ thống sau khi rơi vào trạng thái đó).
+		- Điều kiện đơn (Đúng/Sai): chỉ cần xây dựng 1 Test Case.
+		- Điều kiện là số: sử dụng thêm kỹ thuật phân vùng tương đương và phân tích giá trị biên để lấy dữ liệu và xây dựng Test Case.
 
 ------------------------------
 
@@ -941,6 +943,29 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 
 		* Các hành động kết quả (actions): khi có bất cự sự thay đổi trạng thái nào của bug, hệ thống sẽ gửi email thông báo đến tất cả các thành viên có liên quan đến bug đó vế trạng thái hiện tại của bug.
 
+
+		* Sơ đồ trạng thái:
+
+				E5: bug được fix chưa đúng hoặc chưa đầy đủ
+	--------------------------------------------------------------------------------------
+	|										     |
+	|							E3: bug đã được fix	     |
+	|					(In Process)--------------------------->(Testing)
+	|					    ^	|				     |
+	|					    |	|				     |
+	|		      E1: bắt đầu fix bug   /	|				     |
+	|		   -------------------------	|				     | E4: xác nhận
+	|		  /				| E2: không phải bug		     |	   bug đã
+	|		  |	E7: bug cần fix		|				     |	   được fix
+	|		  |  ------------------------	|				     |
+	|		  |  |			    |	|				     |
+	|	Bug được  |  V E2: không phải bug   |	v				     v
+	|	-------->(Open)------------------>(Won't Fix)--------------------------->(Closed)
+	|	phát hiện ^  ^				     E6: xác nhận không phải bug     |
+	|		  |  |								     |
+	------------------   -----------------------------------------------------------------
+						E8: tái xuất hiện bug
+
 		* Bảng mô tả trạng thái:
 		-----------------------------------------------------------------
 		|	|  E1  |  E2  |  E3  |  E4  |  E5  |  E6  |  E7  |  E8  |
@@ -957,12 +982,14 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 		-----------------------------------------------------------------
 
 		* Dựa vào bảng trạng thái có thể thiết kế 9 test case hợp lệ:
+			// Kết quả mong đợi
 			O -> IP, O -> WF
 			IP -> WF, IP -> T
 			T -> C, T -> O
 			C -> O
 			WF -> C, WF -> O
 			và một vài trường hợp không hợp lệ.
+		  (Những ô có giá trị là ô hợp lệ, còn lại là không hợp lệ. Không lấy hết những ô còn lại để kiểm thử mà chỉ lấy những ô nào có khả năng phủ được hết tất cả các trường hợp.)
 
 ---------------
 
@@ -973,26 +1000,64 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 		* Sau khi đọc tin, người dùng cũng có thế chuyển nó thành tin chưa đọc để ghi nhớ.
 
 		* Người dùng cũng có thể xóa tin tức, ban đầu tin xóa tạm nằm trong thùng rác,
-		  trong 24h kể từ lúc xóa người dùng có thể phục hồi lại trạng thái trước khi xóa,
+		  trong 24g kể từ lúc xóa người dùng có thể phục hồi lại trạng thái trước khi xóa,
 		  sau khoảng thời gian này tin sẽ bị xóa vĩnh viễn.
+
+
+		* Các sự kiện (events):
+			E1: mở tin ra đọc
+			E2: chuyển thành tin chưa đọc để ghi nhớ
+			E3: xóa tin tức tạm thời
+			E4: phục hồi lại trạng thái trước khi xóa
+			E5: xoá vĩnh viễn sau 24g
+
+
+		* Bảng mô tả trạng thái:
+		------------------------------------------------------------
+		|			|  E1  |  E2  |  E3  |  E4  |  E5  |
+		|-----------------------|------|------|------|------|------|
+		|Tin chưa đọc (TCĐ)	| TĐĐ  |      |  TX  |      |      |
+		|-----------------------|------|------|------|------|------|
+		|Tin đã đọc (TĐĐ)	|      | TCĐ  |  TX  |      |      |
+		|-----------------------|------|------|------|------|------|
+		|Tạm xoá (TX)		|      |      |      | TCĐ  | XVV  |
+		|			|      |      |      | TĐĐ  |      |
+		|-----------------------|------|------|------|------|------|
+		|Xóa vĩnh viễn (XVV)	|      |      |      |      |      |
+		------------------------------------------------------------
+
+		Ta có:
+			Tạm xoá -> Tin chưa đọc
+				-> Tin đã đọc
+
+			Có hai trạng thái, cần phải tách thành 2 Test Case bằng cách áp dụng kỹ thuật phân tích giá trị biên và bảng quyết định.
 
 ---------------
 
 	Ví dụ 5: chức năng cho phép đăng bài viết
-		* Một bài viết khi đăng mới chỉ được phép cập nhật
-		  hoặc xóa trong vòng 15 phút kể từ lúc submit đăng bài,
+		* Một bài viết khi đăng mới chỉ được phép cập nhật (E1)
+		  hoặc xóa (E2) trong vòng 15 phút kể từ lúc submit đăng bài,
 		  sau khoảng thời gian này bài viết không được phép chính sửa hay xóa nữa
-		  và bài viết sẽ tự động được xuất bản trên hệ thống để người khác có thể đọc.
+		  và bài viết sẽ tự động được xuất bản trên hệ thống (E3) để người khác có thể đọc.
 
 		* Khi vừa soạn xong bài viết hoặc trong vòng 15 phút từ lúc submit bài viết,
-		  tác giả bài viết có quyền bấm nút “Publish” để chủ động xuất bản bài viết,
+		  tác giả bài viết có quyền bấm nút “Publish” để chủ động xuất bản bài viết (E4),
 		  và tất nhiên không được xóa hoặc cập nhật bài viết sau khi đã xuất bản.
 
-		* Sau khi một bài viết được xuất bản,
-		  tác giả bài viết muốn xóa hoặc cập nhật bài viết cần phải liên hệ với admin thực hiện.
+		* Sau khi một bài viết được xuất bản, tác giả bài viết muốn xóa (E5)
+		  hoặc cập nhật (E6) bài viết cần phải liên hệ với admin để admin thực hiện.
 
-		* Sau khi admin chỉnh sửa bài viết đã xuất bản,
+		* Sau khi admin chỉnh sửa bài viết đã xuất bản (E6),
 		  bài viết đó vẫn ở trạng thái xuất bản để người khác đọc.
+
+
+		* Các sự kiện (events):
+			E1: cập nhật trong 15p
+			E2: xoá trong 15p
+			E3: (system) tự động công bố sau 15p
+			E4: (owner) chủ động công bố
+			E5: xoá (admin)
+			E6: (admin) cập nhật			
 
 
 		* Sơ đồ trạng thái:
@@ -1008,18 +1073,19 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 	|	|	   |	\						|	|	|	|
 	|	|	   |	 \	E2: xoá trong 15p			|	---------	|
 	|	|	   |	  ------------------------------		|			|
-	|	|	   |					\		| E2: xoá trong 15p	|
-	|	|	   |E3: (system) tự động công bố sau 15p \		|			|
+	|	|	   |					\		|			|
+	|	|	   |E3: (system) tự động công bố sau 15p \		| E2: xoá trong 15p	|
 	|	|	   |					  \		|			|
 	|	|	   |	E6: (admin) cập nhật		   \		|			|
 	|	|	   |	-----------------		    \		|			|
 	|	|	   |	|		|		     \		|			|
 	|	|	   v	V		| E5: xoá (admin)     v		v			|
-	|	------->(Bài viết đã được công bố)-------------->(Bài viết đã được xoá)			|
+	|	------->(Bài viết đã được công bố)------------->(Bài viết đã được xoá)			|
 	|			^	^								|
 	|			|	|								|
 	-------------------------	-----------------------------------------------------------------
 							E4: (owner) chủ động công bố
+
 
 		* Bảng mô tả trạng thái:
 		----------------------------------------------------------------
@@ -1034,14 +1100,73 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 		|  Xoá   | 	  |        |        |        |        |        |
 		----------------------------------------------------------------
 
+---------------
+
+	Ví dụ 6: sử dụng hệ thống ATM
+		* Các sự kiện (events):
+			E1: Đọc thẻ thành công
+			E2: Không đọc được thẻ
+			E3: Nhập PIN sai nhiều lần
+			E4: Nhập đúng PIN
+			E5: Nhấn [Huỷ]
+			E6: Đã chọn giao tác
+			E7: Chọn giao tác khác
+			E8: Hoàn thành giao tác
+
+
+		* Sơ đồ trạng thái:
+
+						(Giữ thẻ)
+						    ^
+						    |
+						    | E3: Nhập PIN sai nhiều lần	E7: Chọn giao tác khác
+						    |					-----------------
+						    |					|		|
+	Đưa thẻ		 E1: Đọc thẻ thành công	    |	    E4: Nhập đúng PIN		V		|
+	------->(Đọc thẻ)---------------------->(Đọc PIN)---------------------->(Chọn giao tác)		|
+	vào máy	    |				  |				   |	   |		|
+		    |				  | E5: Nhấn [Huỷ]		   |	   | E6: Đã	|
+		    |				  |				   /	   |     chọn	|
+		    |				  |    ----------------------------	   |	 giao	|
+		    |				  |   /       E5: Nhấn [Huỷ]		   |	 tác	|
+		    |				  |   |					   |		|
+		    |  E2: Không đọc được thẻ	  v   v					   v		|
+		    --------------------------->(Nhả thẻ)<----------------------(Thực thi giao tác)------
+							 E8: Hoàn thành giao tác
+
+
+		* Bảng mô tả trạng thái: Giữ thẻ (GT) và Nhả thẻ (NT) là trạng thái kết thúc, không dẫn đến đâu.
+		-----------------------------------------------------------------------------------
+		|	 		  |  E1  |  E2  |  E3  |  E4  |  E5  |  E6  |  E7  |  E8  |
+		|-------------------------|------|------|------|------|------|------|------|------|
+		|Đọc thẻ (ĐT)		  |  ĐP  |  NT  |      |      |      |      |      |      |
+		|-------------------------|------|------|------|------|------|------|------|------|
+		|Đọc PIN (ĐP)		  |      |      |  GT  | CGT  |  NT  |      |      |      |
+		|-------------------------|------|------|------|------|------|------|------|------|
+		|Nhả thẻ (NT)		  |      |      |      |      |      |      |      |      |
+		|-------------------------|------|------|------|------|------|------|------|------|
+		|Giữ thẻ (GT)		  |      |      |      |      |      |      |      |      |
+		|-------------------------|------|------|------|------|------|------|------|------|
+		|Chọn giao tác (CGT)	  |      |      |      |      |  NT  | TTGT |      |      |
+		|-------------------------|------|------|------|------|------|------|------|------|
+		|Thực thi giao tác (TTGT) |      |      |      |      |      |      | CGT  |  NT  |
+		-----------------------------------------------------------------------------------
+
+		Ta có:  
+			- Xác định 9 Test Case cho trường hợp hợp lệ.
+			- Xác định ngẫu nhiên các trường hợp không hợp lệ, ví dụ: Giữ thẻ -> Đọc thẻ
+
 ---------------------------------------------------------------------------
 
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT KIỂM THỬ CÁC TÌNH HUỐNG SỬ DỤNG DỰA TRÊN LƯỢC ĐỒ - USE CASE TESTING]
 
-** Kỹ thuật kiểm thử các trường hợp/tình huống sử dụng dựa trên lược đồ (Use Case Testing): lược đồ tình huống sử dụng (Use Case Diagram) rất dễ hiểu đối với khách hàng vì nó tóm tắt được các tính năng cần có của hệ thống mà người dùng sẽ sử dụng dưới dạng sơ đồ, thường được sử dụng để thảo luận và xác minh với khách hàng về yêu cầu của phần mềm (software requirements).
+* Sơ đồ tình huống sử dụng (Use Case Diagram): liệt kê các tính năng mà người dùng sẽ trải nghiệm, sử dụng để phục vụ cho công việc của họ. Rất dễ hiểu đối với khách hàng vì nó tóm tắt được các tính năng cần có của hệ thống mà người dùng sẽ sử dụng dưới dạng sơ đồ, thường được sử dụng để thảo luận và xác minh với khách hàng về yêu cầu của phần mềm (software requirements).
+	-> Cho biết WHO làm được WHAT với hệ thống.
 
-Logic hoạt động trên lược đồ Use Case thường gần sát với logic thực tế, vì vậy, việc kiểm thử dựa trên lược đồ này sẽ giúp giảm thiểu rủi ro trong việc kiểm tra/xác nhận logic hoạt động (luồng xử lý) và quy tắc nghiệp vụ.
+---------------
+
+** Kỹ thuật kiểm thử các trường hợp/tình huống sử dụng dựa trên lược đồ (Use Case Testing): Logic hoạt động trên lược đồ Use Case thường gần sát với logic thực tế, vì vậy, việc kiểm thử dựa trên lược đồ này sẽ giúp giảm thiểu rủi ro trong việc kiểm tra/xác nhận logic hoạt động (luồng xử lý) hoặc quy tắc nghiệp vụ.
 
 Kỹ thuật này là nền tảng phát triển các Test Case trong cấp độ kiểm thử hệ thống (System Testing) và kiểm thử chấp nhận (Acceptance Testing) do các Use Case đại diện cho khả năng sử dụng thực tế của người dùng.
 
@@ -1115,9 +1240,9 @@ Cho phép thấy được kiến trúc bên trong: mô hình, lược đồ thi�
 
 ==============================================================================
 
-[KHÁI NIỆM KIỂM THỬ DỰA TRÊN KINH NGHIỆM - EXPERIENCED BASED TESTING]
+[KHÁI NIỆM KIỂM THỬ DỰA TRÊN KINH NGHIỆM - EXPERIENCE BASED TESTING]
 
-** Kiểm thử dựa trên kinh nghiệm (Experienced Based Testing): trong thực tế, không phải lúc nào nghiệp vụ mà ta kiểm thử cũng có đầy đủ các tài liệu đặc tả, nhất là khi phát triển hệ thống theo quy trình Agile. Sẽ có trường hợp các tính năng được mô tả và thiết kế bằng lời thay vì được ghi chép vào trong một tài liệu đặc tả nghiệp rõ ràng.
+** Kiểm thử dựa trên kinh nghiệm (Experience Based Testing): trong thực tế, không phải lúc nào nghiệp vụ mà ta kiểm thử cũng có đầy đủ các tài liệu đặc tả, nhất là khi phát triển hệ thống theo quy trình Agile. Sẽ có trường hợp các tính năng được mô tả và thiết kế bằng lời thay vì được ghi chép vào trong một tài liệu đặc tả nghiệp rõ ràng.
 
 Không có cơ sở để kiểm thử -> kiểm thử dựa trên kinh nghiệm.
 	
@@ -1162,7 +1287,7 @@ Kiểm thử thăm dò sẽ phát huy hiệu quả nếu được thực hiện 
 
 Lập trình viên sử dụng kiểm thử thăm dò để thực hiện các Unit Test, còn kiểm thử viên có thể làm quen hệ thống bằng kỹ thuật này.
 
-	-> Đưa ra quyết định những gì cần kiểm thử tiếp theo khi thiếu đặc tả yêu cầu hoặc thời gian thực hiện.
+	-> Đưa ra quyết định những gì cần kiểm thử tiếp theo khi thiếu đặc tả yêu cầu hoặc thời gian thực hiện, tập trung thực thi kiểm thử hơn là việc lên kế hoạch.
 
 
 
