@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hoangthuan.mathutil.core;
 
 import static com.hoangthuan.mathutil.core.MathUtil.getFactorial;
@@ -13,12 +8,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
-/**
- *
- * @author Nguyen Hoang Thuan
- */
-
-// Báo cho JUNit rằng class này là class tham số hoá
+// Báo cho máy ảo Java (JUNit) rằng class này là class tham số hoá
 @RunWith(value = Parameterized.class)
 public class AdvancedFactorialTest {
     
@@ -29,7 +19,15 @@ public class AdvancedFactorialTest {
     // (đây là được xem là Test Script tự động)
     
     // Tên hàm được đặt tự do
-    // Khai báo tập hợp các tham số
+    // Khai báo tập hợp các tham số,
+    // hàm trả về mảng 2 chiều kiểu Object
+    // vì các framework sẽ chơi với Object,
+    // mảng số nguyên cũng phải hiểu là đối tượng,
+    // tức là chơi với Wrapper Class* nếu là mảng số
+    // * Wrapper Class: Integer (int), Character (char),...
+    
+    // Báo cho máy ảo Java (JUNit) biết đây là dữ liệu nguồn,
+    // dùng để truyền vào hàm assert
     @Parameters
     public static Object[][] initData() {
         return new Integer[][] {
@@ -43,8 +41,8 @@ public class AdvancedFactorialTest {
                                };
     }
     
-    // Chuẩn bị 2 biến để hứng bộ dữ liệu từ mảng
-    // sau đó đưa vào hàm test
+    // Chuẩn bị 2 biến để hứng bộ dữ liệu từ mảng theo từng cặp,
+    // sau đó đưa cặp (input + expected) vào hàm test
     
     // Ánh xạ input với cột 0
     @Parameter(value = 0)
@@ -58,6 +56,7 @@ public class AdvancedFactorialTest {
     @Test
     public void checkFactorialGivenCorrectArgumentReturnWell() {
 
+        //long actual = getFactorial(input);
         assertEquals(expected, getFactorial(input));
     }
 }
