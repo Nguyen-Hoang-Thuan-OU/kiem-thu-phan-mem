@@ -54,11 +54,17 @@
 
 [CÁC THUẬT NGỮ KHÁC]
 
-* Stub/Mock: khi tính năng của đội ngũ này phụ thuộc vào đội ngũ kia, các đối tượng giả/mẫu code được sử dụng để mô phỏng lại hoạt động và giúp nghiệp vụ vẫn được vận hành dù đang thiếu thành phần.
+* Stub/Mock: khi tính năng của đội ngũ này phụ thuộc vào đội ngũ kia, các đối tượng giả/mẫu code được sử dụng để mô phỏng lại hoạt động và giúp nghiệp vụ vẫn được vận hành một cách tạm thời dù đang thiếu thành phần.
+	-> Mô phỏng lại một mô-đun đang bị thiếu.
+
 	Ví dụ 1: đội ngũ làm API chưa giao sản phẩm thì đội ngũ Front-End chỉ cần xác định được đầu vào, cấu trúc đầu ra và giả lập lại.
 	Ví dụ 2: chức năng thanh toán đơn hàng đang thiếu thanh toán trực tuyến, ta viết stub để giả lập cho thành phần đó.
 
-* Driver: một mẫu code để truyền dữ liệu kiểm thử (Test Data) đến mẫu code khác (mô-đun cần kiểm thử) để thực thi kiểm thử, nhận và in ra kết quả. Nơi để gọi chức năng cần kiểm thử và truyền Test Data vào cho nó.
+--------------------
+
+* Driver: một mẫu code giúp khởi tạo và truyền dữ liệu kiểm thử (Test Data) cần thiết đến mẫu code khác (mô-đun cần kiểm thử) để thực thi kiểm thử, nhận và in ra kết quả.
+	-> Nơi để gọi chức năng cần kiểm thử và truyền Test Data vào cho nó.
+
 	Ví dụ: chuẩn bị 1 bộ dữ liệu kiểm thử với 4 dòng dữ liệu khác nhau tương ứng với 4 tình huống sử dụng cho 1 chức năng, sau đó viết một mẫu code để tự động lấy từng dòng dữ liệu trong bộ dữ liệu kiểm thử và kiểm tra kết quả thực thi trả về.
 
 
