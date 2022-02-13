@@ -6,7 +6,9 @@
 
 -----------------------
 
-* DevOps: là sự kết hợp giữa nhiều triết lý văn hóa, biện pháp thực hành và công cụ giúp tăng khả năng phân phối ứng dụng và dịch vụ của một tổ chức ở tốc độ cao: phát triển và cải tiến sản phẩm ở nhịp độ nhanh hơn các tổ chức sử dụng quy trình quản lý cơ sở hạ tầng và phát triển phần mềm truyền thống. Tốc độ này cho phép các tổ chức phục vụ khách hàng tốt hơn và cạnh tranh hiệu quả hơn trên thị trường.
+* DevOps: là sự kết hợp giữa nhiều triết lý văn hóa, biện pháp thực hành và công cụ giúp tăng khả năng phân phối ứng dụng và dịch vụ của một tổ chức ở tốc độ cao, giúp phát triển và cải tiến sản phẩm ở nhịp độ nhanh hơn so với các tổ chức sử dụng quy trình quản lý cơ sở hạ tầng và phát triển phần mềm truyền thống. Tốc độ này cho phép các tổ chức phục vụ khách hàng tốt hơn và cạnh tranh hiệu quả hơn trên thị trường.
+
+Là phương pháp (văn hoá) làm việc đề cao sự hợp tác để hai giai đoạn phát triển và vận hành trở nên gần gũi với nhau hơn, giúp tối ưu hoá quy trình và nhanh chóng ra mắt sản phẩm. 
 
 ================================================================================
 
@@ -210,6 +212,12 @@ Khi Unit Test đang đỏ tức là có vấn đề về code thì không nên b
 Trong Java, chỉ quan tâm 2 thư mục src và test vì khi đưa lên Server vì 2 thư mục này có thể tạo ra 2 thư mục build và dist bất cứ lúc nào.
 
 Trong NetBeans, khi nhấn Shift + F11 (Clean & Build), thực chất thì Netbeans sẽ không làm gì mà sẽ gọi 2 thằng khác làm giùm (gọi JDK và Javac.exe), nó sẽ đọc tập tin build-impl.xml (Ant) trong thư mục nbproject để biết phải làm gì tiếp theo. Đây cũng là nơi để chỉnh sửa quy trình build bằng cách thêm test vào <target depends="init,compile,test,...>.
+
+================================================================================
+
+File cài đặt chỉ là file gói bên ngoài, bản chất bên trong cũng là file nén và nén các file .exe, .apk, .jar,... cùng các file ghi chú thông tin, chào mừng, điều khoản,... thành file setup.exe/setup.msi bằng cách sử dụng các phần mềm như InstallShield, Windows Installer,...
+
+
 
 -------------------
 
