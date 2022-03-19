@@ -64,7 +64,7 @@ Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết 
 
 ** Có 4 mức hoàn thiện của hệ thống, tương ứng với 4 giai đoạn/công đoạn/mức độ:
 
-	* Kiểm thử đơn vị (Unit Test): code được viết ra phải có khả năng kiểm thử được và lập trình viên tự thực hiện các hoạt động đảm bảo chất lượng cho từng đơn vị code riêng lẻ bằng cách kiểm thử các hàm, lớp mà mình vừa mới viết ra xong (trung bình 10 dòng code được viết ra là đã tiềm ẩn lỗi). Mục đích để đảm bảo mã nguồn viết cho đơn vị nào đó đúng với đặc tả yêu cầu, xác nhận mã nguồn trong đơn vị đó có thể thực thi.
+	* Kiểm thử đơn vị (Unit/Component Test): code được viết ra phải có khả năng kiểm thử được và lập trình viên tự thực hiện các hoạt động đảm bảo chất lượng cho từng đơn vị code riêng lẻ bằng cách kiểm thử các hàm, lớp, phương thức,... mà mình vừa mới viết ra xong (trung bình 10 dòng code được viết ra là đã tiềm ẩn lỗi). Mục đích để đảm bảo mã nguồn viết cho đơn vị nào đó đúng với đặc tả yêu cầu, xác nhận mã nguồn trong đơn vị đó có thể thực thi.
 
 		- Một đơn vị (Unit) là thành phần nhỏ nhất có thể kiểm thử được. Nó có thể là một hàm, một thủ tục, một lớp, hoặc một phương thức (vì trong OOP, đơn vị cơ bản nhất là đối tượng, bên trong chứa các hành vi/phương thức).
 			+ Lập trình thủ tục: hàm (OOP: phương thức, hành vi, method).
@@ -75,7 +75,7 @@ Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết 
 
 --------------------
 
-		* Cách kiểm thử những hàm/lớp được viết ra:
+		* Những cách khác nhau để kiểm thử những hàm/lớp được viết ra:
 
 			1. Tạo mới đối tượng, gọi hàm, truyền dữ liệu vào và xem kết quả.
 				// Viết code để thử hàm/lớp ngay trong main()
@@ -128,26 +128,29 @@ Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết 
 
 ----------------------------------------
 
-	* Kiểm thử tích hợp (Integration Test): kiểm thử viên hoặc lập trình viên sẽ thực hiện kiểm thử cho các thành phần riêng lẻ (các hàm, lớp) đang hoạt động tốt, để xem khi được tích hợp lại với nhau (thành một cụm chức năng) sẽ có tương thích và hoạt động/tương tác đúng hay không. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
+	* Kiểm thử tích hợp (Integration Test): kiểm thử viên hoặc lập trình viên sẽ thực hiện kiểm thử cho các thành phần riêng lẻ (các hàm, lớp, mô-đun) đang hoạt động tốt, các hệ thống bên ngoài được gọi thông qua API,... để xem khi được tích hợp lại với nhau (thành một cụm chức năng) sẽ có tương thích và hoạt động/gọi/tương tác đúng hay không. Hoặc kiểm thử khi Back-end được kết hợp với Front-end. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
 
-	-> Kiểm thử khi các hàm, lớp được gom thành một cụm chức năng.
+	-> Kiểm thử khi các hàm/lớp/mô-đun, sử dụng hệ thống bên ngoài thông qua API, khi Back-end và Front-end,... được gom thành một cụm chức năng.
 
 		Ví dụ: DAO + DTO + DBUtil
 			-> Chức năng thêm-xoá-sửa-tìm kiếm.
 
 		- Các chiến lược tích hợp:
-			+ Chiến lược Big-bang: đợi đến khi hoàn thành xong tất cả các đơn vị/thành phần thì mới tích hợp cùng một lúc để có hệ thống đầy đủ.
+			+ Chiến lược Big-bang: đợi đến khi hoàn thành xong tất cả các đơn vị/thành phần thì mới tích hợp cùng một lúc để có hệ thống đầy đủ. Khó có thể xác định được nơi (thành phần) xảy ra lỗi.
 
 			+ Chiến lược Incremental (tăng dần): chiến lược này kiểm thử từng phần riêng biệt, giúp sớm phát hiện lỗi và dễ dàng cô lập để tìm ra nguyên nhân. Sẽ gặp trường hợp tình năng này chờ tính năng kia phát triển, cần phát triển thêm các Stub & Driver để thực hiện kiểm thử trước.
 
 
 			* Hai chiến lược incremental thường được sử dụng là top-down và bottom-up:
-				- Chiến lược top-down: hệ thống được xây dựng theo từng giai đoạn, bắt đầu từ thành phần cao nhất (top) gọi các thành phần khác ở cấp thấp hơn. Kiểm thử theo chiến lược này yêu cầu sự tương tác giữa các thành phần phải được kiểm thử trước khi xây dựng các thành phần, các mô-đun chính/quan trọng (cấp cao hơn) sẽ được ưu tiên kiểm thử trước rồi mới kiểm thử đến các mô-đun phụ (cấp thấp hơn). Các mô-đun phụ (cấp thấp hơn) chưa xây dựng thì sẽ được thay thế bằng Stub. Sau đó, các mô-đun này sẽ được tích hợp lại với nhau.
-				- Chiến lược bottom-up: chiến lược này ngược lại với chiến lược top-down, các thành phần được tích hợp theo thứ tự từ dưới lên. Khi kiểm thử, các mô-đun phụ (cấp thấp hơn) sẽ được ưu tiên kiểm thử trước rồi mới đến các mô-đun chính (cấp cao hơn). Các mô-đun chính (cấp cao hơn) chưa xây dựng sẽ được thay thế bằng Driver, . Sau đó, các mô-đun này sẽ được tích hợp lại với nhau.
+				- Chiến lược top-down: hệ thống được xây dựng theo từng giai đoạn, bắt đầu từ thành phần cao nhất (top) gọi các thành phần khác ở cấp thấp hơn. Các mô-đun chính/quan trọng (cấp cao hơn) sẽ được ưu tiên kiểm thử trước rồi mới kiểm thử đến các mô-đun phụ (cấp thấp hơn). Các mô-đun phụ (cấp thấp hơn) chưa xây dựng thì sẽ được tạm thời thay thế bằng Stub. Sau đó, các mô-đun này sẽ được tích hợp lại với nhau. Thường được thực hiện trên các ngôn ngữ lập trình hướng cấu trúc/thủ tục, không quá phức tạp và chỉ có lợi nếu lỗi nghiêm trọng xảy ra ở đầu chương trình.
+					-> Thiết kế và kiểm thử những mô-đun chính trước, sau đó mới đến các mô-đun phụ.
+
+				- Chiến lược bottom-up: chiến lược này ngược lại với chiến lược top-down, các thành phần được tích hợp theo thứ tự từ dưới lên. Khi kiểm thử, các mô-đun phụ (cấp thấp hơn) sẽ được ưu tiên kiểm thử trước rồi mới đến các mô-đun chính (cấp cao hơn). Các mô-đun chính (cấp cao hơn) chưa xây dựng sẽ được tạm thời thay thế bằng Driver. Sau đó, các mô-đun này sẽ được tích hợp lại với nhau. Thường được thực hiện trên các ngôn ngữ lập trình hướng đối tượng, sự phức tạo cao với nhiều dữ liệu và chỉ có lợi nếu các lỗi nghiêm trọng xảy ra ở cuối chương trình.
+					-> Thiết kế và kiểm thử những mô-đun phụ trước, sau đó mới đến các mô-đun chính.
 
 ----------------------------------------
 
-	* Kiểm thử hệ thống (System Test): do đội ngũ tester độc lập thực hiện để đảm bảo tính khách quan, kiểm thử khi các thành phần đã được tích hợp thành một hệ thống hoàn chỉnh để kiểm tra phần mềm về tổng thế mọi mặt có tuân thủ các đặc tả yêu cầu của người dùng. Nhóm kiểm thử chỉ dựa trên đặc tả yêu cầu mà không được xem mã nguồn hệ thống. Đặc tả yêu cầu thường chứa các yêu cầu chức năng (functional) và các yêu cầu phi chức năng (non-functional) cần được kiểm thử.
+	* Kiểm thử hệ thống (System Test): do đội ngũ tester độc lập thực hiện để đảm bảo tính khách quan, kiểm thử khi các thành phần đã được tích hợp thành một hệ thống hoàn chỉnh (hộp đen) để kiểm tra phần mềm về tổng thế mọi mặt có tuân thủ các đặc tả yêu cầu của người dùng (requirement). Nhóm kiểm thử chỉ dựa trên đặc tả yêu cầu mà không được xem mã nguồn hệ thống. Đặc tả yêu cầu thường chứa các yêu cầu chức năng (functional requirement) và các yêu cầu phi chức năng (non-functional requirement) cần được kiểm thử.
 
 	-> Kiểm thử khi chức năng được tổng hợp thành một hệ thống và tạm dùng được.
 
@@ -166,7 +169,7 @@ Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết 
 
 ----------------------------------------
 
-	* Kiểm thử chấp nhận (User Acceptance Test - UAT): đưa cho khách hàng sử dụng thử và nhận phản hồi để đảm bảo sản phẩm phần mềm hoạt động đúng những gì khách hàng mong đợi, khách hàng hài lòng và chấp nhận sản phẩm – thanh toán hợp đồng.
+	* Kiểm thử chấp nhận (User Acceptance Test - UAT): trước khi đưa vào thực tế, cần đưa cho khách hàng sử dụng thử và nhận phản hồi để đảm bảo sản phẩm phần mềm hoạt động đúng những gì khách hàng mong đợi, khách hàng hài lòng và chấp nhận sản phẩm – thanh toán hợp đồng.
 		- Alpha Test: người trong công ty (in-house) đóng vai trò người dùng phía khách hàng để tiến hành kiểm thử trong môi trường phát triển và phản hồi lại cho developer.
 		- Beta Test: công khai đưa cho những người từ phía khách hàng (external) dùng thử sản phẩm và đưa ra phản hồi trước khi phát hành phiên bản chính thức.
 
@@ -174,11 +177,11 @@ Trước khi có code thì đã tiến hành kiểm thử (tài liệu, thiết 
 
 -----------------------------------------------------------------
 
-Ngoại trừ Unit Test, 3 cấp độ còn lại (Integration Test, System Test, User Acceptance Test - UAT) của việc kiểm thử khi phần mềm đã thành hình, khi code được ráp với giao diện người dùng (UI). Khi này, ta sẽ chuyển sang kiểm thử dưới góc nhìn của người dùng.
+Ngoại trừ Unit Test, 3 cấp độ còn lại (Integration Test, System Test, User Acceptance Test - UAT) của việc kiểm thử khi phần mềm đã thành hình, đó là khi code được ráp với giao diện người dùng (UI). Lúc này, ta sẽ chuyển sang kiểm thử dưới góc nhìn của người dùng.
 	-> Góc nhìn của người dùng là góc nhìn về mặt tính năng, không quan tâm về mặt xử lý.
 
-Sẽ có giao diện/màn hình với các trang, biểu mẫu để người dùng có thể tương tác và nhập dữ liệu vào, người dùng có thể nhấn nút và xem kết quả trả về (có thể là một trang khác).
-	-> Người dùng không quan tâm phần hậu trường (các hàm được chạy đằng sau UI), chỉ quan tâm họ làm được gì với hệ thống.
+Sẽ có giao diện/màn hình với các trang, biểu mẫu,... để người dùng có thể tương tác và nhập dữ liệu vào, người dùng có thể nhấn nút và xem kết quả trả về (có thể là điều hướng sang một trang khác).
+	-> Người dùng không quan tâm phần "hậu trường" (các hàm được chạy đằng sau UI) mà chỉ quan tâm họ làm được gì với hệ thống.
 
 ================================================================================
 
@@ -186,10 +189,10 @@ Sẽ có giao diện/màn hình với các trang, biểu mẫu để người d�
 
 2. Loại kiểm thử (Testing Type): mục tiêu/mục đích, đối tượng kiểm thử cụ thể.
 
-Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp độ (level, mức hoàn thiện của hệ thống) mà chuyển sang kiểm thử ở dạng (type) để kiểm tra xem các chức năng có hoạt động đúng và tiện dụng cho người dùng hay không.
+Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp độ (level, mức hoàn thiện của hệ thống) mà chuyển sang kiểm thử ở dạng (type) để kiểm tra xem các chức năng có hoạt động đúng và tiện dụng cho người dùng hay không. Thường sẽ áp dụng phương pháp (method) kiểm thử hộp đen (black-box testing).
 
 
-* Kiểm thử chức năng (Functional Testing): dựa theo các yêu cầu chức năng của hệ thống.
+* Kiểm thử chức năng (Functional Testing): dựa theo các yêu cầu chức năng (functional requirement) của hệ thống.
 	- Kiểm tra tiến trình làm phần mềm: requirements (đúng/sai/bất hợp lý - đủ/thừa/thiếu).
 	- Kiểm tra những chức năng đã thiết kế có hoạt động đúng.
 
@@ -201,7 +204,7 @@ Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp
 
 -----------------------------------------------------------------
 
-* Kiểm thử phi chức năng (Non-Functional Testing): dựa theo các yêu cầu phi chức năng của hệ thống.
+* Kiểm thử phi chức năng (Non-Functional Testing): dựa theo các yêu cầu phi chức năng (non-functional requirement) của hệ thống.
 	- Kiểm tra chất lượng về mặt trải nghiệm của người dùng: nhanh/chậm - tốt/tệ - đẹp/xấu.
 
 		-> Kiểm thử trải nghiệm của người dùng về phần mềm.
@@ -250,9 +253,9 @@ Ví dụ:
 
 [PHÂN LOẠI THEO KỸ THUẬT/PHƯƠNG PHÁP]
 
-3. Kỹ thuật/phương pháp kiểm thử (Testing Technique/Method): cách thức cụ thể để tiến hành kiểm thử, cho ra được các Test Case để xác minh kết quả mong đợi với kết quả thực tế.
+3. Kỹ thuật/phương pháp kiểm thử (Testing Technique/Method): cách thức cụ thể để tiến hành kiểm thử, cho ra được các Test Case để xác minh (verify) kết quả mong đợi với kết quả thực tế.
 
-** Kiểm thử tĩnh (Static Testing): kiểm thử mà không cần thực thi hệ thống, tìm sai sót bằng cách đọc tài liệu đặc tả yêu cầu (SRS), tài liệu thiết kế, đọc mã nguồn để kiểm tra về quy chuẩn lập trình,...
+** Kiểm thử tĩnh (Static Testing): kiểm thử mà không cần thực thi hệ thống, tìm sai sót bằng cách đọc tài liệu đặc tả yêu cầu (SRS), tài liệu thiết kế, đọc mã nguồn,... để kiểm tra về quy chuẩn lập trình,...
 	- Kỹ thuật đánh giá (Review): tham khảo ý kiến của các chuyên gia.
 	- Kỹ thuật phân tích tĩnh (Static Analysis): sử dụng công cụ để tự động kiểm tra quy chuẩn lập trình.
 
@@ -261,7 +264,7 @@ Ví dụ:
 ** Kiểm thử động (Dynamic Testing): kiểm thử khi thực thi hệ thống để biết hệ thống xử lý đúng hay sai.
 
 	* Kiểm thử hộp đen/dựa trên đặc tả yêu cầu (Specification Based/Behavior Based/Black-box Testing): che kín các xử lý bên trong.
-		- Kiểm thử chức năng (Functional Testing)
+		- Kiểm thử chức năng (Functional Testing).
 		- Phi chức năng (Non-Functional Testing).
 
 	* Kiểm thử hộp trắng (Structure Based Testing/White-box Testing): được phép xem bên trong "ruột, gan" của mã nguồn để tìm sai sót.
