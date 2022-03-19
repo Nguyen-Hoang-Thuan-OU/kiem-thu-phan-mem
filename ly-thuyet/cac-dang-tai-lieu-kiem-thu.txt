@@ -285,20 +285,20 @@ Các Test Case và Test Script trong Test Suite đều được sắp xếp theo
 
 Bản chất của Test Suite là mô tả thật rõ ràng mục tiêu và đích đến của các trường hợp kiểm thử (Test Case). Khi có hàng nghìn Test Case, sử dụng Test Suite sẽ giúp phân loại các Test Case theo từng tình huống kiểm thử khác nhau, chẳng hạn như kiểm thử chức năng hoặc cho các tính năng riêng biệt của phần mềm.
 
-Ngoài ra, Test Suite cũng có các bước khác nhau, có thể sử dụng để xác định các bước hiện tại của quá trình kiểm thử, như đã kích hoạt, đang trong tiến trình hoặc đã hoàn thành.
+Ngoài ra, Test Suite cũng có các bước khác nhau, có thể sử dụng để xác định các bước hiện tại của quá trình kiểm thử, như: Đã kích hoạt, Đang trong tiến trình hoặc Đã hoàn thành.
 
 	Ví dụ 1: Regression Test Suite được chạy để xác minh những tính năng cũ.
 
 	Ví dụ 2: Test Suite cho những tính năng quan trọng nhất của hệ thống.
 
-	Ví dụ 3: Test Suite dành riêng cho từng dạng (type) kiểm thử như Smoke Test Suite or Security Test Suite,...
+	Ví dụ 3: Test Suite dành riêng cho từng dạng (type) kiểm thử như Smoke Test Suite hoặc Security Test Suite,...
 
 	Ví dụ 4: Test Suite - Mua một sản phẩm
 			Test Case 1: Đăng nhập
 			Test Case 2: Thêm sản phẩm vào giỏ hàng
 			Test Case 3: Thanh toán
 			Test Case 4: Đăng xuất
-	(Mỗi Test Case ở trên đều phụ thuộc vào sự thành công của các Test Case trước đó. Ví dụ: không thể thanh toán nếu không thể thêm sản phẩm vào giỏ hàng. Do đó, nếu đang chạy bộ Test Suite ở chế độ tuần tự, ta có thể chọn dừng việc thực thi bộ Test Suite nếu một trường hợp thử nghiệm duy nhất không vượt qua
+	(Mỗi Test Case ở trên đều phụ thuộc vào sự thành công của các Test Case trước đó. Ví dụ: không thể thanh toán nếu không thể thêm sản phẩm vào giỏ hàng. Do đó, nếu đang chạy bộ Test Suite ở chế độ tuần tự, ta có thể chọn dừng việc thực thi bộ Test Suite nếu một trường hợp thử nghiệm duy nhất không vượt qua)
 
 ================================================================================
 
@@ -314,8 +314,10 @@ Procedure | Expected Result | Actual Result | Status | Comment
 
 [KẾT QUẢ KIỂM THỬ - TEST REPORT]
 
-Test Report được viết sau khi đã thực hiện kiểm thử, được dùng để lưu lại kết quả kiểm thử phần mềm một cách có tổ chức, mô tả điều kiện và môi trường kiểm thử, so sánh kết quả kiểm thử với mục tiêu kiểm thử đề ra.
+Test Report được viết sau khi đã thực hiện kiểm thử, báo cáo được sử dụng để lưu lại kết quả kiểm thử phần mềm một cách có tổ chức, mô tả điều kiện và môi trường kiểm thử, so sánh kết quả kiểm thử với mục tiêu kiểm thử đề ra.
 	-> Xác định độ đo và phân tích kết quả.
+
+	Ví dụ: thiết kế được tổng cộng bao nhiêu Test Case, đã chạy/thực thi được tổng cộng bao nhiêu Test Case, có bao nhiêu Test Case bị fail, phân tích và phát hiện được bao nhiêu lỗi, lập trình viên đã fix được bao nhiêu lỗi,...
 
 ================================================================================
 
