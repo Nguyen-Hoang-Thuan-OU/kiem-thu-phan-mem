@@ -62,7 +62,7 @@ Máy tính sẽ thay mặt con người tự động hoá việc thực thi các
 * Những Test Case không phù hợp để kiểm thử tự động:
 	- Những Test Case được thiết kế mới và chưa được thực hiện thủ công ít nhất một lần.
 	- Những Test Case có các yêu cầu thường xuyên thay đổi (do khách hàng chưa quyết định được tính năng, hay thay đổi yêu cầu phần mềm,...).
-	- Những Test Case được thực hiện đột xuất, không có kế hoạch, kịch bản hay tài liệu tham khảo (ad-hoc).
+	- Những Test Case được thực hiện đột xuất, không có kế hoạch, kịch bản hay tài liệu tham khảo (ad-hoc). Có những Test Case khi thực thi chỉ để tạm thời giải quyết ngay vào lúc xảy ra vấn đề, không thể tổng quát hoá và tối ưu hoá thành một phương thức để áp dụng về sau này (Random/Monkey Testing).
 	- Những Test Case liên tục failed.
 	- Những hệ thống áp dụng quá nhiều thiết kế đồ hoạ (hiệu ứng).
 
