@@ -1,7 +1,7 @@
 ﻿[TẠI SAO PHẢI KIỂM THỬ PHẦN MỀM?]
 
 Việc phát triển phần mềm đã rất dễ dàng nhờ vào sự hỗ trợ của các framework nhưng vẫn phải giữ được chất lượng của sản phẩm trước khi đến được tay của khách hàng, cũng như sớm phát hiện được những trường hợp sai, dư, thiếu so với mong muốn của khách hàng.
-	-> Giảm tối đa chi phí khi phát sinh vấn đề.
+	-> Giảm tối đa chi phí khi phát sinh khi sớm phát hiện và giải quyết được vấn đề.
 
 ================================================================================
 
@@ -54,7 +54,7 @@ Viết code chỉ là một phần trong quá trình làm phần mềm. Trước
 
 Không đơn giản chỉ là kiểm thử trên một phần mềm đã được viết và biên dịch sang tập tin nhị phân (hay phần mềm đã được triển khai lên Server) để tìm lỗi trong quá trình vận hành. Kiểm thử phần mềm là một quá trình (process) liên quan đến việc so sánh/đánh giá/đo lường/kiểm tra (comparing/evaluating/measure/check) giữa kết quả thực tế (actual - what is) với kết quả mong đợi (expected - what ought to be).
 
-	-> So sánh (compare) giữa kết quả mong đợi (expected) với kết quả thực tế (actual) để tìm lỗi (defect testing), đảm bảo (verify/check) rằng phần mềm hoạt động đúng với dự kiến/mục tiêu/đặc tả yêu cầu (specification/requirement) và người dùng hài lòng với phần mềm (validation testing).
+	-> So sánh (compare) giữa kết quả mong đợi (expected) với kết quả thực tế (actual) bằng cách đưa ra được những "phản ví dụ" (counter-examples - tình huống khiến phần mềm xảy ra lỗi) để tìm lỗi (defect testing), đảm bảo (verify/check) rằng phần mềm hoạt động đúng với dự kiến/mục tiêu/đặc tả yêu cầu (specification/requirement) và người dùng hài lòng với phần mềm (validation testing).
 
 Bên cạnh đó, ta còn kiểm thử về chất lượng hệ thống (attribute), độ hài lòng của người dùng khi sử dụng hệ thống.
 	-> Trải nghiệm của người dùng khi sử dụng hệ thống.
@@ -82,6 +82,24 @@ Ví dụ 3: phần mềm tính tiền
 	- Thực tế (actual - what is): 3 phần đồ ăn/thức uống thì tổng tiền không phải là 100k.
 		-> Lỗi tính toán xử, lý không đúng.
 
+----------------------------------------
+
+** Công việc có thể có của một kiểm thử viên:
+
+	- Tìm và báo cáo lỗi.
+		-> Điều hiển nhiên, nhưng chỉ là một phần nhỏ.
+
+	- Xác định "điểm yếu" (về kiến trúc, trình độ của lập trình viên,...) của trương trình.
+
+	- Xác định những khu vực (mô-đun, thành phần) có nguy cơ rủi ro cao và thiếu ổn định trong dự án.
+
+	- Giải thích những lỗi phát hiện được và đưa ra phương hướng giải quyết vấn đề:
+		+ Giúp lập trình viên giải quyết về mặt kỹ thuật bằng cách đưa ra những gợi ý dựa theo yêu cầu của khách hàng.
+
+		+ Giúp đưa ra cho người chuyên giao tiếp với khách hàng (customer service) những hướng dẫn và hướng giải quyết lỗi trên một phần mềm đã phát hành nhưng vẫn còn lỗi (mà khách hàng vẫn hài lòng với sản phẩm còn lỗi).
+
+		+ Giúp người quản lý (project manager) đưa ra những quyết định về mặt nghiệp vụ, chiến lược kinh doanh để có thể sản phẩm tồn tại được trên thị trường.
+
 ================================================================================
 
 [ĐỐI TƯỢNG THAM GIA VÀO QUÁ TRÌNH KIỂM THỬ]
@@ -101,7 +119,7 @@ Theo suy nghĩ thông thường thì người kiểm thử phải là một ngư
 
 	- Non-Functional Requirements: ràng buộc, trải nghiệm sử dụng,...
 
-	-> Thiết kế và thực thi quá trình kiểm thử (thủ công và tự động).
+	-> Thiết kế và thực thi quá trình kiểm thử (thủ công và tự động) để đảm bảo chất lượng phần mềm.
 
 --------------------
 
@@ -110,7 +128,7 @@ Theo suy nghĩ thông thường thì người kiểm thử phải là một ngư
 --------------------
 
 * End-User: người dùng cuối tham gia sử dụng thử hệ thống để xác nhận rằng hệ thống có thể dùng được và phù hợp với nhu cầu của họ hay không.
-	-> User Acceptance Testing (UAT): quan trọng nhất vì hệ thống làm ra là để người dùng sử dụng.
+	-> User Acceptance Testing (UAT): quan trọng nhất vì hệ thống được làm ra để người dùng sử dụng.
 
 	Ví dụ: mạng xã hội Google+ sử dụng tốt, ít lỗi nhưng vẫn không phù hợp với nhu cầu và thói quen sử dụng của người dùng vì đã có FaceBook, Twitter,...
 
@@ -162,11 +180,21 @@ Trong tài liệu kế hoạch kiểm thử (Test Plan) sẽ có các tiêu chu�
 
 ================================================================================
 
+[TEST & DEBUG]
+
+** Kiểm thử (Test): tìm cách để khiến phần mềm hoạt động không khớp với yêu cầu, làm sai với mong muốn của người dùng.
+	-> Đưa ra kết quả để tiến hành gỡ lỗi (debug).
+
+** Gỡ lỗi (Debug): tìm ra lý do tại sao phần mềm hoạt động không khớp với yêu cầu, làm sai với mong muốn của người dùng.
+	-> Đầu vào sẽ là kết quả kiểm thử. Tái hiện lại lỗi và bắt đầu quá trình phân tích tại sao xảy ra lỗi.
+
+================================================================================
+
 [7 NGUYÊN LÝ TRONG KIỂM THỬ PHẦN MỀM]
 
 ** 7 nguyên tắc/nguyên lý/phương châm/nguồn gốc căn bản của kiểm thử phần mềm để định hướng cách kiểm thử sao cho đúng nhất:
 
-	01. Kiểm thử để chứng minh sự hiện diện của lỗi (Testing shows presence of defects): để chứng minh phần mềm (hệ thống phức tạp được cấu thành từ nhiều thành phần) CÓ LỖI vì lỗi luôn tiềm ẩn chứ không phải để khẳng định rằng phần mềm này không có lỗi (bug-free). Cả công ty lớn hay nhỏ thì sản phẩm đều có thể có lỗi, chỉ là có thể tìm ra lỗi hay lỗi đột nhiên xuất hiện. Vì vậy, cần thiết kế Test Case để tìm ra được càng nhiều lỗi càng tốt.
+	01. Kiểm thử để chứng minh sự hiện diện của lỗi (Testing shows presence of defects): để chứng minh phần mềm (hệ thống phức tạp được cấu thành từ nhiều thành phần) CÓ LỖI vì lỗi luôn tiềm ẩn chứ KHÔNG PHẢI để khẳng định rằng phần mềm này không có lỗi (bug-free). Cả công ty lớn hay nhỏ thì sản phẩm đều có thể có lỗi, chỉ là có thể tìm ra lỗi hay lỗi đột nhiên xuất hiện. Vì vậy, cần thiết kế Test Case để tìm ra được càng nhiều lỗi càng tốt.
 
 		-> Để tìm ra lỗi chứ không phải để chứng minh phần mềm không có lỗi.
 
@@ -241,7 +269,7 @@ Trong tài liệu kế hoạch kiểm thử (Test Plan) sẽ có các tiêu chu�
 
 --------------------
 
-=> Những tiêu chí phải tuân theo trong suốt quá trình kiểm thử để biết nên và không nên làm gì. Giúp quá trình kiểm thử được tối ưu nhất mà không làm sai lệch mục tiêu, giúp xác định rằng ta đang theo đúng chiến lược để kiểm thử.
+=> Những tiêu chí phải tuân theo trong suốt quá trình kiểm thử để giúp quá trình kiểm thử được tối ưu nhất mà không làm sai lệch mục tiêu, giúp xác định rằng ta đang theo đúng chiến lược để kiểm thử.
 
 ================================================================================
 
@@ -340,7 +368,7 @@ V-Model ra đời trước mô hình Agile. Agile đưa ra khái niệm TDD đ�
 * V-Model chỉ tập trung vào kiểm thử động, mà bỏ qua hiệu quả của kiểm thử tĩnh.
 	-> Phù hợp với những công ty gia công phần mềm.
 
-* W-Model khắc phục được điều có bằng cách cho phép thực hiện quá trình kiểm thử song song với quá trình phát triển phần mềm, các kỹ thuật kiểm thử tĩnh được áp dụng trong giai đoạn đầu của quy trình phát triển phần mềm, mỗi hoạt động trong quá trình phát triển đều có một hoạt động kiểm thử tương ứng.
+* W-Model khắc phục được những hạn chế của V-Model bằng cách cho phép thực hiện quá trình kiểm thử song song với quá trình phát triển phần mềm, các kỹ thuật kiểm thử tĩnh được áp dụng trong giai đoạn đầu của quy trình phát triển phần mềm, mỗi hoạt động trong quá trình phát triển đều có một hoạt động kiểm thử tương ứng.
 	-> Phù hợp với những công ty tự sản xuất sản phẩm (product).
 
 ================================================================================
@@ -420,13 +448,17 @@ Một dự án phần mềm thực tế được chia thành nhiều thành ph�
 
 ** Kiểm thử ổn định (Smoke Testing) - kiểm thử xác minh (verification) bản build.
 Là loại kiểm thử phần mềm được thực hiện sau khi build để xác minh rằng các chức năng, thành phần quan trọng nhất của chương trình đang hoạt động tốt (không phải toàn hệ thống - exhaustive testing). Kiểm thử viên sẽ thực hiện kiểm thử ngay trên chính bản build đó. Thường được thực hiện trước kiểm thử chức năng hoặc kiểm thử hồi quy, mục đích là để từ chối một ứng dụng bị hỏng nặng, vì vậy mà nhóm QA sẽ không mất nhiều thời gian cài đặt và thử nghiệm ứng dụng phần mềm.
+	-> Kiểm tra một bản build (chức năng/phiên bản mới) có đủ điều kiện/sẵn sàng/khả dụng để thực hiện những kỹ thuật kiểm thử chuyên sâu hơn như: kiểm thử hiệu năng, an toàn, hồi quy,...
+
 	Ví dụ 1: xác minh rằng ứng dụng khởi động thành công, giao diện được đáp ứng và phù hợp trên tất cả các thiết bị, mọi độ phân giải màn hình.
+
 	Ví dụ 2: mỗi ngày, khi có bản build mới sẽ lấy khoảng 10 Test Case ra để chạy, nếu cả 10 Test Case này đều pass thì bản build đó cũng sẽ pass.
 
 --------------------
 
 ** Kiểm thử hợp lý (Sanity Testing) - kiểm thử xác minh (verification) tính năng mới và lỗi đã được sửa trong bản build.
 Là loại kiểm thử phần mềm được thực hiện sau khi nhận được bản build với những thay đổi nhỏ về code hoặc chức năng để xác định rằng những lỗi cũ đã được sửa và trong quá trình thay đổi chức năng không gây ra, phát sinh thêm bất kỳ lỗi mới nào. Dùng để xác định rằng bản build hoạt động đúng như mong đợi, mục tiêu không phải để xác minh kỹ lưỡng chức năng mới mà để xác định rằng nhà phát triển đã áp dụng một số tính hợp lý (sanity) trong khi sản xuất phần mềm. Nếu kiểm tra tính hợp lý không thành công, bản build sẽ bị từ chối để tiết kiệm thời gian và chi phí liên quan đến một thử nghiệm nghiêm ngặt hơn.
+
 	Ví dụ: nếu máy tính bỏ túi cho ra kết quả của một phép tính đơn giản là 2 + 2 = 5! thì không cần phải tốn công để kiểm thử các hàm nâng cao như sin 30 + cos 50.
 
 			*********SỰ KHÁC BIỆT CHÍNH*********
