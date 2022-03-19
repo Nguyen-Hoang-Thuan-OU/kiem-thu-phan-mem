@@ -28,7 +28,7 @@ A project using black-box testing techniques to design Test Cases and run automa
 
 #### Role:
 - List Test Scenarios titles.
-- Write Test Cases and run Test Scripts to test [Buy products] and [Shopping cart management] functions.
+- Design Test Cases and run Test Scripts to test [Buy products] and [Shopping cart management] functions.
 
 ---
 
@@ -49,5 +49,3 @@ A project using black-box testing techniques to design Test Cases and run automa
 
 * Test Scripts - Selenium WebDriver
 ![Test Scripts - Selenium WebDriver](https://github.com/Nguyen-Hoang-Thuan-OU/kiem-thu-phan-mem/blob/main/bai-tap/bai-tap-nhom/images/thegioididong-test-script-selenium-webdriver.png "Test Scripts - Selenium WebDriver")
-
-© 2022 Bản quyền thuộc về Nguyễn Hoàng Thuận
