@@ -29,7 +29,7 @@
 --------------------
 
 * Fault (sai sót): những sai sót do dư, thiếu hoặc không đúng các yêu cầu phần mềm cần thực hiện (requirement/specification), bản build không khớp với yêu cầu, làm sai với mong muốn của người dùng.
-	-> Error và fault gọi chung là bug.
+	-> Error và Fault gọi chung là bug.
 
 --------------------
 
@@ -38,6 +38,7 @@
 --------------------
 
 * Failure (thất bại/hỏng): xảy ra khi các "fault" được thực thi, hoặc làm đúng nhưng hệ thống hoạt động không đúng với yêu cầu và khiến người dùng không chấp nhận sử dụng cũng thì được gọi là "failure".
+	-> Nếu bug được fix thì Failure sẽ không còn nữa.
 
 --------------------
 
@@ -58,6 +59,7 @@
 	-> Mô phỏng lại một mô-đun đang bị thiếu.
 
 	Ví dụ 1: đội ngũ làm API chưa giao sản phẩm thì đội ngũ Front-End chỉ cần xác định được đầu vào, cấu trúc đầu ra và giả lập lại.
+
 	Ví dụ 2: chức năng thanh toán đơn hàng đang thiếu thanh toán trực tuyến, ta viết stub để giả lập cho thành phần đó.
 
 --------------------
