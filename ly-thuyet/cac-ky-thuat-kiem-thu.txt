@@ -77,7 +77,7 @@
 	-> Kiểm thử cấu trúc (Structural Testing).
 
 => Kiểm thử hộp xám (Gray-box Testing/Grey-box Testing).
-	= Kiểm thử hộp đen + Kiểm thử hộp trắng
+	= Kiểm thử hộp đen + Kiểm thử hộp trắng.
 
 ==============================================================================
 
@@ -1237,6 +1237,8 @@ Vì có sự khó khăn khi về mặt chi phí và đòi hỏi phải có sự 
 ** Kiểm thử hộp xám (Gray-box Testing/Grey-box Testing): là sự kết hợp giữa kiểm thử hộp đen và hộp trắng, mục đích là để tìm kiếm các khiếm khuyết (nếu có) do cấu trúc không đúng hoặc việc sử dụng hệ thống không đúng cách.
 
 Cho phép thấy được kiến trúc bên trong: mô hình, lược đồ thiết kế của hệ thống thông qua tài liệu, thấy được cơ sở dữ liệu bên trong và thực hiện một số truy vấn để xác nhận kết quả,... từ đó giúp cho việc chuẩn bị dữ liệu và kịch bản kiểm thử được tốt hơn.
+
+	=> Thấy được cấu trúc bên trong nhưng lại kiểm thử theo kiểu hộp đen (đưa dữ liệu vào và kiểm tra kết quả) vì có cái nhìn sâu bên trong hệ thống.
 
 ==============================================================================
 
