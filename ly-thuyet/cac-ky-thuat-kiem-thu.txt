@@ -118,7 +118,7 @@ So sánh giữa kiểm thử tĩnh và động:
 
 ** Ưu điểm:
 	- Không cần truy cập mã nguồn, không cần có kiến thức chuyên sâu về lập trình mà chỉ cần biết một chút về logic xử lý.
-	- Tách biệt khung nhìn (cách nhìn nhận vấn đề) của người dùng (về trải nghiệm tình năng) và lập trình viên.
+	- Tách biệt khung nhìn (cách nhìn nhận vấn đề) của người dùng (về trải nghiệm tính năng) và lập trình viên (về xây dựng tính năng theo nghiệp vụ).
 	- Nhiều người có thể tham gia kiểm thử.
 
 ** Khuyết điểm:
@@ -152,8 +152,8 @@ So sánh giữa kiểm thử tĩnh và động:
 
 		* Kiểm thử có sự thay đổi (change):
 
-			+ Kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) để xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo.
-				-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng yêu cầu ban đầu (Retesting/Confirmation Testing).
+			+ Kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) để xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo. Đây là điều hiển nhiên và là quy trình thường xuyên xảy ra.
+				-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng báo cáo ban đầu (Retesting/Confirmation Testing).
 
 			+ Khi tích hợp một tính năng mới vào bên trong của hệ thống, thay đổi mã nguồn, thay đổi môi trường hệ thống,... Lúc này, cần kiểm tra lại những tính năng, mô-đun cũ bằng cách thực thi hết tất cả các Test Case đã được thiết kế từ trước và có liên quan với chức năng vừa được tích hợp/thay đổi (ví dụ: đăng ký, đăng nhập, quên mật khẩu,...) để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ sự thay đổi đó. Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy (Regression Testing).
 				-> Xác minh rằng những tính năng cũ vẫn chạy ổn định sau khi đã thay đổi mã nguồn hoặc môi trường hệ thống (Regression Testing).
@@ -203,8 +203,8 @@ So sánh giữa kiểm thử tĩnh và động:
 
 ** Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class - EP/EC): chia đầu vào của chương trình thành nhiều phân vùng/lớp dữ liệu, từ đó suy ra được những trường hợp cần kiểm thử. Xác định được những trường hợp tương đương hợp lệ (positive case - valid) và không hợp lệ (negative case - invalid), giúp loại bỏ những Test Case dư thừa, chỉ chạy những Test Case có độ bao phủ cao hơn.
 
-Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ kiểm thử ngẫu nhiên (Random Testing) thì sẽ có trường hợp lấy quá nhiều giá trị nằm trong cùng một phân vùng, và chưa có gì đảm bảo rằng những Test Case được chọn ngẫu nhiên đó sẽ phủ được hết các trường hợp có thể xảy ra vì nếu các giá trị nằm trong cùng một phân vùng sẽ có cùng cách xử lý và cho ra cùng một kết quả. Nếu một giá trị đại diện trong nhóm đúng thì các giá trị còn lại trong nhóm cũng đúng và ngược lại.
-	-> Nên chọn một giá trị đại diện cho toàn bộ phân vùng.
+Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ kiểm thử ngẫu nhiên (Random Testing) thì sẽ có trường hợp lấy quá nhiều giá trị nằm trong cùng một phân vùng, và chưa có gì đảm bảo rằng những Test Case được chọn ngẫu nhiên đó sẽ phủ được hết các trường hợp có thể xảy ra, vì nếu các giá trị nằm trong cùng một phân vùng thì sẽ có cùng cách xử lý và cho ra cùng một kết quả. Nếu một giá trị đại diện trong nhóm mà đúng thì các giá trị còn lại trong nhóm cũng đúng và ngược lại.
+	-> Nên chỉ chọn một giá trị đại diện cho toàn bộ phân vùng vì chúng có cùng cách thức xử lý và cho ra cùng một kết quả.
 
 	-> Vẫn kiểm thử ở những phân vùng hợp lệ, nhưng tập trung nhất vào những phân vùng không hợp lệ (invalid) vì lập trình viên thường hay quên phân vùng không này và chỉ đi kiểm tra ở những phân vùng hợp lệ (valid).
 
@@ -531,12 +531,16 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 	Ví dụ:
 		- Tài khoản.
 		- Mật khẩu.
+		- Lương >= 5tr/tháng.
+		- Trời nắng.
 
-(2) Các giá trị điều kiện: một giá trị nào đó của điều kiện, tổ hợp các giá trị điều kiện sẽ cho ra cột quy tắc/thoả quy tắc (rule).
+(2) Các giá trị điều kiện: một giá trị nào đó của điều kiện, tổ hợp (tích Đềcác) các giá trị điều kiện sẽ cho ra cột quy tắc/thoả quy tắc (rule). Nếu số lượng cột (sự kết hợp) quá nhiều thì có thể viết các giá trị ở dạng tóm tắt.
 	Ví dụ:
 		- Để trống.
 		- Hợp lệ.
 		- Không hợp lệ.
+		- Đúng.
+		- Sai.
 
 -------------------------------------------------------------------------
 |(1) Các điều kiện	|(2) Các giá trị điều kiện - Quy tắc (Rule)	|
@@ -550,7 +554,7 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 
 		- Chuyển đến trang chủ.
 
-(4) Xảy ra hay không: một hành động có thể xảy ra phụ thuộc vào tổ hợp các giá trị điều kiện (kết quả mong muốn có).
+(4) Xảy ra hay không: các giá trị của hành động. Một hành động có thể xảy ra phụ thuộc vào tổ hợp các giá trị điều kiện (kết quả mong muốn có).
 	Ví dụ:
 		- Đăng nhập thành công.
 		- Đăng nhập thất bại.
@@ -672,7 +676,7 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 ** Các quy tắc chuyển từ bảng quyết định thành các Test Case:
 	+ Nếu giá trị các điều kiện nhập (1) đều là các giá trị luận lý (true/false) thì mỗi cột quy tắc (rule) sẽ được chuyển thành một Test Case.
 
-	+ Nếu giá trị các điều kiện nhập có nhiều giá trị (miền giá trị từ abc... xyz) thì mỗi cột quy tắc (rule) sẽ được chuyển thành nhiều Test Case bằng cách sử dụng kỹ thuật phân vùng tương đương hoặc phân tích giá trị biên vào mỗi cột.
+	+ Nếu giá trị các điều kiện nhập có nhiều giá trị (miền giá trị từ 0..100, abc..xyz,...) thì mỗi cột quy tắc (rule) sẽ được chuyển thành nhiều Test Case bằng cách sử dụng thêm kỹ thuật phân vùng tương đương hoặc phân tích giá trị biên vào mỗi cột.
 
 	-------------------------------------------------------------------------
 	|Test	|Tài khoản	|Mật khẩu	|Thông báo lỗi	|Chuyển đến	|
@@ -843,7 +847,7 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 
 			- Điểm trung bình >= 7.0.
 
-		Gọi A là môn có điểm nhỏ nhất trong tất cả các môn
+		Gọi A là môn có điểm nhỏ nhất trong tất cả các môn của học kỳ đó
 			4 <= A < 5
 			5 <= A <= 10
 		Gọi B là điểm trung bình tất cả các môn của học kỳ đó
@@ -851,13 +855,16 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 			7.5 <= B <= 10
 
 		* Bảng quyết định:
+
+					     (1)          (2)          (3)          (4)          (5)
+
 		------------------------------------------------------------------------------------------
 		|Các	|	A	|   [0, 4)   |   [4, 5)   |   [4, 5)   |   [5, 10]  |   [5, 10]  |
 		|điều	|---------------|------------|------------|------------|------------|------------|
-		|kiện	|	B	|      -     |  [0, 7.5)  | [7.5, +∞)  |  [0, 7.0)  | [7.0, +∞)  |  
+		|kiện	|	B	|      -     |  [0, 7.5)  | [7.5, +∞)  |  [0, 7.0)  | [7.0, +∞)  |
 		|-----------------------------------------------------------------------------------------
-		|Hành	|Được nhận	|      S     |      S     |      Đ     |      S     |      Đ     |  
-		|động	|học bổng	|            |            |            |            |            |  
+		|Hành	|Được nhận	|      S     |      S     |      Đ     |      S     |      Đ     |
+		|động	|học bổng	|            |            |            |            |            |
 		------------------------------------------------------------------------------------------
 
 		* Test Case cho quy tắc 5: giả sử học kỳ có 3 môn
@@ -1056,8 +1063,8 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 			E2: xoá trong 15p
 			E3: (system) tự động công bố sau 15p
 			E4: (owner) chủ động công bố
-			E5: xoá (admin)
-			E6: (admin) cập nhật			
+			E5: (admin) xoá
+			E6: (admin) cập nhật
 
 
 		* Sơ đồ trạng thái:
@@ -1066,23 +1073,23 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 	-----------------------------------------------------------------	-------------------------
 	|								|	|			|
 	|	E4: (owner) chủ động công bố				|	|E1: cập nhật trong 15p	|
-	|	-----------------					|	|	---------	|
-	|	|		|					|	|	|	|	|
-	|	|		|	E1: cập nhật trong 15p		|	|	v	|	|
+	|	-------------------					|	|	---------	|
+	|	|		  |					|	|	|	|	|
+	|	|		  |	E1: cập nhật trong 15p		|	|	v	|	|
 	|	|	(Bài viết mới)-------------------------->(Bài viết đã được cập nhật)	|	|
-	|	|	   |	\						|	|	|	|
-	|	|	   |	 \	E2: xoá trong 15p			|	---------	|
-	|	|	   |	  ------------------------------		|			|
-	|	|	   |					\		|			|
-	|	|	   |E3: (system) tự động công bố sau 15p \		| E2: xoá trong 15p	|
-	|	|	   |					  \		|			|
-	|	|	   |	E6: (admin) cập nhật		   \		|			|
-	|	|	   |	-----------------		    \		|			|
-	|	|	   |	|		|		     \		|			|
-	|	|	   v	V		| E5: xoá (admin)     v		v			|
+	|	|	     |	\					    |		|	|	|
+	|	|	     |	 \					    |		---------	|
+	|	|    E3:     |	  \	E2: xoá trong 15p		    |				|
+	|	|    (system)|	   ------------------------------	    |				|
+	|	|    tự động |    				 \	    |E2: xoá trong 15p		|
+	|	|    công bố |					  \	    |				|
+	|	|    sau 15p |	E6: (admin) cập nhật		   \	    |				|
+	|	|	     |	-----------------		    \	    |				|
+	|	|	     |	|		|		     \	    |				|
+	|	|	     v	v		| E5: (admin) xoá     v	    v				|
 	|	------->(Bài viết đã được công bố)------------->(Bài viết đã được xoá)			|
-	|			^	^								|
-	|			|	|								|
+	|		       ^	^								|
+	|		       |	|								|
 	-------------------------	-----------------------------------------------------------------
 							E4: (owner) chủ động công bố
 
@@ -1091,11 +1098,11 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 		----------------------------------------------------------------
 		|	 |   E1   |   E2   |   E3   |   E4   |   E5   |   E6   |
 		|--------|--------|--------|--------|--------|--------|--------|
-		|  Mới   |Cập nhật|  Xoá   |        |        |        |        |
+		|  Mới   |Cập nhật|  Xoá   |Công bố |Công bố |        |        |
 		|--------|--------|--------|--------|--------|--------|--------|
-		|Cập nhật|	  |        |        |        |        |        |
+		|Cập nhật|Cập nhật|  Xoá   |Công bố |Công bố |        |        |
 		|--------|--------|--------|--------|--------|--------|--------|
-		|Công bố |	  |        |        |        |        |        |
+		|Công bố |	  |        |        |        |  Xoá   |Cập nhật|
 		|--------|--------|--------|--------|--------|--------|--------|
 		|  Xoá   | 	  |        |        |        |        |        |
 		----------------------------------------------------------------
@@ -1263,7 +1270,7 @@ Không có cơ sở để kiểm thử -> kiểm thử dựa trên kinh nghiệm
 [CÁC KỸ THUẬT KIỂM THỬ DỰA TRÊN KINH NGHIỆM]
 [KỸ THUẬT ĐOÁN LỖI - ERROR GUESSING]
 
-** Kỹ thuật đoán lỗi (Error Guessing): chủ yếu dựa vào kỹ năng, kinh nghiệm, trực giác, sự am hiểu của kiểm thử viên về hệ thống hoặc dựa vào những dự án tương tự đã trải qua, những bug đã tìm được,... Từ đó sẽ giúp đoán được nguy cơ tìm ẩn khi đi vào vận hành trong thực tế, vì vậy, không phù hợp với người mới. Có thể giúp tìm ra những lỗi mà thậm chí không có trong Test Case (exploratory testing).
+** Kỹ thuật đoán lỗi (Error Guessing): chủ yếu dựa vào kỹ năng, kinh nghiệm, trực giác, kiến thức, sự am hiểu của kiểm thử viên về hệ thống hoặc dựa vào những dự án tương tự đã trải qua, những bug đã tìm được,... Từ đó sẽ giúp đoán được nguy cơ tìm ẩn khi đi vào vận hành trong thực tế, vì vậy, không phù hợp với người mới. Có thể giúp tìm ra những lỗi mà thậm chí không có trong Test Case (exploratory testing).
 
 Thường được áp dụng sau khi tất cả các kỹ thuật "chính thức" đã được áp dụng.
 
@@ -1272,7 +1279,6 @@ Những Test Case đoán lỗi thường tập trung vào những điểm yếu,
 	-> Dự đoán nguy cơ tiềm ẩn và thiết kế Test Case tập trung vào những điểm yếu, đáng nghi ngờ của hệ thống
 
 	Ví dụ: lỗi chia cho 0, gửi yêu cầu không kèm giá trị hoặc chứa giá trị/ký tự đặc biệt, quên xoá tài khoản test,...
-
 
 ---------------------------------------------------------------------------
 
