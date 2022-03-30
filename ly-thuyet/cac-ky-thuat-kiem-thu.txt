@@ -152,8 +152,8 @@ So sánh giữa kiểm thử tĩnh và động:
 
 		* Kiểm thử có sự thay đổi (change):
 
-			+ Kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) để xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo. Đây là điều hiển nhiên và là quy trình thường xuyên xảy ra.
-				-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng báo cáo ban đầu (Retesting/Confirmation Testing).
+			+ Kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) để xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo hay chưa. Đây là điều hiển nhiên và là quy trình thường xuyên xảy ra.
+				-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng báo cáo ban đầu hay chưa (Retesting/Confirmation Testing).
 
 			+ Khi tích hợp một tính năng mới vào bên trong của hệ thống, thay đổi mã nguồn, thay đổi môi trường hệ thống,... Lúc này, cần kiểm tra lại những tính năng, mô-đun cũ bằng cách thực thi hết tất cả các Test Case đã được thiết kế từ trước và có liên quan với chức năng vừa được tích hợp/thay đổi (ví dụ: đăng ký, đăng nhập, quên mật khẩu,...) để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ sự thay đổi đó. Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy (Regression Testing).
 				-> Xác minh rằng những tính năng cũ vẫn chạy ổn định sau khi đã thay đổi mã nguồn hoặc môi trường hệ thống (Regression Testing).
@@ -199,14 +199,16 @@ So sánh giữa kiểm thử tĩnh và động:
 ==============================================================================
 
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
-[KỸ THUẬT PHÂN VÙNG - EQUIVALENCE PARTITIONING]
+[KỸ THUẬT PHÂN VÙNG TƯƠNG ĐƯƠNG - EQUIVALENCE PARTITIONING]
 
 ** Kỹ thuật phân vùng/lớp tương đương (Equivalence Partitioning/Equivalence Class - EP/EC): chia đầu vào của chương trình thành nhiều phân vùng/lớp dữ liệu, từ đó suy ra được những trường hợp cần kiểm thử. Xác định được những trường hợp tương đương hợp lệ (positive case - valid) và không hợp lệ (negative case - invalid), giúp loại bỏ những Test Case dư thừa, chỉ chạy những Test Case có độ bao phủ cao hơn.
 
 Nếu không áp dụng kỹ thuật phân vùng tương đương mà chỉ kiểm thử ngẫu nhiên (Random Testing) thì sẽ có trường hợp lấy quá nhiều giá trị nằm trong cùng một phân vùng, và chưa có gì đảm bảo rằng những Test Case được chọn ngẫu nhiên đó sẽ phủ được hết các trường hợp có thể xảy ra, vì nếu các giá trị nằm trong cùng một phân vùng thì sẽ có cùng cách xử lý và cho ra cùng một kết quả. Nếu một giá trị đại diện trong nhóm mà đúng thì các giá trị còn lại trong nhóm cũng đúng và ngược lại.
 	-> Nên chỉ chọn một giá trị đại diện cho toàn bộ phân vùng vì chúng có cùng cách thức xử lý và cho ra cùng một kết quả.
 
-	-> Vẫn kiểm thử ở những phân vùng hợp lệ, nhưng tập trung nhất vào những phân vùng không hợp lệ (invalid) vì lập trình viên thường hay quên phân vùng không này và chỉ đi kiểm tra ở những phân vùng hợp lệ (valid).
+* Vẫn kiểm thử ở những phân vùng hợp lệ, nhưng tập trung nhất vào những phân vùng không hợp lệ (invalid) vì lập trình viên thường hay quên phân vùng không này và chỉ đi kiểm tra ở những phân vùng hợp lệ (valid).
+	- Đối với mỗi trường hợp hợp lệ (valid): một Test Case phủ càng nhiều miền hợp lệ càng tốt.
+	- Đối với mỗi trường hợp không hợp lệ (invalid): mỗi Test Case chỉ nên thuộc về một trường hợp không hợp lệ. Vì nếu có nhiều trường hợp, khi nhận thông báo lỗi sẽ không biết thông báo đó thuộc về trường hợp nào.
 
 Trong trường hợp các giá trị đầu vào có phụ thuộc lẫn nhau, muốn áp dụng phân vùng tương đương thì ta nhân tổ hợp các trường hợp.
 
@@ -272,7 +274,7 @@ Trong trường hợp các giá trị đầu vào có phụ thuộc lẫn nhau, 
 
 		** Phân tích: ngày-tháng-năm có mối quan hệ với nhau chứ không thể độc lập, ví dụ ngày hợp lệ có thể phụ thuộc vào năm - ngày 29-02-năm nhuận, do đó phải phân vùng cho ngày-tháng-năm gắn liền với nhau. Tuy nhiên, vẫn có thể áp dụng được phân vùng tương đương.
 
-		Năm: không hợp lệ < 1970 | 0 < Hợp lệ -> để đơn giản thì sử dụng mốc 0
+		Năm: không hợp lệ < 1970 | 0 < Hợp lệ -> để đơn giản thì sử dụng mốc 0, trên thực tế sẽ tuỳ vào loại hệ thống thông tin
 
 		-> Tổng số năm nhuận + không nhuận = số năm hợp lệ
 
@@ -299,14 +301,21 @@ không hợp lệ	1	30    không hợp lệ
 
 
 		* Hợp lệ:
+			- Phân vùng có số ngày từ 1-31 rơi vào các tháng 1, 3, 5, 7, 8, 10, 12 của năm nhuận.
 			- Phân vùng có số ngày từ 1-30 rơi vào các tháng 4, 6, 9, 11 của năm nhuận.
 			- Phân vùng có số ngày từ 1-29 rơi vào các tháng 2 của năm nhuận.
-			- Phân vùng có số ngày từ 1-31 rơi vào các tháng 1, 3, 5, 7, 8, 10, 12 của năm nhuận.
+			- Phân vùng có số ngày từ 1-28 rơi vào các tháng 2 của năm không nhuận.
 
 
 		* Không hợp lệ:
-			- Phân vùng có số ngày từ 31 rơi vào các tháng 4, 6, 9, 11 của năm nhuận.
-			- Phân vùng có số ngày từ 30 rơi vào các tháng 2 của năm nhuận.
+			- Năm <= 0.
+			- Tháng < 1.
+			- Tháng > 12.
+			- Ngày < 1 ở tất cả các tháng.
+			- Phân vùng có số ngày > 31 rơi vào các tháng 1, 3, 5, 7, 8, 10, 12 của các năm.
+			- Phân vùng có số ngày > 30 rơi vào các tháng 4, 6, 9, 11 của các năm.
+			- Phân vùng có số ngày > 29 rơi vào các tháng 2 của năm nhuận.
+			- Phân vùng có số ngày > 28 rơi vào các tháng 2 của năm không nhuận.
 
 ---------------
 
@@ -336,9 +345,11 @@ không hợp lệ	1	30    không hợp lệ
 
 			- Phân vùng 3:
 				+ Có chứa chữ hoa và thường.
+				+ Có chứa chữ hoa và số.
 				+ Có chứa chữ hoa và ký tự đặc biệt.
-				+ Có chứa chữ thường và số.
+				+ Có chứa chữ số và thường .
 				+ Có chứa chữ số và ký tự đặc biệt.
+				+ Chỉ có chứa chữ thường và ký tự đặc biệt.
 
 			- Phân vùng 4:
 				+ Có chứa chữ hoa, thường và số.
@@ -346,7 +357,7 @@ không hợp lệ	1	30    không hợp lệ
 				+ Có chứa chữ hoa, ký tự đặc biệt và số.
 				+ Có chứa ký tự đặc biệt, số và thường.
 
-		=> Trong đề bài chỉ ràng buộc chiều dài tối thiểu là 6 nhưng không ràng buộc chiều dài tối đa (trong đặc tả không đề cập)
+		=> Trong đề bài chỉ ràng buộc chiều dài tối thiểu là 6 nhưng không ràng buộc chiều dài tối đa và có được phép nhập ký tự rỗng? (trong đặc tả không đề cập)
 			-> Đang ngờ, có thể gây vấn đề (Incident).
 
 ---------------
@@ -378,11 +389,12 @@ không hợp lệ	1	30    không hợp lệ
 [CÁC KỸ THUẬT KIỂM THỬ HỘP ĐEN]
 [KỸ THUẬT PHÂN TÍCH GIÁ TRỊ BIÊN - BOUNDARY VALUE ANALYSIS]
 
-** Kỹ thuật phân tích giá trị biên (Boundary Value Analysis - BVA): là trường hợp đặc biệt và bao quát của phân vùng tương đương. Thay vì lấy những giá trị ngẫu nhiên của một phân vùng thì ta chỉ cần lấy những giá trị nằm ở gần biên.
+** Kỹ thuật phân tích giá trị biên (Boundary Value Analysis - BVA): là trường hợp đặc biệt và bao quát của phân vùng tương đương. Đối với những miền giá trị có thứ tự (ví dụ: 1..99 - giới hạn độ dài), thay vì lấy những giá trị ngẫu nhiên của một phân vùng thì ta chỉ cần lấy những giá trị nằm ở gần biên. Ngoài ra, nếu có nhiều biến giá trị, giữa các biến có mối quan hệ với nhau thì giá trị đại diện phải là sự kết hợp của các biến.
+	-> Chọn ra những giá trị biên sau khi đã phân vùng.
 
 Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tương đương (gồm tình huống hợp lệ (valid) và không hợp lệ (invalid)), giúp hạn chế việc lựa chọn những giá trị ngẫu nhiên để kiểm thử trong kỹ thuật phân vùng tương đương.
 
-Áp dụng nguyên lý 20-80, lỗi thường tập trung ở những giá trị biên, vì vậy chỉ cần lấy những giá trị ở biên và ở gần biên để đại diện cho phân vùng đó.
+Áp dụng nguyên lý 20-80, lỗi thường tập trung ở những giá trị biên. Vì vậy, chỉ cần lấy những giá trị ở biên và ở gần biên để đại diện cho phân vùng đó.
 
 ------------------------------
 
@@ -446,10 +458,14 @@ Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tư
 
 		(Ghi chú: số nguyên tố là số tự nhiên chỉ có hai ước số dương phân biệt là 1 và chính nó)
 
-		- Số nguyên tố được nhập vào phải là số nguyên
-			+ Phải là số nguyên dương
+		- Số nguyên tố được nhập vào phải là số nguyên (loại bỏ: không là số nguyên)
+			+ Phải là số nguyên dương (loại bỏ: số nguyên âm và số 0)
 				+ Không phải số nguyên tố
+					+ Số chẵn
+					+ Số lẻ
 				+ Là số nguyên tố
+					+ Số chẵn
+					+ Số lẻ
 
 			- Phân vùng số nguyên tố chẵn: 2
 			- Phân vùng số nguyên tố lẻ: 3
@@ -520,6 +536,7 @@ Kiểm thử dựa trên các giá trị tại biên giữa các phân vùng tư
 ** Kỹ thuật bảng quyết định/bảng "nhân quả" (Decision Table Testing/Cause Effect - DT/CE): dùng khi phải kết hợp các điều kiện đầu vào (input) lại với nhau, khi số lượng điều kiện cần kết hợp khá lớn, dẫn đến việc không thể nhớ được một trường hợp nào đó đã được kiểm thử hay chưa.
 
 Giúp xác định những kịch bản (Scenario) kiểm thử cho những trường hợp có logic nghiệp vụ phức tạp. Giúp xác định một cách hiệu quả sự kết hợp các đầu vào khác nhau với các tình trạng phần mềm thực thi đúng quy tắc nghiệp vụ.
+	-> Xác định tổ hợp (tích Đềcác) các giá trị điều kiện, ứng với đó là những hành động có thể xảy ra.
 
 Nên được sử dụng trong những chương trình có nhiều lệnh rẽ nhánh (if-else, switch-case) và các biến đầu vào có mối quan hệ với nhau.
 
@@ -588,18 +605,17 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 		- Sai email và mật khẩu -> Thông báo lỗi
 			+ Đúng email & mật khẩu -> Trang chủ
 			+ Đúng email, sai mật khẩu -> Thông báo lỗi
-			+ Sai email, đúng mật khẩu -> Thông báo lỗi
 			+ Sai email, sai mật khẩu -> Thông báo lỗi
 
-		---------------------------------------------------------
-		|Điều kiện		|QT 1	|QT 2	|QT 3	|QT 4	|
-		|-----------------------|-------|-------|-------|-------|
-		|Email (Đ/S)		|Đúng	|Đúng	|Sai	|Sai	|
-		|-----------------------|-------|-------|-------|-------|
-		|Mật khẩu (Đ/S)		|Đúng	|Sai	|Đúng	|Sai	|
-		|-----------------------|-------|-------|-------|-------|
-		|Kết quả (Trang Chủ/Lỗi)|Tr. chủ|Lỗi	|Lỗi	|Lỗi	|
-		---------------------------------------------------------
+		-------------------------------------------------
+		|Điều kiện		|QT 1	|QT 2	|QT 3	|
+		|-----------------------|-------|-------|-------|
+		|Email (Đ/S)		|Đúng	|Đúng	|Sai	|
+		|-----------------------|-------|-------|-------|
+		|Mật khẩu (Đ/S)		|Đúng	|Sai	|Sai	|
+		|-----------------------|-------|-------|-------|
+		|Kết quả (Trang Chủ/Lỗi)|Tr. chủ|Lỗi	|Lỗi	|
+		-------------------------------------------------
 
 ---------------
 
@@ -763,7 +779,7 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 
 	* Điều kiện:
 		1. Gọi biến X là số sách được mượn trong mỗi lần mượn (1 <= X <= 5)
-		2. Gọi biến M là tổng số sách đã mượn trong năm (0 <= X + M <= 500)
+		2. Gọi biến M là tổng số sách đã mượn trong năm đến thời điểm hiện tại (1 <= X + M <= 500)
 		3. Gọi biến Z là trường hợp không còn nợ sách (đã trả hết sách đã mượn)
 			-> Là giá trị Đúng/Sai (không phải là một giá trị cụ thể).
 
@@ -777,10 +793,10 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 		|	|-----------------------|---------|---------|---------|-----------------------|
 		|	|	Z		|    S    |    Đ    |    Đ    |		Đ	      |
 		|-------------------------------------------------------------------------------------|
-		|Các	|	Được mượn	|    S    |    S    |    S    |		Đ	      |
+		|Các	|Được phép mượn?	|    S    |    S    |    S    |		Đ	      |
 		|hành	|-----------------------|---------|---------|---------|-----------------------|
-		|động	|	Mượn tối đa	|    0    |    0    |    0    |    min(5, 500 - M)    |
-		|	|			|         |         |         | 500-m < 5 ? 500-m : 5 |
+		|động	|Được mượn tối đa	|    0    |    0    |    0    |    min(5, 500 - M)    |
+		|	|			|         |         |         | 500-M < 5 ? 500-M : 5 |
 		---------------------------------------------------------------------------------------
 
 	* Thiết kế Test Case cho Quy tắc 4 và kết hợp với phân tích giá trị biên:
@@ -889,11 +905,12 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 [KỸ THUẬT CHUYỂN ĐỔI TRẠNG THÁI - STATE TRANSITION TESTING]
 
 * Sơ đồ trạng thái (State Diagram): biểu diễn trạng thái (state) của hệ thống và các sự kiện (event) làm chuyển đổi (transition) từ trạng thái này sang trạng thái khác. Tuỳ vào những trạng thái khác nhau mà hệ thống sẽ có những cách xử lý (action) khác nhau tương ứng với trạng thái đó.
+	-> Cho ra được các kịch bản (scenario) hoạt động.
 
 ---------------
 
-** Kỹ thuật chuyển đổi trạng thái (State Transition Testing): khi một vài phần của hệ thống được mô tả bằng trạng thái, khi hệ thống đang ở một trạng thái này và chuyển sang một thái này khác (trong một phiên làm việc) theo một quy tắc nào đó của phần mềm.
-	-> Kiểm thử quá trình chuyển đổi giữa các form, các trang trên website,...
+** Kỹ thuật kiểm thử chuyển đổi trạng thái (State Transition Testing): khi một vài phần của hệ thống được mô tả bằng trạng thái, khi hệ thống đang ở một trạng thái này và chuyển sang một thái này khác (trong một phiên làm việc) theo một quy tắc nào đó của phần mềm.
+	-> Kiểm thử quá trình chuyển đổi giữa các form, các trang trên website,... có đúng với mô tả hay có tuân theo một kịch bản (scenario), kế hoạch, độ mạo hiểm,... hay không.
 
 ------------------------------
 
@@ -903,11 +920,29 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 
 	2. Sự dịch chuyển/phiên chuyển đổi (transitions) từ trạng thái này sang trạng thái khác.
 
-	3. Các sự kiện (events) dẫn đến sự dịch chuyển trạng thái.
+	3. Các sự kiện (events)/lý do/chức năng dẫn đến sự dịch chuyển trạng thái.
 
 	4. Các hành động/kết quả (actions) là kết quả của việc dịch chuyển trạng thái (hành xử của hệ thống sau khi rơi vào trạng thái đó).
 		- Điều kiện đơn (Đúng/Sai): chỉ cần xây dựng 1 Test Case.
 		- Điều kiện là số: sử dụng thêm kỹ thuật phân vùng tương đương và phân tích giá trị biên để lấy dữ liệu và xây dựng Test Case.
+
+		-> Biểu diễn sự dịch chuyển (transition) giữa các trạng thái (state) khác nhau của hệ thống bởi một sự kiện (event) nào đó và cho ra một kết quả xử lý (action) nào đó.
+
+------------------------------
+
+* Chiến lược để thiết kế Test Case:
+
+1. Phủ hết tất cả các trạng thái (states): thiết kế Test Case để phủ hết toàn bộ trạng thái. Một lần đi có thể  đi qua nhiều trạng thái nhất. Test Case lúc này sẽ được gọi là Scenario Testing thay vì Functional Testing.
+	-> Số Test Case (ít nhất) phủ hết toàn bộ trạng thái.
+
+
+2. Phủ hết tất cả các sự kiện (events): thiết kế Test Case để phủ hết toàn bộ sự kiện. Chỉ quan tâm các sự kiện, không quan tâm các điều kiện đi kèm với sự kiện đó (nhiều dịch chuyển sẽ có cùng một sự kiện).
+	-> Số Test Case phủ hết toàn bộ sự kiện.
+
+3. Phủ hết tất cả đường (path) có thể đi: thiết kế Test Case để phủ hết toàn bộ đường đi, kể cả những đường lặp lại (loop). Mục đích là để phát hiện những lỗi liên quan đến tính toán như rò rỉ bộ nhớ (memory leak),... khi một hàm được liên tục gọi/chạy. Số lượng Test Case lúc này có thể rất nhiều và thậm chí là vô cực vì nó đã bao gồm toàn bộ trạng thái, sự kiện và chuyển đổi, khiến chi phí bỏ ra rất lớn.
+	-> Số Test Case phủ hết toàn bộ đường có thể đi.
+
+4. Phủ hết tất cả chuyển đổi (transitions): thiết kế Test Case để phủ hết toàn bộ chuyển đổi, bao gồm luôn cả các trạng thái và sự kiện. Các sự kiện giống nhau nhưng điều kiện khác nhau cũng sẽ được chia ra để kiểm thử. Là phương pháp dung hòa giữa khối lượng công việc và tính hiệu quả của phương pháp.
 
 ------------------------------
 
@@ -949,6 +984,7 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 			- E8: tái xuất hiện bug
 
 		* Các hành động kết quả (actions): khi có bất cự sự thay đổi trạng thái nào của bug, hệ thống sẽ gửi email thông báo đến tất cả các thành viên có liên quan đến bug đó vế trạng thái hiện tại của bug.
+			-> Kiểm thử những người liên quan có nhận được email hay không.
 
 
 		* Sơ đồ trạng thái:
@@ -997,6 +1033,11 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 			WF -> C, WF -> O
 			và một vài trường hợp không hợp lệ.
 		  (Những ô có giá trị là ô hợp lệ, còn lại là không hợp lệ. Không lấy hết những ô còn lại để kiểm thử mà chỉ lấy những ô nào có khả năng phủ được hết tất cả các trường hợp.)
+
+			* Hành động (ví dụ): O -> IP (E1)
+				B1: Đóng giao diện "Open" và mở giao diện "In Process"
+				B2: Gửi email cho tất cả các bên có liên quan
+				B3: Ghi lại quá trình vào nhật ký (log)
 
 ---------------
 
@@ -1162,6 +1203,22 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 		Ta có:  
 			- Xác định 9 Test Case cho trường hợp hợp lệ.
 			- Xác định ngẫu nhiên các trường hợp không hợp lệ, ví dụ: Giữ thẻ -> Đọc thẻ
+			("E3: Nhập PIN sai nhiều lần" có thể tách thành nhiều Test Case)
+
+		* Test Case (ví dụ):
+			1. Input:
+				- Form đọc thẻ:
+					+ Mã thẻ.
+					+ Mật khẩu người dùng.
+
+			2. Các bước thực hiện:
+				- Lấy dữ liệu từ form đọc thẻ.
+				- Nhập lại thông tin mật khẩu.
+				- Xác thực thông tin.
+
+			3. Kết quả mong đợi:
+				- Hiển thị kết quả đọc thẻ (hiển thị tên tài khoản,...)
+				- Di chuyển/hiển thị trang chủ,...
 
 ---------------------------------------------------------------------------
 
@@ -1177,7 +1234,11 @@ Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 
 Kỹ thuật này là nền tảng phát triển các Test Case trong cấp độ kiểm thử hệ thống (System Testing) và kiểm thử chấp nhận (Acceptance Testing) do các Use Case đại diện cho khả năng sử dụng thực tế của người dùng.
 
-Khi kiểm thử, Tester sẽ dựa vào bản đặc tả (Use Case Description) để thiết kế Test Case cho các Use Case. Cần kiểm thử kịch bản thành công của Use Case và cho các kịch bản thay thế, ngoại lệ của Use Case.
+Thông thường, lược đồ Use Case sẽ có các đặc tả Use Case (Use Case Description) làm cơ sở hữu ích cho Tester thiết kế Test Case cho các Use Case. Cần kiểm thử kịch bản thành công của Use Case và cho các kịch bản thay thế, ngoại lệ của Use Case.
+
+* Kiểm thử mối quan hệ giữa các Use Case:
+	- Include: có được gọi bao gồm trong Use Case.
+	- Extend: rẽ các nhánh điều kiện.
 
 ---------------------------------------------------------------------------
 
@@ -1285,15 +1346,15 @@ Những Test Case đoán lỗi thường tập trung vào những điểm yếu,
 [CÁC KỸ THUẬT KIỂM THỬ DỰA TRÊN KINH NGHIỆM]
 [KIỂM THỬ THĂM DÒ - EXPLORATORY TESTING]
 
-** Kiểm thử thăm dò (Exploratory Testing): làm rõ hệ thống có gì, không có gì, cái nào làm việc tốt, cái nào làm việc chưa tốt để kiểm thử viên có cơ sở và đưa ra quyết định những gì cần kiểm thử tiếp theo.
+** Kiểm thử thăm dò (Exploratory Testing): làm rõ hệ thống có gì và không có gì, cái nào làm việc tốt và chưa tốt để kiểm thử viên có cơ sở và đưa ra quyết định những gì cần kiểm thử tiếp theo.
 
 Đây là kỹ thuật tiếp cận có cấu trúc kết hợp kiến thức, sự quan sát, kinh nghiệm của các kiểm thử viên để kiểm thử những chổ đặc tả yêu cầu bị thiếu, không đầy đủ (poor specifications) hoặc có nhiều áp lực thời gian thực hiện.
 
 Kỹ thuật này tập trung thực thi kiểm thử hơn là việc lên kế hoạch kiểm thử. Việc thiết kế Test Case và thực thi Test Case được thực hiện song song, và cũng không cần một tài liệu chính quy về Test Condition, Test Case hoặc Test Script.
 
-Kiểm thử thăm dò sẽ phát huy hiệu quả nếu được thực hiện trong các giai đoạn đầu của vòng đời phát triển phần mềm, khi mã nguồn trải qua những thay đổi nhanh chóng.
+Kiểm thử thăm dò sẽ phát huy hiệu quả nếu được thực hiện trong các giai đoạn đầu của vòng đời phát triển phần mềm (khi đã xong Unit Test, xong mô-đun đầu tiên của hệ thống), khi mã nguồn trải qua những thay đổi nhanh chóng (kiểm tra những thay đổi có hiệu quả).
 
-Lập trình viên sử dụng kiểm thử thăm dò để thực hiện các Unit Test, còn kiểm thử viên có thể làm quen hệ thống bằng kỹ thuật này.
+Lập trình viên sử dụng kiểm thử thăm dò để thực hiện các Unit Test, còn kiểm thử viên có thể làm quen hệ thống bằng kỹ thuật này (thường được sử dụng trong quy trình phát triển phần mềm nguyên mẫu - prototype).
 
 	-> Đưa ra quyết định những gì cần kiểm thử tiếp theo khi thiếu đặc tả yêu cầu hoặc thời gian thực hiện, tập trung thực thi kiểm thử hơn là việc lên kế hoạch.
 
