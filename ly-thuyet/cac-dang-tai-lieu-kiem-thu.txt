@@ -30,7 +30,7 @@ Những app khác nhau sẽ có những độ phức tạp khác nhau về mặt
 
 ** Chiến lược/kế hoạch kiểm thử (Test Plan): tài liệu tổng quan về việc kiểm thử một dự án, thường do các Test Manager/Test Leader/QC Manager phối hợp với PM/PO/BA để lấy thông tin và lập kế hoạch trong giai đoạn đầu của quy trình phát triển phần mềm (SDLC). Test Plan có thể là một tập tin .docx, .xlsx, .pdf,... hoặc tài liệu trực tuyến.
 
-Bao gồm: phạm vi kiểm thử (scope), hướng tiếp cận, quy trình kiểm thử (Software Testing Life Cycle - STLC), tài nguyên sử dụng, nhân lực, lịch trình cho các hoạt động kiểm thử, các tính năng cần và không cần kiểm thử, các công cụ và môi trường kiểm thử cần có.
+Bao gồm: phạm vi kiểm thử (scope), hướng tiếp cận, quy trình kiểm thử (Software Testing Life Cycle - STLC), tài nguyên sử dụng, nhân lực, lịch trình cho các hoạt động kiểm thử, các tính năng cần và không cần kiểm thử, các công cụ và môi trường kiểm thử cần có, các kỹ thuật kiểm thử và giả định.
 
 - Các giả thiết khi kiểm thử phần mềm.
 - Giới thiệu tài liệu Test Plan.
@@ -42,7 +42,7 @@ Bao gồm: phạm vi kiểm thử (scope), hướng tiếp cận, quy trình ki�
 - Nêu các rủi ro có thể xảy ra trong quá trình kiểm thử.
 - Lịch trình các task, phiên bản (milestone) cần đạt được.
 
-	=> Tài liệu định nghĩa ra mục tiêu kiểm thử, cách tiếp cận của dự án và phương tiện/phương pháp để đạt được, xác định nổ lực (effort) và chi phí kiểm thử.
+	=> Tài liệu định nghĩa ra mục tiêu kiểm thử, cách tiếp cận của dự án và phương tiện/phương pháp để đạt được, xác định nổ lực (effort) và chi phí kiểm thử. Giúp xác định "thành quả" của việc kiểm thử.
 
 ----------------------------------------
 
@@ -100,11 +100,25 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 
 		- Xác định thời điểm: cần kết hợp với các hoạt động khác, bắt đầu kiểm thử khi đã có: tài liệu đặc tả yêu cầu, nguồn nhân lực và môi trường kiểm thử.
 
+--------------------
+
+	Ví dụ: với hệ thống phức tạp
+		- Thời gian hoàn thành ngắn.
+		- Nhân lực ít.
+		- Kỹ năng chuyên môn của các thành viên chỉ ở mức cơ bản.
+		- Kinh phí không nhiều.
+		- ...
+		-> Cần có một kế hoạch để tập trung kiểm thử những chức năng quan trọng.
+
 ================================================================================
 
 [KỊCH BẢN KIỂM THỬ - TEST SCENARIO]
 
 * Kịch bản (Scenario): gồm nhiều tình huống (case) khác nhau.
+
+ ---------------------		 ---------------------------------------
+| Use Case ≈ Scenario |		| Luồng sự kiện (Flow of events) = Case |
+ ---------------------		 ---------------------------------------
 
 --------------------
 
@@ -147,11 +161,11 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 
 --------------------
 
-** Tình huống kiểm thử (Test Case): một dạng tài liệu QC/Tester lập để tập hợp/ghi chép lại những tình huống sử dụng/kiểm thử theo dạng từng bước cụ thể liên tiếp nhau (step by step) đi kèm với dữ liệu kiểm thử (test data), điều kiện tiên quyết (precondition) và hậu điều kiện (postcondition) nếu có,... để kiểm tra tính đúng đắn về hành vi (behavior) và chức năng (functionality) của một hệ thống. Và việc lập tài liệu một cách chi tiết cũng sẽ giúp những người đến sau dễ dàng hơn trong việc bảo trì Test Case.
+** Tình huống kiểm thử (Test Case): một dạng tài liệu QC/Tester lập để tập hợp/ghi chép lại những tình huống sử dụng/kiểm thử theo dạng từng bước cụ thể liên tiếp nhau (step by step) đi kèm với dữ liệu kiểm thử (test data), tiền điều kiện (precondition) và hậu điều kiện (postcondition) nếu có,... để kiểm tra tính đúng đắn về hành vi (behavior) và chức năng (functionality) của một hệ thống. Và việc lập tài liệu một cách chi tiết cũng sẽ giúp những người đến sau dễ dàng hơn trong việc bảo trì Test Case.
 
 Những tình huống kiểm thử này được thực thi để tìm ra lỗi cho một kịch bản kiểm thử (Test Scenario), với mục đích kiểm tra/xác minh (verify) tính năng cụ thể của hệ thống đúng hay sai (so với yêu cầu, xử lý kết quả), kết quả trả về là PASSED hay FAILED.
 
-	=> Tập hợp bộ dữ liệu đầu vào, các điều kiện tiên, bước thực hiện, kết quả mong đợi, kết quả thực tế,... giúp tìm ra lỗi trong các yêu cầu (requirement) hoặc thiết kế (design) của ứng dụng, so sánh kết quả mong đợi với kết quả thực tế để xác định (verify) xem hệ thống có hoạt động theo yêu cầu của khách hàng hay không.
+	=> Tập hợp bộ dữ liệu đầu vào, các điều kiện tiên quyết, bước thực hiện, kết quả mong đợi, kết quả thực tế,... giúp tìm ra lỗi trong các yêu cầu (requirement) hoặc thiết kế (design) của ứng dụng, so sánh kết quả mong đợi với kết quả thực tế để xác định (verify) xem hệ thống có hoạt động theo yêu cầu của khách hàng hay không.
 
 ----------------------------------------
 
