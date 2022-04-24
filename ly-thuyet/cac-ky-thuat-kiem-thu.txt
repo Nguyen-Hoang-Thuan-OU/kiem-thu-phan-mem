@@ -916,9 +916,9 @@ Nên được sử dụng trong những chương trình có nhiều lệnh rẽ 
 
 Mô hình chuyển đổi sẽ bao gồm bốn phần cơ bản:
 
-	1. Các trạng thái (states) phần mềm có thể xảy ra.
+	1. Các trạng thái (states) phần mềm (đối tượng) có thể xảy ra.
 
-	2. Sự dịch chuyển/phiên chuyển đổi (transitions) từ trạng thái này sang trạng thái khác.
+	2. Sự dịch chuyển/phiên chuyển đổi (transitions) từ trạng thái này sang trạng thái khác (các hàm/chức năng).
 
 	3. Các sự kiện (events)/lý do/chức năng dẫn đến sự dịch chuyển trạng thái.
 
