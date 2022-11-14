@@ -1,0 +1,408 @@
+﻿* Agile: tập trung vào quy trình phát triển, liên tục thay đổi và cho ra sản phẩm.
+
+--------------------------------------------------------------------------------
+
+* CI/CD: vòng đời phát triển được định nghĩa trước của phần mềm, nhấn mạnh về các công cụ để tự động hoá.
+
+--------------------------------------------------------------------------------
+
+* DevOps: là sự kết hợp giữa nhiều triết lý văn hóa, biện pháp thực hành và công cụ giúp tăng khả năng phân phối ứng dụng và dịch vụ của một tổ chức ở tốc độ cao, giúp phát triển và cải tiến sản phẩm ở nhịp độ nhanh hơn so với các tổ chức sử dụng quy trình quản lý cơ sở hạ tầng và phát triển phần mềm truyền thống. Tốc độ này cho phép các tổ chức phục vụ khách hàng tốt hơn và cạnh tranh hiệu quả hơn trên thị trường.
+
+Là phương pháp (văn hoá) làm việc đề cao sự hợp tác để hai giai đoạn phát triển và vận hành trở nên gần gũi với nhau hơn, giúp tối ưu hoá quy trình và nhanh chóng ra mắt sản phẩm. 
+
+==========================================================================================
+
+[CÁC THUẬT NGỮ SAU GIAI ĐOẠN LẬP TRÌNH]
+
+* Biên dịch (Compiling): giai đoạn biên dịch toàn bộ phần mềm (và thư viện), chuyển mã nguồn thành mã máy (nhị phân). Là quá trình quyết định kiến trúc (32-bit hoặc 64-bit) và hệ điều hành (Windows, Lunix, macOS...).
+
+------------------------------------------------------------
+
+* Đóng gói (Packaging): giai đoạn đưa phần mềm của mình (tệp thực thi, thư viện, tệp tài nguyên, cấu trúc thư mục...) đến người dùng cuối bằng việc tạo ra một file cài đặt (*.exe...) hoặc gói tất cả vào một file nén (*.zip, *.rar...) và sẵn sàng cho giai đoạn triển khai.
+
+------------------------------------------------------------
+
+* Triển khai (Deployment): giai đoạn xác định nơi mà phần mềm sẽ được cài đặt lên và chạy / thực thi trong môi trường thực tế. Có thể đưa lên Internet (kèm hướng dẫn giải nén và cài đặt) để mọi người có thể tải, gửi email chứa sản phẩm đến cho khách hàng, cài đặt trực tiếp lên thiết bị cá nhân của người dùng hoặc host phần mềm lên một Server cục bộ.
+
+	* Có hai dạng triển khai:
+		- Đóng gói thành tập tin có thể thực thi được (ví dụ: *.exe...) để cài đặt trong môi trường thực tế.
+		- Đóng gói thành một thư viện (ví dụ: *.dll, .*jar...), sau đó đẩy lên một kho thư viện (ví dụ: NuGet), để những người khác có thể lấy về và sử dụng như một phần trong những dự án của họ.
+
+------------------------------------------------------------
+
+Build: Compiling + Packaging + Deployment
+
+--------------------------------------------------------------------------------
+
+[QUÁ TRÌNH BIÊN DỊCH VÀ ĐÓNG GÓI MÃ NGUỒN]
+
+* Mã nguồn (Source code): mã hoá (code) là việc đưa ra / biến đổi thứ này thành một thứ khác. Mã nguồn là thứ được viết bằng ngôn ngữ lập trình, bên trong chứa những câu lệnh do con người viết để ra lệnh cho máy tính thực thi một công việc nào đó và cũng chỉ có con người mới có thể hiểu được; máy tính sẽ không hiểu.
+
+	// Mã nguồn
+	- Java: *.java
+
+	- C/C++:
+		*.c
+		*.cpp
+
+	- C#: *.cs
+
+	Ví dụ: 	if ()
+		for ()
+
+------------------------------------------------------------
+
+* Biên dịch: vì máy tính chỉ có thể hiểu được mã máy (mã nhị phân 0101 0101 - byte code / machine code / binary code / MSIL), nên cần có thêm bước biên dịch để chuyển toàn bộ mã nguồn thành mã máy, từ đó mà máy có thể hiểu được nó cần phải làm gì. Lúc này phần mềm đã sẵn sàng để chạy.
+
+	// Mã nguồn		// Biên dịch
+	- Java: *.java	-> 	*.class
+
+	- C/C++:
+		*.c	-> 	*.obj
+		*.cpp	->	*.o
+
+	- C#: *.cs	-> 	*.obj, *.o
+
+	Ví dụ: 	if ()	->	 Biên dịch
+		for ()	  	 thành mã nhị phân
+
+------------------------------------------------------------
+
+* Đóng gói: gom toàn bộ các tập tin đã được biên dịch, kèm với các thư viện sử dụng trong quá trình lập trình, hợp lại thành một tập tin duy nhất để đem đi phân phối - bắn, tặng, sử dụng thử...
+
+	// Mã nguồn		// Biên dịch			// Đóng gói
+	- Java: *.java	-> 	*.class			-> 	*.apk, *.war, *.jar
+
+	- C/C++:
+		*.c	-> 	*.obj			-> 	*.exe (chứa hàm main() để chạy)
+		*.cpp	->	*.o			-> 	*.dll (thư viện để hỗ trợ cho .exe)
+
+	- C#: *.cs	-> 	*.obj, *.o		-> 	*.exe, *.dll
+
+	Ví dụ: 	if ()	->	 Biên dịch		->	Kết hợp thêm với các thư viện
+		for ()	  	 thành mã nhị phân		thành một tập tin duy nhất
+
+==========================================================================================
+
+[ĐỊNH NGHĨA QUY TRÌNH CI/CD]
+
+** CI/CD (Continuous Integration/Continuous Delivery): quá trình làm việc liên tục và tự động của phần mềm khi có bất kỳ ai đưa code lên Server, được tích hợp vào trong vòng đời phát triển của phần mềm (Software Development Life Cycle - SDLC). Áp dụng triệt để CI/CD sẽ tạo thuận lợi cho quá trình phát triển phần mềm theo hướng linh hoạt (Agile), vì khách hàng có thể nhanh chóng được tiếp cận, trải nghiệm vừa đưa ra những phản hồi về những sự thay đổi.
+	-> Tự động kiểm tra, biên dịch và đóng gói ứng dụng.
+
+Phù hợp khi làm trong dự án với nhiều team và nhiều thành viên: Jenkins, TeamCity, Azure DevOps.
+
+------------------------------------------------------------
+
+* CI (Continuous Integration): là kỹ thuật được áp dụng khi các thành viên trong nhóm liên tục (tần suất mỗi ngày hoặc mỗi giờ) hợp nhất (integrate / merge) công việc (mã nguồn) của họ vào kho lưu trữ chung.
+
+Trong lịch sử, tích hợp là một hoạt động kỹ thuật tốn kém. Vì vậy, để tránh sự cố, CI nhấn mạnh các công cụ tự động hóa nhằm thúc đẩy quá trình biên dịch và kiểm thử tự động. Mục tiêu chính là tìm và khắc phục lỗi nhanh hơn, cải thiện chất lượng phần mềm, giảm thời gian bỏ ra để thẩm định và phát hành các bản cập nhật mới.
+
+	-> Là quy trình đảm bảo chất lượng của code một khi code đã nằm trên Server.
+
+------------------------------------------------------------
+
+* CD (Continuous Delivery): là quá trình tự động đóng gói và triển khai những gì mà CI đã biên dịch và kiểm thử. Những thay đổi trong mã nguồn (dù là nhỏ nhất) đều sẽ được tự động đóng gói và kiểm thử. Áp dụng CD để biên dịch, cấu hình, đóng gói và điều phối việc triển khai của phần mềm theo cách một cách nào đó để nó có thể được phát hành bất cứ lúc nào với mức chi phí thấp và tính tự động hóa cao.
+
+--------------------------------------------------------------------------------
+
+** Ưu điểm:
+	- Hạn chế lỗi khi commit code lên vì CI/CD sẽ tự động kiểm tra đoạn code do ta vừa commit, nếu hợp lệ mới cho phép commit.
+	- Tự động chạy một bộ test nào đó để xem code vừa được commit có ảnh hưởng đến những tính năng khác.
+	- Tự động build ứng dụng.
+
+==========================================================================================
+
+[QUY TRÌNH CONTINUOUS INTEGRATION (CI)]
+
+* Server trung tâm (chung) chứa code: GitHub, GitLab, Bitbucket,...
+
+* Kiểm tra quy chuẩn viết code: SonarQube,...
+
+* Tự động biên dịch và đóng gói: Jenkins, GitHub Action, Bamboo, TeamCity, Jarvis,...
+
+--------------------------------------------------------------------------------
+
+Trong môi trường làm việc thực tế, hai lập trình viên cùng làm một dự án:
+
+Dev 1:
+	- Code trên máy local.
+	- Thực hiện Unit Test.
+				Đẩy code lên
+				------------>
+						Server trung tâm chứa code.
+
+						Muốn code lên Server phải ổn
+						thì phải gài thêm 1 số công cụ
+						để tự động kiểm tra code:
+							- Kiểm tra quy chuẩn viết code (coding convention)...
+							- Tự động chạy các Unit Test.
+
+						1. Ổn (xanh) -----> Đóng gói (.exe, .war)
+
+				Tự động đẩy code
+				<------------
+
+	Server khác (Staging Server)
+	là Server trung gian
+	để triển khai ứng dụng
+	trong môi trường thực tế.
+	Vì chứa ứng dụng đã được triển khai
+	nên đây cũng là nơi để QC kiểm thử.
+	(Server chứa hệ thống
+	 đã được đóng gói (.exe, .war))
+
+						2. Không ổn (đỏ): tự động gửi email cho dev để báo.
+
+
+Dev 2:
+	- Code trên máy local.
+	- Thực hiện Unit Test.
+				Đẩy code lên
+				------------>
+						...
+
+Mỗi khi code mới được đẩy lên trên Server, ngay lập tức, quá trình tự động hóa (quá trình kiểm tra code) của Server sẽ được thực thi nhằm phát hiện và xử lý sớm vấn đề nếu có.
+	-> Tích hợp liên tục (Continuous Integration - CI): quá trình code được tự động kiểm tra khi được đưa lên Server để đảm bảo chất lượng của code.
+
+==========================================================================================
+
+[QUY TRÌNH CONTINUOUS DELIVERY (CD)]
+
+Liên quan đến một Server để có thể triển khai ứng dụng lên Server này. Muốn đưa thông tin lên Server thì cần phải có thông tin tài khoản của Server này, nhưng những thông tin này lại không thể nào để bị lộ trong tập tin cấu hình .yml, nếu không sẽ dễ bị mất thông tin và có thể bị chiếm Server. Vì vậy, cần một biến để chứa các thông tin bí mật này, sau đó gán những biến này vào tập tin cấu hình thay vì gán trực tiếp giá trị.
+
+==========================================================================================
+
+[CÁCH CHƠI VỚI CI]
+
+** Cách 00: sử dụng sức người để build hệ thống và kiểm tra code.
+
+		* Build Server: một máy tính riêng, không sử dụng để lập trình nên sẽ không cài sẵn các IDE, mà chỉ cài đầy đủ các công cụ (git, JDK, Maven...) để có thể build ứng dụng và giúp tiết kiệm dung lượng bộ nhớ.
+	- Khi các thành viên trong nhóm đẩy code lên Server thì phải thông báo cho một ai đó, người này sẽ kéo hết code về máy và build hệ thống thủ công trên Build Server, sau đó chạy kiểm thử để ra được màu Xanh-Đỏ.
+		+ Nếu xanh: đóng gói hệ thống thành file .jar, .war,... và upload lên máy test để QC kiểm tra.
+		+ Nếu đỏ: gửi email thông báo.
+
+	-> Cần sức người cài đặt hệ thống và liên tục kiểm tra code.
+
+--------------------------------------------------------------------------------
+
+** Cách 01: sử dụng một Server riêng cho phép chứa code để build hệ thống và kiểm tra code.
+
+	- Server có cài ứng dụng để tự động kéo code từ các Server GitHub, GitLab, Bitbucket... về và tự động build ứng dụng.
+
+	- Để build được hệ thống (được viết bằng Java), Server cần có:
+
+		+ Các cộng cụ cần có thể biên dịch và đóng gói hệ thống:
+			JDK.
+			JUnit.
+			Công cụ Ant / Maven.
+
+		+ Công cụ quyết định khi nào hệ thống được biên dịch và đóng gói một cách tự động: Jenkins, Bamboo, TeamCity, Jarvis...
+
+	- GitHub và các công cụ tự động biên dịch và đóng gói có "đi đêm" với nhau, nên mỗi khi có ai đẩy code lên thì GitHub sẽ báo cho các công cụ này.
+
+	- Các công cụ tự động biên dịch và đóng gói (có liên kết với các công cụ quản lý mã nguồn) sẽ tự động kéo code về, sau đó gọi JDK, JUnit, Ant / Maven... và chạy test.
+		+ Nếu xanh: đóng gói hệ thống thành file .jar, .war... và đẩy lên một máy Server khác để QC kiểm tra.
+		+ Nếu đỏ: gửi email thông báo.
+
+	-> Con người cài đặt công cụ thủ công, sau đó cấu hình để máy Server tự động kiểm tra code mỗi lần code có thay đổi.
+
+--------------------------------------------------------------------------------
+
+** Cách 02: sử dụng nền tảng điện toán đám mây Microsoft Azure.
+
+	- Là một gói dịch vụ có sẵn, trên đây đã có toàn bộ công cụ cần thiết; chẳng hạn như SQL Server, Visual Studio, Jenkins...
+
+	- Chỉ cần trả tiền là sẽ có ngay một Server từ xa "ở bên Mỹ". Lúc này, ta chỉ việc khai báo và cấu hình (Azure DevOps).
+
+	-> Không cần cài đặt công cụ, chỉ cần khai báo và cấu hình để sử dụng.
+
+--------------------------------------------------------------------------------
+
+** Cách 03: sử dụng GitHub Actions.
+
+	- GitHub Actions đã chính thức hỗ trợ CI/CD vào tháng 11/2019.
+
+	- Khai báo và chỉ cho GitHub Actions tự động thực hiện (dành cho Java): JDK, JUnit, Ant / Maven, nơi lưu file .jar, .war, đẩy sang Server khác...
+
+	- Muốn sử dụng thì ta chỉ cần khai báo thứ ta cần trên GitHub Actions bằng một tập hợp các câu lệnh thuần chữ, theo một cú pháp đã được quy ước sẵn.
+
+		+ File cấu hình này được viết bằng một ngôn ngữ đánh dấu (markup language) là YAML (.yml). Đây là loại ngôn ngữ lightweight, sử dụng thẻ tên và thụt lề (giống Python).
+
+		+ Đây sẽ là nơi chứa các câu lệnh yêu cầu GitHub Actions phải thực hiện mỗi khi có sự thay đổi trong code.
+
+		+ Lưu những lệnh cấu hình này vào trong một tin .yml và được cất trực tiếp trong kho chứa code (đường dẫn: /.github/workflows).
+
+	- Sau này, mỗi khi có ai đó đẩy code lên thì tập tin .yml sẽ được đọc và thực thi theo những gì đã cấu hình - quy trình CI sẽ diễn ra.
+
+	-> Công cụ giúp cấu hình và để Server của GitHub tự động biên dịch và đóng gói ứng dụng.
+
+----------------------------------------
+
+	* Cú pháp YAML:
+
+		# Đặt tên chung cho công việc / tác vụ
+		name: Practice CI with GitHub Actions using Ant and JUnit | © 2069 by Nguyễn Hoàng Thuận
+
+		# Controls when the action will run.
+		# Triggers the workflow on push or pull request events but only for the main branch
+
+		# Danh sách các tác vụ cần phải làm
+
+		# Nếu có bất kì ai đẩy code lên hoặc cập nhật code vào nhánh main...
+		on:
+		  push:
+		    branches: [ main ] # Lấy code từ nhánh main nếu có ai push code lên
+		  pull_request:
+ 		   branches: [ main ] # Lấy code từ nhánh main nếu có ai gửi pull request
+
+		# ...thì thực hiện những công việc sau đây
+
+		# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+		# Những công việc dev làm thường ngày: lấy code, build, chạy test, đóng gói, gửi build...
+		jobs:
+		  # This workflow contains a single job called "build"
+		  # Biên dịch bằng những công cụ bên dưới
+		  build:
+		    # The type of runner that the job will run on
+		    # Mượn một Server chạy hệ điều hành Ubuntu "ở bên Mỹ" để thực hiện biên dịch
+		    runs-on: ubuntu-latest
+
+		    # Steps represent a sequence of tasks that will be executed as part of the job
+		    steps:
+		      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+		      # Lấy code từ nhánh main và thảy vào máy ảo của GitHub để chuẩn bị build ở bước sau
+		      - name: Check-out repository
+		        uses: actions/checkout@v2
+
+		      # Cấu hình JDK 1.8
+		      - name: Set up JDK 1.8
+		        uses: actions/setup-java@v1 # Khai báo cần dùng JDK để build
+		        with:
+		          java-version: 1.8 # Khai báo sử dụng phiên bản JDK 1.8 để build
+
+		      # Bắt đầu biên dịch và đóng gói dự án bằng Ant
+		      - name: Build project with Ant
+		        run: ant -noinput -buildfile build.xml # Thực thi câu lệnh Ant để đọc code, biên dịch thành tập tin .class và cất trong thư mục build, trong quá trình build sẽ cần đến file cấu hình build.xml, build-impl.xml; sau đó nén toàn bộ những tập tin .class (kèm JSP, HTML...) thành tập tin .jar / .war
+
+		      # Gửi file .jar / .war đi đâu, CD nhảy vào...
+		      - name: Distribute jar-war file
+		        run: mkdir staging && cp dist/*.jar staging # Tạo thư mục staging (bằng câu lệnh của Linux) và sao chép file .jar / .war sau khi build vào trong thư mục này
+
+		      # Tạo đường dẫn trỏ đến tập tin .jar / .war, cho phép tải bản build này để có thể đem đi nơi khác
+		      - name: Make hyperlink to jar-war file
+		        uses: actions/upload-artifact@v1
+		        with:
+		          name: 1.0-SNAPSHOT.jar # Bản build được đánh phiên bản 1.0-SNAPSHOT
+		          path: staging
+
+		      # Đem sang một Server khác, ví dụ: Heroku...
+
+		# End of CI workflow file
+------------------------------------------------------------
+
+Trên GitHub có Webhooks, là một cơ chế cho phép lắng nghe (subscriber / listener - hoạt động theo kiểu Web Service) để các công cụ độc lập trên web có thể tự động gọi nhau / giao tiếp với nhau thông qua API, khi trên GitHub có bất kỳ sự thay đổi nào thì nó sẽ gửi một thông điệp POST sang công cụ độc lập.
+
+	* Kích hoạt: kho chứa -> Settings -> Webhooks
+
+	Ví dụ: để các hệ thống tự động build (Jenkins, Bamboo, TeamCity, Jarvis...) có thể biết được những lần thay đổi mã nguồn trên những hệ thống quản lý mã nguồn (GitHub, GitLab, Bitbucket...).
+
+==========================================================================================
+
+[THỰC HIỆN QUY TRÌNH CI TRÊN MÁY CỤC BỘ BẰNG JAVA]
+
+Quy trình CI trên máy cục bộ có thể hiểu đơn giản là việc ngăn không cho ứng dụng được đóng gói (build) nếu như đang có một Test Case nào báo đỏ (do hàm xử lý sai hoặc do kỳ vọng sai).
+
+------------------------------------------------------------
+
+	[CÁ NHÂN HÓA QUÁ TRÌNH BIÊN DỊCH VÀ ĐÓNG GÓI ỨNG DỤNG]
+
+	Sau quá trình đóng gói, các tập tin .jar, .war, .exe, .apk... sẽ là những tập tin mà QC sử dụng để kiểm thử. Sau khi phần mềm được cài đặt lên trên máy tính của họ hoặc đã được host trên một Server nào đó, họ sẽ tương tác trên ứng dụng hoàn chỉnh chứ không tương tác trực tiếp trong code giống như trong Unit Test của lập trình viên. Trong một số trường hợp, kiểm thử viên có thể phải tự cài đặt phần mềm vì họ cần phải kiểm tra luôn cả quá trình cài đặt.
+
+	Mặc định, khi biên dịch (build: .class) và quá trình đói gói (dist: .war, .jar, .ear) ứng dụng, vì tiến trình viểt code và tiến trình đóng gói là hai tiến trình độc lập, nên dù code có bị lỗi thì vẫn có thể biên dịch và đóng gói thành công được. Không quan tâm code có được Unit Test hay không, nếu có thì cũng không quan tâm Unit Test đang xanh hay đỏ.
+		-> Chỉ tập trung vào biên dịch và đóng gói ứng dụng.
+
+	Khi Unit Test đang đỏ, tức là có vấn đề về code, thì lúc này lại không nên biên dịch và đóng gói ứng dụng. Vì vậy, cần phải cá nhân hoá lại quá trình bằng cách bắt tiến trình ra file .jar phải đi qua bộ test và khi test xanh thì mới đóng gói thành tập tin .jar.
+
+	Trong Java, chỉ quan tâm 2 thư mục src và test, vì khi đưa lên Server thì 2 thư mục này có thể tạo ra 2 thư mục build và dist bất cứ lúc nào.
+
+	Giống như những ứng dụng khác, IDE cũng phải có tập tin cấu hình để hướng dẫn nó cách hoạt động.
+		- Trong NetBeans, khi nhấn Shift + F11 (Clean and Build), thực chất thì NetBeans sẽ không làm gì mà sẽ gọi 2 thằng khác làm giùm (gọi JDK và Javac.exe).
+
+		- Khi đóng gói ứng dụng, Ant trong NetBeans sẽ đọc tập tin build.xml.
+
+			+ Ngoài thư mục gốc chứa code, build.xml là tập tin tổng quát, nội dung bên trong sẽ gọi đến tập tin build-impl.xml thông qua câu lệnh <import file="nbproject/build-impl.xml"/>.
+
+			+ Trong thư mục nbproject, tập tin build-impl.xml sẽ được triệu gọi bởi tập tin build.xml và cho để biết phải làm gì tiếp theo. Đây là nơi ghi lại chi tiết trình tự cần phải làm (khởi tạo, biên dịch, đóng gói, tạo thư mục, đưa tập tin vào thư mục, nén lại, kiểm thử...), đây cũng là nơi để chỉnh sửa với mục đích kết hợp thêm quy trình kiểm thử (CI) vào trong quy trình build <target depends="init,compile,test,...>.
+
+				build-impl.xml (Ant) ≈ pom.xml (Maven)
+
+			* Để tìm và chỉnh sửa tập tin build-impl.xml:
+				- NetBeans 8.2: dòng 1005.
+				- NetBeans 8.2 RC: dòng 1030.
+				- NetBeans > 10 RC: dòng 1204.
+
+				// Mẹo tìm	: <j2seproject1:jar...
+
+				// Gốc		: <target depends="init,compile,-pre-pre-jar...
+				// Thay đổi	: <target depends="init,compile,test,-pre-pre-jar...
+
+	-> Yêu câu kiểm thử sau khi biên dịch chương trình, thực hiện CI trên máy cục bộ.
+
+--------------------------------------------------------------------------------
+
+[THỰC HIỆN QUY TRÌNH CI TRÊN MÁY SERVER BẰNG GITHUB ACTIONS]
+
+Vì ta có sử dụng JUnit và tiện ích bổ sung Hamcrest, mà đây là những bộ thư viện riêng chứ không nằm sẵn trong Java (JDK) và đang chỉ nằm trên máy tính cục bộ, nên GitHub không có sẵn những thư viện này. Vì vậy, ta phải gói những thư viện này vào chung với "hành lý" để cùng "bay sang Mỹ".
+
+	* Các bước để đưa thư viện lên Server:
+
+		Bước 01. Trên NetBeans, xoá những thư viện trong Test Liblaries (nếu thư viện đang nằm trong đường dẫn mặc định: C:\Program Files\NetBeans-số-phiên-bản\netbeans\platform\modules\ext).
+
+		Bước 02. Vào lại đường dẫn mặc định chứa thư viện trên ổ đĩa C, sao chép các tập tin thư viện .jar và dán vào thư mục chứa code.
+
+		Bước 03. Trở lại NetBeans, thêm các thư viện đã xoá trước đó vào lại Test Libraries, tất nhiên đường dẫn lúc này sẽ là thư mục chứa code.
+
+		Bước 04. Đưa các thư viện lên GitHub bằng git add + commit + push.
+
+		Bước 05. Truy cập github.com, chuyển sang thẻ Actions.
+
+		Bước 06. Tạo một luồng CI tự động (theo cú pháp YAML ở bên trên) bằng cách chọn New workflow.
+
+------------------------------------------------------------
+
+Vì vậy, phải khai báo những công cụ mà ta có sử dụng thêm theo một cú pháp của GitHub Actions.
+
+==========================================================================================
+
+File cài đặt chỉ là file gói bên ngoài, bản chất bên trong cũng là file nén và nén các file .exe, .apk, .jar,... cùng các file ghi chú thông tin, chào mừng, điều khoản,... thành file setup.exe/setup.msi bằng cách sử dụng các phần mềm như InstallShield, Windows Installer,...
+
+==========================================================================================
+
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------
+
+----------------------------------------
+
+--------------------
+
+----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

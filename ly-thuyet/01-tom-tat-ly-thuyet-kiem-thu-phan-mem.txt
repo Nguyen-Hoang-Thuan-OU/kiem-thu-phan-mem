@@ -1,0 +1,906 @@
+﻿
+―――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+│	"It's not a bug, it's a feature"		│
+│	"Đó không phải là lỗi, đó là tính năng"		│
+―――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+==========================================================================================
+
+[TẠI SAO PHẢI KIỂM THỬ PHẦN MỀM?]
+
+	* Phần mềm / Ứng dụng (Application): hệ thống phức tạp, được cấu thành từ nhiều thành phần.
+
+Việc phát triển phần mềm đã rất dễ dàng nhờ vào sự hỗ trợ của các framework nhưng vẫn phải giữ được chất lượng của sản phẩm trước khi đến được tay của khách hàng, cũng như sớm phát hiện được những trường hợp sai, dư, thiếu so với mong muốn của khách hàng.
+	-> Giảm tối đa chi phí khi phát sinh khi sớm phát hiện và giải quyết được vấn đề.
+
+==========================================================================================
+
+[CÁC TIÊU CHUẨN CHẤT LƯỢNG PHẦN MỀM]
+
+Sản phẩm chất lượng là khi người dùng hài lòng và chấp nhận trả tiền, vì sản phẩm đã hoạt động theo đúng những gì đã thiết kế, không thua kém hoặc thậm chí là vượt trội hơn so với những sản phẩm khác.
+	-> Chất lượng phụ thuộc vào vào cách mà sản phẩm hoạt động.
+
+Một ứng dụng chất lượng phải đáp ứng các yêu cầu sau:
+	- Phải hoạt động mà không gặp sự cố hoặc phát sinh lỗi.
+	- Phải ổn định.
+	- Tất cả các chức năng đều phải hoạt động.
+	- Phải thực hiện tất cả các tính toán cần thiết.
+	- Phải hiển thị dữ liệu chính xác.
+	- Tất cả người dùng phải được phân quyền phù hợp.
+
+Tuỳ thuộc vào ta muốn đánh giá chất lượng sản phẩm theo tiêu chí nào thì sẽ có những kỹ thuật kiểm thử đi kèm.
+	-> Từng tiêu chuẩn sẽ ứng với từng cách thức/giải pháp kiểm thử.
+
+------------------------------------------------------------------------
+
+** Đánh giá thông qua các thuộc tính/tiêu chuẩn chất lượng phần mềm phổ biến:
+
+	* Tính chính xác (Correctness): mức độ đúng và đủ (không được sai, thừa hay thiếu) với mong muốn của khách hàng dựa theo đặc tả yêu cầu, đáp ứng được các nghiệp vụ thực tế.
+
+------------------------------------------------
+
+	* Tính tin cậy (Reliability): hoạt động ổn định trong khoảng thời gian cho phép, tính riêng tư của người dùng được đảm bảo.
+		Ví dụ 1: thời gian phản hồi của hệ thống sau khi nhất nút là dưới 1 giây.
+		Ví dụ 2: số tài khoản ngân hàng, mật khẩu được lưu xuống CSDL phải được băm, mã hoá.
+
+------------------------------------------------
+
+	* Tính khả dụng (Usabiliy): không được mất quá nhiều thời gian, công sức (effort) và không phải nhớ quá nhiều thao tác.
+
+------------------------------------------------
+
+	* Tính toàn vẹn (Integrity): hệ thống chịu được các cuộc tốn công do cố ý hoặc vô tình. Cần kiểm tra lại cách truy vấn CSDL có lãng phí, chiếm dụng tài nguyên. Kiểm tra hạ tầng của hệ thống. Lường trước các trường hợp mà người dùng không sử dụng đúng với mô tả trên giao diện.
+
+------------------------------------------------
+
+	* Tính khả chuyển (Portability): có thể dễ dàng thay đổi hệ quản trị CSDL, hệ điều hành, Cloud Server trong quá trình vận hành.
+
+------------------------------------------------
+
+	* Tính bảo trì (Maintainability): việc phát hiện, giải quyết vấn đề, bảo trì được dễ dàng, hiệu quả và không tốn nhiều thời gian.
+
+------------------------------------------------
+
+	* Tính tương tác (Interoperability): các thành phần bên trong hệ thống có thể dễ dàng tương tác với nhau. Tính ra được mức độ cần thiết để liên kết với một hệ thống khác (API,...).
+
+------------------------------------------------------------------------
+
+Tham khảo thêm: các tiêu chuẩn về chất lượng phần mềm
+	- https://www.monterail.com/blog/software-qa-standards-iso-25010
+	- https://iso25000.com/index.php/en/iso-25000-standards/iso-25010
+	- https://www.perforce.com/blog/qac/what-is-iso-25010
+
+==========================================================================================
+
+[CHI TIẾT VỀ KIỂM THỬ PHỀN MỀM]
+
+	[ĐỊNH NGHĨA CÁC THUẬT NGỮ VỀ LỖI]
+
+	 --------------------------------------------------------------------------------
+	| We can say that a MISTAKE made by humans during coding is called ERROR,	 |
+	| an ERROR found during the testing phase is called DEFECT,			 |
+	| a DEFECT to be resolved by development team is called a BUG			 |
+	| and when a build does not meet its specifications then it is termed as FAILURE |
+	|--------------------------------------------------------------------------------|
+	|	A MISTAKE in coding is called ERROR,					 |
+	|	ERROR found by tester is called DEFECT,					 |
+	|	DEFECT accepted by development team then it is called BUG,		 |
+	|	build does not meet the requirements then it Is FAILURE			 |
+	|--------------------------------------------------------------------------------|
+	| LỖI LẦM của lập trình viên trong quá trình làm phần mềm được gọi là VẤN ĐỀ,	 |
+	| VẤN ĐỀ được kiểm thử viên phát hiên được gọi là KHIẾM KHUYẾT,			 |
+	| KHIẾM KHUYẾT đã được phát hiện và thừa nhận được gọi là LỖI,			 |
+	| phần mềm không đúng với đặc tả và mong đợi của khách hàng được gọi là THẤT BẠI |
+	 --------------------------------------------------------------------------------
+
+	-> Hình thái của lỗi rất đa dạng, có thể xảy ra ở bất kỳ công đoạn nào (phân tích, thiết kế, hiện thực...).
+
+------------------------------------------------
+
+	** Trong quá trình phát triển phần mềm, tùy theo từng giai đoạn và ngữ cảnh khi lỗi xuất hiện mà nó sẽ mang một cái tên khác nhau:
+
+		* Mistake (lỗi lầm): một "mistake" được gây ra bởi sự bất cẩn lập trình viên trong quá trình làm phần mềm thì được gọi là "error", nhưng có thể chưa ai đó phát hiện ra.
+
+------------------------------------
+
+		* Error (vấn đề): một "error" được ai đó (một người khác) phát hiện ra được thì gọi là "defect", nhưng lúc này chưa thể khẳng định đây có đúng là vấn đề.
+
+------------------------------------
+
+		* Defect (khiếm khuyết): sau khi hai bên trao đổi, "defect" được lập trình viên thừa nhận đúng là do họ gây ra và cần được khắc phục thì được gọi là "bug".
+
+------------------------------------
+
+		* Fault (sai sót): những sai sót do dư, thiếu hoặc không đúng các yêu cầu phần mềm cần thực hiện (requirement/specification), bản build không khớp với yêu cầu, làm sai với mong muốn của người dùng.
+			-> Error và Fault gọi chung là bug.
+
+------------------------------------
+
+		* Bug (lỗi): những vấn đề/sai sót xuất hiện trong phần mềm đã được thừa nhận, khiến cho phần mềm hoạt động không được như yêu cầu mong đợi của khách hàng.
+
+------------------------------------
+
+		* Failure (thất bại/hỏng): xảy ra khi các "fault" được thực thi, hoặc làm đúng và không tìm thấy được lỗi trong quá trình xử lý, nhưng hệ thống lại hoạt động không đúng với yêu cầu và mong đợi, khiến người dùng không chấp nhận sử dụng cũng thì được gọi là "failure".
+			-> Nếu bug được fix thì Failure cũng sẽ không còn nữa.
+
+------------------------------------
+
+		* Incident (biến cố): là những trường hợp mà khi kiểm thử phần mềm có những thực thi đáng nghi ngờ (chưa xác định được có lỗi hay không), nguyên nhân của nó có thể là do cấu hình môi trường kiểm thử không đúng, dữ liệu dùng kiểm thử sai hoặc do lỗi của kiểm thử viên,... nhưng không được mô tả trong đặc tả yêu cầu. Trong môi trường kiểm thử, nếu xảy ra biến thì thì cũng nên xem xét, phân tích để cải thiện quy trình kiểm thử.
+
+			- Incident được xem là lỗi (defect hoặc bug) khi nguyên nhân của vấn đề thuộc chính thành phần/mô-đun đang kiểm thử.
+		Ví dụ: khi tích hợp các hệ thống lại với nhau, nếu hoạt động riêng lẻ sẽ không phát sinh lỗi nhưng khi tích hợp lại khiến vận hành không đúng với đặc tả yêu cầu, ta xác định đây là một biến cố và chỉ xảy ra trong môi trường kiểm thử.
+
+			- Incident không được xem là lỗi khi đó chỉ là lỗi của quá trình/môi trường kiểm thử, ví dụ: mạng có vấn đề trong lúc kiểm thử, cấu hình môi trường kiểm thử chưa đúng, dữ liệu kiểm thử bị sai,...
+
+			-> Xảy ra khi kết quả mong muốn khác với kết quả thực tế trong quá trình kiểm thử.
+
+------------------------------------------------
+
+
+=> Bug: sai sót đã xảy ra, khiến phần mềm hoạt động trong thực tế (actual) không được như mong đợi (expected), gây nên những bất ổn trong ứng dụng và lập trinh viên phải tìm cách để sửa nó.
+	-> Kiểm thử phần mềm: tìm bug.
+
+------------------------------------------------
+
+	[PHÂN LOẠI LỖI PHẦN MỀM & NGUYÊN NHÂN GÂY RA LỖI]
+
+		1. Sai sót (Wrong): hiểu không đúng yêu cầu, dẫn đến khi lập trình sẽ không theo những gì đã thiết kế. Hoặc hiểu đúng yêu cầu nhưng trong quá trình thực hiện thì lại sai (đọc nhầm, lỗi đánh máy, ghi sai tên biến...), dẫn đến tính năng hoạt động sai.
+
+		2. Thiếu sót (Missing): bỏ sót một tính năng nào đó mà người dùng yêu cầu, có thể do chú thích bị thiếu trong quá trình thu thập yêu cầu từ phía khách hàng.
+
+		3. Thừa (Extra): cố tình đưa vào trong sản phẩm một tính năng nào đó mà khách hàng không yêu cầu. Có thể người dùng sẽ mong muốn, nhưng nếu khách hàng không yêu cầu thì cũng đừng nên đưa vào.
+
+			-> Sai, thiếu hoặc thừa so với yêu cầu của khách hàng thì đều được gọi là lỗi.
+
+------------------------------------------------------------------------
+
+	[GIAI THOẠI VỀ CON BƯỚM ĐÊM LÀM RẦU MÁY TÍNH |
+	 ANECDOTES ABOUT A MOTH IN THE COMPUTER / FLY IN THE OINTMENT]
+		-> Khiếm khuyết/lỗi gây khó chịu hoặc làm hỏng một thứ gì đó.
+
+			(* Giai thoại - Anecdote: là một truyện ngắn và hấp dẫn/thú vị về một sự việc,
+						  địa điểm hoặc nhân vật có thật.
+						  Tuy được dựa trên một việc, địa điểm hoặc người có thật,
+						  nhưng vì được truyền tải qua nhiều bước (truyền miệng, viết lại),
+						  nên giai thoại có thể trở thành "hơi phi lý".)
+
+		* Harvard Mark I (Automatic Sequence Controlled Calculator - Máy tính kiểm soát bắn Mark I): máy tính cơ điện đầu tiên ở Hoa Kỳ, một trong những máy tính đầu tiên được ứng dụng vào quân sự trong giai đoạn cuối của Chiến tranh thế giới thứ hai, có nhiệm vụ giúp các nhà khoa học của Dự án Manhattan mô phỏng tác động của một quả bom nguyên tử.
+
+		* Harvard Mark II (Aiken Relay Calculator): là một máy tính cơ điện (rơ-le), vẫn được chế tạo dưới sự chỉ đạo của Howard Aiken và có sự cải tiến so với Mark I mặc dù nó vẫn dựa trên rơ-le điện cơ.
+
+		* ENIAC (Electronic Numerical Integrator and Computer - Máy tích hợp điện tử và máy tính): là máy tính điện tử đầu tiên trên thế giới có thể lập trình. Nó "Turing-complete" và có thể được sử dụng để giải quyết "một lớp lớn các bài toán số" bằng cách lập trình lại (reprogramming).
+
+		* UNIVAC I (Universal Automatic Computer I - Máy tính tự động đa năng I): là máy tính kỹ thuật số điện tử phục vụ cho thương mại đầu tiên trên thế giới, được sản xuất tại Hoa Kỳ, tiếp nối thành công của ENIAC.
+
+		* A-0 System (Arithmetic Language version 0): là một công cụ liên quan đến trình biên dịch được phát triển cho máy tính UNIVAC I của Tập đoàn Máy tính Eckert-Mauchly (Eckert–Mauchly Computer Corporation).
+
+		* B-0 (Business Language version 0 / FLOW-MATIC): là ngôn ngữ xử lý dữ liệu điện tử (data processing language) / ngôn ngữ lập trình (programming language) bằng tiếng Anh đầu tiên được phát triển cho máy tính UNIVAC I của Tập đoàn Máy tính Eckert-Mauchly (Eckert–Mauchly Computer Corporation). Là ngôn ngữ lập trình áp dụng lý thuyết về "ngôn ngữ lập trình độc lập với máy" ("machine-independent programming languages"), sau đó đã được mở rộng để tạo ra COBOL.
+
+		* COBOL (Common Business-oriented Language): là một ngôn ngữ lập trình cấp cao ra đời sớm, mục đích là hướng đến thương mại, tài chính và các hệ quản lý của các công ty và chính phủ. Được thiết kế vào năm 1959 bởi hiệp hội CODASYL (Conference/Committee on Data Systems Languages - Hội nghị / Ủy ban về Ngôn ngữ Hệ thống Dữ liệu) và có dựa theo một phần của ngôn ngữ lập trình FLOW-MATIC.
+
+	Grace Hopper là một nhà khoa học máy tính, nhà toán học người Mỹ. Bà là người tiên phong trong lĩnh vực lập trình máy tính, là một trong những lập trình viên đầu tiên của máy tính Harvard Mark I, người đã phát minh ra một trong những trình liên kết (linker / link editor) đầu tiên và cũng là người đầu tiên đưa ra lý thuyết về ngôn ngữ lập trình độc lập với máy.
+
+	 Sau vụ đánh bom Trân Châu Cảng (Chiến dịch Hawaii và Chiến dịch AI của Hawaii / Chiến dịch Z) và việc Hoa Kỳ bước vào Chiến tranh thế giới thứ hai, năm 1943, Grace Hopper gia nhập lực lượng Hải quân Trừ bị Hoa Kỳ (không phải chính thức) và bắt đầu sự nghiệp máy tính của mình năm 1944 khi làm việc trong ban lập trình máy tính Harvard Mark I.
+
+	Đến năm 1949, sau khi kết thúc nhiệm kỳ ba năm làm nghiên cứu viên (1946 - 1949), bà trở thành nhân viên của Tập đoàn Máy tính Eckert-Mauchly (Eckert–Mauchly Computer Corporation) với tư cách là nhà toán học cao cấp và tham gia vào nhóm phát triển máy tính UNIVAC I. Tại Eckert–Mauchly, bà đã quản lý việc phát triển một trong những trình biên dịch đầu tiên, giúp chuyển đổi những thuật ngữ tiếng Anh (thứ con người hiểu) thành mã máy (thứ máy tính có thể hiểu được). Vào năm 1952, bà đã hoàn thành trình liên kết chương trình (linker / link editor) của mình (ban đầu được gọi là trình biên dịch - compiler), được viết cho Hệ thống A-0.
+
+	Năm 1954, Eckert–Mauchly đã đưa bà lên làm lãnh đạo cho bộ phận lập trình tự động của họ. Tại đây, bà đã dẫn đầu việc phát hành một số ngôn ngữ biên dịch đầu tiên là FLOW-MATIC (B-0). Năm 1959, bà tham gia vào tập đoàn CODASYL, công ty đã nhờ bà hướng dẫn cho họ để có thể tạo ra một ngôn ngữ lập trình không phụ thuộc vào máy móc. Điều này dẫn đến sự hình thành của ngôn ngữ COBOL.
+
+------------------------------------------------
+
+	* Tham khảo thêm: https://president.yale.edu/biography-grace-murray-hopper
+
+------------------------------------------------
+
+	Năm 1946, khi Grace Hopper được giải ngũ, bà vẫn tiếp tục công việc của mình trên máy tính Harvard Mark II tại Đại học Harvard ở thành phố Cambridge, Đông Bắc bang Massachusetts.
+
+	Vào ngày 9 tháng 9 năm 1947, sau khi phát hiện ra rằng máy tính của mình đang mắc lỗi nhất quán (consistent errors), các cộng sự của bà đã mở phần cứng của máy tính ra và (có thể là kỹ sư Bill Burke) phát hiện một con bướm đêm / ngài (moth) bị mắc kẹt trong một rơ-le và làm hỏng các linh kiện điện tử, gây cản trở hoạt động của máy tính. Tuy vậy, bà đã không có mặt khi con bướm đêm được tìm thấy và cũng không trực tiếp đặt con bướm đêm vào nhật kí, nhưng nó đã trở thành một trong những câu chuyện yêu thích của bà.
+
+	Sau khi được lấy ra, con bướm đêm được dán vào một tờ nhật ký cho ngày hôm đó với một lời chú giải: "Lần đầu tiên tìm thấy một trường hợp thực tế về lỗi" ("First actual case of bug being found"). Từ đây, bà và các cộng sự của mình đã sử dụng từ "lỗi" để mô tả các vấn đề phức tạp hóa trong việc nhập dữ liệu và ghi, tải và xử lý các chương trình trên máy tính Mark I và II.
+
+	Mặc dù cả bà và nhóm nghiên cứu không đề cập đến chính xác cụm từ "gỡ lỗi" ("debugging") trong các nhật ký của họ, nhưng vụ việc lại được xem một ví dụ lịch sử về việc "gỡ lỗi" cho một chiếc máy tính và bà được ghi nhận là người phổ biến thuật ngữ này trong lĩnh vực máy tính. Trong nhiều thập kỷ trước đó, thuật ngữ "lỗi" ("bug") đã được sử dụng để chỉ những sự cố trong một số lĩnh vực trước khi được áp dụng cho máy tính.
+
+	Thomas Edison lần đầu tiên sử dụng thuật ngữ này trong sổ tay ghi chú của ông vào năm 1876. Đến năm 1878, ông cũng tiếp tục sử dụng thuật ngữ này để mô tả các vấn đề kỹ thuật cần được sửa chữa hoặc những khó khăn cần được giải quyết trong các thiết kế của mình. Điều này cho thấy, thuật ngữ về "lỗi" ("bugs") không phải là mới.
+
+	Trước cả Thomas Edison, nhà toán học và nhà văn người Anh, Ada Lovelace, đã tìm thấy một lỗi nghiêm trọng trong chương trình của Charles Babbage - Động cơ Phân tích (Analytical Engine).
+
+	Nhưng ở thời điểm đó, lỗi do nhóm của Grace Hopper phát hiện được xem là lỗi đầu tiên được xác định trên máy tính.
+
+	Trang nhật kí của nhóm cùng con bướm đêm / ngài (moth) "khét tiếng" này hiện đang được trưng bày tại Bảo tàng Lịch sử Hoa Kỳ Quốc gia (National Museum of American History) của Viện Smithsonian (Smithsonian Institution) ở Đặc khu Columbia (Washington, D.C.).
+
+------------------------------------------------
+
+	* Tham khảo thêm: http://www.todayifoundout.com/index.php/2021/07/why-do-we-call-a-software-glitch-a-bug/
+
+------------------------------------------------------------------------
+
+	[ĐỊNH NGHĨA VỀ KIỂM THỬ PHẦN MỀM]
+
+	Trong quy trình phát triển phần mềm theo hướng truyền thống, viết code chỉ là một phần trong quá trình làm phần mềm. Trước công đoạn viết code là công đoạn thu thập, phân tích và thiết kế. Sau công đoạn viết code là kiểm thử, triển khai và bảo trì.
+		-> Quy trình phát triển phần mềm gồm rất nhiều công đoạn và kiểm thử là một phần trong đó.
+
+	Không đơn giản chỉ là kiểm thử trên một phần mềm đã được viết (hoàn chỉnh) và biên dịch sang tập tin nhị phân (hay phần mềm đã được triển khai lên Server) để tìm lỗi trong quá trình vận hành.
+
+		- Kiểm thử phần mềm là một quá trình (process) liên quan đến việc so sánh/đánh giá/đo lường/kiểm tra (comparing/evaluating/measure/check) giữa kết quả thực tế (actual - what is) với kết quả mong đợi (expected - what ought to be) bằng cách đưa ra được những "phản ví dụ" (counter-examples - tình huống khiến phần mềm xảy ra lỗi) để tìm lỗi (defect testing) và đảm bảo (verify/check) rằng phần mềm hoạt động đúng với dự kiến/mục tiêu/đặc tả yêu cầu (specification/requirement).
+			-> Kiểm thử chức năng (functional testing): tính năng của ứng dụng.
+
+			+ Kết quả mong đợi (Expected Result / Expected Output): kết quả mong muốn nhận được, dựa theo những gì đã được mô tả trong đặc tả.
+
+			+ Kết quả thực tế (Actual Result / Actual Output): kết quả thực tế sẽ nhận được, dựa theo những gì mà hệ thống phản hồi khi thực hiện theo đúng mô tả trong Test Case.
+	
+			+ Trạng thái / Kết quả kiểm thử (Status / Test Result): PASSED hoặc FAILED.
+
+		- Bên cạnh đó, ta còn so sánh để kiểm tra về chất lượng hệ thống (attribute/quality) - trải nghiệm, giúp làm tăng độ hài lòng của người dùng khi sử dụng hệ thống (validation testing). Vì việc đo lường cho loại kiểm thử này sẽ rất khó, nên sẽ có những thông số để đánh giá chất lượng về mặt trải nghiệm.
+			-> Kiểm thử phi chức năng (non-functional testing): trải nghiệm của ứng dụng.
+
+		- Ngoài việc chỉ kiểm thử khi "mắt thấy, tai nghe, tay sờ" được vào phần mềm, cũng nên kiểm thử trong tất cả các giai đoạn của quy trình phát triển phần mềm, kể cả khi chưa có bất kì dòng code nào (kiểm thử các tài liệu thiết kế), để giúp cho tiến trình làm phần mềm được đảm bảo và chất lượng của phần mềm được tăng cao.
+
+		-> So sánh (compare) giữa kết quả mong đợi (expected) với kết quả thực tế (actual) để tìm lỗi, đảm bản sản phần hoạt động đúng theo đặc tả và làm hài lòng người dùng.
+
+	=> Kiểm thử phần mềm là quá trình so sánh kết quả (yêu cầu, thiết kế, tính năng...) để tìm lỗi của tính năng (functional requirement) và đo lường chất lượng của phần mềm về mặt trải nghiệm (non-functional requirement).
+
+
+		Ví dụ 1: chức năng của phần mềm bất kì
+			- Mong đợi (expected - what ought to be): yêu cầu có 6 chức năng.
+			- Thực tế (actual - what is): khách hàng yêu cầu có 9 chức năng.
+				-> Lỗi phân tích yêu cầu.
+
+		Ví dụ 2: phần mềm quản lý học tập
+			- Mong đợi (expected - what ought to be): sinh viên được xem điểm, phòng quản lý đào đạo có quyền can thiệp điểm.
+			- Thực tế (actual - what is): cả sinh viên và phòng quản lý đào đạo có quyền can thiệp điểm.
+				-> Lỗi không thoả mãn thiết kế.
+
+		Ví dụ 3: phần mềm tính tiền
+			- Mong đợi (expected - what ought to be): mua 3 phần đồ ăn/thức uống thì tổng tiền phải là 100k.
+			- Thực tế (actual - what is): 3 phần đồ ăn/thức uống thì tổng tiền không phải là 100k.
+				-> Lỗi tính toán xử, lý không đúng.
+
+------------------------------------------------------------------------
+
+	[CÁC THUẬT NGỮ KHÁC]
+
+	* Stub/Mock: khi tính năng của đội ngũ này phụ thuộc vào đội ngũ kia, các đối tượng giả/mẫu code được sử dụng để mô phỏng lại hoạt động và giúp nghiệp vụ vẫn được vận hành một cách tạm thời dù đang thiếu thành phần.
+		-> Mô phỏng lại một mô-đun đang bị thiếu.
+
+		Ví dụ 1: đội ngũ làm API chưa giao sản phẩm thì đội ngũ Front-End chỉ cần xác định được đầu vào, cấu trúc đầu ra và giả lập lại.
+
+		Ví dụ 2: chức năng thanh toán đơn hàng đang thiếu thanh toán trực tuyến, ta viết stub để giả lập cho thành phần đó.
+
+------------------------------------------------
+
+	* Driver: một mẫu code giúp khởi tạo và truyền dữ liệu kiểm thử (Test Data) cần thiết đến mẫu code khác (mô-đun cần kiểm thử) để thực thi kiểm thử, nhận và in ra kết quả.
+		-> Nơi để gọi chức năng cần kiểm thử và truyền Test Data vào cho nó.
+
+		Ví dụ 1: chuẩn bị 1 bộ dữ liệu kiểm thử với 4 dòng dữ liệu khác nhau tương ứng với 4 tình huống sử dụng cho 1 chức năng, sau đó viết một mẫu code để tự động lấy từng dòng dữ liệu trong bộ dữ liệu kiểm thử và kiểm tra kết quả thực thi trả về.
+
+		Ví dụ 2: chỉ có code back-end, sử dụng công cụ Postman để gọi thay vì phải viết một số đoạn code giả để gọi.
+
+==========================================================================================
+
+[NHẬN DIỆN CÁC HÌNH THÁI / HÌNH DẠNG CỦA LỖI PHẦN MỀM]
+
+Lỗi phần mềm rất đa dạng khi có thể xuất hiện dưới nhiều hình thức khác nhau, từ lỗi chức năng (functional) cho đến lỗi trải nghiệm sử dụng (non-functional):
+
+	- Mặc dù tính năng mà người dùng cần để thực hiện công việc vẫn hoạt động đúng, thông tin đã được xử lý rất tốt, nhưng giao diện/hiển thị lại không thân thiện và trải nghiệm người dùng lại không đạt yêu cầu.
+		-> Lỗi, nhưng không nghiêm trọng và độ ưu tiên để sửa sẽ thấp.
+
+	- Hiển thị luôn những "câu chuyện hậu trường" (những dòng code) ra giao diện cho người dùng.
+		-> Lỗi, nhưng không nghiêm trọng và độ ưu tiên để sửa sẽ thấp.
+
+	- Sai chính tả, sai dấu câu....
+		-> Lỗi, nhưng không nghiêm trọng và độ ưu tiên để sửa sẽ thấp.
+
+	- Cấu hình phần cứng và hạ tầng có vấn đề, gây ảnh hưởng đến quá trình vận hành hệ thống Server (mã lỗi 5xx).
+		-> Lỗi.
+
+==========================================================================================
+
+[ĐỐI TƯỢNG THAM GIA VÀO QUÁ TRÌNH KIỂM THỬ PHẦN MỀM]
+
+Theo suy nghĩ thông thường thì người kiểm thử phải là một người khác (độc lập với người làm ra phần mềm) để đảm bảo tính khách quan và phải có một phần mềm hoàn chỉnh thì mới có thể tiến hành kiểm thử được.
+
+Vì làm phần mềm sẽ có nhiều công đoạn khác nhau, nên để đảm bảo chất lượng phần mềm và giảm chi phí khi phát sinh lỗi, thì quá trình kiểm thử phải bắt đầu càng sớm càng tốt và phải có sự phối hợp của tất cả các thành viên trong đội ngũ.
+
+Tùy theo cơ cấu tổ chức của từng công ty mà tên gọi có thể khác nhau, nhưng chức năng thì vẫn giống nhau.
+
+	Ví dụ:
+		- Tuy là lập trình viên nhưng sẽ có nơi gọi là Developer, nhưng cũng có nơi gọi là Consultant.
+		- Một số công ty thì vị trí QA và QC là một.
+
+------------------------------------------------
+
+* Lập trình viên (Developer): tuyệt đối không được chủ quan và ỷ lại vào đội ngũ kiểm thử, phải viết code với tinh thần trách nhiệm cao nhất và phải tự kiểm tra code (từng hàm, lớp) của mình, để những đơn vị code (hàm, lớp) được viết ra phải đều đảm bảo về chất lượng.
+	-> Unit Test: kiểm thử từng đơn vị code do chính mình viết ra.
+
+------------------------------------
+
+* Kiểm thử viên (Tester): đội ngũ (độc lập) chuyên tìm lỗi của lập trình viên trong quá trình phát triển phần mềm, kiểm tra trên tổng thể ứng dụng bằng cách so sánh kết quả thực thế (actual) với kết quả mong đợi (expected). Sau đó, họ sẽ ghi nhận những lỗi gặp phải vào nơi chuyên lưu trữ lỗi (bug database), đây cũng được xem là công cụ để đánh giá năng lực làm việc, giúp đảm bảo sản phẩm đủ chất lượng trước khi phát hành. Dựa vào đặc tả yêu cầu phần mềm (SRS), việc thực thi quá trình kiểm thử ứng dụng có thể được tiến hành theo cách thủ công (manual) hoặc tự động (automation).
+
+	Kiểm tra trên tổng thể về:
+		- Functional Requirements: các hàm, màn hình, nút nhấn...
+		- Non-Functional Requirements: ràng buộc, trải nghiệm khi sử dụng...
+
+	-> Thiết kế và thực thi quá trình kiểm thử (thủ công và tự động) để đảm bảo chất lượng phần mềm.
+
+		* Công việc có thể có của một kiểm thử viên:
+
+			- Tìm và báo cáo lỗi.
+				-> Điều hiển nhiên, nhưng chỉ là một phần nhỏ.
+
+			- Xác định "điểm yếu" (về kiến trúc, trình độ của lập trình viên,...) của trương trình.
+
+			- Xác định những khu vực (mô-đun, thành phần) có nguy cơ rủi ro cao và thiếu ổn định trong dự án.
+
+			- Giải thích những lỗi phát hiện được và đưa ra phương hướng giải quyết vấn đề:
+				+ Giúp lập trình viên giải quyết về mặt kỹ thuật bằng cách đưa ra những gợi ý dựa theo yêu cầu của khách hàng.
+
+				+ Giúp đưa ra cho người chuyên giao tiếp với khách hàng (customer service) những hướng dẫn và hướng giải quyết lỗi trên một phần mềm đã phát hành nhưng vẫn còn lỗi (mà khách hàng vẫn hài lòng với sản phẩm còn lỗi).
+
+				+ Giúp người quản lý (project manager) đưa ra những quyết định về mặt nghiệp vụ, chiến lược kinh doanh để có thể sản phẩm tồn tại được trên thị trường.
+
+------------------------------------
+
+* Sếp/Quản lý (Test Manager/Lead/Architect): sếp của kiểm thử viên, xuất thân của họ có thể là từ Tester, Dev hoặc BA. Họ sẽ là người hoạch định/lên kế hoạch/chiến lược (plan/strategy) kiểm thử; bố trí thời gian, nhân lực và vật lực (Server, trang thiết bị...).
+
+------------------------------------
+
+* Người dùng (End-User): người dùng cuối (nhóm người thật sự có nhu cầu sử dụng phần mềm) sẽ tham gia sử dụng thử hệ thống, mục đích là để xác nhận rằng hệ thống có thể dùng được và có phù hợp với nhu cầu của họ hay không. Đây được xem là bước quan trọng nhất, vì ứng dụng được viết nên dựa theo yêu cầu của người dùng, nên nếu họ không chấp nhận nó thì sản phẩm xem như thất bại (failure).
+	-> User Acceptance Testing (UAT): việc để người dùng tham gia vào công đoạn kiểm thử là quan trọng nhất vì hệ thống được làm ra để người dùng sử dụng, nếu họ không hài lòng với ứng dụng thì xem như sản phẩm đã thất bại.
+
+	Ví dụ 1: mạng xã hội Google+ vẫn sử dụng tốt, ít lỗi nhưng vẫn không phù hợp với nhu cầu và thói quen sử dụng của người dùng vì đã có FaceBook, Twitter,...
+
+	Ví dụ 2: cổng thông tin lớn nhất Việt Nam TimNhanh.com (Tìm Nhanh) do Cty Cổ phần VON (Vietnam Online Network) sáng lập với mục đích trở thành công cụ tìm kiếm
+
+------------------------------------------------
+
+* Lưu ý: trong các mô hình phát triển phần mềm Agile/Scrum, đôi khi nhiệm vụ/công việc của các chức danh có phần giao nhau (Cross-functional team) - đa năng.
+
+	Ví dụ: tuy có công việc chính, nhưng không ai cấm làm đan xen
+		- Một người tuy đang làm BA nhưng vẫn có thể yêu cầu phải có tư duy về kiểm thử, để có thể viết ra những đặc tả mà người khác có thể kiểm thử được.
+		- Một lập trình viên cũng yêu cầu phải có tư duy kiểm thử để có thể viết ra được những dòng code chất lượng.
+
+------------------------------------------------------------------------
+
+[PHÂN BIỆT CÁC THUẬT NGỮ QA VS. QC VS TESTING]
+
+		* Sáu Sigma (Six Sigma / 6 Sigma / 6σ): là tập hợp các kỹ thuật, chiến lược và công cụ để cải tiến quy trình. Mục đích là để nâng cao chất lượng của quá trình cho ra thành phẩm bằng cách nhận diện và loại bỏ những nguyên nhân gây lỗi, khiếm khuyết và giảm thiểu tối đa độ bất định trong sản xuất và hoạt động kinh doanh.
+
+Khu vực ảnh hưởng: QA > QC > Test (QC là một phần của QA và việc test là một phần nhỏ của QC)
+
+	- Quality Assurance - QA (Đảm bảo chất lượng): bắt đầu trước và trong suốt quá trình tiến hành dự án để cho ra sản phẩm. Tập trung vào ngăn ngừa, đảm bảo rằng tất cả các phòng ban trong công ty phải tuân thủ theo các quy tắc/quy dịnh và có làm theo đúng thao tác/quy trình (do chính ban lãnh đạo của nơi đó tự quy định ra), chẳng hạn như: có họp hằng ngày/hằng tháng chưa, có viết biên bản cuộc họp chưa, có xem lại kết quả và đánh giá chất lượng chưa, có chia sẻ kinh nghiệm cá nhân với nhau không, không gian làm việc có thoải mái, chất lượng đồ ăn có được đảm bảo đủ dinh dưỡng... mà không quan tâm chi tiết cách làm, chỉ quan tâm đã làm hay chưa. Đôi khi QA còn có thể phải lên kế hoạch cho tương lai để đảm bảo chất lượng. Ở một số công ty, có thể có vị trí QA để đảm bảo quy trình cho toàn bộ công ty hoặc vị trí QA chỉ tập trung đảm bảo quy trình cho một phòng ban/bộ phận duy nhất. Quy trình không sai, chỉ có con người thực hiện sai quy trình.
+		-> Người nhìn mọi việc diễn ra xuyên suốt và đảm bảo quy trình đã được thực hiện đầy đủ như cam kết (không phán xét đúng sai) để ngăn ngừa lỗi.
+			(Đảm bảo về quy trình, nhưng không nhất thiết phải là quy trình phần mềm, mà có thể là quy trình làm việc của các phòng ban.)
+
+		Ví dụ: trong một trường học, QA giống như người giám thị, đảm nhận việc duy trì nề nếp của nhà trường, góp phần rèn luyện tính kỷ luật cho học sinh. Giám thị trong mỗi kỳ thi cũng có vai trò lớn trong việc đảm bảo chấp hành nội quy, quy chế thi, hạn chế, phát hiện và lập biên bản đối với các hành vi gian lận trong thi cử.
+
+	- Quality Control - QC (Kiểm soát chất lượng): theo truyền thống, sẽ bắt đầu sau khi dự án hoàn thành và trước khi phát hành sản phẩm. Tập trung vào tìm lỗi, áp dụng những hoạt động, kỹ thuật nhằm đảm bảo chất lượng của từng sản phẩm cụ thể.
+		-> Người tìm lỗi trên một sản phẩm đã hoàn chỉnh và trước khi phát hành.
+			(Đảm bảo về chất lượng của từng sản phẩm cụ thể.)
+
+		Ví dụ: trong một trường học, QC giống như người giảng viên, đảm nhận công tác giảng dạy, chuyên môn
+
+		* Testing: thao tác bắt đầu tìm kiếm lỗi trên sản phẩm.
+
+	* Bảng so sánh những điểm khác nhau:
+
+	---------------------------------------------------------------------------------
+	|	QA		|	QC		|	Testing			|
+	|-----------------------|-----------------------|-------------------------------|
+	|Quy trình		|Sản phẩm tổng thể	|Mã nguồn và thiết kế		|
+	|-----------------------|-----------------------|-------------------------------|
+	|Ngừa lỗi		|Tìm lỗi		|Phát hiện			|
+	|-----------------------|-----------------------|-------------------------------|
+	|Các bên có liên quan	|Đội ngũ phát triển	|Dev, Kỹ sư kiểm thử		|
+	|-----------------------|-----------------------|-------------------------------|
+	|Xuyên suốt quy trình	|Trước khi phát hành	|GĐ phát triển hoặc kiểm thử	|
+	---------------------------------------------------------------------------------
+
+==========================================================================================
+
+[THỜI ĐIỂM BẮT ĐẦU VÀ KẾT THÚC QUÁ TRÌNH KIỂM THỬ]
+
+	[KHI NÀO BẮT ĐẦU QUÁ TRÌNH KIỂM THỬ?]
+
+* Phương pháp truyền thống: kiểm thử phần mềm ngay khi hệ thống vừa xong (kết thúc giai đoạn phát triển phần mềm - development).
+	-> Phát hiện vấn đề càng trễ thì chi phí đánh đổi càng lớn.
+
+* Phương pháp agile: tham gia kiểm thử càng sớm càng tốt, có thể bắt đầu ngay từ giai đoạn thu thập yêu cầu (requirement) và thiết kế (design), vừa giúp cho BA có được những điều chỉnh cần thiết trong quá trình thu thập yêu cầu và thiết kế tài liệu, vừa để cảm nhận được quy tắc nghiệp vụ (business rules) và hiểu rõ về phần mềm, từ đó cũng sẽ giúp cho việc thiết kế các ca/kịch bản kiểm thử được hiệu quả hơn.
+	-> Phát hiện sớm sẽ giúp cô lập được vấn đề, giảm rủi ro, thích ứng với sự thay đổi từ phía người dùng.
+
+------------------------------------------------------------------------
+
+	[KHI NÀO KẾT THÚC QUÁ TRÌNH KIỂM THỬ?]
+
+Trong tài liệu kế hoạch kiểm thử (Test Plan) sẽ có các tiêu chuẩn để kết thúc quá trình kiểm thử, những tiêu chuẩn sẽ phụ thuộc vào rủi ro của dự án.
+
+	- Đến hạn bàn giao kết quả kiểm thử (deadline).
+	- Thực thi hết các Test Case (ca kiểm thử).
+	- Tất cả các lỗi (bug) tìm ra đều đã được close.
+	- Tỷ lệ lỗi ở mức cho phép (không thể hết lỗi).
+	- ...
+
+==========================================================================================
+
+[TEST & DEBUG]
+
+* Kiểm thử (Test): quá trình kiểm tra để tìm lỗi, đảm bảo rằng phần mềm hoạt động đúng với yêu cầu và phù hợp với nhu cầu của khách hàng.
+	-> Đưa ra kết quả để tiến hành gỡ lỗi (debug).
+
+* Gỡ lỗi (Debug): quá trình xác định, phân tích và loại bỏ những lỗi đã tìm thấy ra khỏi phần mềm.
+	-> Đầu vào sẽ là kết quả kiểm thử. Tái hiện lại lỗi và bắt đầu quá trình phân tích tại sao xảy ra lỗi.
+
+	* Bảng so sánh những điểm khác nhau:
+
+	---------------------------------------------------------------------------------
+	|		KIỂM THỬ		|		GỠ LỖI			|
+	|---------------------------------------|---------------------------------------|
+	| Một giai đoạn trong			| Kết quả của giai đoạn kiểm thử	|
+	| quy trình phát triển phần mềm		|					|
+	|---------------------------------------|---------------------------------------|
+	| Quá trình đi tìm lỗi và báo cáo	| Quá trình loại bỏ những lỗi tìm thấy	|
+	|					| trong quá trình kiểm thử		|
+	|---------------------------------------|---------------------------------------|
+	| Do kiểm thử viên thực hiện		| Do lập trình viên thực hiện		|
+	|---------------------------------------|---------------------------------------|
+	| Có thể kiểm thử thủ cộng hoặc tự động	| Chỉ có thể gỡ lỗi một cách thủ công	|
+	|---------------------------------------|---------------------------------------|
+	| Dựa theo các cấp độ kiểm thử		| Dựa theo loại lỗi			|
+	---------------------------------------------------------------------------------
+
+==========================================================================================
+
+[7 NGUYÊN LÝ TRONG KIỂM THỬ PHẦN MỀM - 7 PRINCIPLES OF SOFTWARE TESTING]
+
+Kiểm thử là một phần không thể thiếu trong quy trình phát triển phần mềm, đây là giai đoạn giúp phát hiện ra lỗi, đảm bảo phù hợp với yêu cầu của khách hàng (customer) và đảm bảo chất lượng của sản phẩm trước khi đến tay của người sử dụng (user).
+
+// Nhưng làm thế nào để đạt được kết quả tốt nhất, biết hướng đi dúng chứ không đi chệch mục tiêu?
+	-> Đặt ra những mục tiêu và tuân thủ các nguyên tắc kiểm thử.
+
+------------------------------------------------------------------------
+
+** 7 nguyên tắc/nguyên lý/phương châm/nguồn gốc căn bản của kiểm thử phần mềm để định hướng cách kiểm thử sao cho đúng nhất:
+
+	01. Kiểm thử để tìm ra sự hiện diện của lỗi (Testing shows presence of defects): tuy kiểm thử phần mềm sẽ giúp phần mềm hoạt động chính xác nhất khi đến tay khách hàng, nhưng mục đích chính của kiểm thử là để tìm và chứng minh phần mềm có lỗi, chứ KHÔNG PHẢI để khẳng định rằng phần mềm này không có lỗi (bug-free), vì lỗi luôn tiềm ẩn và có thể xuất hiện bất kì lúc nào, không thấy nhưng không có nghĩa là không có. Cả công ty lớn hay nhỏ thì sản phẩm đều có thể có lỗi, lỗi không chừa một ai, nên chỉ là có thể chủ động tìm ra lỗi hay lỗi đột nhiên xuất hiện trong quá trình sử dụng. Vì vậy, cần thiết kế Test Case để tìm ra được càng nhiều lỗi càng tốt.
+
+		-> Kiểm thử là để tìm ra lỗi, chứ không phải để chứng minh phần mềm không có lỗi.
+
+		Ví dụ: một tập đoàn lớn như Apple cũng gặp lỗi phần mềm khiến nhiều iPhone 13 Pro và iPhone 13 Pro Max (những máy màn hình 120Hz) bị lỗi màn hình (mất hiển thị màn hình, chỉ còn màu xanh lá, trắng, tím) ngay sau khi cập nhật lên iOS 15.6 hoặc 15.6.1.
+				-> Có kiểm thử một cách bài bản, nhưng lỗi xảy ra vẫn là một điều không thể tránh khỏi.
+
+------------------------------------------------
+
+	02. Không thể kiểm thử hết toàn bộ (Exhaustive testing is not possible): trong phần mềm sẽ có rất nhiều chức năng, yêu cầu, loại kiểm thử... được thực hiện trên nhiều môi trường, nền tảng, công nghệ... tạo nên số tổ hợp các trường hợp cần kiểm thử là rất lớn, nên ta không bao giờ có thể kiểm thử hết được toàn bộ những chức năng của phần mềm, tất cả các kịch bản, đầu vào và đầu ra. Vì vậy, cần sử dụng những phương pháp phân tích rủi ro dựa trên mức độ ưu tiên... chỉ cần tập trung kiểm thử những chức năng chính, chức năng quan trọng, chức năng có nguy cơ lỗi cao trên những môi trường thường xuyên được sử dụng nhất, để đảm bảo sản phẩm hoạt động ổn định (sử dụng nguyên lý quy nạp: tìm quy luật có thể áp dụng chung cho một loạt - áp dụng các kỹ thuật kiểm thử).
+
+		-> Kiểm thử được hết tất cả các trường hợp/tổ hợp/tình huống sử dụng là bất khả thi, cần áp dụng các kỹ thuật kiểm thử (testing technique) để đảm bảo phần mềm ổn và có thể phát hành.
+
+		Ví dụ 1: kiểm thử phép cộng trong ứng dụng Máy tính
+			* Cộng 2 số.
+				- Cộng 2 số dương.
+					+ Số dương dưới 1000.
+					+ Số dương trên 1000.
+					  (định dạng in ra với dấu phẩy phân cách)
+				- Cộng 2 số âm.
+					  (định dạng in ra dấu cộng chính là trừ).
+				- Cộng 2 số dương và âm.
+
+
+			* Cộng 1 dãy số.
+				- Toàn bộ là số dương.
+				- Toàn bộ là số âm.
+				- Số dương và âm lẫn lộn.
+			...
+			-> Số tổ hợp phép toán là vô chừng.
+				=> Áp dụng kỹ thuật phân vùng tương đương.
+
+		Ví dụ 2: kiểm thử website bán hàng, đại đa số là người Việt truy cập và mua hàng thông qua trình duyệt Chrome và CốcCốc, nên hai trình duyệt này sẽ được ưu tiên kiểm thử trước; đối với một website bán hàng, chức năng mua hàng sẽ là chức năng cần được ưu tiên kiểm thử trước.
+			-> Ưu tiên môi trường và chức năng.
+
+------------------------------------------------
+
+	03. Kiểm thử càng sớm càng tốt (Early testing): kiểm thử nên được thực hiện càng sớm càng tốt trong tất cả các giai đoạn (5-6 pha/công đoạn)/vòng đời của việc phát triển phần mềm, từ lúc thu thập những yêu cầu của khách hàng đến lúc thiết kế, phát triển và xây dựng hệ thống (kiểm thử từ khi chưa có một dòng code nào được viết ra). Vì kiểm thử ở những giai đoạn đầu sẽ giúp sớm phát hiện bug, tiết kiệm chi phí khi phát sinh lỗi, giúp giai đoạn chuyển giao hệ thống đúng thời hạn và chất lượng đúng như dự kiến.
+
+		-> Kiểm thử sớm, nên bắt đầu ngay từ bước thu thập yêu cầu vì yêu cầu sai thì UAT là vô nghĩa.
+
+		Ví dụ: do có những sai sót trong quá trình thu thập yêu cầu và không am hiểu về nghiệp vụ, nhưng mãi đến khi hệ thống đã hoàn thành mới và được đem ra ứng dụng mới phát hiện, khiến cho khách hàng không chấp nhận phần mềm.
+			- Lỗi phát hiện sớm: chỉ sửa lại yêu câu nghiệp vụ.
+			- Lỗi phát hiện trễ: vừa phải sửa lại yêu câu nghiệp vụ, vừa phải sửa thêm code.
+
+------------------------------------------------
+
+		* Nguyên lý Pareto (nhà kinh tế học người Ý) / Quy luật 80/20:
+			- 80% đất ở Ý là thuộc sở hữu của 20% dân số.
+			- 80% tài sản của nước Ý thuộc sở hữu của 20% dân số Ý.
+			- 80% doanh thu đến từ 20% khách hàng khủng.
+			- 80% lợi nhuận đến từ 20% nhóm các sản phẩm.
+			- 80% thời gian người ta chỉ mặc 20% quần áo mà mình thích nhất.
+			- 80% thời gian bỏ ra để dành cho 20% người quen.
+			- 80% lỗi phần mềm nằm trong tổng số 20% mã nguồn / mô-đun.
+			- 80% lỗi và sự cố liên quan trong một hệ thống nhất định sẽ được loại bỏ khi sửa 20% lỗi được báo cáo nhiều nhất (Microsoft).
+			- 80% khối lượng công việc được giải quyết trong 20% giây phút thăng hoa, 80% thời gian tiếp theo chỉ sử dụng để giải quyết 20% khối lượng công việc còn lại.
+
+				-> Khoảng 80% kết quả là do 20% nguyên nhân gây ra.
+
+	04. Sự phân bố của lỗi (Defect clustering): lỗi thường sẽ không phân bố đồng đều mà sẽ chỉ tập trung xuất hiện ở một nơi, chẳng hạn như ở những chức năng chính, các mô-đun phức tạp, khi tích hợp hệ thống... Cần tập trung nguồn lực để tìm ra lỗi ở các chức năng quan trọng (chiếm tổng cộng 20% tổng số mô-đun của toàn hệ thống), vì nơi nào xuất hiện nhiều lỗi thì khả năng cao những nơi gần đó cũng sẽ đang có rất nhiều lỗi (chiếm tổng cộng 80% lỗi).
+
+		-> Tập trung kiểm thử ở những mô-đun/chức năng quan trọng, có tương tác với hệ thống khác (chiếm 20% tổng số mô-đun của toàn hệ thống) vì chúng thường tập trung chiếm 80% tổng số lỗi trong hệ thống.
+
+		Ví dụ: theo kinh nghiệm phát triển một hệ thống, 80% lỗi sẽ nằm ở phần tương tác với hệ thống khác (API) - phần chỉ chiếm 20% tổng số mô-đun của toàn hệ thống, nên hãy tập trung kiểm thử ở những phần này.
+
+------------------------------------------------
+
+	05. Nghịch lý thuốc trừ sâu (Pesticide paradox): nếu kiểm thử lặp lại nhiều lần cho cùng 1 chức năng bằng cùng một bộ Test Case, quy trình kiểm thử, kỹ thuật kiểm thử, bộ dữ liệu kiểm thử... sẽ khiến xác suất tìm ra lỗi thấp hơn, do lúc này đã quen việc và dẫn đến sự chủ quan hoặc đã đạt đến giới hạn của sự sáng tạo, dẫn đến việc bỏ sót những trường hợp đáng lý phải được kiểm soát. Nếu trong trường hợp không tìm ra được lỗi thì nên đổi tính năng, mô-đun, môi trường, kỹ thuật kiểm thử, cải thiện Test Case... để có sự hoán chuyển trong công việc và kích thích sự sáng tạo. Khi một tính năng mới được thêm vào thì nên kiểm thử hồi quy (Regression Testing) và kiểm thử nó một cách tự động (Automation) để đảm bảo rằng tính năng mới này không làm ảnh hưởng đến những tính năng vốn đã có của hệ thống.
+
+		-> Làm một công việc lặp lại quá nhiều lần sẽ gây chủ quan, vì vậy cần liên tục cập nhật, cải thiện các phương pháp và kỹ thuật kiểm thử, thay đổi môi trường/công cụ kiểm thử để luôn luôn có cách nhìn mới cho cùng một vấn đề.
+
+		Ví dụ 1: khi phun nhiều lần cùng một loại thuốc trừ sâu lên cây trồng để diệt trừ côn trùng, thì cuối cùng côn trùng sẽ phát triển khả năng miễn dịch, làm cho thuốc trừ sâu mất tác dụng.
+
+		Ví dụ 2: ca sĩ, nhạc sĩ nhạc rap Việt Nam ICD (Phạm Ngọc Huy) trong chương trình King of Rap đã trình diễn bài hát "Tài sản của bố" với phần lời: "Thuốc không chữa được bệnh là thuốc vô dụng, vậy lời xin lỗi không chữa được vết thương thì gọi là gì?".
+			-> Kiểm thử mãi mà không ra được lỗi thì có tiếp tục cũng vô dụng, nên thay đổi phương pháp.
+
+------------------------------------------------
+
+	06. Kiểm thử phụ thuộc vào ngữ cảnh (Testing is context dependent): tuỳ vào loại hệ thống, hệ điều hành, môi trường hệ thống chạy, thiết bị hệ thống cần dùng thêm, mỗi lĩnh vực... đều sẽ có những yêu cầu / chức năng / ràng buộc khác nhau, tương ứng với đó là những kỹ thuật kiểm thử khác nhau. Kiểm thử cho các ứng dụng trên di động, website và desktop sẽ khác nhau. Vì vậy, chỉ tập trung kiểm thử ở những chức năng được yêu cầu.
+
+		-> Tuỳ vào hệ thống, môi trường, lĩnh vực kiểm thử mà sẽ có những chức năng cần áp dụng những kỹ thuật kiểm thử khác nhau trên các loại màn hình và độ phân giải khác nhau.
+
+		Ví dụ 1: khi kiểm thử phần mềm máy tính cầm tay, nếu đối tượng sử dụng là học sinh cấp 1 thì chỉ nên tập trung kiểm thử những chức năng tính toán công, trừ, nhân, chia.
+
+		Ví dụ 2: kiểm thử trên một ứng dụng có sử dụng API sẽ khác với khi kiểm thử một ứng dụng không sử dụng API.
+
+		Ví dụ 3: khi kiểm thử cho một website, đừng chủ quan mà tưởng rằng giao diện trên máy tính sẽ giống như trên điện thoại, vì có thể có những sai sót về độ tương thích của màn hình (responsive) trên các thiết bị di động.
+
+------------------------------------------------
+
+	07. Ảo tưởng về việc hết lỗi/không còn lỗi (Absence of errors fallacy): vì bản chất của phần mềm là luôn luôn có lỗi, nên chớ vội mừng và phát hành phần mềm khi không tìm thấy lỗi trong phần mềm, vì có thể là do kiểm thử viên kiểm thử chưa tới, kịch bản và bộ Test Case chưa thật sự tốt... Lúc này, cần áp dụng thêm nhiều kỹ thuật kiểm thử để tìm lỗi. Bên cạnh đó, việc phát triển phần mềm đạt được ít lỗi nhất có thể là việc bắt buộc phải hướng đến; giả sử nếu phần mềm chất lượng vì đã tìm ra và sửa hết 99% lỗi (99% bug-free), nhưng nếu không phù hợp với nhu cầu sử dụng thực tế và không đạt được sự hài lòng của người dùng (UAT), thì phần mềm đấy cũng trở nên vô dụng do không đáp ứng được nhu cầu công việc hằng ngày thực tế của người dùng (chất lượng có thể ở mức chấp nhận được nhưng quan trọng là trải nghiệm của nhóm người dùng mà sản phẩm hướng đến).
+
+		-> Phần mềm tất nhiên phải đạt chất lượng cao nhất, nhưng lỗi chỉ có thể đạt ở mức tối thiểu chứ không thể hết; và điều quan trọng nhất vẫn là phải đáp ứng được nhu cầu của người dùng.
+
+		Ví dụ 1: những tựa game có nhiều phần, có thể phần sau rất ít lỗi, có thêm nhiều cơ chế mới và những cải tiến thú vị, nhưng vẫn không được người dùng đón nhận; có thể đơn giản là vì phiên bản trước đã quá tốt và những thứ mới lạ ấy cũng không phù hợp với nhu cầu sử dụng của người chơi.
+
+		Ví dụ 2: khi mua một món hàng trên mạng, nhưng khi giao lại là một sản phẩm mà người dùng không mong muốn (có thể là lừa đảo hoặc giao nhầm sản phẩm); mặc kệ cho sản phẩm đó hoàn hảo đến mức nào đi nữa, thì người dùng cũng không sử dụng đến vì nó không phải là thứ mà họ thật sự cần.
+
+------------------------------------------------------------------------
+
+-> Những tiêu chí phải tuân theo trong suốt quá trình kiểm thử để giúp quá trình kiểm thử được tối ưu nhất mà không làm sai lệch mục tiêu, giúp xác định rằng ta đang theo đúng chiến lược để kiểm thử.
+	=> Định hướng cho việc kiểm thử để không tốn quá nhiều thời gian và công sức kiểm thử, mà phần mềm vẫn đạt được chất lượng cao nhất và có thể tự tin phát hành.
+
+==========================================================================================
+
+[MÔ HÌNH V&V]
+
+---------------------------------	---------------------------------
+|Verification (đặc tả yêu cầu)	|------>|Validation (thứ khách hàng cần)|
+---------------------------------	---------------------------------
+
+V&V (Verification & Validation) bao gồm rất nhiều hoạt động trong đảm bảm chất lượng phần mềm như: technial reviews, documentation review, database review, algorithm analysis (bao gồm cả QA và QC). Trong đó, kiểm thử (testing) đóng vai trò cực kỳ quan trọng.
+
+				-------------------------------------
+				|		Verification	    |
+				|				    |
+				V				    V
+-----------------	-----------------	---------	---------
+|Need		|	|		|	|	|	|	|
+|and Expectation|------>|Specifications	|------>|Process|------>|Product|
+|of Customer	|	|		|	|	|	|	|
+-----------------	-----------------	---------	---------
+	^							    ^
+	|							    |
+	|			Validation			    |
+	-------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+[PHÂN BIỆT GIỮA VERIFICATION VÀ VALIDATION]
+
+* Verification (Xác minh): do lập trình viên thực hiện để đảm bảo sản phẩm phần mềm đúng với đặc tả yêu cầu của nó (right way). Được thực hiện khi bắt đầu quy trình phát triển, bao gồm: các buổi review để đánh giá các tài liệu, kế hoạch, mã nguồn, các tài liệu về yêu cầu và đặc tả yêu cầu.
+	-> Xác minh, đảm bảo sản phẩm phần mềm đúng với đặc tả yêu cầu.
+
+-------------------------------------------------------------------------
+| Are we building the product right?					|
+|-----------------------------------------------------------------------|
+| Chúng ta có đang phát triển sản phẩm theo đúng hướng không?		|
+-------------------------------------------------------------------------
+
+------------------------------------------------
+
+* Validation (Thẩm định): do kiểm thử viên thực hiện để đảm bảo sản phẩm phần mềm đáp ứng được yêu cầu của người dùng (user needs). Được thực hiện vào cuối của quy trình phát triển và sau khi verification được hoàn thành.
+	-> Xác nhận, đảm bảo sản phẩm phần mềm đáp ứng được yêu cầu của người dùng khi chuyển từ nhu cầu của khách hàng sang đặc tả yêu cầu.
+
+-------------------------------------------------------------------------
+| Are we building the right product?					|
+|-----------------------------------------------------------------------|
+| Chúng ta có đang phát triển đúng sản phẩm mà khách hàng cần không?	|
+-------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+[BẢNG SO SÁNH GIỮA VERIFICATION VÀ VALIDATION]
+
+---------------------------------------------------------------------------------
+|	Verification (Xác minh)		|	Validation (Thẩm định)		|
+|---------------------------------------|---------------------------------------|
+|Do lập trình viên thực hiện		|Do kiểm thử viên thực hiện		|
+|---------------------------------------|---------------------------------------|
+|Đảm bảo sản phẩm phần mềm đúng với	|Đảm bảo sản phẩm phần mềm đáp ứng	|
+|đặc tả yêu cầu				|yêu cầu của người dùng			|
+|---------------------------------------|---------------------------------------|
+|Phát triển sản phẩm theo đúng hướng	|Phát triển đúng sản phẩm khách hàng cần|
+---------------------------------------------------------------------------------
+
+==========================================================================================
+
+[V-MODEL]
+
+V-Model là một mô hình quy trình phát triển phần mềm (SDLC) dựa trên sự kết hợp các giai đoạn kiểm thử vào mỗi giai đoạn phát triển tương ứng. Quá trình kiểm thử được thực hiện sau mỗi kết quả đạt được ở từng bước, điều này giúp phát hiện ra những vấn đề sớm nhất trong vòng đời phát triển của phần mềm (SDLC).
+
+	-> Bản nâng cấp của mô hình thác nước (chỉ giống ở nhánh bên trái) và có kết hợp kiểm thử.
+
+=> Cho phép kế hoạch kiểm thử bắt đầu sớm nhất có thể.
+
+V-Model ra đời trước mô hình Agile. Agile đưa ra khái niệm TDD để kiểm thử song song với quá trình viết code, nhưng V-Model thì không nói cụ thể phải kiểm thử như thế nào trong quá trình viết code (có thể kiểm thử tự dọ: mời thành viên khác cùng tham gia đánh giá, Unit Test có thể sử dụng System.out.println,...) mà chỉ đề cập đến phải kiểm thử càng sớm càng tốt.
+
+------------------------------------------------
+
+(Requirement)---------------------------------------------------(Acceptance Test)
+	\							 ^
+	 v							/
+	(Specification)---------------------------------(System Test)
+		\					 ^
+		 v					/
+		(Design)------------------------(Integration Test)
+			\			 ^
+		 	 v			/
+			(Implementation)---(Unit Test)
+
+			-------------------------
+[Viết Test Case]	|   Software Testing	|		[Thực thi Test Case]
+			-------------------------
+
+------------------------------------------------
+
+* V-Model chỉ tập trung vào kiểm thử động, mà bỏ qua hiệu quả của kiểm thử tĩnh.
+	-> Phù hợp với những công ty gia công phần mềm.
+
+* W-Model khắc phục được những hạn chế của V-Model bằng cách cho phép thực hiện quá trình kiểm thử song song với quá trình phát triển phần mềm, các kỹ thuật kiểm thử tĩnh được áp dụng trong giai đoạn đầu của quy trình phát triển phần mềm, mỗi hoạt động trong quá trình phát triển đều có một hoạt động kiểm thử tương ứng.
+	-> Phù hợp với những công ty tự sản xuất sản phẩm (product).
+
+==========================================================================================
+
+[CÁC BƯỚC CẦN THỰC HIỆN TRONG MỘT DỰ ÁN]
+
+** Những bước mà kiểm thử viên cần thực hiện trong một dự án thực tế:
+
+	01. Hiểu về dự án: đặt câu hỏi, trao đổi với khách hàng, lãnh đạo, thành viên trong nhóm,....
+	02. Thiết lập kế hoạch/chiến lược kiểm thử (Test Plan).
+	03. Thiết lập các kịch bản kiểm thử (Test Scenarios, độ ưu tiên,...).
+	04. Thiết lập các tình huống kiểm thử (Test Cases).
+	05. Thực thi kiểm thử (Test Run/Test Execution).
+	06. Báo cáo kết quả kiểm thử chính thức (Test Report).
+
+------------------------------------------------------------------------
+
+[SOFTWARE / SYSTEMS TESTING LIFE CYCLE - STLC]
+
+** Quy trình / Vòng đời kiểm thử phần mềm (Software / Systems Testing Life Cycle - STLC):
+
+01. Requirement Analysis / Requirement Elicitation
+    (Thu thập và phân tích yêu cầu)
+
+	-> 02. Test Planning / Test Strategizing
+	       (Thảo luận, lập kế hoạch và chiến lược kiểm thử)
+
+		-> 03. Test Design / Test Case Development
+		       (Thiết kế Test Case)
+
+			-> 04. Test Environment Setup
+			       (Chuẩn bị môi trường kiểm thử)
+
+				-> 05. Test Run / Test Execution
+				       (Thực thi Test Case đã thiết kế)
+
+					-> 06. Defect Logging and Result Analysis
+					       (Ghi nhận lại lỗi và phân tích kết quả)
+
+						-> 07. Test Closure / Project Closure
+						       (Lập báo cáo, đánh giá và kết thúc một đợt kiểm thử)
+
+==========================================================================================
+
+** Các loại lỗi và các dạng kỹ thuật kiểm thử:
+
+Lỗi trên website:
+	- Lỗi về thiết kế, bố cục, giao diện:
+		+ Sắp xếp không đúng trật tự, không cân đối (misalignment).
+		+ Các nút bấm đè lên nhau, che khuất nhau (overlapping).
+		+ Thiếu nội dung và hình ảnh (missing contents/images).
+		+ Font chữ.
+		+ Màu sắc.
+
+	- Lỗi xuất hiện trong quá trình cấu hình, phần cứng của Server: quá tải, bảo trì,...
+
+	- Lỗi chức năng (functional testing): khi khách hàng yêu cầu một chức năng nào đó mà phần mềm không thực hiện đúng theo yêu cầu. Áp dụng kiểm thử hộp đen, hộp trắng và hộp xám để sửa lỗi này.
+		Ví dụ: người dùng nhấn vào nút [Đăng ký] nhưng không thể đăng ký, hoặc đăng ký xong nhưng không thể đăng nhập,...
+
+	- Kiểm thử tương thích (compatibility testing): tương thích về phần cứng, phần mềm, hệ điều hành, hệ thống mạng, trình duyệt, thiết bị, phiên bản,...
+		Ví dụ: phần mềm có cho ra cùng một kết quả trong các trình duyệt khác nhau trên cùng một hệ điều hành,... 
+
+	- Kiểm thử địa phương hoá (localization testing):
+		+ Ngôn ngữ.
+		+ Đơn vị tiền tệ.
+		+ Định dạng ngày tháng năm.
+
+	- Kiểm thử hiệu năng (performance testing): đảm bảo các tiêu chí về tốc độ, khả năng đáp ứng/phản hồi/tương thích, độ ổn định và khả năng mở rộng.
+
+	- Kiểm thử về trải nghiệm người dùng (usability testing): có dễ dùng hay gây rối mắt, khó hiểu; nếu là website bán hàng thì việc thanh toán có dễ dàng hay không, hiện thông báo lỗi nhưng không cụ thể khiến người dùng không biết mình bị sai ở đâu; các nút bấm thiết kế quá nhỏ khiến cho những thiết bị với màn hình nhỏ khó thao tác.
+
+	- Kiểm thử bảo mật (security testing): 
+
+==========================================================================================
+
+[SMOKE TESTING VÀ SANITY TESTING]
+
+** Software build là gì?
+Nếu phát triển một chương trình máy tính đơn giản chỉ bao gồm một tệp mã nguồn, ta chỉ cần biên dịch và liên kết một tệp này, để tạo thành một tệp thực thi.
+
+Tuy nhiên, một dự án phần mềm thực tế được chia thành nhiều thành phần, được thực hiện bởi nhiều thành viên và ra cho rất nhiều tập tin. Lead developer sẽ sử dụng phần mềm nhằm gom và kết nối những thành phần lại với nhau để cho ra hệ thống hoàn chỉnh.
+
+------------------------------------------------
+
+** Kiểm thử ổn định (Smoke Testing) - kiểm thử xác minh (verification) bản build.
+Là loại kiểm thử phần mềm được thực hiện sau khi build để xác minh rằng các chức năng, thành phần quan trọng nhất của chương trình đang hoạt động tốt (không phải toàn hệ thống - exhaustive testing). Kiểm thử viên sẽ thực hiện kiểm thử ngay trên chính bản build đó.
+Thường được thực hiện trước kiểm thử chức năng hoặc kiểm thử hồi quy, mục đích là để từ chối một ứng dụng bị hỏng nặng, vì vậy mà nhóm QA sẽ không mất nhiều thời gian cài đặt và thử nghiệm ứng dụng phần mềm.
+	-> Kiểm tra một bản build (chức năng/phiên bản mới) có đủ điều kiện/sẵn sàng/khả dụng để thực hiện những kỹ thuật kiểm thử chuyên sâu hơn như: kiểm thử hiệu năng, an toàn, hồi quy,...
+
+	Ví dụ 1: xác minh rằng ứng dụng khởi động thành công, giao diện được đáp ứng và phù hợp trên tất cả các thiết bị, mọi độ phân giải màn hình.
+
+	Ví dụ 2: mỗi ngày, khi có bản build mới sẽ lấy khoảng 10 Test Case ra để chạy, nếu cả 10 Test Case này đều pass thì bản build đó cũng sẽ pass.
+
+------------------------------------------------
+
+** Kiểm thử hợp lý (Sanity Testing) - kiểm thử xác minh (verification) tính năng mới và lỗi đã được sửa trong bản build.
+Là loại kiểm thử phần mềm được thực hiện sau khi nhận được bản build với những thay đổi nhỏ về code hoặc chức năng để xác định rằng những lỗi cũ đã được sửa và trong quá trình thay đổi chức năng không gây ra, phát sinh thêm bất kỳ lỗi mới nào. Dùng để xác định rằng bản build hoạt động đúng như mong đợi, mục tiêu không phải để xác minh kỹ lưỡng chức năng mới mà để xác định rằng nhà phát triển đã áp dụng một số tính hợp lý (sanity) trong khi sản xuất phần mềm. Nếu kiểm tra tính hợp lý không thành công, bản build sẽ bị từ chối để tiết kiệm thời gian và chi phí liên quan đến một thử nghiệm nghiêm ngặt hơn.
+
+	Ví dụ: nếu máy tính bỏ túi cho ra kết quả của một phép tính đơn giản là 2 + 2 = 5! thì không cần phải tốn công để kiểm thử các hàm nâng cao như sin 30 + cos 50.
+
+			*********SỰ KHÁC BIỆT CHÍNH*********
+
+-------------------------------------------------------------------------------------------------
+|	KIỂM THỬ ỔN ĐỊNH (SMOKE TESTING)	|	KIỂM THỬ HỢP LÝ (SANITY TESTING)	|
+|-----------------------------------------------|-----------------------------------------------|
+| Mục tiêu để xác minh "tính ổn định"		| Mục tiêu để xác minh "tính hợp lý"		|
+|-----------------------------------------------|-----------------------------------------------|
+| Chắc chắn rằng các chức năng quan trọng	| Kiểm tra chức năng mới / lỗi đã được sửa	|
+| của chương trình đang hoạt động tốt		|						|
+|-----------------------------------------------|-----------------------------------------------|
+| Được thực hiển bởi lập trình viên		| Được thực hiển bởi kiểm thử viên		|
+| và kiểm thử viên				|						|
+|-----------------------------------------------|-----------------------------------------------|
+| Xác minh các chức năng quan trọng		| Xác minh chức năng mới,			|
+| của hệ thống					| ví dụ: sau khi sửa lỗi			|
+|-----------------------------------------------|-----------------------------------------------|
+| Là một tập con của thử nghiệm chấp nhận	| Là một tập con của kiểm thử hồi quy		|
+| (acceptance testing)				| (regression testing)				|
+|-----------------------------------------------|-----------------------------------------------|
+| Thường có tài liệu và kịch bản		| Thường không có tài liệu và kịch bản		|
+|-----------------------------------------------|-----------------------------------------------|
+| Xác minh toàn bộ hệ thống từ đầu đến cuối	| Xác minh một thành phần cụ thể		|
+|						| của toàn bộ hệ thống				|
+|-----------------------------------------------|-----------------------------------------------|
+| Giống như đi kiểm tra sức khỏe tổng quát	| Giống như đi khám chuyên khoa			|
+-------------------------------------------------------------------------------------------------
+
+==========================================================================================
+
+[KIỂM THỬ API - API TESTING]
+
+* API (Application Programming Interface): giao diện lập trình ứng dụng (hai hệ thống với những chức năng riêng biệt với nhau).
+
+	- Như một hợp đồng thoả thuận sử dụng dịch vụ giữa hai hệ thống. Một bên đã làm sẵn mọi thứ, sau đó chỉ việc cung cấp dịch vụ và hướng dẫn sử dụng; bên còn lại nhận dịch vụ và đưa vào dự án của mình để sử dụng mà không cần quan tâm dịch vụ ấy được tạo ra như thế nào.
+
+	- API là những hàm có thể gọi từ xa (trên Internet thông qua URL) và trả về giá trị là đối tượng dưới dạng chuỗi JSON hoặc XML (thay vì số hoặc chuỗi).
+
+	- API không cần giao diện vì được tạo ra để các hệ thống khác gọi. Nếu muốn có giao diện thì nơi gọi API sẽ phải tự dựng lên giao diện để trình bày dữ liệu.
+
+		Ví dụ: API đăng nhập của Google không có giao diện, chỉ trả về chuỗi JSON chứa giá trị của Gmail và những thông tin đi kèm của người vừa đăng nhập
+
+	-> Kỹ thuật trả về dữ liệu thô dưới dạng .JSON (chứ không phải là một trang web) để có thể tiếp tục sử dụng trong một ứng dụng nào đó.
+
+--------------------------------------------------------------------------------
+
+** Kiểm thử API (API Testing): API là cầu nối, dịch vụ do một số nguồn khác cung cấp để Client sử dụng (tách biệt giao diện và xử lý), cần có cơ chế để kiểm thử riêng phần xử lý ở phía sau đã giá trị về đúng hay sai, trước khi đem đi tích hợp vào những hệ thống khác.
+	-> Kiểm thử hàm trả về giá trị đúng hay sai.
+
+	Ví dụ: các bước để thay đổi mật khẩu.
+		01. User vào phần "Profile" để thay đổi mật khẩu.
+		02. User nhấn vào nút [Update].
+		03. API sẽ chịu trách nhiệm là gửi thông tin mật khẩu cũ và thông tin mật khẩu mới đó về Server.
+		04. Server sẽ đọc thông tin và kiểm tra.
+		05. Nếu tất cả mọi thứ đều ổn thì Server sẽ tiến hành cập nhật mật khẩu mới.
+		06. Server sẽ trả phản hồi về cho Client và thông báo rằng đã cập nhật thành công.
+		07. Cuối cùng là User sẽ nhìn thấy mật khẩu đã được cập nhật thành công.
+
+		// Các bước 4, 5 và 6 được gọi là Syntax Testing và Functional Testing.
+
+--------------------------------------------------------------------------------
+
+* Tham khảo thêm:
+	- https://aws.amazon.com/vi/what-is/api/
+	- https://vi.wikipedia.org/wiki/Giao_di%E1%BB%87n_l%E1%BA%ADp_tr%C3%ACnh_%E1%BB%A9ng_d%E1%BB%A5ng
+==========================================================================================
+
+[KIỂM THỬ TỰ ĐỘNG - AUTOMATION TESTING]
+
+** Kiểm thử phần mềm tự động (Test Automation):
+Là quá trình con người sử dụng công cụ để tự động hoá quá trình kiểm thử phần mềm. Đôi khi sẽ có những kịch bản kiểm thử thủ công lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu kiểm thử thủ công. Lúc này, cần có sự hỗ trợ của công cụ để tự động hoá quá trình kiểm thử.
+
+Vì "hậu trường" của một ứng dụng chỉ element/component là những giá trị, thuộc tính... bên cạnh thực hiện thủ công trên màn hình giao diện, ta hoàn toàn có thể viết code để tự động hóa được quá trình kiểm thử.
+
+==========================================================================================
+
+Mock: tạo ra một phiên bản giả của một dịch vụ nhà làm hoặc dịch vụ do bên thứ ba cung cấp, nhưng lại có công dụng giống hệt như đồ thật. Sau đó xử lý trên trên chính đối tượng (object) giả này trong lúc đợi đồ thật được hoàn thiện.
+
+Khi trong một dự án mà có sự phụ thuộc code lẫn nhau, có những mô-đun phải đợi một người khác hoàn thành thì ta mới có thể xử lý tiếp được. Để có thể vẫn tiếp tục xử lý công việc mà không cần đợi những tính năng phụ thuộc phải hoàn thành, ta sẽ thống nhất với nhau về Interface, tên hàm và giá trị trả về; thiết kế một lớp (class) với tên giống hệt và làm giả giá trị trả về.
+
+	-> Khi mô-đun gốc chưa hoàn thiện, ta viết code để tạo ra một giá trị phù hợp với nhu cầu, nhằm sử dụng để tiếp tục xử lý những mô-đun sau.
+
+https://youtu.be/v7LHE-3rd-g?t=5400
+
+	Ví dụ: câu lệnh insert into, chỉ cần một thông báo thành công để xử lý tiếp. Vì DAO chưa viết xong, thay vì phải kết nối với CSDL, ta viết tạm một hàm với giá trị trả về luôn luôn là một new Object() để tiếp tục hiển thị trên website.
+
+==========================================================================================
+
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------
+
+----------------------------------------
+
+--------------------
+
+----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 # This is a basic workflow to help you get started with Actions
 
 # Đặt tên chung cho công việc
-name: Math-Util with CI using Ant and JUnit | © 2022 by Nguyễn Hoàng Thuận
+name: Practice CI with GitHub Actions using Ant and JUnit | © 2022 by Nguyễn Hoàng Thuận 
 
 # Controls when the action will run.
 # Triggers the workflow on push or pull request events but only for the main branch

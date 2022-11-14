@@ -1,11 +1,11 @@
 package com.hoangthuan.mathutil.core;
 
 // Nếu muốn sử dụng các hàm static, có 2 cách:
-// Cách 1: gọi tên class.tên hàm static
-//          (nhớ import package...tên class chứa hàm static)
+// Cách 1: gọi <TênLớp>.<tênHàmStatic>
+//         (nhớ import package...tên class chứa hàm static)
 // Cách 2: không thèm gọi tên class chấm, chỉ cần tên hàm
-//          (nhớ import static package..tên class.tên hàm static
-//                                              .* để lấy tất cả các hàm static)
+//         (nhớ import static package..<TênLớp>.<tênHàmStatic>
+//                                             .* để lấy tất cả các hàm static)
 import static com.hoangthuan.mathutil.core.MathUtil.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -18,14 +18,14 @@ public class FactorialTest {
     
     
     // @Test: chú thích (annotation),
-    // giúp biến một hàm bất kỳ trong một class bất kỳ thành hàm main
+    // giúp biến một hàm bất kỳ trong một class bất kỳ thành hàm main()
     @Test
     // Hàm được đánh giá là xanh khi tất cả các Test Case đều xanh,
     // chỉ cần có 1 cặp expected != actual
     // nghĩa là hàm xử lý không đúng hoặc ta kỳ vọng sai.
     // Ta cần xem lại code và kiểm thử lại để đảm bảo xanh hết,
-    // kết luận hàm ổn cho tất cả các tình huống đã kiểm thử
-    public void checkFactorialGivenCorrectArgumentReturnWell() {
+    // kết luận hàm ổn cho tất cả các tình huống đã kiểm thử.
+    public void checkFactorialGivenCorrectArgumentReturnsWell() {
         // Kỳ vọng kết quả là 120 khi gọi hàm tính 5!
         long expected = 120;
         long actual = getFactorial(5);
@@ -47,18 +47,19 @@ public class FactorialTest {
         assertEquals(6, getFactorial(3));
     }
     
-    // Ngoại lệ không phải là 1 giá trị,
+    // Ngoại lệ không phải là 1 giá trị và không thể so sánh được,
     // ngoại lệ là 1 tình huống bất thường, có khả năng xảy ra,
     // nên không thể kiểm thử theo cách thông thường (assertEquals),
     // chỉ có thể đo lường bằng cách xem nó có xảy ra hay không,
     
-    //@Test(expected = IllegalArgumentException.class)
+//    @Test(expected = IllegalArgumentException.class)
     // Biến hàm này thành public static void main() {...}
     // (đây là cú pháp/quy tắc của bộ thư viện JUnit)
     public void checkFactorialGivenWrongArgumentThrowsException() {
         
         // Số âm và số > 20 sẽ không có dữ liệu trả về
         // nên không thể so sánh (assert) được
+        // vì không có dữ liệu để trả về
         getFactorial(-5);
         getFactorial(21);
         getFactorial(22);

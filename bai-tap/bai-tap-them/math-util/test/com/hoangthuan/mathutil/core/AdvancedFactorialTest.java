@@ -27,7 +27,7 @@ public class AdvancedFactorialTest {
     // * Wrapper Class: Integer (int), Character (char),...
     
     // Báo cho máy ảo Java (JUNit) biết đây là dữ liệu nguồn,
-    // dùng để truyền vào hàm assert
+    // là tập hợp các tham số dùng để truyền vào hàm assert
     @Parameters
     public static Object[][] initData() {
         return new Integer[][] {
@@ -42,19 +42,20 @@ public class AdvancedFactorialTest {
     }
     
     // Chuẩn bị 2 biến để hứng bộ dữ liệu từ mảng theo từng cặp,
+    // 2 biến này được để public để không phải sử dụng getter() & setter()
     // sau đó đưa cặp (input + expected) vào hàm test
     
-    // Ánh xạ input với cột 0
+    // Ánh xạ input với cột 0 trong mảng
     @Parameter(value = 0)
     public int input;
     
-    // Ánh xạ expected với cột 1
+    // Ánh xạ expected với cột 1 trong mảng
     @Parameter(value = 1)
     public long expected;
     
     // Nhận bộ dữ liệu kiểm thử và tự động tiến hành kiểm thử
     @Test
-    public void checkFactorialGivenCorrectArgumentReturnWell() {
+    public void checkFactorialGivenCorrectArgumentReturnsWell() {
 
         //long actual = getFactorial(input);
         assertEquals(expected, getFactorial(input));

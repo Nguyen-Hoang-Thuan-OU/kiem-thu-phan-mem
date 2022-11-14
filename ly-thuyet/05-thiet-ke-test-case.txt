@@ -1,0 +1,438 @@
+[CẤU TRÚC TEST CASE - TEST CASE STRUCTURE]
+
+Việc thiết kế Test Case (Test Case Design): sẽ do QC / Tester thực hiện, kết quả sau đó sẽ được lưu trữ trong một tập tin, trong một ứng dụng hoặc trên một dịch vụ lưu trữ trực tuyến.
+
+------------------------------------------------------------
+
+	* Cấu trúc [gợi ý] của một Test Case:
+
+		- Mã định danh Test Case (Test Case ID).
+
+		- Tên Test Scenario (Test Scenario Title / Name).
+
+		- Tên Test Case (Test Case Title / Name).
+
+		- Các điều kiện tiên quyết (Pre-conditions / Prerequisites).
+
+		- Mô tả / Tóm tắt Test Case (Test Summary / Test Description).
+
+		- Các bước / quy trình thực hiện kiểm thử (Test Steps / Test Procedures / Step Details).
+
+		- Dữ liệu kiểm thử (Test Data / Input).
+
+		- Kết quả mong đợi (Expected Result / Expected Output).
+		
+		- Kết quả thực tế (Actual Result / Actual Output).
+		
+		- Trạng thái / Kết quả kiểm thử (Status / Test Result).
+
+------------------------------------------------------------
+
+	* Tuỳ chọn: có thể có hoặc không
+	
+		- Độ ưu tiên (Priority): từ 0 -> 4 hoặc Low, Medium, High, Critical.
+		
+		- Có đủ điều kiện để kiểm thử tự động (Automation): có đủ điều kiện (đã ổn định và sẽ ít bị thay đổi) hay chưa; đã được tự động hoá hay chưa.
+		
+		- Ghi chú / Bình luận (Note / Comment).
+		
+		- Thông tin môi trường kiểm thử (Environment): thông tin về hệ điều hành nếu là ứng dụng cài đặt trên máy tính hoặc di động, thông tin của trình duyệt nếu là website và những tiện ích mở rộng (extension) nếu có sử dụng thêm.
+		
+		- Ngày thực hiện kiểm thử (Test Date / Executed Date).
+		
+		- Người thực hiện kiểm thử (Tester): có thể là người đã thiết kế nên Test Case hoặc một người khác.
+		
+		- Phiên bản của hệ thống / website (Version App / Web): phiên bản khi thực hiện kiểm thử.
+		
+		- Thiết bị (Device): tên của các dòng điện thoại nếu là ứng dụng trên di động.
+		
+		- ID của lỗi (ID Bug): đính kèm thêm những lỗi nếu có tìm thấy trong quá trình kiểm thử.
+
+--------------------------------------------------------------------------------
+
+Việc thực thi / chạy Test Case (Test Run / Test Execution): sau khi đã thiết kế xong Test Case, việc thực thi để kiểm chứng tính năng sẽ do chính người đã thiết kế ra hoặc một người khác thực hiện, bằng cách so sánh kết quả thực tế (actual) với kết quả mong đợi (expected) được mô tả trong Test Case.
+
+	- Kết quả mong đợi (Expected Result / Expected Output): kết quả mong muốn nhận được, dựa theo những gì đã được mô tả trong đặc tả.
+
+	- Kết quả thực tế (Actual Result / Actual Output): kết quả thực tế sẽ nhận được, dựa theo những gì mà hệ thống phản hồi khi thực hiện theo đúng mô tả trong Test Case.
+	
+	- Trạng thái / Kết quả kiểm thử (Status / Test Result): PASSED hoặc FAILED.
+
+==========================================================================================
+
+[CHI TIẾT CÁCH VIẾT ĐẶC TẢ TEST CASE - HOW TO WRITE TEST CASES]
+
+** Chi tiết của một Test Case:
+
+--------------------------------------------------------------------------------
+
+	- Mã định danh Test Case (Test Case ID): vì có thể được sử dụng lại trong tương lai nên phải đặt làm sao mà khi đọc tên là biết ý đồ của Test Case, có thể đặt tên Test Case theo mô-đun, theo chức năng kiểm thử.
+	
+		Ví dụ: TC_Register_001, TC_Login_001.
+
+--------------------------------------------------------------------------------
+
+	- Tên Test Scenario (Test Scenario Title / Name): tên của kịch bản kiểm thử.
+
+--------------------------------------------------------------------------------
+
+	- Tên Test Case (Test Case Title / Name): tên của từng tình huống sử dụng cụ thể của một kịch bản kiểm thử. Thường sẽ bắt đầu bằng từ khoá kiểm tra / xác minh (check / test / verify) + mục đích kiểm thử.
+
+		Ví dụ:
+			- Verify CSV import with enclosed test data files.
+			- Verify clipboard history with platform independent graphic file.
+			- Test conditional formatting with basic value range.
+			- Test full screen reading on minimal resolution system.
+			- Add document footer with page numbers and author
+
+--------------------------------------------------------------------------------
+
+	- Các điều kiện tiên quyết (Pre-conditions / Prerequisites): những điều kiện cần phải thoả mãn / trạng thái dữ liệu trước khi muốn tiến hành thực hiện kiểm thử.
+	
+		Ví dụ: không có tài khoản, mật khẩu...
+
+--------------------------------------------------------------------------------
+
+	- Mô tả Test Case (Test Summary / Test Description): mục tiêu của Test Case này là gì. Nên có mô tả song song với các bước thực hiện kiểm thử (test step) để giải thích tóm tắt Test Case sẽ làm những công việc gì. Nhưng đôi khi có thể được gộp với tên của Test Case để cho gọn.
+	
+		Ví dụ 1: gộp với tên của Test Case
+			- Kiểm tra sự phản hồi khi nhập email và mật khẩu không hợp lệ.
+		
+		Ví dụ 2: mô tả song song với các bước thực hiện
+			- Đến trang chủ, nhập dữ liệu [...] và nhấn nút [...].
+		
+--------------------------------------------------------------------------------
+
+	- Các bước / thủ tục / quy trình thực hiện kiểm thử (Test Steps / Test Procedures / Step Details): mô tả chi tiết từng bước thực hiện kiểm thử, có thể ghi kèm dữ liệu kiểm thử nếu trong mẫu Test Case không có nơi để ghi.
+
+		Ví dụ:
+			01. Truy cập...
+			02. Nhấn nút...
+			03. Nhập thông tin..., với tài khoản: abc | 123
+			04. Nhấn nút...
+
+--------------------------------------------------------------------------------
+
+	- Dữ liệu kiểm thử (Test Data / Input): bộ dữ liệu đầu vào.
+
+		Ví dụ 1: đưa dữ liệu hợp lệ
+			- Tài khoản: tenTaiKhoan
+			- Mật khẩu: b1M4tKh0n6B40G10Du0cB4tM1
+
+		Ví dụ 1: đưa dữ liệu không hợp lệ
+			- Tài khoản: tenTaiKhoan
+			- Mật khẩu: -_-
+
+--------------------------------------------------------------------------------
+
+	- Kết quả mong đợi (Expected Result / Expected Output): kết quả mong muốn sẽ nhận được khi thực hiện theo đúng các bước được mô tả trong Test Steps / Test Procedures / Step Details. Có thể là kết quả nhận được sau khi thực hiện toàn bộ các bước hoặc kết quả nhận được sau mỗi bước.
+
+--------------------------------------------------------------------------------
+
+	- Kết quả thực tế (Actual Result / Actual Output): kết quả thực tế sẽ nhận được khi thực hiện theo đúng các bước được mô tả trong Test Steps / Test Procedures / Step Details. Có thể là kết quả nhận được sau khi thực hiện toàn bộ các bước hoặc kết quả nhận được sau mỗi bước.
+
+--------------------------------------------------------------------------------
+
+	- Trạng thái / Kết quả kiểm thử (Status / Test Result): so với kết quả mong đợi với kết quả thực tế và kết luận trạng thái:
+
+		+ Passed: Test Case đã được thực thi và đạt kết quả như mong đợi.
+		+ Failed: Test Case đã được thực thi nhưng kết quả thực tế khác với kết quả mong đợi.
+		+ Not Run: thường được gán cho những Test Case mới để đánh dấu rằng Test Case đã được tạo nhưng vẫn chưa được thực thi.
+		+ In Progress: Test Case đang được thực thi, nhưng chưa hoàn thành.
+		+ Blocked: Test Case không thể thực thi vì các điều kiện tiên quyết không được đáp ứng, sự cố kỹ thuật hoặc sự cố dữ liệu thử nghiệm trong môi trường thử nghiệm.
+		+ Retest: Test Case đang được kiểm thử lại vì trước đó đã Blocked hoặc Failed.
+		+ Deferred: Test Case bị hoãn và không thể hoàn tất thành công vì đã hết thời gian kiểm thử.
+
+--------------------------------------------------------------------------------
+
+	- Ghi chú / Bình luận (Note / Comment): bị sai ra sao, chụp màn hình lỗi khi kết quả mong đợi khác với kết quả thực tế.
+
+==========================================================================================
+
+[MẸO THIẾT KẾ TEST CASE - BEST PRACTICES FOR WRITING TEST CASES]
+
+Thiết kế Test Case là việc bắt buộc phải làm trước khi muốn tiến hành kiểm thử phần mềm, để việc thiết kế Test Case được hiệu quả hơn:
+
+	- Tránh lặp lại Test Case: kiểm tra xem những Test Case đó đã từng có trong hệ thống hay chưa, nếu có thì nên cập nhật và cải tiến thêm Test Case cũ (nếu cần), hơn là viết lại từ đầu.
+
+	- Tránh đoán mò: dựa vào đặc tả để viết Test Case, tránh lạm dụng việc viết Test Case dựa theo kinh nghiệm cho những tình huống đã được mô tả trong đặc tả.
+
+	- Thường xuyên cập nhật Test Case: nên cập nhật lại Test Case mỗi khi hệ thống có cập nhật, thay đổi, nâng cấp.
+
+	- Đánh giá chéo: các kiểm thử viên kiểm thử chéo cho nhau để tăng khả năng phát hiện ra lỗi trong quá trình viết Test Case.
+
+	- Cần áp dụng thêm những kỹ thuật kiểm thử trong quá trình thiết kế thiết kế.
+
+	- Vì không thể kiểm thử toàn diện (Exhaustive Testing), nên việc áp dụng thêm những kỹ thuật kiểm thử trong quá trình thiết kế Test Case sẽ giúp giảm thiểu khối lượng công việc phải làm. Bằng cách giảm tổng số trường hợp phải kiểm thử nhưng vẫn có thể bao phủ được nhiều trường hợp nhất có thể (giảm số lượng các trường hợp nhưng tăng phạm vi kiểm tra), giúp tìm được nhiều lỗi hơn và xác định được các điều kiện kiểm thử khó tìm thấy.
+
+==========================================================================================
+
+[QUẢN LÝ TEST CASE - TEST CASE MANAGEMENT / TEST CASE REPOSITORY]
+
+Để quản lý được Test Case, ta hoàn toàn có thể sử dụng Excel, Word. Nhưng nếu số lượng Test Case quá nhiều, song song với đó là vấn đề quản lý việc kiểm thử và kết quả kiểm thử, các lần kiểm thử khác nhau... thì các công cụ truyền thống sẽ dần bộc lộ hạn chế khi rất khó trong việc lưu lại lịch sử thay đổi của Test Case.
+
+Lúc này, cần phải sử dụng thêm các phần mềm chuyên dụng cho việc quản lý, lưu trữ các Test Case, kết quả kiểm thử, các lần kiểm thử, biểu đồ, quản lý nhóm và phân chia công việc.
+
+Các phần mềm để quản lý các Test Case: TestRail, TestMonitor...
+
+--------------------------------------------------------------------------------
+
+[HƯỚNG DẪN SỬ DỤNG TESTRAIL]
+
+TestRail là công cụ toàn diện (comprehensive) để quản lý Test Case. Công cụ để QC quản lý các công việc liên quan đến quá trình kiểm thử phần mềm.
+
+------------------------------------------------------------
+
+	* Các bước để tạo dự án & bắt đầu làm việc với Test Case bằng công cụ TestRail:
+
+----------------------------------------
+
+		Bước 01: Tại màn hình bảng điều khiển (Dashboard).
+
+--------------------
+
+			1. Add Project: tạo mới một dự án rỗng để bắt đầu làm từ đầu.
+
+				- Project:
+					+ Name: đặt tên cho toàn dự án.
+					+ Announcement: thông tin tổng quan để với thiệu về dự án. Có thể đính kèm đường dẫn đi đến những nơi khác, ví dụ: nơi tài liệu về nghiệp vụ (Word, Confluence...), nơi ghi nhận lỗi (Jira, Bugzilla)...
+					+ Repository / Test suites: chọn loại dự án để làm độc lập hoặc sử dụng chung cho những dự án khác...
+
+				(Có thể mời thêm thành viên hoặc làm một số thao tác quản trị tại đây; hoặc thực hiện tại mục quản trị (Administration) sau khi dự án đã được tạo thành công.)
+
+--------------------
+
+			2. Add Example Project: tạo mới một dự án mẫu để xem cách viết Test Case.
+
+----------------------------------------
+
+		Bước 02: Tại màn hình sau khi đã tạo dự án hoặc khi chọn một dự án trong màn hình bảng điều khiển (Dashboard), sẽ có các thẻ.
+
+--------------------
+
+			1. Overview: được chia ra thành nhiều khu vực.
+
+				+ Biểu đồ thống kế trạng thái của các Test Case theo ngày và theo tổng số ngày (14 ngày).
+				+ Milestones: các cột mốc phát hành phiên bản kèm thời gian phát hành của phần mềm.
+
+				+ Test Runs: các đợt chạy Test Case kèm lý do, người thực hiện và thời gian thực hiện.
+
+				+ Activity:
+
+--------------------
+
+			2. To Do:
+
+--------------------
+
+			3. Milestones:
+
+--------------------
+
+			4. Test Runs & Results: sau khi đã có Test Case, đây sẽ là nơi để bắt đầu thực thi và ghi nhận lại kết quá kiểm thử.
+
+----------
+
+				* Sẽ bao gồm hai giao diện.
+
+					1. Thêm Test Case vào Test Run.
+
+					2. Thống kê tổng số Test Case đã Passed, Blocked, Retest, Failed theo từng đợt release (milestone); liệt kê trạng thái của từng Test Case trong mục Test Cases.
+
+----------
+
+				- Add Test Run: đưa Test Case vào để thực thi.
+
+					+ Name: tên / tiêu đề / mục đích của đợt thực thi Test Case.
+
+					+ References: ID tham chiếu đến nguồn bên ngoài.
+
+					+ Milestone: phiên bản phần mềm được sử dụng để kiểm thử.
+
+					+ Assign to: giao việc thực thi Test Case cho thành viên trong dự án.
+
+					+ Description: mô tả mục đích của lần thực thi Test Case.
+
+					+ Chọn Test Case:
+
+						* Include all test cases: thêm toàn bộ Test Case vào đợt chạy, mỗi khi tạo Test Case mới thì Test Case đó cũng sẽ được tự động thêm vào Test Run này. Thường chỉ dành cho những dự án nhỏ và có số lượng Test Case ít.
+						* Select specific test cases: chọn cụ thể những Test Case muốn thực thi, sẽ không tự động thêm Test Case vào Test Run này nếu có tạo Test Case mới.
+							-> (change selection): chọn các Test Case hoặc Session
+						* Dynamic Filtering: tự động thêm Test Case vào Test Run dựa theo bộ lọc (ví dụ: được tạo bởi ai, độ ưu tiên, tiêu đề...).
+
+--------------------
+
+			5. Test Cases: nơi lưu trữ và liệt kê toàn bộ Test Case của dự án.
+
+----------
+
+				- Add Section: sử dụng để nhóm các Test Case có liên quan với nhau thành một nhóm.
+
+				- Add Test Case: các Test được sử dụng để kiểm thử những tình huống của một tính năng cụ thể.
+					+ Title: câu chủ đề, nói lên mục đích kiểm thử.
+
+					+ Section: gom nhóm Test Cases.
+					+ Template: chọn phong cách để viết Test Case.
+						1. Test Case (Steps): từng bước thực hiện sẽ tương ứng với một kết quả mong đợi.
+						2. Test Case (Text): chỉ có duy nhất một ô lớn để tự nhập các bước, kéo theo đó là một ô lớn duy nhất để nhập kết quả mong đợi.
+					+ Type: mục tiêu kiểm thử và loại Test Case muốn viết, ví dụ: kiểm thử chức năng, hiệu năng, bảo mật, smoke & sanity...
+					+ Priority: độ ưu tiên cần phải kiểm thử - Low / Medium / Hight / Critical.
+					+ Estimate: thời gian thực thi ước tính.
+					+ References: nguồn tài liệu được sử dụng để viết nên Test Case.
+					+ Automation Type: không có tự động hoá (None) hoặc tự động hoá bằng công cụ Ranorex.
+
+					+ Preconditions: dữ liệu cần có trước khi bắt đầu thực hiện kiểm thử, có thể liên quan đến một Test Case khác...
+
+					+ Steps: liệt kê các bước cần thực hiện để có thể kiểm thử.
+
+					+ Expected Result: kết quả mong muốn nhận được sau khi thực thi Test Case.
+
+					+ Attachment: tập tin đính kèm để bổ sung cho Test Case, có thể là tập tin dữ liệu, hình ảnh minh hoạ...
+
+					[✓ Add Test Case]: lưu lại Test Case và tự động chuyển giao diện hiển thị chi tiết thông tin của Test Case vừa lưu.
+
+					[✓ Add & Next]: lưu lại Test Case và xoá toàn bộ nội dung cũ để tiếp tục viết Test Case mới.
+
+					+ People & Dates: người và thời gian tạo (Created) / cập nhật (Updated) sẽ được tự động cập nhật và xuất hiện (phía bên phải) tương ứng với từng Test Case.
+
+----------
+
+				* Sau khi đã có Test Case, sẽ bao gồm hai giao diện.
+
+					1. Tóm tắt thông tin, ví dụ: mã Test Case, tiêu đề, danh sách các Section và Test Case...
+
+					2. Chi tiết thông tin, ví dụ: độ ưu tiên, tiền điều kiện, chi tiết các bước, kết quả mong đợi...
+
+--------------------
+
+			6. Reports:
+
+------------------------------------------------------------
+
+	Test Runs & Results:
+
+		- Name: Sprint #02 (sep 18 - sep 25)
+		- References: 
+		- Milestone: 
+		- Assign to: 
+		- Description:
+
+==========================================================================================
+
+[VÍ DỤ MẪU VỀ TEST CASE - TEST CASE EXAMPLE]
+
+* Minh hoạ bằng Excel.
+
+	Ví dụ 1: tính năng đăng nhập của một website bất kỳ.
+
+		- Mã định danh Test Case: TC_Login_001
+		- Tên Test Scenario: Đăng nhập
+		- Tên Test Case: Kiểm tra tính năng đăng nhập không thành công
+
+		- Điều kiện tiên quyết: Truy cập thành công vào website
+		- Mô tả Test Case: Kiểm tra tính năng đăng nhập với tài khoản và mật khẩu không hợp lệ.
+		
+		- Các bước thực hiện kiểm thử:
+					01. Truy cập vào trang chủ
+					02. Nhấn vào menu [Tài khoản của tôi]
+					03. Chọn tính năng [Đăng nhập]
+					04. Nhập tài khoản và mật khẩu không hợp lệ
+					05. Nhấn nút [Đăng nhập]
+					
+		- Dữ liệu kiểm thử:
+					Tài khoản: a@a.com
+					Mật khẩu: Abc!@#456
+					
+		- Kết quả mong muốn: Người dùng không thể đăng nhập vào hệ thống
+		- Kết quả thực thế: Hiển thị thông báo đăng nhập không thành công
+		
+		- Trạng thái kiểm thử: PASS
+
+--------------------------------------------------------------------------------
+
+* Minh hoạ bằng TestRail.
+
+	Ví dụ 2: tính năng đăng nhập của website phptravels.net. 
+
+		- Title: Verify the login function with a valid / invalid customer account
+
+		- Section: Test Cases
+		- Template: Test Case (Text)
+		- Type: Functional / Automated
+		- Priority: Medium
+		- Estimate: 5 mintues
+		- References: SRS page 15 / User story #020
+		- Automation Type: Ranorex
+
+		- Preconditons:
+			At least two pre-defined accounts need to be setup
+			- Invalid account: thuannh | 123456 - Full name: Hoàng-Thuận NGUYỄN
+			- Valid account: thuanxam | 654321 - Full name: Thuận Xàm
+
+		- Steps:
+			1. Open a certain browser, e.g. Chrome
+			2. Open the travels login page with the following url: https://phptravels.net/login
+			3. Choose one of two account that listed above (in the Preconditons session)
+			4. Hit [Login] button
+
+		- Expected Result:
+			1. The browser is opened
+			2. The login page/form is displayed with at least three mandatory web elements:
+				- [Username] textbox
+				- [Password] textbox
+				- [Login] button
+			3. The data is stored in textbox
+			4.1. The Customer shows an error message under the following format: WRONG PASSWORD!!!
+			4.2. The Customer dashboard appears with a welcome message under the following format: "Hi, <firstname> Welcome Back".
+
+==========================================================================================
+
+[THỰC THI TEST CASE - TEST RUN / TEST EXECUTION]
+
+Sau thiết kế Test Case là giai đoạn thực thi / chạy Test Case (Test Run / Test Execution), giai đoạn này có thể do chính người đã thiết kế ra Test Case hoặc giao cho một khác thực hiện, bằng cách mô phỏng lại các tình huống sử dụng hệ thống của người dùng. Mục đích là để lấy được kết quả thực tế (actual result) và đem đi so sánh với kết quả mong đợi (expected result), từ đó xác minh tính năng chạy đúng hay sai.
+
+Cuối cùng, các kết quả của quá trình thực thi sẽ được ghi nhận vào trong báo cáo kiểm thử (Test Report) và các lỗi tìm thấy sẽ được ghi nhận vào báo cáo lỗi (Bug Report).
+
+--------------------------------------------------------------------------------
+
+* Có hai cách để thực thi Test Case:
+
+------------------------------------------------------------
+
+	1. Kiểm thử thủ công (Manual Testing): tự tay (thủ công) mở hệ thống lên, làm theo các bước đã được mô tả trong Test Case, sau đó dùng nhìn kết quả trả về và tự kết luận đúng hay sai so với kết quả mong đợi.
+		-> Dùng sức người để thực thi và kiểm tra hệ thống.
+
+------------------------------------------------------------
+
+		* Kịch bản kiểm thử tự động (Test Script): đoạn code được viết để tự động hoá quá trình kiểm thử, có thể độc lập với ngôn ngữ lập trình được sử dụng để tạo ra ứng dụng.
+
+	2. Kiểm thử tự động (Automation / Automated Testing): con người sử dụng các công cụ, các thư viện để thiết kế Test Script, nhằm mục đích nhờ máy tính tự động hoá việc thực thi các bước đã được liệt kê trong Test Case (tự động mở, nhập dữ liệu, nhấn nút, xem kết quả, tự so sánh và báo kết quả đúng hay sai). Cách này hiệu quả trong việc kiểm thử hồi quy (Regression Testing) khi một tính năng phải kiểm thi lặp lại nhiều lần do có nhiều sự thay đổi, giúp tăng tốc quá trình kiểm thử.
+		-> Con người viết code để máy tính giả lập lại các hành động, thay con người thực hiện kiểm thử hệ thống và kết luận.
+
+==========================================================================================
+
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------
+
+----------------------------------------
+
+--------------------
+
+----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
