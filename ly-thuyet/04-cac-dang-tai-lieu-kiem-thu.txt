@@ -270,10 +270,10 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 
 	- Những tài liệu này sẽ được ghi chép vào một tập tin, trong một ứng dụng hoặc trên một dịch vụ lưu trữ trực tuyến nào đó. Việc lập tài liệu một cách chi tiết cũng sẽ giúp những người đến sau dễ dàng hơn trong việc bảo trì Test Case.
 
-	-> Tập hợp bộ dữ liệu đầu vào, các điều kiện tiên quyết, bước thực hiện, kết quả mong đợi, kết quả thực tế... giúp tìm ra lỗi trong giai đoạn phát triển (development) hoặc trong các yêu cầu (requirement) và thiết kế (design) của ứng dụng.
+	-> Một trường hợp sử dụng cụ thể mà Tester phải tự hình dung ra dựa theo một một tình huống sử dụng thực tế của người dùng, thường đi kèm với dữ liệu đầu vào, các bước xử lý và kết quả trả về. Mục đích là để giúp tìm ra lỗi trong giai đoạn phát triển (development) hoặc trong các yêu cầu (requirement) và thiết kế (design) của ứng dụng.
 		(Tài liệu ghi nhận lại những công việc cần phải làm của một Tester.)
 
-(Đây là giai đoạn khó khăn nhất đối với Tester, khi phải thiết kế được đầy đủ các tình huống xảy ra, để đảm bảo chất lượng của phần mềm.)
+(Đây là giai đoạn khó khăn nhất đối với Tester, khi phải thiết kế được đầy đủ các tình huống xảy ra, nhằm đảm bảo chất lượng của phần mềm.)
 
 ------------------------------------------------------------
 
