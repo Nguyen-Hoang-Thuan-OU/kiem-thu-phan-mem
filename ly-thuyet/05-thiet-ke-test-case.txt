@@ -307,16 +307,6 @@ TestRail là công cụ toàn diện (comprehensive) để quản lý Test Case.
 
 			6. Reports:
 
-------------------------------------------------------------
-
-	Test Runs & Results:
-
-		- Name: Sprint #02 (sep 18 - sep 25)
-		- References: 
-		- Milestone: 
-		- Assign to: 
-		- Description:
-
 ==========================================================================================
 
 [VÍ DỤ MẪU VỀ TEST CASE - TEST CASE EXAMPLE]
@@ -389,7 +379,11 @@ TestRail là công cụ toàn diện (comprehensive) để quản lý Test Case.
 
 [THỰC THI TEST CASE - TEST RUN / TEST EXECUTION]
 
-Sau thiết kế Test Case là giai đoạn thực thi / chạy Test Case (Test Run / Test Execution), giai đoạn này có thể do chính người đã thiết kế ra Test Case hoặc giao cho một khác thực hiện, bằng cách mô phỏng lại các tình huống sử dụng hệ thống của người dùng. Mục đích là để lấy được kết quả thực tế (actual result) và đem đi so sánh với kết quả mong đợi (expected result), từ đó xác minh tính năng chạy đúng hay sai.
+Thực thi / Chạy Test Case (Test Run / Test Execution): thực thi ứng dụng trong môi trường thực tế, dựa theo những bộ dữ liệu và được chuẩn bị sẵn và những bước đã được mô tả trong Test Case để đi tìm lỗi.
+
+	- Sau thiết kế Test Case là giai đoạn thực thi / chạy Test Case, giai đoạn này có thể do chính người đã thiết kế ra Test Case hoặc giao cho một khác thực hiện, bằng cách mô phỏng lại các tình huống sử dụng hệ thống của người dùng.
+
+	- Mục đích là để lấy được kết quả thực tế (actual result) và đem đi so sánh với kết quả mong đợi (expected result), từ đó xác minh tính năng chạy đúng hay sai.
 
 Cuối cùng, các kết quả của quá trình thực thi sẽ được ghi nhận vào trong báo cáo kiểm thử (Test Report) và các lỗi tìm thấy sẽ được ghi nhận vào báo cáo lỗi (Bug Report).
 
