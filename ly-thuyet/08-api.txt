@@ -1,0 +1,123 @@
+﻿[GIAO DIỆN LẬP TRÌNH ỨNG DỤNG - APPLICATION PROGRAMMING INTERFACE]
+
+[LIÊN TƯỞNG TƯƠNG ĐỒNG]
+
+Có thể hình dung giống như một quyển sách hướng dẫn sử dụng:
+
+	- Chỉ cần đọc để hiểu và sử dụng theo, không cần biết đến cấu tạo phức tạp bên trong của thứ mà ta đang sử dụng.
+
+	- Chỉ cần đọc một lần để biết rồi sau đó không sử dụng đến sách hướng dẫn nữa, hoặc để ở một góc và chỉ lấy ra đọc mỗi khi cần.
+
+	-> Hướng dẫn cách tương tác với sản phẩm, mà người dùng không cần phải hiểu cách thực hoạt động đằng sau.
+
+	Ví dụ: chiếc ô tô mà ta đang sở hữu bỗng một ngày đột ngột bị hỏng, nhưng chúng ta lại không có quá nhiều kiến thức về lĩnh vực này. Lúc này, ta sẽ có hai lựa chọn:
+
+		1. Đi đến cửa hàng bảo dưỡng và yêu cầu nhân viên thực hiện sửa chữa giùm.
+
+		2. Tự đọc tài liệu hướng và thực hiện việc sửa chữa theo hướng dẫn được viết trong tài liệu.
+			- Bên trong chứa nhiều sơ đồ / hình vẽ về toàn bộ những chi tiết của chiếc xe.
+			- Từng bộ phận của xe sẽ được đánh số thứ tự, từ đó giúp ta dễ dàng truy tìm linh kiện thay thế.
+			-> Chỉ việc đọc hướng dẫn và thay thế linh kiện, không cần quan tâm đến cấu trúc bên trong.
+				(Chỉ cần biết cách sử dụng, không cần biết cách tạo nên sản phẩm.)
+
+	(* Tham khảo thêm: https://youtu.be/snRjHNyljrg)
+
+--------------------------------------------------------------------------------
+
+[ĐỊNH NGHĨA VỀ API]
+
+* API (Application Programming Interface): giao diện lập trình ứng dụng.
+
+	- Giúp hai hệ thống với những chức năng riêng biệt với nhau, nhưng lại có thể giao tiếp với nhau mà không cần phải biết đối phương đang áp dụng phía sau những công nghệ gì.
+
+	- Như một hợp đồng thoả thuận sử dụng dịch vụ giữa hai hệ thống. Một bên đã làm sẵn mọi thứ, sau đó chỉ việc cung cấp dịch vụ và hướng dẫn sử dụng; bên còn lại nhận dịch vụ và đưa vào dự án của mình để sử dụng mà không cần quan tâm dịch vụ ấy được tạo ra như thế nào.
+
+	- API là những hàm có thể gọi từ xa (trong nội bộ hệ điều hành, trên Internet thông qua URL...) do ai đó đã thiết kế sẵn và cung cấp.
+
+	- Thay vì trả về giao diện, hàm lại trả về giá trị và ở đây, giá trị trả về là đối tượng dưới dạng chuỗi JSON hoặc XML (thay vì số hoặc chuỗi).
+
+	- Đối tượng sử dụng ở đây không phải là người dùng cuối (end-user) mà lại là một ứng dụng khác.
+
+	- API không cần giao diện vì được tạo ra để các hệ thống khác gọi. Khi đã nhận được giá trị trả về, nếu muốn có giao diện thì nơi gọi API sẽ phải tự dựng lên giao diện để trình bày dữ liệu.
+
+		Ví dụ: API đăng nhập của Google không có giao diện, chỉ trả về chuỗi JSON chứa giá trị của Gmail và những thông tin đi kèm của người vừa đăng nhập
+
+	-> Sử dụng hàm có sẵn và do một nơi khác cung cấp để tương tác với hệ thống mà không cần hiểu cấu trúc hoạt động bên trong.
+		(Hưởng lợi từ sản phẩm mà không cần biết sâu quá cấu trúc thiết kế.)
+
+		-> Kỹ thuật trả về dữ liệu thô dưới dạng .JSON (chứ không phải là một trang web) để có thể tiếp tục sử dụng trong một ứng dụng nào đó.
+
+------------------------------------------------------------
+
+API có mặt từ khi thiết kế hệ điều hành (trong hệ điều hành đã có API), cung cấp những hàm / thư viện *.dll và được chứa trong thư mục C:\Windows\System32, cho phép tuỳ tương tác với lõi của hệ điều hành và tuỳ chỉnh lại theo ý muốn.
+
+	Ví dụ 1: có thể sử dụng các hàm và thư viện có sẵn trong hệ điều hành để khiến các góc cạnh của ứng dụng trên Windows 10 bo tròn giống như trên Windows 11 (hoặc thậm chí là bo tròn thành hình elip).
+
+	Ví dụ 2: ứng dụng Unikey sẽ tương tác với lõi của hệ diều hành để "đi tắt, đón đầu".
+		- Chặn bộ đệm của phàn phím để đón những dữ liệu đang được nhập vào.
+		- Biến đổi dữ liệu (ví dụ: [a] + [s] -> 'á') trước khi hiển thị ra.
+
+------------------------------------------------------------
+
+	* HTTP và HTTPS: cách thức để truyển tải các trang web.
+		Ví dụ: HTTP request / HTTP message / request object
+			- Header: ghi chú địa chỉ IP của máy cục bộ, trình duyệt đang sử dụng, port của trang web đang gọi đến...
+			- Body: 
+
+Web API là kỹ thuật gọi hàm đang ở rất xa thông qua giao thức HTTP.
+
+	- Thay vì sử dụng giao thức HTTP để gọi URL thông qua trình duyệt và trả về một trang web, sau đó sử dụng một trang web khác để hứng dữ liệu trả về (cách truyền thống).
+
+	- Bây giờ, ta chỉ cần sử dụng code dể gọi URL, miễn là sau khi xử lý xong thì URL sẽ trả về giá trị (chuỗi XML hoặc JSON), thay vì hiển thị lên thành giao diện của trang web trên trình duyệt.
+
+	- Vì sẽ tương tác với trang web và URL, nên Server đảm nhận việc đón và xử lý các yêu cầu (request) do trình duyệt gửi đến sẽ cần cài thêm các công cụ được gọi là Web Server (IIS, NGINX, Apache Tomcat...) để biết và có những xử lý tương ứng (ví dụ: lấy dữ liệu dưới CSDL, chỉ cần trả về trang web tĩnh...).
+
+	-> Sử dụng code để gọi một URL từ xa thông qua giao thức HTTP và nhận về một giá trị.
+
+
+
+==========================================================================================
+
+[KIỂM THỬ API - API TESTING]
+
+* Kiểm thử API (API Testing): API là cầu nối, dịch vụ do một số nguồn khác cung cấp để Client sử dụng (tách biệt giao diện và xử lý), cần có cơ chế để kiểm thử riêng phần xử lý ở phía sau đã giá trị về đúng hay sai, trước khi đem đi tích hợp vào những hệ thống khác.
+	-> Kiểm thử hàm trả về giá trị đúng hay sai.
+
+	Ví dụ: các bước để thay đổi mật khẩu.
+		01. User vào phần "Profile" để thay đổi mật khẩu.
+		02. User nhấn vào nút [Update].
+		03. API sẽ chịu trách nhiệm là gửi thông tin mật khẩu cũ và thông tin mật khẩu mới đó về Server.
+		04. Server sẽ đọc thông tin và kiểm tra.
+		05. Nếu tất cả mọi thứ đều ổn thì Server sẽ tiến hành cập nhật mật khẩu mới.
+		06. Server sẽ trả phản hồi về cho Client và thông báo rằng đã cập nhật thành công.
+		07. Cuối cùng là User sẽ nhìn thấy mật khẩu đã được cập nhật thành công.
+
+		// Các bước 4, 5 và 6 được gọi là Syntax Testing và Functional Testing.
+
+--------------------------------------------------------------------------------
+
+* Tham khảo thêm:
+	- https://aws.amazon.com/vi/what-is/api/
+	- https://vi.wikipedia.org/wiki/Giao_di%E1%BB%87n_l%E1%BA%ADp_tr%C3%ACnh_%E1%BB%A9ng_d%E1%BB%A5ng
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+[RESTFUL API]
+
+
+
+==========================================================================================
+
+==========================================================================================
+
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------
+
+----------------------------------------
+
+--------------------
+
+----------

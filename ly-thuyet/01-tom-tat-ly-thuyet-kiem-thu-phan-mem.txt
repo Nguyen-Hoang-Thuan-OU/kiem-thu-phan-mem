@@ -275,6 +275,18 @@ Tham khảo thêm: các tiêu chuẩn về chất lượng phần mềm
 
 		Ví dụ 2: chỉ có code back-end, sử dụng công cụ Postman để gọi thay vì phải viết một số đoạn code giả để gọi.
 
+------------------------------------------------
+
+Mock: tạo ra một phiên bản giả của một dịch vụ nhà làm hoặc dịch vụ do bên thứ ba cung cấp, nhưng lại có công dụng giống hệt như đồ thật. Sau đó xử lý trên trên chính đối tượng (object) giả này trong lúc đợi đồ thật được hoàn thiện.
+
+Khi trong một dự án mà có sự phụ thuộc code lẫn nhau, có những mô-đun phải đợi một người khác hoàn thành thì ta mới có thể xử lý tiếp được. Để có thể vẫn tiếp tục xử lý công việc mà không cần đợi những tính năng phụ thuộc phải hoàn thành, ta sẽ thống nhất với nhau về Interface, tên hàm và giá trị trả về; thiết kế một lớp (class) với tên giống hệt và làm giả giá trị trả về.
+
+	-> Khi mô-đun gốc chưa hoàn thiện, ta viết code để tạo ra một giá trị phù hợp với nhu cầu, nhằm sử dụng để tiếp tục xử lý những mô-đun sau.
+
+https://youtu.be/v7LHE-3rd-g?t=5400 (Khái niệm về Mock)
+
+	Ví dụ: câu lệnh insert into, chỉ cần một thông báo thành công để xử lý tiếp. Vì DAO chưa viết xong, thay vì phải kết nối với CSDL, ta viết tạm một hàm với giá trị trả về luôn luôn là một new Object() để tiếp tục hiển thị trên website.
+
 ==========================================================================================
 
 [NHẬN DIỆN CÁC HÌNH THÁI / HÌNH DẠNG CỦA LỖI PHẦN MỀM]
@@ -788,64 +800,6 @@ Là loại kiểm thử phần mềm được thực hiện sau khi nhận đư�
 |-----------------------------------------------|-----------------------------------------------|
 | Giống như đi kiểm tra sức khỏe tổng quát	| Giống như đi khám chuyên khoa			|
 -------------------------------------------------------------------------------------------------
-
-==========================================================================================
-
-[KIỂM THỬ API - API TESTING]
-
-* API (Application Programming Interface): giao diện lập trình ứng dụng (hai hệ thống với những chức năng riêng biệt với nhau).
-
-	- Như một hợp đồng thoả thuận sử dụng dịch vụ giữa hai hệ thống. Một bên đã làm sẵn mọi thứ, sau đó chỉ việc cung cấp dịch vụ và hướng dẫn sử dụng; bên còn lại nhận dịch vụ và đưa vào dự án của mình để sử dụng mà không cần quan tâm dịch vụ ấy được tạo ra như thế nào.
-
-	- API là những hàm có thể gọi từ xa (trên Internet thông qua URL) và trả về giá trị là đối tượng dưới dạng chuỗi JSON hoặc XML (thay vì số hoặc chuỗi).
-
-	- API không cần giao diện vì được tạo ra để các hệ thống khác gọi. Nếu muốn có giao diện thì nơi gọi API sẽ phải tự dựng lên giao diện để trình bày dữ liệu.
-
-		Ví dụ: API đăng nhập của Google không có giao diện, chỉ trả về chuỗi JSON chứa giá trị của Gmail và những thông tin đi kèm của người vừa đăng nhập
-
-	-> Kỹ thuật trả về dữ liệu thô dưới dạng .JSON (chứ không phải là một trang web) để có thể tiếp tục sử dụng trong một ứng dụng nào đó.
-
---------------------------------------------------------------------------------
-
-** Kiểm thử API (API Testing): API là cầu nối, dịch vụ do một số nguồn khác cung cấp để Client sử dụng (tách biệt giao diện và xử lý), cần có cơ chế để kiểm thử riêng phần xử lý ở phía sau đã giá trị về đúng hay sai, trước khi đem đi tích hợp vào những hệ thống khác.
-	-> Kiểm thử hàm trả về giá trị đúng hay sai.
-
-	Ví dụ: các bước để thay đổi mật khẩu.
-		01. User vào phần "Profile" để thay đổi mật khẩu.
-		02. User nhấn vào nút [Update].
-		03. API sẽ chịu trách nhiệm là gửi thông tin mật khẩu cũ và thông tin mật khẩu mới đó về Server.
-		04. Server sẽ đọc thông tin và kiểm tra.
-		05. Nếu tất cả mọi thứ đều ổn thì Server sẽ tiến hành cập nhật mật khẩu mới.
-		06. Server sẽ trả phản hồi về cho Client và thông báo rằng đã cập nhật thành công.
-		07. Cuối cùng là User sẽ nhìn thấy mật khẩu đã được cập nhật thành công.
-
-		// Các bước 4, 5 và 6 được gọi là Syntax Testing và Functional Testing.
-
---------------------------------------------------------------------------------
-
-* Tham khảo thêm:
-	- https://aws.amazon.com/vi/what-is/api/
-	- https://vi.wikipedia.org/wiki/Giao_di%E1%BB%87n_l%E1%BA%ADp_tr%C3%ACnh_%E1%BB%A9ng_d%E1%BB%A5ng
-==========================================================================================
-
-[KIỂM THỬ TỰ ĐỘNG - AUTOMATION TESTING]
-
-** Kiểm thử phần mềm tự động (Test Automation):
-Là quá trình con người sử dụng công cụ để tự động hoá quá trình kiểm thử phần mềm. Đôi khi sẽ có những kịch bản kiểm thử thủ công lặp lại nhiều lần đến mức gây nhàm chán, tốn thời gian và chi phí nếu kiểm thử thủ công. Lúc này, cần có sự hỗ trợ của công cụ để tự động hoá quá trình kiểm thử.
-
-Vì "hậu trường" của một ứng dụng chỉ element/component là những giá trị, thuộc tính... bên cạnh thực hiện thủ công trên màn hình giao diện, ta hoàn toàn có thể viết code để tự động hóa được quá trình kiểm thử.
-
-==========================================================================================
-
-Mock: tạo ra một phiên bản giả của một dịch vụ nhà làm hoặc dịch vụ do bên thứ ba cung cấp, nhưng lại có công dụng giống hệt như đồ thật. Sau đó xử lý trên trên chính đối tượng (object) giả này trong lúc đợi đồ thật được hoàn thiện.
-
-Khi trong một dự án mà có sự phụ thuộc code lẫn nhau, có những mô-đun phải đợi một người khác hoàn thành thì ta mới có thể xử lý tiếp được. Để có thể vẫn tiếp tục xử lý công việc mà không cần đợi những tính năng phụ thuộc phải hoàn thành, ta sẽ thống nhất với nhau về Interface, tên hàm và giá trị trả về; thiết kế một lớp (class) với tên giống hệt và làm giả giá trị trả về.
-
-	-> Khi mô-đun gốc chưa hoàn thiện, ta viết code để tạo ra một giá trị phù hợp với nhu cầu, nhằm sử dụng để tiếp tục xử lý những mô-đun sau.
-
-https://youtu.be/v7LHE-3rd-g?t=5400
-
-	Ví dụ: câu lệnh insert into, chỉ cần một thông báo thành công để xử lý tiếp. Vì DAO chưa viết xong, thay vì phải kết nối với CSDL, ta viết tạm một hàm với giá trị trả về luôn luôn là một new Object() để tiếp tục hiển thị trên website.
 
 ==========================================================================================
 

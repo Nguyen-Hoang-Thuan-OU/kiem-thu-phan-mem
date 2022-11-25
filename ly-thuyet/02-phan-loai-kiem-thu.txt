@@ -27,7 +27,7 @@ Việc phân loại kiểm thử chưa bao giờ dễ dàng khi có đến hơn 
  ---------------------------------------------------------------------------------------
 | You can do Functional Testing (A Type)| Muốn kiểm thử một LOẠI nào đó			|
 | during System Testing (A Level)	| diễn ra trong GIAI ĐOẠN nào đó		|
-| using Black Box Testing (A Method)	| bằng KỸ THUẬT/PHƯƠNG PHÁP cụ thể nào đó	|
+| using Black Box Testing (A Method)	| bằng KỸ THUẬT / PHƯƠNG PHÁP cụ thể nào đó	|
  ---------------------------------------------------------------------------------------
 
 	Ví dụ:
@@ -257,7 +257,15 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 ----------
 
-			* Test Initializer & Finalizer: ghi chú (annotation), đóng vai trò giống như những hàm khởi tạo. Khi hàm kiểm thử được thực thi thì những hàm đặc biệt này sẽ được ưu tiên chạy trước hoặc chạy cuối cùng, có nhiệm vụ khởi động các đối tượng, dữ liệu, tạo kết nối CSDL hoặc dọn dẹp, gỡ bỏ kết nối CSDL... Trong khi đó, cú pháp @Test được sử dụng chỉ để chạy riêng các tình huống, thực thi code chuẩn bị kiểm thử theo thứ tự từ trên xuống dưới.
+			* Test Initializer & Finalizer: ghi chú (annotation), đóng vai trò giống như những hàm khởi tạo và luôn được thực thi theo một thứ tự ưu tiên, mà không quan trọng tên hàm hay vị trí hàm được khai báo.
+
+				- Khi hàm kiểm thử @Test được thực thi thì những hàm đặc biệt này sẽ được ưu tiên chạy trước hoặc chạy cuối cùng.
+
+				- Có nhiệm vụ khởi động các đối tượng, dữ liệu, tạo kết nối CSDL hoặc dọn dẹp, gỡ bỏ kết nối CSDL...
+
+				- Trong khi đó, cú pháp @Test được sử dụng chỉ để chạy riêng các tình huống, thực thi code chuẩn bị kiểm thử theo thứ tự từ trên xuống dưới.
+
+				-> Sử dụng từ khoá đặc biệt để quy định thứ tự thực thi.
 
 			* Bảng so sánh giữa JUnit 4 và JUnit 5 (Jupiter):
 
@@ -321,13 +329,29 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 			* Diễn giải bằng văn bản:
 
-			- Test Initializer | setUp() / @Before: được thi trước những hàm khác, có thể được thực thi nhiều lần, miễn là vẫn trước các hàm khác. Có thể đặt các hàm có kết nối với CSDL để lấy dữ liệu ở @Before hoặc @BeforeClass.
+			- Test Initializer | setUp() / @Before: được thi trước những hàm @Test khác, có thể được thực thi nhiều lần, miễn là vẫn trước các hàm @Test khác. Có thể tận dụng để luôn tạo mới một đối tượng đại diện cho trình duyệt trước mỗi lần chạy.
+				-> Tài lanh và luôn chạy trước mỗi hàm @Test, chạy nhiều lần nếu có nhiều hàm @Test.
 
-			- Test Finalizer | tearDown() / @After: được thi sau những hàm khác, có thể được thực thi nhiều lần, miễn là vẫn sau các hàm khác.
+				Ví dụ: chuẩn bị dữ liệu...
 
-			- Test Class Initializer | setUpClass() / @BeforeClass: được thực thi một lần duy nhất và trước tất cả các hàm khác trong lớp. Vì vậy, có thể tách thao tác mở một trang web (System.setProperty(), chromeDriver.get()...) ra thành một hàm riêng và đảm bảo hàm này luôn chạy trước các hàm khác.
+			- Test Finalizer | tearDown() / @After: được thi sau những hàm @Test khác, có thể được thực thi nhiều lần, miễn là vẫn sau các hàm @Test khác.
+				-> Ân cần và luôn chạy sau mỗi hàm @Test, chạy nhiều lần nếu có nhiều hàm @Test.
 
-			- Test Class Finalizer | tearDownClass() / @AfterClass: được thực thi cuối cùng, sau khi tất cả các hàm trong lớp đã được thực thi. Vì vậy, có thể tách thao tác tắt trình duyệt (chromeDriver.close() và chromeDriver.quit()) ra thành một hàm riêng và đảm bảo hàm này chỉ chạy sau khi tất cả các hàm đều đã được thực thi xong.
+				Ví dụ: dọn dẹp dữ liệu...
+
+			- Test Class Initializer | setUpClass() / @BeforeClass: được thực thi đầu tiên và một lần duy nhất, trước tất cả các hàm @Test khác trong lớp. Vì vậy, có thể tách thao tác ra thành một hàm riêng và đảm bảo hàm này luôn chạy trước tất cả các hàm @Test khác.
+				-> Chạy trước tất cả các hàm @Test để "làm gương" / "dẫn đường" một lần duy nhất.
+
+				Ví dụ:
+					- Khởi động trình duyệt và trang web (System.setProperty(), chromeDriver.get()...).
+					- Mở kết nối với CSDL để lấy dữ liệu.
+
+			- Test Class Finalizer | tearDownClass() / @AfterClass: được thực thi cuối cùng và một lần duy nhất, sau khi tất cả các hàm @Test trong lớp đã được thực thi. Vì vậy, có thể tách thao tác ra thành một hàm riêng và đảm bảo hàm này chỉ chạy sau khi tất cả các hàm @Test đều đã được thực thi xong.
+				-> Ở lại cuối cùng để "dọn dẹp hậu trường" một lần duy nhất.
+
+				Ví dụ:
+					- Tắt trình duyệt (chromeDriver.close() và chromeDriver.quit()).
+					- Xoá dữ liệu rác và đóng kết nối CSDL.
 
 
 			@RunWith(value = Parameterized.class): thông báo cho máy ảo Java (JUNit) rằng class này đã được tham số hóa, trong quá trình thực thi cần có trích xuất dữ liệu.
@@ -355,6 +379,7 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 			Bước 03. Chọn công cụ Maven và sao chép toàn bộ câu lệnh khai báo thư viện
 
 			Bước 04. Trong vùng <project>, song song / ngang hàng với vùng <properties>, nhập thêm cặp thẻ <dependencies></dependencies> (dạng số nhiều). Sau đó dán câu lệnh khai báo những thư viện cần sử dụng (mà trước đó đã sao chép trên Central Repository) vào bên trong cặp thẻ <dependencies></dependencies>
+					-> Thư viện được sử dụng để tham chiếu vào code.
 
 				Ví dụ: khai báo thư viện JUnit 5 (Jupiter)
 
@@ -374,7 +399,8 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 					</dependencies>
 
-			Bước 05. Trong vùng <project>, song song / ngang hàng với vùng <properties>, nằm ngay phía sau phần <dependencies>, nhập thêm cặp thẻ <build></build> và cặp thẻ <plugins></plugins> (dạng số nhiều) ở bên trong vùng <build>. Sau đó khai báo thêm plugin hỗ trợ cho việc chạy Unit Test, tuy đây là một bộ thư viện dependency nhưng lại sử dụng như plugin, vì vậy, phải bỏ cặp thẻ <dependency></dependency> sau khi sao chép và dán.
+			Bước 05. Trong vùng <project>, song song / ngang hàng với vùng <properties>, nằm ngay phía sau phần <dependencies>, nhập thêm cặp thẻ <build></build> và cặp thẻ <plugins></plugins> (dạng số nhiều) ở bên trong vùng <build>. Sau đó khai báo thêm plugin hỗ trợ cho việc chạy Unit Test, tuy đây là một bộ thư viện dependency nhưng lại sử dụng như plugin, vì vậy, phải bỏ cặp thẻ <dependency></dependency> sau khi sao chép và dán. Đây cũng là một tập tin *.jar giống như thư viện, nhưng nó sẽ được thực thi cùng với IDE, maven, JDK, JVM..., để thực thi đoạn code có sử dụng thư viện Unit Test đã khai báo.
+					-> Thư viện được sử dụng để thực thi code.
 
 				Ví dụ: khai báo plugin Maven Surefire
 
@@ -432,7 +458,8 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 			// Sử dụng biểu thức lamdba: [Nhập môn Software Testing: Bài 12 - MAVEN & JUNIT5] https://youtu.be/etCIAip6GDg?t=4412
 
---------------------------------------------------------------------------------
+==========================================================================================
+
 
 [02. KIỂM THỬ TÍCH HỢP - INTEGRATION TEST]
 
@@ -451,33 +478,35 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 			-> Chức năng thêm-xoá-sửa-tìm kiếm.
 
-------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 	[CÁC CHIẾN LƯỢC TÍCH HỢP]
 
 	* Chiến lược tích hợp các đơn vị/thành phần:
-	
+
+------------------------------------------------------------
+
 		- Chiến lược Big-bang: đợi đến khi hoàn thành xong tất cả các đơn vị/thành phần hoặc hệ thống (bên ngoài) thì mới tích hợp cùng một lúc để có hệ thống đầy đủ.
 			(Khó có thể xác định được thành phần xảy ra lỗi.)
 
-----------------------------------------
+------------------------------------------------------------
 
 		- Chiến lược Incremental (tăng dần): tại một thời điểm, chỉ tích hợp một đơn vị/thành phần hoặc hệ thống (bên ngoài) nhỏ. Chiến lược này kiểm thử từng phần riêng biệt, giúp sớm phát hiện lỗi và dễ dàng cô lập để tìm ra nguyên nhân.
 			(Sẽ gặp trường hợp tình năng này chờ tính năng kia phát triển. Lúc này, cần phát triển thêm các Stub & Driver để có thể thực hiện kiểm thử trước khi tính năng thật được hoàn thành.)
 
 			* Hai chiến lược incremental thường được sử dụng là top-down và bottom-up:
 
---------------------
+----------------------------------------
 
 				- Chiến lược top-down: hệ thống được xây dựng theo từng giai đoạn, bắt đầu từ thành phần cao nhất (top) gọi các thành phần khác ở cấp thấp hơn. Các mô-đun chính/quan trọng (cấp cao hơn) sẽ được ưu tiên kiểm thử trước rồi mới kiểm thử đến các mô-đun phụ (cấp thấp hơn). Các mô-đun phụ (cấp thấp hơn) chưa xây dựng thì sẽ được tạm thời thay thế bằng Stub. Sau đó, các mô-đun này sẽ được tích hợp lại với nhau. Thường được thực hiện trên các ngôn ngữ lập trình hướng cấu trúc/thủ tục, không quá phức tạp và chỉ có lợi nếu lỗi nghiêm trọng xảy ra ở đầu chương trình.
 					-> Thiết kế và kiểm thử những mô-đun chính trước, sau đó mới đến các mô-đun phụ.
 
---------------------
+----------------------------------------
 
 				- Chiến lược bottom-up: chiến lược này ngược lại với chiến lược top-down, các thành phần được tích hợp theo thứ tự từ dưới lên. Khi kiểm thử, các mô-đun phụ (cấp thấp hơn) sẽ được ưu tiên kiểm thử trước rồi mới đến các mô-đun chính (cấp cao hơn). Các mô-đun chính (cấp cao hơn) chưa xây dựng sẽ được tạm thời thay thế bằng Driver. Sau đó, các mô-đun này sẽ được tích hợp lại với nhau. Thường được thực hiện trên các ngôn ngữ lập trình hướng đối tượng, sự phức tạo cao với nhiều dữ liệu và chỉ có lợi nếu các lỗi nghiêm trọng xảy ra ở cuối chương trình.
 					-> Thiết kế và kiểm thử những mô-đun phụ trước, sau đó mới đến các mô-đun chính.
 
---------------------------------------------------------------------------------
+==========================================================================================
 
 [03. KIỂM THỬ HỆ THỐNG - SYSTEM TEST]
 
@@ -487,13 +516,13 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 	Ví dụ: Giao diện đồ họa người dùng (GUI) + API + Back-end + các trang
 		-> Một hệ thống gần như hoàn hảo.
 
-------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 	[PHÂN LOẠI YÊU CẦU PHẦN MỀM]
 
 	- Yêu cầu chức năng (Functional Requirement): các yêu cầu chỉ định các chức năng của hệ thống hoặc các thành phần cần được thực hiện, nó chỉ định chi tiết những gì (WHAT) hệ thống cần làm. Trong suốt quá trình kiểm thử chức năng, ta cần thực hiện các kiểm tra chức năng như: cài đặt, chạy thử ứng dụng trên máy cục bộ, hệ điều hành cục bộ, kiểm tra các chức năng của ứng dụng, các xử lý chuỗi, văn bản như sao chép (copy), dán (paste) cho các ký tự mở rộng,...
 
-----------------------------------------
+------------------------------------------------------------
 
 	- Yêu cầu phi chức năng (Non-Functional Requirement): những yêu cầu không liên quan đến dịch vụ được chỉ định, mà liên quan đến những thuộc tính ràng buộc hệ thống, chất lượng và trải nghiệm:
 		+ Kiểm thử tính tin cậy (Reliabilty Tesing).
@@ -503,7 +532,7 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 		+ Kiểm thử tính khả chuyển (Portable Testing).
 		+ Kiểm thử hiệu năng (Performance Testing).
 
---------------------------------------------------------------------------------
+==========================================================================================
 
 [04. KIỂM THỬ CHẤP NHẬN - USER ACCEPTANCE TEST]
 
@@ -546,7 +575,21 @@ Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp
 
 --------------------------------------------------------------------------------
 
-* Kiểm thử chức năng (Functional Testing): dựa theo các yêu cầu chức năng (functional requirement) của hệ thống.
+* Phân chia theo ISTQB:
+
+	01. Kiểm thử hộp đen (Black Box Testing)
+		01.01. Kiểm thử chức năng (Functional Testing)
+		01.02. Kiểm thử phi chức năng (Non-Functional Testing)
+
+	02. Kiểm thử hộp trắng (White Box Testing)
+
+	03. Kiểm thử khi có sự thay đổi (Change Related Testing)
+
+==========================================================================================
+
+[01. KIỂM THỬ CHỨC NĂNG - FUNCTIONAL TESTING]
+
+** Kiểm thử chức năng (Functional Testing): dựa theo các yêu cầu chức năng (functional requirement) của hệ thống.
 	- Kiểm tra tiến trình làm phần mềm: requirements (đúng / sai / bất hợp lý - đủ / thừa / thiếu).
 	- Kiểm tra những chức năng đã thiết kế có hoạt động đúng.
 
@@ -556,9 +599,11 @@ Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp
 
 		Ví dụ 2: kiểm tra thực hiện một phép tính trên ứng dụng máy tính bỏ túi của Windows.
 
---------------------------------------------------------------------------------
+==========================================================================================
 
-* Kiểm thử phi chức năng (Non-Functional Testing): dựa theo các yêu cầu phi chức năng (non-functional requirement) của hệ thống.
+[02. KIỂM THỬ PHI CHỨC NĂNG - NON-FUNCTIONAL TESTING]
+
+** Kiểm thử phi chức năng (Non-Functional Testing): dựa theo các yêu cầu phi chức năng (non-functional requirement) của hệ thống.
 	- Kiểm tra chất lượng về mặt trải nghiệm của người dùng: nhanh/chậm - tốt/tệ - đẹp/xấu.
 
 		-> Kiểm thử trải nghiệm của người dùng về phần mềm (tính đáng tin cậy, hiệu quả, bảo mật, khả năng tương thích và tính khả dụng).
@@ -571,49 +616,76 @@ Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp
 
 	[KIỂM THỬ HIỆU NĂNG - PERFORMANCE TESTING]
 
-** Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số vấn đề về thắt cổ chai (bottleneck) hoặc hiệu năng của hệ thống khi số lượng người dùng bắt đầu nhiều.
-	-> Kiểm tra độ ổn định và tốc độ phản hồi của ứng dụng
+	** Kiểm thử hiệu năng (Performance Testing): nhằm xác định một số vấn đề về thắt cổ chai (bottleneck) hoặc hiệu năng của hệ thống khi số lượng người dùng bắt đầu nhiều.
+		-> Kiểm tra độ ổn định và tốc độ phản hồi của ứng dụng
 
-* Cần kiểm thử về:
-	- Speed: tốc độ và thời gian hệ thống phản hồi cho người dùng nhanh hay chậm, có ổn định hay không.
+	* Cần kiểm thử về:
+		- Speed: tốc độ và thời gian hệ thống phản hồi cho người dùng nhanh hay chậm, có ổn định hay không.
 
-	- Capacity: sức chứa số lượng người truy cập cùng một lúc.
+		- Capacity: sức chứa số lượng người truy cập cùng một lúc.
 
-	- Stability: tính ổn định theo thời gian dài dưới các tải (load) khác nhau.
+		- Stability: tính ổn định theo thời gian dài dưới các tải (load) khác nhau.
 
-	- Scalability: khả năng tự động co giãn (hạ tầng, tối ưu mã nguồn) của hệ thống để đáp ứng nhu cầu của người dùng.
+		- Scalability: khả năng tự động co giãn (hạ tầng, tối ưu mã nguồn) của hệ thống để đáp ứng nhu cầu của người dùng.
 
 ------------------------------------------------------------
 
-	[CÁC LOẠI KIỂM THỬ HIỆU NĂNG]
+		[CÁC LOẠI KIỂM THỬ HIỆU NĂNG]
 
 ----------------------------------------
 
-	- Tính bền vững (Endurance Testing): kiểm tra hành vi của hệ thống với lượng tải đáng kể được thực hiện trong một khoảng thời gian dài. Sự tiêu thụ bộ nhớ thường là nguyên nhân dẫn đến failure của hệ thống.
-		Ví dụ: một chức năng vẫn hoạt động tốt khi thực hiện kiểm thử trong 1 giờ, nhưng cũng cùng yêu cầu đó nếu thực hiện liên tục trong 3 giờ thì hệ thống phát sinh vấn đề do rò rỉ bộ nhớ (Leak Memory).
+		- Tính bền vững (Endurance Testing): kiểm tra hành vi của hệ thống với lượng tải đáng kể được thực hiện trong một khoảng thời gian dài. Sự tiêu thụ bộ nhớ thường là nguyên nhân dẫn đến failure của hệ thống.
+
+			Ví dụ: một chức năng vẫn hoạt động tốt khi thực hiện kiểm thử trong 1 giờ, nhưng cũng cùng yêu cầu đó nếu thực hiện liên tục trong 3 giờ thì hệ thống phát sinh vấn đề do rò rỉ bộ nhớ (Leak Memory).
 
 ----------------------------------------
 
-	- Sức chứa (Volume Testing/Capacity): kiểm thử hệ thống với một lượng dữ liệu nhất định, sức tải mà CSDL cho phép.
+		- Sức chứa (Volume Testing/Capacity): kiểm thử hệ thống với một lượng dữ liệu nhất định, sức tải mà CSDL cho phép.
 
 ----------------------------------------
 
-	- Chịu tải (Load Test): kiểm tra khả năng chịu tải của phần mềm thực hiện bằng cách chạy hàng loạt các bài kiểm tra, tăng dần và liên tục sức tải cho đến khi hệ thống không thể thực thi được nữa. Mục đích để biết được cách hành xử của hệ thống khi nó quá tải và phát hiện những lỗi mà không thể phát hiện ở các trường hợp thông thường. Với cách tiếp cận này, Test Case thường được thiết kế xung quanh giá trị biên (cận biên lớn nhất) để xác định mức độ tắc nghẽn hiệu suất.
-		-> Kiểm tra khi lượng tải (load) ít hơn hoặc bằng số lượng được thiết kế ban đầu.
+		- Chịu tải (Load Test): kiểm tra khả năng chịu tải của phần mềm thực hiện bằng cách chạy hàng loạt các bài kiểm tra, tăng dần và liên tục sức tải cho đến khi hệ thống không thể thực thi được nữa. Mục đích để biết được cách hành xử của hệ thống khi nó quá tải và phát hiện những lỗi mà không thể phát hiện ở các trường hợp thông thường. Với cách tiếp cận này, Test Case thường được thiết kế xung quanh giá trị biên (cận biên lớn nhất) để xác định mức độ tắc nghẽn hiệu suất.
+			-> Kiểm tra khi lượng tải (load) ít hơn hoặc bằng số lượng được thiết kế ban đầu.
 
-		Ví dụ: đặc tả yêu cầu phần mềm nêu rằng hệ thống có khả năng chịu tải 300 giao tác trên một giây thì ban đầu kiểm tra dưới 300 giao tác trên giây, và sau đó tăng dần cho đến khi hệ thống không thể thực thi được nữa để xác minh rằng ứng dụng đang phản hồi trong vòng 3 giây cho tất cả giao tác.
-
-----------------------------------------
-
-	- Chịu rủi ro (Stress Test): kiểm tra hệ thống với những giá trị ngoài phạm vi đã được thiết kế (abnormal conditions). Mục đích để xác định những điểm giới hạn/gãy (breaking point) của hệ thống và theo dõi cách hệ thống phục hồi.
-		-> Kiểm tra khi lượng tải (load) nhiều hơn số lượng được thiết kế ban đầu.
-
-		Ví dụ: ứng dụng có thể xử lý 1000 người dùng cùng một lúc với thời gian phản hồi là 4 giây, Stress Test có thể được thực hiện bằng cách áp dụng tải hơn 1000 người dùng. Thử nghiệm ứng dụng với 1100, 1200, 1300 người dùng và xem xét thời gian phản hồi.
+			Ví dụ: đặc tả yêu cầu phần mềm nêu rằng hệ thống có khả năng chịu tải 300 giao tác trên một giây thì ban đầu kiểm tra dưới 300 giao tác trên giây, và sau đó tăng dần cho đến khi hệ thống không thể thực thi được nữa để xác minh rằng ứng dụng đang phản hồi trong vòng 3 giây cho tất cả giao tác.
 
 ----------------------------------------
 
-	- Tính mở rộng (Scalability): kiểm thử để đo khả năng mở rộng cho các yêu cầu phi chức năng.
-		-> Kiểm tra khi lượng tải (load) nhiều hơn số lượng được thiết kế ban đầu.
+		- Chịu rủi ro (Stress Test): kiểm tra hệ thống với những giá trị ngoài phạm vi đã được thiết kế (abnormal conditions). Mục đích để xác định những điểm giới hạn/gãy (breaking point) của hệ thống và theo dõi cách hệ thống phục hồi.
+			-> Kiểm tra khi lượng tải (load) nhiều hơn số lượng được thiết kế ban đầu.
+
+			Ví dụ: ứng dụng có thể xử lý 1000 người dùng cùng một lúc với thời gian phản hồi là 4 giây, Stress Test có thể được thực hiện bằng cách áp dụng tải hơn 1000 người dùng. Thử nghiệm ứng dụng với 1100, 1200, 1300 người dùng và xem xét thời gian phản hồi.
+
+----------------------------------------
+
+		- Tính mở rộng (Scalability): kiểm thử để đo khả năng mở rộng cho các yêu cầu phi chức năng.
+			-> Kiểm tra khi lượng tải (load) nhiều hơn số lượng được thiết kế ban đầu.
+
+==========================================================================================
+
+[03. KIỂM THỬ KHI CÓ SỰ THAY ĐỔI - CHANGE-RELATED TESTING]
+
+** Kiểm thử khi có sự thay đổi (Change-related Testing):
+
+--------------------------------------------------------------------------------
+
+	- Kiểm thử xác nhận (Retesting / Confirmation Testing): kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) ở phiên bản hiện tại, nhằm xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo hay chưa. Trước đó xảy ra lỗi ở đâu, thì nay kiểm tra lỗi đúng ngay ở đấy. Đây là điều hiển nhiên và là quy trình thường xuyên xảy ra.
+		-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng báo cáo ban đầu hay chưa - diễn ra trong đúng phạm vi của lỗi đó.
+			(Kiểm tra xem liệu lỗi có thực sự đã được sửa hay không.)
+
+--------------------------------------------------------------------------------
+
+	- Kiểm thử hồi quy (Regression Testing): thứ gì vẫn đang ổn do trước đó đã có thực hiện kiểm thử, thì không nên động chạm đến. Mà đã không động đến, nếu trước đó đã ổn, thì bây giờ cũng phải ổn. Nhưng mỗi khi có sự thay đổi nào đó trong mã nguồn hoặc môi trường hệ thống, thì đều cần phải kiểm tra lại những tính năng, mô-đun cũ... bằng cách thực thi hết tất cả các Test Case đã được thiết kế từ trước và có liên quan với những thay đổi (ví dụ: những tính năng đăng ký, đăng nhập, quên mật khẩu...). Mục đích là để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ những sự thay đổi đó. Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy.
+
+		* Những sự thay đổi có thể là:
+			- Thêm/Tích hợp-sửa-xoá tính năng.
+			- Sửa lỗi code hoặc lỗi hiệu năng.
+			- Yêu cầu của phần mềm (Software requirement) bị thay đổi.
+			- Thay đổi môi trường hệ thống (Ví dụ: chuyển đổi Database từ MySQL sang Oracle...).
+			- ...
+
+		-> Xác minh để đảm bảo rằng những tính năng cũ vẫn hoạt động ổn định sau khi có thay đổi - diễn ra trong phạm vi của những thành phần có "bà con" với sự thay đổi.
+			(Kiểm tra xem liệu có phát sinh lỗi mới sau khi chỉnh sửa hay không.)
 
 ==========================================================================================
 ==========================================================================================
@@ -623,13 +695,17 @@ Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp
 
 ** Kỹ thuật / Phương pháp kiểm thử (Testing Technique / Method): cách thức cụ thể để tiến hành kiểm thử, cho ra được các Test Case để xác minh (verify) kết quả mong đợi với kết quả thực tế.
 
---------------------------------------------------------------------------------
+==========================================================================================
+
+	[01. KIỂM THỬ TĨNH - STATIC TESTING]
 
 	* Kiểm thử tĩnh (Static Testing): kiểm thử mà không cần thực thi hệ thống, tìm sai sót bằng cách đọc tài liệu đặc tả yêu cầu (SRS), tài liệu thiết kế, đọc mã nguồn,... để kiểm tra về quy chuẩn lập trình,...
 		- Kỹ thuật đánh giá (Review): tham khảo ý kiến của các chuyên gia.
 		- Kỹ thuật phân tích tĩnh (Static Analysis): sử dụng công cụ để tự động kiểm tra quy chuẩn lập trình.
 
-------------------------------------------------------------
+==========================================================================================
+
+	[02. KIỂM THỬ ĐỘNG - DYNAMIC TESTING]
 
 	* Kiểm thử động (Dynamic Testing): kiểm thử khi thực thi hệ thống để biết hệ thống xử lý đúng hay sai.
 

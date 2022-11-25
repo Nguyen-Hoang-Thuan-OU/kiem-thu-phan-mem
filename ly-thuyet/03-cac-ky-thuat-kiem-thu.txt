@@ -153,24 +153,6 @@ So sánh giữa kiểm thử tĩnh và động:
 
 		//Lưu ý: tính an toàn của hệ thống (Security Testing) không phải là kiểm thử phi chức năng (Non-functional Testing)//
 
-		* Kiểm thử có sự thay đổi (Change-related Testing):
-
-			+ Kiểm thử xác nhận (Retesting / Confirmation Testing): kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) ở phiên bản hiện tại, nhằm xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo hay chưa. Trước đó xảy ra lỗi ở đâu, thì nay kiểm tra lỗi đúng ngay ở đấy. Đây là điều hiển nhiên và là quy trình thường xuyên xảy ra.
-				-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng báo cáo ban đầu hay chưa - diễn ra trong đúng phạm vi của lỗi đó.
-					(Kiểm tra xem liệu lỗi có thực sự đã được sửa hay không.)
-
-			+ Kiểm thử hồi quy (Regression Testing): thứ gì vẫn đang ổn do trước đó đã có thực hiện kiểm thử, thì không nên động chạm đến. Mà đã không động đến, nếu trước đó đã ổn, thì bây giờ cũng phải ổn. Nhưng mỗi khi có sự thay đổi nào đó trong mã nguồn hoặc môi trường hệ thống, thì đều cần phải kiểm tra lại những tính năng, mô-đun cũ... bằng cách thực thi hết tất cả các Test Case đã được thiết kế từ trước và có liên quan với những thay đổi (ví dụ: những tính năng đăng ký, đăng nhập, quên mật khẩu...). Mục đích là để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ những sự thay đổi đó. Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy.
-
-				* Những sự thay đổi có thể là:
-					- Thêm/Tích hợp-sửa-xoá tính năng.
-					- Sửa lỗi code hoặc lỗi hiệu năng.
-					- Yêu cầu của phần mềm (Software requirement) bị thay đổi.
-					- Thay đổi môi trường hệ thống (Ví dụ: chuyển đổi Database từ MySQL sang Oracle...).
-					- ...
-
-				-> Xác minh để đảm bảo rằng những tính năng cũ vẫn hoạt động ổn định sau khi có thay đổi - diễn ra trong phạm vi của những thành phần có "bà con" với sự thay đổi.
-					(Kiểm tra xem liệu có phát sinh lỗi mới sau khi chỉnh sửa hay không.)
-
 ---------------
 
 	- Kiểm thử phi chức năng (Non-functional Testing): tập trung kiểm thử các khía cạnh hành vi của hệ thống.
