@@ -185,7 +185,6 @@ Có nhiều cách để viết kịch bản kiểm thử tự động (Test Scri
 
 		- Bên cạnh đó, các công cụ còn hỗ trợ việc chuyển các thao tác ghi nhận các bước thành ngôn ngữ lập trình (Java, C#, Python...) và cho phép chỉnh sửa lại theo phong cách lập trình.
 
-
 		-> Sử dụng giao diện đồ hoạ kết hợp với ngôn ngữ lập trình.
 			(Test Automation Tool)
 			- Sử dụng công cụ đồ hoạ Selenium IDE.
