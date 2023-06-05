@@ -244,7 +244,7 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 
 --------------------------------------------------------------------------------
 
-	* Tình huống (Case): ngữ cảnh sử dụng hệ thống (bộ dữ liệu đầu vào), có diễn biến câu chuyện (thao tác / nút nhấn và xử lý) và kết quả trả về (đầu ra).
+	* Tình huống (Case): ngữ cảnh sử dụng hệ thống (đi kèm với bộ dữ liệu đầu vào), có diễn biến câu chuyện (thao tác / nút nhấn và xử lý) và kết quả trả về (đầu ra).
 		-> Đưa dữ liệu vào và nhận kết quả trả ra.
 			-> Test Case: ngữ cảnh muốn kiểm thử.
 			-> Test Run: đợt kiểm thử của Test Case (mỗi Test Case có thể có nhiều đợt).
