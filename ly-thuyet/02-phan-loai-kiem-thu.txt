@@ -144,7 +144,7 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 		[PHÁT TRIỂN HƯỚNG KIỂM THỬ - TEST-DRIVEN DEVELOPMENT (TDD)]
 
-		* Test-driven development (TDD) / Test First Development (Phát triển hướng kiểm thử): phát triển phần mềm luôn hướng về chất lượng bằng việc kiểm thử song song với lập trình.
+		* Test-driven development (TDD) / Test First Development (Phát triển hướng đến kiểm thử): phát triển phần mềm luôn hướng về chất lượng bằng việc kiểm thử song song với lập trình.
 
 			- Đây là kỹ thuật bắt nguồn từ phương pháp phát triển phần mềm eXtreme Programming (XP) và sau đó lan rộng sang các dạng khác nhau của Agile, để đáp ứng nhu cầu sớm có được sản phẩm phần mềm đạt chất lượng (không phải là thuật ngữ của kiểm thử).
 
@@ -156,7 +156,7 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 			- Kỹ thuật này sẽ giúp rèn luyện ý thức khi lập trình, phải suy nghĩ về cách sử dụng hàm và những tình huống có thể xảy ra trong quá trình sử dụng, luôn luôn có một bộ dữ liệu để kiểm thử song hành với những dòng code, để mục tiêu duy nhất vẫn là code đạt chất lượng cao nhất và ứng dụng làm hài lòng khách hàng nhất có thể.
 
-			- Phát triển hướng hành vi (BDD - Behavior-driven development) là một phần mở rộng của TDD.
+			- Phát triển hướng đến hành vi (BDD - Behavior-driven development) là một phần mở rộng của TDD.
 
 			* Tóm tắt kỹ thuật TDD:
 				1. Chuẩn bị thật kĩ bộ Test Case (áp dụng thêm các kỹ thuật kiểm thử)

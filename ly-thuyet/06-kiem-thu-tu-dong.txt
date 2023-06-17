@@ -831,7 +831,7 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 			// Sử dụng đối tượng trinhDuyetCuaToi
 			// để bắt đầu tương tác
-			và mở trình duyệt ở chế độ toàn màn hình
+			// và mở trình duyệt ở chế độ toàn màn hình
 			trinhDuyetCuaToi.manage().window().maximize();
 
 ------------------------------------------------------------
@@ -912,6 +912,37 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 --------------------------------------------------------------------------------
 
+	[TUỲ CHỈNH CHO TRÌNH DUYỆT TRƯỚC KHI TƯƠNG TÁC]
+
+Selenium WebDriver có cung cấp một lớp được gọi là ChromeOptions, cho phép người sử dụng có thể tuỳ chỉnh các thiết lập của trình duyệt Chrome.
+
+Một số thiết lập phổ biến:
+	- Tuỳ chỉnh kích thước của cửa sổ.
+	- Tuỳ chỉnh ngôn ngữ.
+	- Sử dụng chế độ ẩn danh.
+	- Cài tiện ích mở rộng.
+	- ...
+
+* Cú pháp trong Java:
+
+	import org.openqa.selenium.chrome.ChromeOptions;
+
+	ChromeOptions option = new ChromeOptions();
+	option.addArguments(...);
+	option.addExtensions(...);
+
+	WebDriver myBrowser = new ChromeDriver(option);
+
+	Ví dụ: Mở rộng kích thước của cửa sổ trình duyệt.
+
+		// Ngoài việc sử dụng đối tượng đại diện cho trình duyệt
+		// để gọi hàm maximize(),
+		// ta cũng có thể trực tiếp mở rộng kích thước của cửa sổ trình duyệt
+		// thông qua việc cung cấp tham số cho tuỳ chọn
+		option.addArguments("--start-maximized");
+
+--------------------------------------------------------------------------------
+
 	[NGÔN NGỮ MẶC ĐỊNH CHO TRÌNH DUYỆT]
 
 Khi muốn chọn ngôn ngữ hiển thị mặc định cho trình duyệt, ta sẽ tuân theo tiêu chuẩn ISO 639-1:
@@ -920,13 +951,11 @@ Khi muốn chọn ngôn ngữ hiển thị mặc định cho trình duyệt, ta 
 
 	Ví dụ: Cách chọn ngôn ngữ mặc định khi khởi động trình duyệt.
 
-		ChromeOptions tuyChonTrinhDuyet  = new ChromeOptions();
-
-		tuyChonTrinhDuyet.addArguments("--lang=en-GB");
+		option.addArguments("--lang=en-GB");
 		// Ngôn ngữ: English (en)
 		// Quốc gia: UNITED KINGDOM (GB)
 
-		tuyChonTrinhDuyet.addArguments("--lang=vi-VN");
+		option.addArguments("--lang=vi-VN");
 		// Ngôn ngữ: Vietnamese (vi)
 		// Quốc gia: VIET NAM (VN)
 
@@ -939,16 +968,11 @@ Khi muốn chọn ngôn ngữ hiển thị mặc định cho trình duyệt, ta 
 
 --------------------------------------------------------------------------------
 
-	[CHẾ ĐỘ ẨN DANH TRONG SELENIUM]
+	[CHẾ ĐỘ ẨN DANH CHO TRÌNH DUYỆT]
 
 Khi sử dụng Selenium để mở trình duyệt ở chế độ ẩn danh:
 
-	import org.openqa.selenium.chrome.ChromeOptions;
-
-	ChromeOptions tuyChonTrinhDuyet  = new ChromeOptions();
-	tuyChonTrinhDuyet.addArguments("--incognito");
-	
-	WebDriver myBrowser = new ChromeDriver(tuyChonTrinhDuyet);
+	option.addArguments("--incognito");
 
 Nhưng vì đây là một chế độ đặc biệt và WebDriver đã tối giản ở mức vừa đủ để sử dụng, nên một số tuỳ chọn và tình năng sẽ luôn ở trạng thái mặc định.
 	- Tiện ích mở rộng đã cài đặt sẽ không xuất hiện ở chế độ này.
@@ -958,7 +982,109 @@ Nhưng vì đây là một chế độ đặc biệt và WebDriver đã tối gi
 
 --------------------------------------------------------------------------------
 
-	[TỰ ĐỘNG CẬP NHẬT PHIÊN BẢN CHO WEBDRIVER CỦA TRÌNH DUYỆT BẰNG WEBDRIVERMANAGER]
+	[CÀI ĐẶT TIỆN ÍCH MỞ RỘNG CHO TRÌNH DUYỆT]
+
+Sẽ có hai cách khác nhau để sử dụng tiện ích mở rộng khi tự động hoá trình duyệt.
+	1. Sử dụng trực tiếp từ thư mục có sẵn trong máy tính (Chưa đóng gói - Unpacked).
+	2. Sử dụng tập tin ở định dạng *.crx (Đã đóng gói - Packed).
+
+------------------------------------------------------------
+
+* Cách 1: Chưa đóng gói - Unpacked (thư mục trên ổ đĩa):
+	- Sau khi cài đặt tiện ích mở rộng vào trình duyệt, một thư mục tương ứng sẽ được tạo ra (và có đánh số hiệu phiên bản) ngay trên ổ đĩa của người dùng.
+	- Vì vậy, để tận dụng thư mục này:
+		+ Bắt buộc tiện ích mở rộng phải được cài đặt trên trình duyệt.
+		+ Hoặc thư mục chứa tiện ích mở rộng đã được sao chép lại và lưu ở một nơi khác trước khi bị xoá trên trình duyệt.
+
+	Bước 1: Bật "Chế độ dành cho nhà phát triển (Developer mode)" để lấy ID của tiện ích mở rộng, sau đó sao chép hoặc ghi nhớ lại ID.
+
+	Bước 2: Chuyển sang trình quản lý tập tin (File Explorer) trên ổ đĩa và lần theo đường dẫn: "C:\Users\<tên-người-dùng>\AppData\Local\Google\Chrome\User Data\Default\Extensions".
+
+	Bước 3: Tìm thư mục có tên trùng với ID của tiện ích mở rộng, mở thư mục lên (chứa số hiệu phiên bản của tiện ích mở rộng), sau đó sao chép đường dẫn của thư mục này.
+		[* Lưu ý: Đôi khi, vì giới hạn quyền truy cập của người dùng trong hệ điều hành, ta cần sao chép thư mục này sang một phân vùng ổ đĩa khác.]
+
+	Bước 4: Khai báo đường dẫn chứa thư mục của ích mở rộng trên ổ đĩa.
+
+		// Thư mục chứa tiện ích mở rộng
+		// đã được sao chép sang phân vùng ổ đĩa D
+		// để tránh những rắc rối liên quan đến quyền truy cập
+		option.addArguments("load-extension=D:\\1.50.0_1");
+
+------------------------------------------------------------
+
+* Cách 2: Đã đóng gói - Packed (tập tin *.crx):
+	- Ưu điểm của cách này là người dùng có thể sử dụng tập tin tiện ích mở rộng ở định dạng *.crx mà không cần phải cài đặt và giữ lại tiện ích mở rộng trong tình duyệt.
+	- Tập tin *.crx sẽ tiện lợi hơn trong việc lưu trữ trên một máy chủ từ xa nào đó.
+
+	Bước 1: Để có được tập tin *.crx, ta sẽ có những cách sau:
+
+		* Cách 1: Sử dụng trang web sẵn có.
+			| CRX Extractor: https://crxextractor.com/
+
+			Bước 1.1: Sao chép đường dẫn đi đến trang cửa hàng Chrome trực tuyến (Chrome Web Store) của tiện ích mở rộng.
+				Ví dụ: uBlock Origin - https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+				* Lưu ý: Nhớ loại bỏ thông tin ngôn ngữ trong URL (ví dụ: ?hl=en, ?hl=vi...).
+
+			Bước 1.2: Nhấn nút [LET'S START] và dán địa chỉ vừa sao chép vào ô nhập địa chỉ.
+			
+			Bước 1.3: Nhấn nút [OK] để xác nhận đường dẫn và nhấn tiếp nút [GET .CRX] để tiến hành tải xuống tập tin *.crx.
+
+				* Lưu ý: Trình duyệt sẽ xem tập tin được tải theo cách này là một mối nguy hại đối với máy tính, cứ tiếp tục tải xuống.
+
+		* Cách 2.1: Tự đóng gói thủ công nếu đã từng cài đặt.
+
+			Bước 2.1: Truy cập trang quản lý tiện ích mở rộng của trình duyệt.
+				| chrome://extensions
+
+			Bước 2.2: Bật "Chế độ dành cho nhà phát triển (Developer mode)" để lấy ID của tiện ích mở rộng, sau đó sao chép hoặc ghi nhớ lại ID.
+
+			Bước 2.3: Chuyển sang trình quản lý tập tin (File Explorer) trên ổ đĩa và lần theo đường dẫn: "C:\Users\<tên-người-dùng>\AppData\Local\Google\Chrome\User Data\Default\Extensions".
+
+			Bước 2.4: Tìm thư mục có tên trùng với ID của tiện ích mở rộng, mở thư mục lên (chứa số hiệu phiên bản của tiện ích mở rộng), sau đó sao chép đường dẫn của thư mục này.
+				* Lưu ý: Đôi khi, vì giới hạn quyền truy cập của người dùng trong hệ điều hành, ta cần sao chép thư mục này sang một phân vùng ổ đĩa khác.
+
+			Bước 2.5: Quay trở lại trang quản lý tiện ích mở rộng của trình duyệt, nhấn vào nút "Đóng gói tiện ích (Pack extension)".
+
+			Bước 2.6: Dán đường dẫn thư mục trên ổ đĩa của máy tính (chứa số hiệu phiên bản của tiện ích mở rộng) vào ô "Thư mục gốc của tiện ích (Extension root directory)".
+			
+			Bước 2.7: Nhấn nút "Đóng gói tiện ích (Pack extension)" và nhấn tiếp nút [OK] trên hộp thoại thông báo.
+				[Tập tin *.crx và *.pem được tạo ra sẽ nằm chung phân cấp với thư mục chứa tiện ích mở rộng lúc chưa đóng gói.]
+
+		* Cách 2.2: [Đã lỗi thời và không hoạt động] Đóng gói bằng cửa sổ dòng lệnh cmd.
+
+			Gọi chrome.exe (C:\Program Files\Google\Chrome\Application) bằng dòng lênh:
+				--pack-extension: Thư mục chứa tiện ích mở rộng.
+				--pack-extension-key: Thư mục chứa tiện ích mở rộng sau khi đã đóng gói.
+
+				"chrome.exe --pack-extension=V:\1.50.0_1 --pack-extension-key=S:\1.50.0_1.pem"
+
+		* Cách 3: Sử dụng thêm một tiện ích mở rộng khác.
+			| CRX Extractor/Downloader: https://chrome.google.com/webstore/detail/crx-extractordownloader/ajkhmmldknmfjnmeedkbkkojgobmljda
+				* Lưu ý: Nếu có bật tính năng "Duyệt web an toàn có tăng cường bảo vệ (Enhanced Safe Browsing)", trình duyệt sẽ hiển thị thêm một hộp thoại để xác nhận cài đặt.
+
+			| Get CRX: https://chrome.google.com/webstore/detail/get-crx/dijpllakibenlejkbajahncialkbdkjc
+
+
+			Bước 3.1: Sau khi cài đặt tiện ích mở rộng, đi đến trang cửa hàng Chrome trực tuyến (Chrome Web Store) của tiện ích mở rộng.
+				Ví dụ: uBlock Origin - https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+			Bước 3.2: Nhấn chuột phải vào một khoảng trống bất kì trên trang của tiện ích mở rộng cần lấy tập tin *.crx, các tuỳ chọn để tải sẽ xuất hiện.
+
+	Bước 2: Di chuyển tập tin *.crx đến đường dẫn tuỳ chọn.
+
+	Bước 3: Khai báo đường dẫn chứa tập tin tiện ích mở rộng trên ổ đĩa.
+
+		import java.io.File;
+
+		// Đường dẫn nằm chung trong thư mục của dự án,
+		// giống với tập tin chromedriver.exe
+		option.addExtensions(new File("extension_1_50_0_0.crx"));
+
+--------------------------------------------------------------------------------
+
+	[TỰ ĐỘNG CẬP NHẬT PHIÊN BẢN CHO WEBDRIVER CỦA TRÌNH DUYỆT
+	 BẰNG WEBDRIVERMANAGER]
 
 Khi muốn sử dụng Selenium, mặc kệ code được viết trong hàm main() hoặc hàm Unit Test, thì điều quan trọng nhất để đảm bảo code luôn chạy đúng đó là: phiên bản của trình duyệt phải trùng với phiên bản của WebDriver do chính hãng làm nên trình duyệt đó cung cấp.
 	-> Luôn phải kiểm tra phiên bản của trình duyệt và WebDriver một cách thủ công.
