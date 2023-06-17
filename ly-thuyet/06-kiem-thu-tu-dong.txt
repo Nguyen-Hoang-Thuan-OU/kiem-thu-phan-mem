@@ -353,7 +353,32 @@ Trong hơn 10 năm qua, một hệ sinh thái gồm nhiều dự án mã nguồn
 
 	[CÁC DỰ ÁN SELENIUM - SELENIUM PROJECTS]
 
+	* Tài nguyên kiểm thử:
+		1. Kịch bản kiểm thử tự động (Test scripts): Mã nguồn để kiểm thử trình duyệt và so sánh kết quả.
+
+		2. Dữ liệu kiểm thử (Test data): Những dữ liệu được sử dụng trong những tình huống, ngữ cảnh khác nhau.
+
+		3. Cấu hình kiểm thử (Test configuration): Các tập tin cấu hình liên quan đến môi trường kiểm thử (ví dụ: đường dẫn trang web, trình duyệt đang sử dụng...).
+
+		4. Báo cáo kiểm thử (Test reporting): Những báo cáo thu được sau khi thực thi kiểm thử, nêu chi tiết kết quả kiểm thử: thành công, thất bại và bỏ qua...
+
+		5. Công cụ hỗ trợ kiểm thử (Test utilities): Chứa các lớp và hàm được xây dựng sẵn để tái sử dụng trong những trường hợp lặp lại (ví dụ: tương tác với những phần tử quen thuộc, xử lý lỗi...).
+
 Là một "bộ sưu tập đồ nghề" với nhiều công cụ khác nhau, mỗi công cụ sẽ đáp ứng từng nhu cầu kiểm thử khác nhau. Là sự kết hợp của nhiều dự án khác nhau để tạo thành một hệ thống kiểm thử đa năng.
+	- Được gọi là một Framework vì có cung cấp đẩy đủ các loại công cụ, thư viện và các hướng dẫn để quản lý dự án kiểm thử.
+	- Tạo ra một quy chuẩn cần phải tuân theo để quản lý mã nguồn một cách hiệu quả (ví dụ: các tập tin nên được phân chia như thế nào...).
+	- Giúp những tài nguyên kiểm thử cũng dễ dàng hơn trong việc bảo trì, mở rộng và tái sử dụng theo thời gian.
+
+	-> Tiêu chuẩn hoá cách thức tổ chức mã nguồn.
+
+Nhưng cần lưu ý, bản thân Selenium lại không phải là một Testing Framework.
+	- Vì vậy, để sử dụng thêm một số tính năng nâng cao, ta cần sử dụng thêm một số Testing Framework để hỗ trợ như: TestNG, JUnit, NUnit, PyUnit, Cucumber...
+	- Những tính năng đó có thể là:
+		- Gom nhóm và sắp xếp độ ưu tiên cho các tình huống kiểm thử.
+		- Thực hiện kiểm thử hướng dữ liệu (DDT).
+		- Kiểm thử song song trên nhiều trình duyệt.
+		- Thực thi hàng loạt, so sánh và báo cáo kết quả kiểm thử...
+		- Tập hợp những cú pháp (annotations) để cung cấp dữ liệu, khai báo sự phụ thuộc lẫn nhau giữa các tình huống kiểm thử, 
 
 * Bộ đồ nghề Selenium (Selenium Suite) bao gồm:
 
@@ -394,13 +419,15 @@ Là một "bộ sưu tập đồ nghề" với nhiều công cụ khác nhau, m�
 
 		- Công dụng chính của Selenium WebDriver là tự động hoá việc kiểm thử trên các ứng dụng web.
 
-		-> Sử dụng ngôn ngữ lập trình để điều khiển trình duyệt, tương tác trực tiếp mà không cần thông qua Server ảo.
+		-> Cung cấp các hàm và cho phép sử dụng ngôn ngữ lập trình để điều khiển trình duyệt.
 
 ------------------------------------------------------------
 
 	4. Selenium Grid: được ra mắt vào năm 2008.
 
 		- Selenium Hub là tính năng dùng để chạy Test Script một cách phân tán và song song trên nhiều máy tính - WebDriver node (khi cần chạy Test Script trên nhiều hệ điều hành, trình duyệt / phiên bản của trình duyệt...) mà không cần phải chỉnh sửa lại Test Script, đã được code sẵn trong Selenium, chỉ việc lấy và sử dụng.
+
+		- Mục đích chính là để giảm thời gian thực hiện và tăng phạm vi thử nghiệm.
 
 		-> Chạy Test Script cùng một lúc trên nhiều tổ hợp máy, hệ điều hành, trình duyệt và phiên bản khác nhau.
 
@@ -589,13 +616,15 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 ----------------------------------------
 
-** Thư viện lập trình (Selenium WebDriver API): để điều khiển được trình duyệt thì bắt buộc phải sử dụng code, kèm theo đó là những thư viện được gói trong package / namespace và chuyên cung cấp các hàm phục vụ cho việc lập trình, trong ngữ cảnh này sẽ là Selenium WebDriver.
+** Thư viện lập trình (Selenium WebDriver API): để điều khiển được trình duyệt thì bắt buộc phải sử dụng code, kèm theo đó là những thư viện được gói trong package / namespace và chuyên cung cấp các hàm phục vụ cho việc lập trình.
 
-	- Tập hợp gồm nhiều lớp (class) với các phương thức / hàm được đóng gói theo một định dạng cụ thể (*.jar, *.dll, *.exe...), nhằm cung cấp các lệnh (API) để lập trình viên kết nối với WebDriver.
+	- Là tập hợp gồm nhiều lớp (class) trừu tượng, hay còn được gọi là Interface, được đóng gói theo một định dạng cụ thể (*.jar, *.dll, *.exe...).
+		+ Chuyên cung cấp các lệnh (API), cho phép lập trình viên sử dụng những ngôn ngữ lập trình khác nhau như: Java, Python, C#, Ruby...
+		+ Nói cách khác, Selenium WebDriver đại diện cho một đối tượng (object) trình duyệt và cung cấp các lệnh / hàm.
 	
-	- Vì đã là thư viện nên cách sử dụng cũng sẽ giống hệt như mọi thư viện khác trong ngôn ngữ lập trình, phải tải về và thêm thủ công vào dự án hoặc khai báo tên thư viện theo dạng phụ thuộc (dependency).
+	- Vì đã là thư viện nên cách sử dụng cũng sẽ giống hệt như mọi thư viện khác trong ngôn ngữ lập trình, phải tải về và thêm thủ công vào dự án hoặc khai báo tên thư viện theo dạng phụ thuộc (Dependency).
 
-	- Khi chạy Test Script, Selenium WebDriver sẽ gọi trực tiếp (direct call) cho trình duyệt thông qua chính trình điều khiển mà trình duyệt đấy cung cấp. Sau đó, các hành động trong Test Script sẽ được thực thi.
+	- Khi chạy Test Script, Selenium WebDriver sẽ gọi trực tiếp (direct call) cho trình duyệt thông qua chính trình điều khiển trình duyệt (Browser WebDriver) mà nhà phát triển trình duyệt đấy cung cấp. Sau đó, các hành động trong Test Script sẽ được thực thi.
 
 	-> Cung cấp API và cho phép điều khiển nhiều trình duyệt khác nhau bằng nhiều ngôn ngữ lập trình khác nhau.
 
@@ -632,12 +661,12 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 ** Trình điều khiển trình duyệt (Browser WebDriver): vì theo quy chuẩn của W3C thì trình duyệt phải được thiết kế mở, đi kèm với trình duyệt sẽ là một "người anh em song sinh", rất am hiểu vể trình duyêt nên có thể điều khiển được trình duyệt.
 
 	- Bản thân trình duyệt là một thế giới riêng và rất phức tạp, người sử dụng thông thường sẽ không thể can thiệp trực tiếp thông qua code được.
-		+ Và để đảm bảo tính trừu tượng (abstraction) của việc thiết kế mà những thư viện lập trình (Selenium) cũng không được trực tiếp can thiệp vào trình duyệt.
-		+ Vì vậy, WebDriver sẽ làm cầu nối trung gian và đảm nhận việc tương tác giữa trình duyệt và thư viện lập trình (Selenium).
+		+ Và để đảm bảo tính trừu tượng (Abstraction) của việc thiết kế mà những thư viện lập trình (Selenium) cũng không được trực tiếp can thiệp vào trình duyệt.
+		+ Vì vậy, Browser WebDriver sẽ làm cầu nối trung gian và đảm nhận việc tương tác giữa trình duyệt và thư viện lập trình (Selenium).
 
-	- WebDriver là một ứng dụng / trình điều khiển / cầu nối trung gian (giống như Proxy) - Interface để kết nối giữa trình duyệt và thư viện lập trình.
-		+ Đến từ nhiều nhà phát triển khác nhau và có những cái tên khác nhau, bao gồm: ChromeDriver, OperaDriver, GeckoDriver...
-		+ Đại diện cho một đối tượng (object) trình duyệt và cung cấp các lệnh / hàm để lập trình viên có thể sử dụng.
+	- Browser WebDriver là một ứng dụng / trình điều khiển / cầu nối trung gian (giống như Proxy) - Interface để kết nối giữa trình duyệt thực tế và thư viện lập trình.
+		+ Đến từ nhiều nhà phát triển khác nhau với những cái tên khác nhau, bao gồm: ChromeDriver, OperaDriver, GeckoDriver...
+		+ Có nhiệm vụ nhận các câu lệnh do thư viện lập trình (Selenium) gửi, sau đó thao tác lại trên trình duyệt thật.		
 
 	- Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đoạn code chạy song song với trình duyệt, có kết nối với thư viện lập trình (Selenium), từ đó cho phép ngôn ngữ lập trình (Python, Java, C#...) can thiệp vào trình duyệt để kiểm thử những ứng dụng web một cách tự động bằng code.
 
@@ -724,7 +753,7 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 		Cách 1 - Sử dụng biến môi trường Path trong hệ điều hành để lưu đường dẫn đến tập tin ChromeDriver.
 
-		Cách 2 - Tạo mới một dự án và sao chép tập tin ChromeDriver.exe vào trong cùng thư mục chứa dự án, môi trường ảo (venv - python) hoặc bất kì đường dẫn nào ma ta mong muốn. Điều này sẽ giúp dễ quản lý khi đưa lên Server (ví dụ: GitHub...) và sử dụng mà không cần khai báo đường dẫn quá dài, nếu để ở nơi khác thì phải chỉ rõ đường dẫn hoặc khai báo biến môi trường.
+		Cách 2 - Tạo mới một dự án và sao chép tập tin ChromeDriver.exe vào trong cùng thư mục chứa dự án, môi trường ảo (venv - python) hoặc bất kì đường dẫn nào mà ta mong muốn. Điều này sẽ giúp dễ quản lý khi đưa lên Server (ví dụ: GitHub...) và sử dụng mà không cần khai báo đường dẫn quá dài, nếu để ở nơi khác không cùng với thư mục chứa dự án thì phải chỉ rõ đường dẫn hoặc khai báo biến môi trường.
 
 			* Java:
 				// Vào ngay trong thư mục chứa dự án
@@ -743,12 +772,15 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 	Bước 04: Báo cho máy ảo biết phải kết nối với ChromeDriver.exe (giống như việc khai báo biến môi trường trong Windows, nhưng đây là khai báo ảo trong môi trường ảo).
 
 		* Java:
-			// Báo cho máy ảo Java biết rằng có một biến môi trường
-			// (dành riêng cho máy ảo) với tên biến là "webdriver.chrome.driver"
-			// và trỏ đến giá trị là chromedriver.exe (chứa trong biến duongDanChuaBrowserWebDriver)
+			// Báo cho máy ảo Java biết rằng
+			// có một biến môi trường (dành riêng cho máy ảo)
+			// với tên biến là "webdriver.chrome.driver"
+			// và trỏ đến giá trị là chromedriver.exe
+			// (chứa trong biến duongDanChuaBrowserWebDriver)
 
 			System.setProperty("webdriver.chrome.driver", duongDanChuaBrowserWebDriver);
-			//	-> Thiết lập biến môi trường và ánh xạ đến đường dẫn ChromeDriver
+			//	-> Thiết lập biến môi trường
+			//	   và ánh xạ đến đường dẫn ChromeDriver
 
 ------------------------------------------------------------
 
@@ -762,14 +794,30 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	Bước 06: Sử dụng đối tượng đại diện trong trình duyệt (ví dụ: trinhDuyetCuaToi, trinh_dieu_khien_trinh_duyet) để tìm / định vị các phần tử website.
 
-		- Mỗi thành phần / thẻ xuất hiện trong cây DOM trên website khi này đều được xem là đối tượng vì nó có giá trị (id, name, color, type...).
+		- Khi duyệt web, bản thân trang web đó đã được tải về máy dưới dạng HTML, tốn một vùng RAM và hiển thị (render) trực tiếp lên trình duyệt thay vì được tải thành một tập tin rời.
+
+		- Khi trang web được tải về RAM, nó được xem là một đối tượng bự nhất - cây DOM.
+			+ Mỗi thành phần / thẻ xuất hiện trong cây DOM đều được xem là những đối tượng nhỏ hơn vì bên trong có thể chứa giá trị (id, name, color, type, margin, padding...), hành vi hoặc tiếp tục chứa những đối tượng khác.
+			+ Mỗi thẻ sẽ được đại diện bằng một Interface trong Selenium được gọi là WebElement.
 
 			Ví dụ: thẻ <div>, <h>, <span>,...
 				-> Đều được xem là đối tượng vì có mô tả, đặc tính và hành vi.
 
-		- Nếu có một đối tượng nào đó đại diện cho trình duyệt, nghĩa là đối tượng này cũng đã nắm được toàn bộ đối tượng trong trang web.
+		- Vì trang web đã được tải về trình duyệt, mà lại có một đối tượng nào đó đại diện cho trình duyệt (đối tượng được tạo từ lớp WebDriver), nghĩa là đối tượng này cũng đã nắm được toàn bộ đối tượng trong trang web (nắm được mã nguồn của trang web).
+
+		(Lúc này, Browser WebDriver sẽ bắt đầu phát huy công dụng khi dựa theo những lệnh trong code mà bắt đầu tương tác với trình duyệt thật.)
 
 		* Java:
+			// Khi đưa WebDriver vào trong code
+			// bằng cách tải thư viện lập trình,
+			// thì lúc này cả trình duyệt (nhờ WebDriver đại diện)
+			// được xem là một đối tượng (object),
+			// được tải về máy (hiển thị trực tiếp lên trình duyệt)
+			// và chiếm bộ nhớ trong RAM,
+			// ta có thể thoải mái gọi hàm
+			// để điều khiển / yêu cầu trình duyệt
+			// thực hiện các thao tác một cách tự động
+
 			// Tạo một đối tượng trình duyệt mới
 			// và trỏ thẳng vào trình duyệt vật lý
 			WebDriver trinhDuyetCuaToi = new ChromeDriver();
@@ -784,23 +832,36 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 			// Sử dụng đối tượng trinhDuyetCuaToi
 			// để bắt đầu tương tác
 			và mở trình duyệt ở chế độ toàn màn hình
-			myBrowser.manage().window().maximize();
+			trinhDuyetCuaToi.manage().window().maximize();
 
 ------------------------------------------------------------
 
-	Bước 07: Xác định hành động, thông qua các API được viết sẵn trong Selenium WebDriver.
+	Bước 07: Định vị các thẻ và xác định hành động, thông qua các API được viết sẵn trong Selenium WebDriver.
 
-		- Vì đã là một đối tượng nên ta hoàn toàn có thể nhờ trình duyệt tìm giúp ta các thẻ nào đó. Khi đó, ta sẽ tham chiếu đến thẻ tìm thấy qua loại dữ liệu WebElement (input, button, radio button, checkbox...).
+		- Vì đã là một đối tượng nên ta hoàn toàn có thể nhờ trình duyệt tìm giúp ta các thẻ nào đó.
+		
+		- Nhưng để đưa ra yêu cầu, trước hết ta phải biết thẻ đó (input, button, radio button, checkbox...) nằm ở đâu thông qua loại dữ liệu.
+			+ Có rất nhiều kỹ thuật khác nhau để tìm ra vị trí của một thẻ, từ cách tiện lợi nhất là sử dụng định danh (id) cho đến những cách chuyên nghiệp như sử dụng CSS Selector và XPath.
+			+ Sau khi đã biết được vị trí, ngoài việc lấy dữ liệu về, ta còn có thể đưa dữ liệu vào một ô textbox, nhấn các nút hoặc hyperlink, có thể bắt được chữ trên tag để so sánh giá trị và quyết định đúng sai...
 
-		- Bên cạnh đó, ta còn có thể đưa dữ liệu vào một ô textbox, nhấn các nút hoặc hyperlink, có thể bắt được chữ trên tag để so sánh giá trị và quyết định đúng sai...
+		- Sau khi sử dụng đối tượng đại diện cho trình duyệt để tìm ra được phần tử dựa theo các kĩ thuật định vị, ta sẽ lưu trữ lại phần tử đó vào một đối tượng khác đại diện cho phần tử.
 
 		* Java:
-			// Khi đưa WebDriver vào trong code bằng cách tải thư viện lập trình,
-			// thì lúc này cả trình duyệt (nhờ WebDriver đại diện)
-			// được xem là một đối tượng (object),
-			// được tải về máy và chiếm bộ nhớ trong RAM,
-			// ta có thể thoải mái gọi hàm để điều khiển / yêu cầu trình duyệt
-			// thực hiện các thao tác một cách tự động
+			import org.openqa.selenium.By;
+			import org.openqa.selenium.WebElement;
+
+			myBrowser.get("https://www.google.com/");
+        
+			// Sử dụng đối tượng đại diện cho trình duyệt
+			// để tìm phần tử nằm trong trang web,
+			// sau đó lưu phần tử vừa tìm được vào đối tượng
+			// đại diện cho từng phần tử trong trang web
+        		WebElement searchBox = myBrowser.findElement(By.name("q"));
+
+			// Sử dụng đối tượng đại diện cho phần tử
+			// để bắt đầu tương tác với trang web
+			searchBox.sendKeys("Kiểm thử phần mềm");
+			searchBox.submit();
 
 		* Python:
 			trinh_dieu_khien_trinh_duyet.get('https://www.google.com/')
@@ -808,7 +869,36 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 ------------------------------------------------------------
 
-	Bược 08: thực thi và kiểm tra kết quả. Selenium WebDriver sẽ gọi trực tiếp trình duyệt thông qua trình điều khiển do chính hãng phát hành trình duyệt đó cung cấp.
+	Bược 08: Thực thi và kiểm tra kết quả. Selenium WebDriver sẽ gọi trực tiếp trình duyệt thông qua trình điều khiển do chính hãng phát hành trình duyệt đó cung cấp.
+
+--------------------------------------------------------------------------------
+
+* Lưu ý: Nếu tạo dự án Java bằng Maven, đôi khi sẽ vì lỗi [https://stackoverflow.com/a/75741758/7429447] mà khi thực thi mã nguồn, trình duyệt sẽ được mở nhưng trang web lại không thể nạp được; thường gặp trong trình duyệt Chrome ở phiên bản từ 111 trở lên và khi sử dụng bản Selenium quá cũ.
+
+	| NetBeans: Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.5.0:exec (default-cli) on project ...
+
+	| Eclipse: java.io.IOException: Invalid Status code=403 text=Forbidden
+
+	* Cách khắc phục:
+
+		1. Nếu sử dụng Selenium phiên bản dưới 4.5:
+
+			// Trong mã nguồn
+			ChromeOptions tuyChonTrinhDuyet  = new ChromeOptions();
+			tuyChonTrinhDuyet.addArguments("--remote-allow-origins=*");
+			WebDriver myBrowser = new ChromeDriver(tuyChonTrinhDuyet);
+
+		2. Nếu sử dụng Selenium phiên bản từ 4.5 trở lên:
+
+			// Trong tập tin pom.xml
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-http-jdk-client</artifactId>
+				<version>4.8.1</version>
+			</dependency>
+
+			// Trong mã nguồn
+			System.setProperty("webdriver.http.factory", "jdk-http-client");
 
 --------------------------------------------------------------------------------
 
@@ -824,22 +914,26 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	[NGÔN NGỮ MẶC ĐỊNH CHO TRÌNH DUYỆT]
 
-Khi muốn chọn ngôn ngữ hiển thị mặc định cho trình duyệt, ta sẽ gọi trình duyệt dưới dạng dòng lệnh:
+Khi muốn chọn ngôn ngữ hiển thị mặc định cho trình duyệt, ta sẽ tuân theo tiêu chuẩn ISO 639-1:
 	- Hai kí tự đầu tiên đại diện cho ngôn ngữ.
 	- Hai kí tự tiếp theo đại diện cho quốc gia.
 
-	Ví dụ:
-		addArguments("--lang=en-GB");
+	Ví dụ: Cách chọn ngôn ngữ mặc định khi khởi động trình duyệt.
+
+		ChromeOptions tuyChonTrinhDuyet  = new ChromeOptions();
+
+		tuyChonTrinhDuyet.addArguments("--lang=en-GB");
 		// Ngôn ngữ: English (en)
 		// Quốc gia: UNITED KINGDOM (GB)
 
-		addArguments("--lang=vi-VN");
+		tuyChonTrinhDuyet.addArguments("--lang=vi-VN");
 		// Ngôn ngữ: Vietnamese (vi)
 		// Quốc gia: VIET NAM (VN)
 
 * Tham khảo thêm:
 	- Mã ngôn ngữ: https://www.w3schools.com/tags/ref_language_codes.asp
 	- Mã quốc gia: https://www.w3schools.com/tags/ref_country_codes.asp
+	- Danh sách kết hợp mã ngôn ngữ và quốc gia: http://www.lingoes.net/en/translator/langcode.htm
 
 (Đây chỉ là ngôn ngữ hiển thị, việc định vị cho vị trí địa lý sẽ còn phụ thuộc vào những yếu tố khác.)
 
@@ -847,11 +941,20 @@ Khi muốn chọn ngôn ngữ hiển thị mặc định cho trình duyệt, ta 
 
 	[CHẾ ĐỘ ẨN DANH TRONG SELENIUM]
 
-Khi sử dụng Selenium để mở trình duyệt ở chế độ ẩn danh, vì đây là một chế độ đặc biệt và WebDriver đã tối giản ở mức vừa đủ để sử dụng, nên một số tuỳ chọn và tình năng sẽ luôn ở trạng thái mặc định.
+Khi sử dụng Selenium để mở trình duyệt ở chế độ ẩn danh:
 
+	import org.openqa.selenium.chrome.ChromeOptions;
+
+	ChromeOptions tuyChonTrinhDuyet  = new ChromeOptions();
+	tuyChonTrinhDuyet.addArguments("--incognito");
+	
+	WebDriver myBrowser = new ChromeDriver(tuyChonTrinhDuyet);
+
+Nhưng vì đây là một chế độ đặc biệt và WebDriver đã tối giản ở mức vừa đủ để sử dụng, nên một số tuỳ chọn và tình năng sẽ luôn ở trạng thái mặc định.
 	- Tiện ích mở rộng đã cài đặt sẽ không xuất hiện ở chế độ này.
-
 	- Một số trang sẽ yêu cầu xác nhận địa chỉ / vị trí để cung cấp thêm một số dịch vụ, nhưng vì không thể tự động theo dõi nên sẽ hiển thị cửa sổ thông báo để yêu cầu cung cấp thông tin.
+
+* Lưu ý: Việc ẩn danh chỉ che giấu được hành vi ở phía người dùng, không thể giấu được nhà mạng và trang web.
 
 --------------------------------------------------------------------------------
 
@@ -989,7 +1092,8 @@ Thay vì phải trực tiếp xử lý ngoại lệ, ta có thể "uỷ quyền"
 
 Cắt bớt chuỗi thừa bằng Java:
 
-	Ví dụ:
+	Ví dụ: Trong trang web https://www.thegioididong.com/, một số sản phẩm sẽ có thêm dấu '*' nằm ngay phía sau giá bán.
+
 		// Bị thừa kí tự '*' trong giá bán
 		String price = "290₫ *";
 
@@ -999,7 +1103,7 @@ Cắt bớt chuỗi thừa bằng Java:
 		System.out.println("index: " + index);
 
 		// Kiểm tra kết quả trả về,
-		// nếu tìm thấy thì xoá kị từ thừa đi
+		// nếu tìm thấy thì xoá kí tự thừa đi
 		String afterPrice = price;
 		if (index >= 0)
 			afterPrice = price.substring(0, price.length() - 2);
@@ -1014,7 +1118,7 @@ Cắt bớt chuỗi thừa bằng Java:
 
 close(): đóng duy nhất một trình duyệt đang sử dụng. Nếu có nhiều hơn một trình duyệt đang được mở bởi Selenium, thì câu lệnh này sẽ chỉ đóng trình duyệt mà ta đang trực tiếp thao tác, những trình duyệt còn lại đang được mở sẽ không bị ảnh hưởng.
 
-quit(): đóng toàn bộ những trình duyệt đang sử dụng. Nếu có nhiều hơn một trình duyệt đang được mở bởi Selenium, thì câu lệnh này sẽ tắt toàn bộ Webdriver hiện thời (ngắt đối tượng WebDriver) và đóng hết toàn bộ trình duyệt đang được mở.
+quit(): đóng toàn bộ những trình duyệt đang sử dụng. Nếu có nhiều hơn một trình duyệt đang được mở bởi Selenium, thì câu lệnh này sẽ tắt toàn bộ WebDriver hiện thời (ngắt đối tượng WebDriver) và đóng hết toàn bộ trình duyệt đang được mở.
 
 	-> Nếu chỉ có duy nhất một trình duyệt đang được mở thì không có sự khác biệt, sự khác biệt chỉ đến khi Selenium đang mở từ hai trình duyệt trở lên.
 
@@ -1032,7 +1136,7 @@ quit(): đóng toàn bộ những trình duyệt đang sử dụng. Nếu có nh
 
 Khi HTML và CSS kết hợp với nhau sẽ tạo thành một trang web tĩnh, Locator được xem là địa chỉ của từ khoá.
 
-Bên cạnh việc định nghĩa ra cách thiết kế trình duyệt, W3C còn định nghĩa thêm cho những thứ có liên quan đến HTML.
+Bên cạnh việc định nghĩa ra cách thiết kế trình duyệt (phải có cách để lập trình viên can thiệp vào), W3C còn định nghĩa thêm cho những thứ có liên quan đến HTML.
 
 	- Khi W3C chuẩn hoá HTML, họ đã đưa ra những cách / kỹ thuật / cơ chế để định vị được các thẻ (tag) / phần tử (web element) trong website, kỹ thuật để tìm ra / xác định / chỉ định một thẻ nào đó tại vị trí nào đó trong hàng nghìn thẻ khác của một trang HTML khi nó đã được tải về máy tính.
 
@@ -1044,6 +1148,10 @@ Bên cạnh việc định nghĩa ra cách thiết kế trình duyệt, W3C còn
 --------------------------------------------------------------------------------
 
 	[TÌM PHẦN TỬ TRÊN TRÌNH DUYỆT BẰNG CÔNG CỤ DÀNH CHO NHÀ PHÁT TRIỂN]
+
+Có hai kiểu tìm phần tử:
+	- Tuyệt đối: Đi từ gốc của cây phân cấp.
+	- Tương đối: 
 
 * Cách định vị các phần tử ngay trên trình duyệt (Windows):
 
@@ -1136,23 +1244,29 @@ Selenium cung cấp lớp "By", bên trong gồm nhiều phương thức (ví d�
 
 	[ĐỊNH VỊ TRUYỀN THỐNG - TRADITIONAL LOCATOR]
 
-Có 8 chiến lược định vị truyền thống trong WebDriver:
+Có 8 chiến lược / kỹ thuật định vị truyền thống trong WebDriver:
 
-	1. Class name: sử dụng thuộc tính class để tìm đối tượng. Không cho phép có nhiều tên class - compound class name (ví dụ: nếu tên class đặt có khoảng trắng, thì cũng sẽ được tính là hai tên class.).
+	[Các thẻ trùng nhau sẽ được đánh số từ 1]
 
-	2. CSS Selector: tận dụng có pháp của CSS trong việc chọn phần tử.
+	1. Class name: Sử dụng thuộc tính class để tìm đối tượng.
+		- Thường có thể tìm ra được một loạt các thẻ có cùng tên class, vì thẻ này là để áp dụng hàng loạt.
+		- Không cho phép có nhiều tên class - compound class name (ví dụ: nếu tên class đặt có khoảng trắng, thì sẽ được tính là hai tên class.).
 
-	3. Id: sử dụng thuộc tính id để tìm chính xác phần tử. Đây là cách tiện lợi và nhanh gọn nhất.
+	2. CSS Selector: Tận dụng cú pháp của CSS trong việc chọn phần tử.
 
-	4. Name: sử dụng thuộc tính name.
+	3. Id: Theo quy định thiết kế của W3C, id không nên trùng nhau (nhưng chưa cấm hẳn).
+		- Vì vậy, sử dụng thuộc tính id để tìm chính xác phần tử.
+		- Đây là cách tiện lợi và nhanh gọn nhất.
 
-	5. Link Text: sử dụng đoạn văn bản được hiển thị trong siêu liên kết (hyperlink).
+	4. Name: Sử dụng thuộc tính name.
 
-	6. Partial Link Text: sử dụng một phần của đoạn văn bản được hiển thị trong siêu liên kết (hyperlink). Nếu có nhiều kết quả được tìm thấy, thì kết quả đầu tiên sẽ được chọn.
+	5. Link Text: Sử dụng đoạn văn bản được hiển thị trong siêu liên kết (hyperlink).
 
-	7. Tag Name: sử dụng tên của thẻ / bộ thẻ.
+	6. Partial Link Text: Sử dụng một phần của đoạn văn bản được hiển thị trong siêu liên kết (hyperlink). Nếu có nhiều kết quả được tìm thấy, thì kết quả đầu tiên sẽ được chọn.
 
-	8. XPath: sử dụng biểu thức XPath - ngôn ngữ được sử dụng để truy vấn trong XML.
+	7. Tag Name: Sử dụng tên của thẻ / bộ thẻ.
+
+	8. XPath: Sử dụng biểu thức XPath - ngôn ngữ được sử dụng để truy vấn trong XML.
 
 (* Tham khảo thêm:
 	- https://www.toolsqa.com/selenium-webdriver/selenium-locators/
@@ -1206,16 +1320,6 @@ XPath tương đối (Relative): có thể nhảy cóc qua bất kì điểm nà
 
 	Ví dụ: //*[@id='email'] hoặc //input[@id='email']
 		(Website: http://live.techpanda.org/index.php/customer/account/login/)
-
-------------------------------------------------------------
-
-	[KỸ THUẬT TƯƠNG QUAN - AXES / AXIS]
-
-Nếu trong các trang web có sử dụng thêm những framework phức tạp, cấu trúc sẽ tự động được tạo, khiến những giá trị trong các thuộc tính liên tục bị thay đổi sau mỗi lần F5.
-	-> Định vị bị thay đổi sau mỗi lần chạy.
-
-Sử dụng kỹ thuật định vị tương đối để tìm những phần tử khi chúng có dính líu, liên hệ với nhau (có tương quan), mà không cần quan tâm đến tên thẻ hay thuộc tính của thẻ.
-	-> Định vị dựa trên sự tương đối giữa các thẻ.
 
 ------------------------------------------------------------
 
@@ -1277,6 +1381,16 @@ Cấu trúc (tương đối): tag-name[attribute-name='attribute-value']
 
 	Ví dụ: input[name="login[username]"]
 		(Website: http://live.techpanda.org/index.php/customer/account/login/)
+
+==========================================================================================
+
+[KỸ THUẬT TƯƠNG QUAN - AXES / AXIS]
+
+Nếu trong các trang web có sử dụng thêm những framework phức tạp, cấu trúc sẽ tự động được tạo, khiến những giá trị trong các thuộc tính liên tục bị thay đổi sau mỗi lần F5.
+	-> Định vị bị thay đổi sau mỗi lần chạy.
+
+Sử dụng kỹ thuật định vị tương đối để tìm những phần tử khi chúng có dính líu, liên hệ với nhau (có tương quan), mà không cần quan tâm đến tên thẻ hay thuộc tính của thẻ.
+	-> Định vị dựa trên sự tương đối giữa các thẻ.
 
 ==========================================================================================
 ==========================================================================================
