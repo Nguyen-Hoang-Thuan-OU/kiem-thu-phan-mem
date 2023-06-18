@@ -479,6 +479,8 @@ Tuỳ thuộc vào ngữ cảnh mà Selenium có thể là:
 			| WebDriver myBrowser = new ChromeDriver();
 			| myBrowser.get("https://google.com");
 
+		* Lưu ý: Đường dẫn bắt buộc phải có thêm "https://" để tránh bị ngoại lệ InvalidArgumentException.
+
 --------------------------------------------------------------------------------
 
 	Bước 05.01: Sử dụng tính năng ghi nhận (Record).
@@ -769,7 +771,7 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 ------------------------------------------------------------
 
-	Bước 04: Báo cho máy ảo biết phải kết nối với ChromeDriver.exe (giống như việc khai báo biến môi trường trong Windows, nhưng đây là khai báo ảo trong môi trường ảo).
+	Bước 04: Báo cho máy ảo Java biết phải kết nối với ChromeDriver.exe (giống như việc khai báo biến môi trường trong Windows, nhưng đây là khai báo ảo trong môi trường ảo).
 
 		* Java:
 			// Báo cho máy ảo Java biết rằng
@@ -850,13 +852,16 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 			import org.openqa.selenium.By;
 			import org.openqa.selenium.WebElement;
 
-			myBrowser.get("https://www.google.com/");
+			trinhDuyetCuaToi.get("https://www.google.com/");
+
+			// Lưu ý: Đường dẫn bắt buộc phải có thêm "https://"
+			// để tránh bị ngoại lệ InvalidArgumentException.
         
 			// Sử dụng đối tượng đại diện cho trình duyệt
 			// để tìm phần tử nằm trong trang web,
 			// sau đó lưu phần tử vừa tìm được vào đối tượng
 			// đại diện cho từng phần tử trong trang web
-        		WebElement searchBox = myBrowser.findElement(By.name("q"));
+        		WebElement searchBox = trinhDuyetCuaToi.findElement(By.name("q"));
 
 			// Sử dụng đối tượng đại diện cho phần tử
 			// để bắt đầu tương tác với trang web
@@ -886,7 +891,7 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 			// Trong mã nguồn
 			ChromeOptions tuyChonTrinhDuyet  = new ChromeOptions();
 			tuyChonTrinhDuyet.addArguments("--remote-allow-origins=*");
-			WebDriver myBrowser = new ChromeDriver(tuyChonTrinhDuyet);
+			WebDriver trinhDuyetCuaToi = new ChromeDriver(tuyChonTrinhDuyet);
 
 		2. Nếu sử dụng Selenium phiên bản từ 4.5 trở lên:
 
@@ -904,7 +909,23 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	[CODE CƠ BẢN ĐỂ ĐIỀU KHIỂN TRÌNH DUYỆT BẰNG JAVA]
 
+	String driverPath = "chromedriver.exe";
+	System.setProperty("webdriver.chrome.driver", driverPath);
 
+	ChromeOptions option = new ChromeOptions();
+	option.addArguments("--remote-allow-origins=*");
+	option.addArguments("--incognito");
+	option.addArguments("--lang=en-GB");
+	option.addArguments("denable-automation");
+	option.addArguments("--start-maximized");
+	// myBrowser.manage().window().maximize();
+
+	WebDriver myBrowser = new ChromeDriver(option);
+
+	myBrowser.get("https://www.google.com/");
+	WebElement searchBox = myBrowser.findElement(By.name("q"));
+	searchBox.sendKeys("Kiểm thử phần mềm");
+	searchBox.submit();
 
 ==========================================================================================
 
@@ -1100,33 +1121,21 @@ WebDriverManager là một thư viện nguồn mở của Java, được sử d�
 
 * Các bước để sử dụng WebDriverManager trong dự án Java:
 
-----------------------------------------
-
 	Bước 01: Khai báo thư viện phụ thuộc (Dependency) theo phong cách Maven hoặc Gradle. Khai báo trong phạm vị (scope) là các lớp để test.
-
-----------------------------------------
 
 	Bước 02: Trong hàm main(), khai báo biến để đại diện cho trình duyệt và thuộc thư viện WebDriver của Selennium.
 		Ví dụ: WebDriver trinhDuyetCuaToi;
-
-----------------------------------------
 
 	Bước 03.01: [Tuỳ chọn] Đi tìm thư viện phụ thuộc (Dependency) cho WebDriver đã khai báo ở trên bằng cách chọn "Search Dependency at Maven Repository...". Lúc này, IDE sẽ đi vào thư mục m2 dưới máy cục bộ để đi tìm.
 
 		(Trong quá trình đi tìm thư viện, nếu không tìm thấy dù đã tải thư viện về kho chứa cục bộ, thì có thể Clean and Build Project)
 
-----------------------------------------
-
 	Bước 03.02: [Tuỳ chọn] Khai báo thư viện WebDriver của Selennium bằng cách import.
-
-----------------------------------------
 
 	Bước 04: Gọi phương thức setup() trong thư viện WebDriverManager của Boni García.
 		Ví dụ: WebDriverManager.chromedriver().setup();
 
 		(Có thể tìm kiếm trong kho cục bộ nếu không tìm thấy và khai báo thư viện giống như bước 03.)
-
-----------------------------------------
 
 	Bước 05: Tạo đối tượng trình duyệt và trỏ thẳng vào trình duyệt vật lý, nhưng vẫn độc lập với trình duyệt vật lý.
 		Ví dụ: trinhDuyetCuaToi = new ChromeDriver();
@@ -1150,32 +1159,50 @@ Trong quá trình tương tác với trình duyệt bằng Selenium sẽ có hai
 	1. Của riêng ứng dụng: tương tác trong trang đã được trình duyệt tải về.
 		-> Tương tác giống như những thẻ bình thường khác.
 
+		Ví dụ: Trên trang https://www.thegioididong.com/
+
+			WebElement locationPopup = myBrowser.
+				findElement(By.xpath("//*[@id='lc_pop--sugg']/div/div[2]/a[2]"));
+			locationPopup.click();
+
 	2. Của riêng trình duyệt:
-		-> Tương tác trực tiếp bằng đối tượng đại diện cho trình duyệt (ví dụ: trinhDuyetCuaToi, trinh_dieu_khien_trinh_duyet).
+		-> Tương tác trực tiếp bằng đối tượng đại diện cho trình duyệt.
+
+		Ví dụ: Tắt hộp thoại thông báo (alert) trên trình duyệt.
+
+			myBrowser.switchTo().alert().accept();
 
 --------------------------------------------------------------------------------
 
 	[CƠ CHẾ CHỜ ĐỢI / ĐỒNG BỘ]
 
-Trong quá trình thao tác (thường là chuyển trang), do câu lệnh điều khiển (chạy trên máy ảo) và trang web (chạy trên trình duyệt) là hai luồng (thread) riêng biệt nên cần sử dụng thêm wait để câu lệnh đợi trang kế tiếp trả về phần từ, vì trong nhiều trường hợp trang kế chưa kịp tải nên các phần tử sẽ chưa kịp xuất hiện.
+Trong quá trình thao tác (thường là chuyển trang), do câu lệnh điều khiển (chạy trên máy ảo) và trang web (chạy trên trình duyệt) là hai luồng (thread) riêng biệt và không đồng bộ (async).
 
-	- Trong một số trang web, để tăng tốc độ tải khi có nhiều hình ảnh, có thể trang sẽ không render ra hết toàn bộ nội dung (các thẻ, hình ảnh...) trong một lần mà sẽ tải về theo từng phần.
+	- Trong một số trang web, để tăng tốc độ tải khi có nhiều hình ảnh, có thể trang sẽ không hiển thị ra hết toàn bộ nội dung (các thẻ, hình ảnh...) trong một lần mà sẽ tải về theo từng phần.
 
-	- Vì những lý do khách quan, chẳng hạn như kết nối mạng không ổn định... hoặc những lý do chủ quan, chẳng hạn như bản thân trang không được tối ưu nên việc xử lý sẽ tốn thời gian... mà việc tải được hết toàn bộ nội dung của trang web sẽ tốn một khoảng thời gian nhất định.
+	- Đôi khi, cũng vì những lý do khách quan (ví dụ: kết nối mạng không ổn định...) hoặc những lý do chủ quan (ví dụ: bản thân trang web không được tối ưu...) khiến việc tải được hết toàn bộ nội dung của trang web sẽ tốn một khoảng thời gian nhất định.
 
-	- Việc trình duyệt tải trang về máy tính và code để điều khiển là hai luồng (thread) bất đồng bộ (async). Code chỉ có thể ra lệnh chứ không thể can thiệp vào và điều khiển tốc độ tải của trang vì đây đã là công việc của trình duyệt, nên đôi khi sẽ có hiện tượng những câu lệnh của Selenium sẽ được thực thi nhanh hơn mức cần thiết so với tốc độ nạp của trang web, dẫn đến sự không đồng bộ và không tìm thấy phần tử để tương tác (no such element).
+	- Việc trình duyệt tải trang về máy tính và câu lệnh Selenium để điều khiển sẽ có sự chênh lệch với nhau giữa tốc độ.
+		+ Code chỉ có thể ra lệnh chứ không thể can thiệp vào và điều khiển tốc độ tải của trang, vì đây đã là công việc của trình duyệt.
+		+ Nên đôi khi sẽ có hiện tượng những câu lệnh của được thực thi nhanh hơn mức cần thiết so với tốc độ nạp của trang web, dẫn đến sự không đồng bộ và không tìm thấy phần tử để tương tác (no such element).
 
-	-> Sử dụng wait để đồng bộ tốc độ khi code chạy nhanh hơn việc trang được nạp.
+	- Để khắc phục tình trạng này, cần sử dụng thêm câu lệnh wait để câu lệnh đợi trang web.
+
+	-> Sử dụng wait để đồng bộ tốc độ khi code thực thi nhanh hơn việc trang được nạp.
 		(Câu lệnh chạy nhanh, nhưng trang web lại có độ trễ trong việc tải nội dung.)
 
 ------------------------------------------------------------
 
 Có hai loại wait:
 
-	- Tường minh (Explicit): khá đơn giản nếu đã có kinh nghiệm trong việc đợi và tính được khoảng thời gian gần chính xác để tải được toàn bộ trang web, sử dụng thông qua lớp Thread. Lúc này, ta sẽ yêu cầu các câu lệnh chủ động "đứng hình mất vài giây" trước khi tiếp tục quay lại xử lý.
+	- Tường minh (Explicit): Khá đơn giản nếu đã có kinh nghiệm trong việc đợi và tính toán, dự trù được khoảng thời gian gần chính xác để tải được toàn bộ trang web.
+		- Sử dụng thông qua lớp Thread.
+		- Lúc này, ta sẽ yêu cầu các câu lệnh chủ động "đứng hình mất vài giây" trước khi tiếp tục quay lại xử lý.
 		-> Ước lượng trước khoảng thời gian cần chờ.
 
-	- Ngầm định (Implicit): khó viết nhưng sẽ an toàn hơn. Do Selenium cung cấp sẵn và sử dụng thông qua đối tượng đại diện cho trình duyệt. thông báo rằng không nên vội tìm các phần tử mà hãy đợi đến khi trang web được tải xong (giống như việc xem tín hiệu trong bảng điều khiển Network của trình duyệt). Tuy không nói rõ sẽ chờ trong bao lâu, chỉ biết khi nào trang web được tải xong thì các câu lệnh mới được tiếp tục thực thi.
+	- Ngầm định (Implicit): Khó viết nhưng sẽ an toàn hơn.
+		- Do Selenium cung cấp sẵn và sử dụng thông qua đối tượng đại diện cho trình duyệt, thông báo rằng không nên vội mà hãy đợi đến khi trang web được tải xong (giống như việc xem tín hiệu trong bảng điều khiển Network của trình duyệt) thì mới bắt đầu tìm kiếm phần tử.
+		- Tuy không nói rõ sẽ phải chờ trong bao lâu, chỉ biết khi nào trang web được tải xong thì các câu lệnh mới được tiếp tục thực thi.
 		-> Chờ đợi đến khi nhìn thấy dấu hiệu.
 
 --------------------------------------------------------------------------------
@@ -1233,6 +1260,10 @@ Cắt bớt chuỗi thừa bằng Java:
 		String afterPrice = price;
 		if (index >= 0)
 			afterPrice = price.substring(0, price.length() - 2);
+							// Vì độ dài length() tính từ 1
+							// còn chỉ số (index) tính từ 0,
+							// nên (price.length() - 2)
+							// hoặc (index - 1)
 
 		// In ra giá bán cuối cùng
 		System.out.println("Final price (after removing *): "
@@ -1246,7 +1277,7 @@ close(): đóng duy nhất một trình duyệt đang sử dụng. Nếu có nhi
 
 quit(): đóng toàn bộ những trình duyệt đang sử dụng. Nếu có nhiều hơn một trình duyệt đang được mở bởi Selenium, thì câu lệnh này sẽ tắt toàn bộ WebDriver hiện thời (ngắt đối tượng WebDriver) và đóng hết toàn bộ trình duyệt đang được mở.
 
-	-> Nếu chỉ có duy nhất một trình duyệt đang được mở thì không có sự khác biệt, sự khác biệt chỉ đến khi Selenium đang mở từ hai trình duyệt trở lên.
+	-> Sự khác biệt chỉ đến khi Selenium đang mở từ hai trình duyệt trở lên.
 
 ==========================================================================================
 ==========================================================================================
@@ -1275,15 +1306,37 @@ Bên cạnh việc định nghĩa ra cách thiết kế trình duyệt (phải c
 
 	[TÌM PHẦN TỬ TRÊN TRÌNH DUYỆT BẰNG CÔNG CỤ DÀNH CHO NHÀ PHÁT TRIỂN]
 
-Có hai kiểu tìm phần tử:
-	- Tuyệt đối: Đi từ gốc của cây phân cấp.
-	- Tương đối: 
+* Có hai kiểu tìm phần tử:
 
-* Cách định vị các phần tử ngay trên trình duyệt (Windows):
+----------------------------------------
+
+	1. Tuyệt đối (Absolute - Abs / Full): Đi qua tất cả các điểm, không được bỏ qua bất kì điểm nào vì sẽ không tìm thấy đường đi.
+		- Đưa đầy đủ thông tin và tốc độ chạy nhanh hơn, nhưng Test Script sẽ dễ bị sai khi có thay đổi trong XPath.
+		- Chỉ sử dụng khi hết cách.
+		-> Xuất phát từ gốc của cây phân cấp và đi đến đích.
+
+		Ví dụ: Đường dẫn tuyệt đối theo phong cách của XPath.
+		
+			/html/body/section[1]/h1
+
+----------------------------------------
+
+	2. Tương đối (Relative - Rel): Không nói rõ đường đi và có thể nhảy cóc qua bất kì điểm nào.
+		- Đưa rất ít thông tin và tốc độ chạy chậm hơn vì phạm vi quét rộng hơn, nhưng sẽ chấp việc thay đổi trong XPath.
+		- Nên ưu tiên sử dụng trong hầu hết các trường hợp.
+		-> Xuất phát tại một điểm bất kì trên cây phân cấp và sau đó đi tiếp.
+
+		Ví dụ: Đường dẫn tương đối theo phong cách của CSS Selector.
+			
+			section[class='detail '] h1
 
 ------------------------------------------------------------
 
-	Bước 01: mở Công cụ dành cho Nhà phát triển (Web Developer Tools / Browser Developer Tools).
+* Cách định vị các phần tử ngay trên trình duyệt (Windows):
+
+----------------------------------------
+
+	Bước 01: Mở Công cụ dành cho Nhà phát triển (Web Developer Tools / Browser Developer Tools).
 
 		* Sử dụng phím tắt (Shortcut):
 
@@ -1316,9 +1369,9 @@ Có hai kiểu tìm phần tử:
 
 			- Firefox: More tools > Web Developer Tools
 
-------------------------------------------------------------
+----------------------------------------
 
-	Bước 02: chọn / định vị phần tử cần tương tác để xem các thông tin về thuộc tính.
+	Bước 02: Chọn / định vị phần tử cần tương tác để xem các thông tin về thuộc tính.
 
 		* Sử dụng phím tắt (Shortcut):
 
@@ -1332,9 +1385,9 @@ Có hai kiểu tìm phần tử:
 
 			- Firefox: [Pick an element from the page] > Rê chuột đến phần tử cần định vị
 
-------------------------------------------------------------
+----------------------------------------
 
-	Bước 03: sao chép định vị của phần tử.
+	Bước 03: Sao chép định vị của phần tử.
 
 		* Tận dụng Công cụ dành cho Nhà phát triển (Web Developer Tools / Browser Developer Tools):
 
@@ -1342,15 +1395,17 @@ Có hai kiểu tìm phần tử:
 
 			- Firefox: Chuột phải > Copy > Chọn loại locator muốn sử dụng
 
-		* Sử dụng thêm tiện ích mở rộng:
+		* Sử dụng tiện ích mở rộng:
 
 			- SelectorsHub.
 
 			- ChroPath.
 
-------------------------------------------------------------
+		* Sử dụng các kỹ thuật / chiến lực định vị phần từ trên trang web, phổ biến nhất là XPath và CSS Selector.
 
-	Bước 04: kiểm tra lại xem liệu định vị vừa sao chép có phải là duy nhất.
+----------------------------------------
+
+	Bước 04: Kiểm tra lại xem liệu định vị vừa sao chép có phải là duy nhất.
 
 		* Sử dụng khung tìm kiếm được tính hợp bằng phím tắt để viết câu truy vấn:
 
@@ -1362,17 +1417,17 @@ Có hai kiểu tìm phần tử:
 
 [CÁC CHIẾN LƯỢC ĐỊNH VỊ PHẦN TỬ TRÊN WEB - LOCATOR STRATEGIES]
 
+	* Các chỉ số của phần tử sẽ bắt đầu từ 1 thay vì 0 giống như mảng trong lập trình. *
+
 Có rất nhiều cách khác nhau để xác định chính xác và duy nhất một phần tử (element) trong trang web.
 
-Selenium cung cấp lớp "By", bên trong gồm nhiều phương thức (ví dụ: className, cssSelector, id, linkText, name, partialLinkText, taName, xpath...) để hỗ trợ tìm các phần tử trong DOM.
+Selenium cung cấp lớp "By", bên trong gồm nhiều phương thức (ví dụ: className(), cssSelector(), id(), linkText(), name(), partialLinkText(), taName(), xpath()...) để hỗ trợ tìm các phần tử trong DOM.
 
 --------------------------------------------------------------------------------
 
 	[ĐỊNH VỊ TRUYỀN THỐNG - TRADITIONAL LOCATOR]
 
 Có 8 chiến lược / kỹ thuật định vị truyền thống trong WebDriver:
-
-	[Các thẻ trùng nhau sẽ được đánh số từ 1]
 
 	1. Class name: Sử dụng thuộc tính class để tìm đối tượng.
 		- Thường có thể tìm ra được một loạt các thẻ có cùng tên class, vì thẻ này là để áp dụng hàng loạt.
@@ -1410,96 +1465,129 @@ Có 8 chiến lược / kỹ thuật định vị truyền thống trong WebDriv
 
 [XPATH VÀ CSS SELECTOR]
 
-Các chỉ số sẽ bắt đầu từ 1 thay vì 0 giống như mảng trong lập trình.
-
 --------------------------------------------------------------------------------
 
-	[XPATH]
+[XPATH]
 
-XPath: tìm duyệt/định vị thẻ một cách tương đối trong website (web element locator).
-	-> Lần mò theo cây DOM của webiste.
+* XPath: Lần mò theo cây DOM để tìm duyệt/định vị thẻ một cách tương đối trong website.
 
 Dựa trên ngôn ngữ XML (bố của HTML), mô tả theo cặp thẻ và đánh dấu ý nghĩa của từng cặp thẻ (Markup Language).
 
 	Ví dụ:
-		<div> - Division: phân vùng
-		<span> - Span: gom nhóm
-		<b> - Bold: in đậm
-		<i> - Italic: in nghiêng
-		<u> - Underline: gạch chân/gạch dưới
-
-Cấu trúc (tương đối): //tag-name[@attribute-name='attribute-value']
-
-	Ví dụ: //input[@name='login[username]']
-		(Website: http://live.techpanda.org/index.php/customer/account/login/)
+		<div> - Division: Phân vùng
+		<span> - Span: Gom nhóm
+		<b> - Bold: In đậm
+		<i> - Italic: In nghiêng
+		<u> - Underline: Gạch chân/Gạch dưới
+		...
 
 ------------------------------------------------------------
 
-XPath tuyệt đối (Absolute / Full): đi qua tất cả các điểm, không được bỏ qua bất kì điểm nào vì sẽ không tìm thấy đường đi. Đưa đầy đủ thông tin, tốc độ chạy nhanh hơn nhưng Test Script sẽ dễ bị sai khi có thay đổi trong XPath.
-	-> Xuất phát từ gốc và đi đến đích. Chỉ sử dụng khi hết cách.
+	[CÁC CẤU TRÚC / LOẠI ĐƯỜNG DẪN XPATH]
 
-	Ví dụ: /html/body/div/div/div[2]/div/div/div/form/div/div[2]/div[1]/ul/li[1]/div/input
+* XPath tuyệt đối: 
+
+	Ví dụ: Cấu trúc XPath tương đối của ô đăng nhập - địa chỉ email.
+
+		/html/body/div/div/div[2]/div/div/div/form/div/div[2]/div[1]/ul/li[1]/div/input
 		(Website: http://live.techpanda.org/index.php/customer/account/login/)
 
-XPath tương đối (Relative): có thể nhảy cóc qua bất kì điểm nào. Đưa rất ít thông tin, tốc độ chạy chậm hơn và chấp việc thay đổi trong XPath.
-	-> Không nói rõ đường đi, xuất phát tại một điểm nào đó và sau đó đi tiếp.
+* XPath tương đối: //tag-name[@attribute-name='attribute-value']
 
-	Ví dụ: //*[@id='email'] hoặc //input[@id='email']
+	Ví dụ: Cấu trúc XPath đơn giản của một số phần tử.
+	
+		//input[@id='txtPhoneNumber']
+		(Website: https://www.thegioididong.com/lich-su-mua-hang/dang-nhap)
+	
+		//input[@name='login[username]']
+		//input[@id='email'] hoặc //*[@id='email']
 		(Website: http://live.techpanda.org/index.php/customer/account/login/)
+
+----------------------------------------
+
+Sự khác nhau giữa "//" và '/'.
+
+* Một dấu gạch chéo (dấu xiên, dấu xuyệt trái) '/':
+	- Chỉ định thẻ con trực tiếp.
+	- Thường sử dụng trong các đường dẫn tuyệt đối.
+
+* Hai dấu gạch chéo (dấu xiên, dấu xuyệt trái) "//":
+	- Chỉ định toàn bộ thẻ con.
+	- Thường sử dụng trong các đường dẫn tương đối.
+
+----------------------------------------
+
+Để việc tìm phần tử được chính xác hơn:
+
+	1. Nếu có từ hai node con giống nhau hoàn toàn trở lên thì ta sẽ xét đến node cha (parent node) của nó, sau đó viết XPath hai lần, một lần cho node cha và một lần cho node con cần tìm.
+
+		Ví dụ: Có nhiều hơn một kết quả trả về khi sử dụng XPath.
+
+			Nếu tìm kiếm theo "//a[@title='My Account']" sẽ cho ra hai kết quả trong cùng một trang.
+				-> Sử dụng đến node cha.
+
+			Trong đó: //div[@class='footer'] <- node cha
+			Trong đó: //a[@title='My Account'] <- node con
+			(Website: http://live.techpanda.org/index.php/customer/account/login/)
+
+			Kết quả: //div[@class='footer']//a[@title='My Account']
+			
+			Được hiểu: Lấy phần tử với đường link là "My Account"
+				   ở phần footer của website
+
+----------------------------------------
+
+	[MẸO ĐỂ GIÚP CODE DỄ ĐỌC HƠN]
+
+1. Ưu tiên sử dụng dấu nháy đơn 'attribute-value' hơn là dấu nháy kép "attribute-value" vì ở một số IDE (ví dụ: Eclipse...), sẽ tự động thêm một số kí tự để không bị hiểu nhầm rằng cặp dấu nháy đôi "" vừa được thêm vào là dấu kết thúc chuỗi.
+
+	Ví dụ: Nếu sử dụng cặp dấu nháy kép.
+
+		// Kí hiệu "\" sẽ tự động được IDE thêm vào
+
+		//input[@id=\"txtEmail\"]
+		(Website: https://alada.vn/tai-khoan/dang-ky.html)
+
+2. Dấu sao/hoa thị '*' (thường thấy khi sao chép XPath từ trình duyệt thay vì gõ thủ công) đại diện cho bất kì thẻ (tag) nào.
+	- Nếu sử dụng sẽ khiến việc quét bị lâu so với khi truyền tên thẻ trực tiếp do phải đi kiểm tra/so sánh với tất cả các thẻ.
+	- Bên cạnh đó, việc sử dụng dấu hoa thị '*' cũng dễ gây hiểu lầm khi đọc code do không biết đó là loại phần tử gì.
+
+	Ví dụ: Cách sử dụng dễ gây hiểu lầm và tốn thời gian tìm kiếm.
+
+		//*[@id="txtEmail"]
+		(Website: https://alada.vn/tai-khoan/dang-ky.html)
 
 ------------------------------------------------------------
 
-Hàm XPath:
+	[CÁC HÀM TRONG XPATH]
 
-* Lấy tuyệt đối: chạy nhanh hơn.
+* Lấy tuyệt đối:
+
 	text()=''
-	string()=''
-	@attribute=''
 
 		Ví dụ: //strong[text()='Khách hàng mới']
 			(Website: https://www.nopcommerce.com/vi/login)
 
-* Lấy tương đối: chạy chậm hơn vì phạm vi quét rộng hơn.
+	string()=''
+
+	@attribute=''
+
+* Lấy tương đối:
+
 	contains(.,'') = contains(string(),'')
-	starts-with(text(),''): lấy chuỗi, giá trị của thuộc tính bắt đầu bằng giá trị nào (nhưng không có ends-with).
-		Ví dụ: //div[contains(text(),'bạn sẽ có thể đăng câu hỏi lên diễn đàn')]
+
+		Ví dụ: //div[contains(text(),'có thể đăng câu hỏi')]
 			(Website: https://www.nopcommerce.com/vi/login)
 
-Dấu chấm . giúp tìm element ở bất kì đâu miễn là vẫn trong thẻ đó.
+		starts-with(text(),''): Lấy chuỗi, giá trị của thuộc tính bắt đầu bằng giá trị nào (nhưng không có ends-with).
 
-----------------------------------------
-
-* Lưu ý: để giúp code dễ đọc hơn:
-
-	1. Ưu tiên sử dụng 'attribute-value' hơn là "attribute-value" vì ở một số IDE, chẳng hạn như Eclipse, sẽ tự động thêm một số kí tự để không bị hiểu nhầm rằng cặp dấu nháy đôi "" vừa được thêm vào là dấu kết thúc.
-		Ví dụ:
-			// Kí hiệu \" sẽ tự động được IDE thêm vào
-
-			//input[@id=\"txtEmail\"]
-			(Website: https://alada.vn/tai-khoan/dang-ky.html)
-
-	2. Dấu sao/hoa thị * (thường thấy khi sao chép XPath từ trình duyệt thay vì gõ thủ công) đại diện cho bất kì thẻ (tag) nào, nếu sử dụng sẽ khiến việc quét bị lâu so với khi truyền tên thẻ trực tiếp do phải đi kiểm tra/so sánh với tất cả các thẻ. Bên cạnh đó, việc sử dụng dấu hoa thị * cũng dễ gây hiểu lầm khi đọc code do không biết đó là loại element gì.
-		Ví dụ: //*[@id="txtEmail"]
-			(Website: https://alada.vn/tai-khoan/dang-ky.html)
-
-------------------------------------------------------------
-
-* Lưu ý: để việc tìm element được chính xác hơn:
-
-	1. Nếu có từ hai node con giống nhau hoàn toàn trở lên thì ta sẽ xét đến node cha (parent node) của nó, sau đó viết XPath hai lần, một lần cho node cha và một lần cho node con cần tìm.
-		Ví dụ:
-			// Trong đó: //div[@class='footer'] <- node cha
-			// Trong đó: //a[@title='My Account'] <- node con
-			// Được hiểu là lấy element với đường link là "My Account" ở phần footer của website
-
-			//div[@class='footer']//a[@title='My Account']
-			(Website: https://alada.vn/tai-khoan/dang-ky.html)
+Dấu chấm . giúp tìm phần tử ở bất kì đâu miễn là vẫn trong thẻ đó.
 
 --------------------------------------------------------------------------------
 
-	[CSS SELECTOR]
+[CSS SELECTOR]
 
-CSS Selector: dấu chấm đại diện cho class, dấu thăng đại diện cho các thuộc tính bên trong.
+* CSS Selector: dấu chấm đại diện cho class, dấu thăng đại diện cho các thuộc tính bên trong.
 
 	- Dấu khoảng trắng đại diện cho thẻ con.
 
