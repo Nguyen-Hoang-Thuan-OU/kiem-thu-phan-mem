@@ -69,7 +69,7 @@ Có nhiều cách để viết kịch bản kiểm thử tự động (Test Scri
 		+ Tuân thủ quy ước viết code.
 		+ Sử dụng các công nghệ quản lý mã nguồn.
 
-	- Rành về các Web element và Locator: giúp nhận dạng đúng phần tử / đối tượng cần tương tác để tăng độ chính xác cho Test Script.
+	- Rành về các Web element và Locator: giúp định vị đúng phần tử / đối tượng cần tương tác để tăng độ chính xác cho Test Script.
 
 	- Thành thạo về một Automation Framework: sử dụng thành thạo thư viện của Selenium WebDriver API vì đây là thư viện được sử dụng phổ biến nhất trong việc kiểm thử ứng dụng web.
 
@@ -162,14 +162,15 @@ Có nhiều cách để viết kịch bản kiểm thử tự động (Test Scri
 
 --------------------------------------------------------------------------------
 
-	1. Code based / Script based: chủ động lập trình để bắt các thành phần (component) / phần tử (web element / web control) / thẻ (tag) trên trang web bằng cách sử dụng:
-					- Bộ thư viện (Selenium, Appium...)
-					- Trình điểu khiển trình duyệt trung gian (Browser WebDriver)
-					- Kiến thức lập trình hướng đối tượng (OOP)
-						+ Bắt các phần tử trên trang web
-						+ Tương tác với các phần tử
-					-> Để viết Test Script (Page Object Model - POM)
-					   và tự động thực hiện các thao tác.
+	1. Code based / Script based: chủ động lập trình để định vị các thành phần (Component) / phần tử (Web element / Web control) / thẻ (Tag) trên trang web bằng cách sử dụng:
+		- Bộ thư viện lập trình (Selenium, Appium...).
+		- Trình điểu khiển trình duyệt trung gian (Browser WebDriver).
+		- Kiến thức lập trình hướng đối tượng (OOP).
+			+ Định vị các phần tử trên trang web.
+			+ Tương tác với các phần tử.
+			+ So sánh giá trị.
+			-> Để viết Test Script (Page Object Model - POM)
+			   tự động thực hiện các thao tác.
 		-> Sử dụng thư viện lập trình Selenium và ngôn ngữ lập trình.
 			(WebDriver)
 
@@ -177,23 +178,23 @@ Có nhiều cách để viết kịch bản kiểm thử tự động (Test Scri
 
 	2. Keyword based / Action based: ghi nhận lại các bước dạng kịch bản / câu lệnh Selenium (Linear: Record & Replay / Playback) bằng một phần mềm đã được viết sẵn và xây dựng thành một giao diện đồ hoạ người dùng (GUI), nhưng bản chất bên trong vẫn sẽ chứa nhiều thư viện đã được đóng gói.
 
-		- Chuyên phục vụ cho việc ghi hình lại các bước (không phải ghi màn hình dạng video) để tự động hoá thao tác thực thi các Test Case ở mức cơ bản.
+		- Ban đầu sẽ thực hiện thủ công trước một lần, quá trình ghi hình (theo các bước, không phải ghi màn hình dạng video) sẽ được ngầm thực hiện song song để sau này có thể tái hiện lại các bước.
 
-		- Trong quá trình xác định các phần tử, các phần tử sẽ được lưu vào một nơi riêng (Object Repository / Element Repository), cho phép tái sử dụng trong nhiều Test Case.
+		- Trong quá trình xác định các phần tử, các phần tử sẽ được lưu vào một nơi riêng (Object Repository / Element Repository), cho phép tái sử dụng trong nhiều Test Case khác nhau.
 
 		- Sau khi ghi nhận xong, sẽ in ra một tập các bước đã thực hiện, cho phép can thiệp và chỉnh sửa lại các bước theo phong cách kéo-thả nếu cần thiết.
 
 		- Bên cạnh đó, các công cụ còn hỗ trợ việc chuyển các thao tác ghi nhận các bước thành ngôn ngữ lập trình (Java, C#, Python...) và cho phép chỉnh sửa lại theo phong cách lập trình.
 
 		-> Sử dụng giao diện đồ hoạ kết hợp với ngôn ngữ lập trình.
-			(Test Automation Tool)
-			- Sử dụng công cụ đồ hoạ Selenium IDE.
-			- Sử dụng công cụ record + code: Katalon Studio...
-			- Sử dụng công cụ record + code + plug-in: Telerik, Katalon Recorder...
+			(Test Automation Tools / Automated Functional Testing Tools)
+			- Sử dụng công cụ thuần đồ hoạ: Selenium IDE...
+			- Sử dụng công cụ record + code: Katalon Studio + Katalon Recorder...
+			- Sử dụng công cụ record + code + plug-in vào IDE: Telerik...
 
 ==========================================================================================
 
-[CÁC CÔNG CỤ KIỂM THỬ TỰ ĐỘNG - TEST AUTOMATION FRAMEWORKS]
+[CÁC CÔNG CỤ KIỂM THỬ TỰ ĐỘNG BẰNG ĐỒ HOẠ - AUTOMATED FUNCTIONAL TESTING TOOLS]
 
 	* Cây DOM (Document Object Model): do trình duyệt xây dựng lên khi trang web (HTML) đã được tải về máy và nạp vào RAM thông qua quá trình duyệt / lướt web.
 
@@ -456,11 +457,13 @@ Tuỳ thuộc vào ngữ cảnh mà Selenium có thể là:
 
 [SỬ DỤNG IDE ĐỂ GHI NHẬN KỊCH BẢN KIỂM THỬ TỰ ĐỘNG]
 
+Bản chất bên trong của những công cụ IDE vẫn là Selenium WebDriver, nhưng thay vì được gói thành một thư viện lập trình thì sẽ được gói thành cả một ứng dụng và hỗ trợ tương tác thông qua giao diện đồ hoạ.
+
 ** Sử dụng công cụ để ghi nhận lại các bước dạng kịch bản (Record & Replay / Playback):
 
 --------------------------------------------------------------------------------
 
-	Bước 01: Truy cập các trang chủ của Selenium IDE hoặc trang cửa hàng trực tuyến của trình duyệt (ví dụ: Chrome Web Store, Firefox Add-ons, Microsoft Edge Add-ons) để tải tiện ích mở rộng về và cài đặt vào trình duyệt.
+	Bước 01: Truy cập các trang chủ của Selenium IDE hoặc trang cửa hàng trực tuyến của trình duyệt (ví dụ: Chrome Web Store, Firefox Add-ons, Microsoft Edge Add-ons...) để tải tiện ích mở rộng về và cài đặt vào trình duyệt.
 		| https://www.selenium.dev/selenium-ide/
 
 --------------------------------------------------------------------------------
@@ -469,17 +472,18 @@ Tuỳ thuộc vào ngữ cảnh mà Selenium có thể là:
 
 --------------------------------------------------------------------------------
 
-	Bước 03: Tạo mới một Test Case bằng tuỳ chọn "Add new test" và đặt tên cho Test Case (thuộc về một dự án).
+	Bước 03: Nhấn vào nút [+], tạo mới một Test Case bằng tuỳ chọn "Add new test" và đặt tên cho Test Case (thuộc về một dự án).
+		(Giống như việc tạo mới và đặt tên cho hàm.)
 
 --------------------------------------------------------------------------------
 
 	Bước 04: Dán URL của trang web muốn kiểm thử vào thanh địa chỉ "Playback base URL".
 
-		// Tương đương với các câu lệnh của Selenium WebDriver
+		// Tương đương với các câu lệnh (Java) của Selenium WebDriver
 			| WebDriver myBrowser = new ChromeDriver();
 			| myBrowser.get("https://google.com");
 
-		* Lưu ý: Đường dẫn bắt buộc phải có thêm "https://" để tránh bị ngoại lệ InvalidArgumentException.
+		* Lưu ý: Đường dẫn bắt buộc phải có thêm "https://" để tránh bị lỗi ERR_FILE_NOT_FOUND (Your file couldn’t be accessed - It may have been moved, edited, or deleted.).
 
 --------------------------------------------------------------------------------
 
@@ -487,9 +491,11 @@ Tuỳ thuộc vào ngữ cảnh mà Selenium có thể là:
 
 		1. Tại giao diện của Selenium IDE, bấm nút [Start recording] ở góc trên-bên phải hoặc sử dụng phím tắt [Ctrl] + [U] để bắt đầu ghi nhận lại (Record) toàn bộ những thao tác đã thực hiện thủ công theo một tình huống mong muốn.
 
+			[Khi trình duyệt được mở lên, ở góc dưới-bên phải sẽ hiển thị dòng chữ "Selenium IDE is recording".]
+
 		2. Thao tác theo theo Test Case đã được thiết kế.
 
-		3. Sau khi hoàn thành các thao tác, quay trở lại giao diện của Selenium IDE và nhấn nút [Stop recording].
+		3. Sau khi hoàn thành các thao tác, quay trở lại giao diện của Selenium IDE và nhấn nút [Stop recording] hoặc sử dụng phím tắt [Ctrl] + [U] một lần nữa.
 
 		4. Đặt tên cho Test Script vừa thao tác và được tạo tự động xong.
 
@@ -505,21 +511,22 @@ Tuỳ thuộc vào ngữ cảnh mà Selenium có thể là:
 
 		- Target: áp dụng thêm cách kỹ thuật locator để chỉ định chính xác vị trí của thành phần / đối tượng cần tương tác.
 
-		- Value: đặt giá trị cho thành phần / đối tượng chỉ định trong target nếu cần (ví dụ: giá trị cho ô textbox...) để làm dữ liệu đầu vào, dữ liệu so sánh...
+		- Value: đặt giá trị cho thành phần / đối tượng chỉ định trong Target nếu cần (ví dụ: giá trị cho ô textbox...) để làm dữ liệu đầu vào, dữ liệu so sánh...
 
 --------------------------------------------------------------------------------
 
 	Bước 06: [Tuỳ chọn] Một số thao tác có thể sử dụng trong quá trình kiểm thử trang web bằng Selenium IDE.
 
 		- So sánh (Assert) hoặc kiểm tra (Verify) các phần tử.
-			| Trỏ chuột hoặc quét chọn > Chuột phải > Selenium IDE > Assert / Verify
+			| Trỏ chuột hoặc quét chọn trên trang web
+			| > Chuột phải > Selenium IDE > Assert / Verify
 
 		- Điều chỉnh tốc độ thực thi của Test Case bằng nút [Test execution speed].
 
-		- Chuyển đổi các kịch bản trên IDE thành mã lập trình với nhiều ngôn ngữ lập trình khác nhau.
+		- Chuyển đổi các kịch bản trên IDE thành mã lập trình với nhiều ngôn ngữ lập trình khác nhau + Unit Testing Framework tương ứng (ví dụ: C# NUnit, Java JUnit...).
 			| Trỏ chuột vào tên Test Case > [⋮] > [Export]
 
-			// Tích chọn các tuỳ chọn
+			// Tích chọn các tuỳ chọn:
 				[✓] Include origin tracing code comments
 				[✓] Include step description as a separate comment
 				[ ] Export for use on Selenium Grid
@@ -549,7 +556,7 @@ Có nhiều hãng thiết kế trình duyệt web (Mozilla, Google, Apple, Micro
 	Ví dụ: để cạnh tranh, các trình duyệt khác nhau quyết định hỗ trợ những bộ thẻ khác nhau, gây khó khăn cho các lập trình viên, khiến một số website chỉ hoạt động tốt ở một số trình duyệt nhất định.
 		-> W3C giúp chuẩn hoá và thống nhất trong thiết kế trình duyệt.
 
-Mặc định, trình duyệt sẽ được người dùng điều khiển thông qua các ô nhập, nút nhấn, mở tab mới, lưu dấu trang, xoá dữ liệu duyệt web... Nhưng trong bộ tiêu chuẩn khi thiết kế trình duyệtcủa W3C có một tiêu chuẩn mang ý nghĩa rằng: "Mọi trình duyệt nên cho phép lập trình viên điều khiển được hoạt động của trình duyệt thông qua code", để giúp cho QC tự động hoá quá trình kiểm thử website dưới góc nhìn của người dùng.
+Mặc định, trình duyệt sẽ được người dùng điều khiển thông qua các ô nhập, nút nhấn, mở tab mới, lưu dấu trang, xoá dữ liệu duyệt web... Nhưng trong bộ tiêu chuẩn khi thiết kế trình duyệtcủa W3C có một tiêu chuẩn mang ý nghĩa rằng: "Mọi trình duyệt nên cho phép lập trình viên can thiệp, điều khiển được hoạt động của trình duyệt thông qua code khi trình duyệt đang chạy", để giúp cho QC tự động hoá quá trình kiểm thử website dưới góc nhìn của người dùng.
 
 	- Phần "hậu trường" của một trang web cũng chỉ là các thẻ (tag) / phần tử (element) / thành phần (component) và bên trong chứa những giá trị, thuộc tính...
 	
@@ -557,7 +564,11 @@ Mặc định, trình duyệt sẽ được người dùng điều khiển thôn
 
 	- Lúc này, trình duyệt chính là một đối tượng (object), cung cấp các hàm cho các lập trình viên và cho phép tương tác thông qua việc gọi hàm.
 
-	-> Cho phép code đóng vai người dùng để sử dụng trình duyệt.
+	Ví dụ: Giống như việc truyền hình luôn cho phép người dùng can thiệp trong phạm vi cho phép bằng điều khiển từ xa.
+		- Chiếc điều khiển từ xa được xem như một đối tượng.
+		- Những nút bấm trên điều khiển được xem như những hàm.
+
+	-> Hỗ trợ kiểm thử bằng cách cho phép code đóng vai người dùng để sử dụng trình duyệt.
 
 ------------------------------------------------------------
 
@@ -568,6 +579,25 @@ Mặc định, trình duyệt sẽ được người dùng điều khiển thôn
 --------------------------------------------------------------------------------
 
 [KIẾN TRÚC CỦA SELENIUM WEBDRIVER]
+
+Selenium WebDriver là thư viện lập trình được sử dụng để điều khiển trình duyệt web.
+	- Cho phép sử dụng nhiều ngôn ngữ lập trình khác nhau (ví dụ: Java, JavaScript, Python, C#...) để điều khiển nhiều loại trình duyệt khác nhau (ví dụ: Chrome, Edge, Firefox...).
+	- Mục đích chính là để tự động hoá việc kiểm thử các ứng dụng web.
+
+Nhưng nếu muốn sử dụng được Selenium WebDriver để tự động hoá, cần thêm sự giúp sức đến từ chính những nhà phát triển trình duyệt.
+
+	- Cụ thể, mỗi nhà phát triển trình duyệt sẽ cung cấp riêng một tập tin nhị phân tương ứng, được gọi là trình điều khiển trình duyệt (Browser WebDriver), để làm trung gian kết nối giữa Selenium WebDriver và trình duyệt.
+		Ví dụ: Các nhà phát triển trình duyệt và trình điều khiển trình duyệt của họ.
+			Google Chrome -> ChromeDriver
+			Mozilla Firefox -> GeckoDriver
+			Microsoft Edge -> MsEdgeDriver
+			...
+
+	- Khi sử dụng trình điều khiển trình duyệt (do nhà phát triển trình duyệt cung cấp) làm trung gian:
+		+ Bắt đầu từ Selenium 4, kết nối giữa Selenium và trình điều khiển trình duyệt sẽ thông qua chuẩn giao thức W3C WebDriver (còn ở Selenium 3 sẽ là JSON Wire Protocol).
+		+ Còn kết nối giữa trình điều khiển trình duyệt và trình duyệt sẽ thông qua tính năng được tích hợp sẵn trong mỗi trình duyệt.
+
+------------------------------------------------------------
 
 ** Kiến trúc của Selenium WebDriver (Selenium 3):
 
@@ -581,21 +611,25 @@ Mặc định, trình duyệt sẽ được người dùng điều khiển thôn
 								|			|
 								|			v
 ----------------------    ----------------------    ---------------------    ---------------
-| Ngôn ngữ lập trình |--->| Thư viện lập trình |--->| Browser WebDriver |--->| Trình duyệt |
+| Ngôn ngữ lập trình |--->| Thư viện lập trình |--->| Trình điều khiển	|--->| Trình duyệt |
 ----------------------    ----------------------    ---------------------    ---------------
 								^			|
 								|			|
 			    JSON Wire Protocol			-------------------------
 			    Over HTTP				  HTTP over HTTP Server
 			 (Không còn được sử dụng
-			  ở Selenium 4)
+			  ở Selenium 4,
+			  mà thay vào đó là
+			  W3C WebDriver)
 
 
 // Có thể hình dung:
-				JDBC, ADO.NET			Database Engine: SQL Server,
-			(Vừa kết nối với Database Engine,			 Oracle, MySQL
-			vừa cung cấp bộ thư viện
-			để giao tiếp với Driver)
+
+Java, C#... -------------> JDBC, ADO.NET --------------------> Database Engine: SQL Server,
+										Oracle, MySQL
+			   (Vừa kết nối với Database Engine,
+			    vừa cung cấp bộ thư viện
+			    để lập trình)
 
 --------------------------------------------------------------------------------
 
@@ -622,7 +656,7 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	- Là tập hợp gồm nhiều lớp (class) trừu tượng, hay còn được gọi là Interface, được đóng gói theo một định dạng cụ thể (*.jar, *.dll, *.exe...).
 		+ Chuyên cung cấp các lệnh (API), cho phép lập trình viên sử dụng những ngôn ngữ lập trình khác nhau như: Java, Python, C#, Ruby...
-		+ Nói cách khác, Selenium WebDriver đại diện cho một đối tượng (object) trình duyệt và cung cấp các lệnh / hàm.
+		+ Nói cách khác, đối tượng được tạo ra từ Selenium WebDriver sẽ làm đại diện cho một đối tượng (object) trình duyệt và cung cấp các lệnh / hàm.
 	
 	- Vì đã là thư viện nên cách sử dụng cũng sẽ giống hệt như mọi thư viện khác trong ngôn ngữ lập trình, phải tải về và thêm thủ công vào dự án hoặc khai báo tên thư viện theo dạng phụ thuộc (Dependency).
 
@@ -634,9 +668,9 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 			1. Với mỗi một hành động từ Test Script, một thông điệp HTTP Request sẽ được tạo ra để gửi các yêu cầu từ Client lên Server.
 
-			2. HTTP Request đó sẽ được gửi đến Browser WebDriver.
+			2. HTTP Request đó sẽ được gửi đến trình điều khiển trình duyệt.
 
-			3. Mỗi Browser WebDriver sẽ có một HTTP Server để tiếp nhận HTTP request.
+			3. Mỗi trình điều khiển trình duyệt sẽ có một HTTP Server để tiếp nhận HTTP request.
 
 			4. Sau khi nhận được thông điệp, HTTP Server xác định những bước cần thiết để thực thi hành động phản hồi lại yêu cầu.
 
@@ -648,7 +682,7 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	[2. TRÌNH ĐIỀU KHIỂN TRÌNH DUYỆT - BROWSER WEBDRIVER / PROXY]
 
-	* Protocol: giao thức chung (giống như ngôn ngữ trung gian) để giúp Selenium WebDriver và trình duyệt có thể hiểu nhau. WebDriver của trình duyệt (đại diện cho trình duyệt) sẽ hiểu giao thức và từ đó giúp giao tiếp được với Selenium WebDriver.
+	* Protocol: giao thức chung (giống như ngôn ngữ trung gian) để giúp Selenium WebDriver và trình duyệt có thể hiểu nhau. Trình điều khiển trình duyệt sẽ hiểu giao thức và từ đó giúp giao tiếp được với Selenium WebDriver.
 
 	* JSON Wire Protocol: giao thức này sẽ không còn được hỗ trợ kể từ Selenium 4.
 
@@ -664,15 +698,16 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	- Bản thân trình duyệt là một thế giới riêng và rất phức tạp, người sử dụng thông thường sẽ không thể can thiệp trực tiếp thông qua code được.
 		+ Và để đảm bảo tính trừu tượng (Abstraction) của việc thiết kế mà những thư viện lập trình (Selenium) cũng không được trực tiếp can thiệp vào trình duyệt.
-		+ Vì vậy, Browser WebDriver sẽ làm cầu nối trung gian và đảm nhận việc tương tác giữa trình duyệt và thư viện lập trình (Selenium).
+		+ Vì vậy, trình điều khiển trình duyệt sẽ làm cầu nối trung gian và đảm nhận việc tương tác giữa trình duyệt và thư viện lập trình (Selenium).
 
-	- Browser WebDriver là một ứng dụng / trình điều khiển / cầu nối trung gian (giống như Proxy) - Interface để kết nối giữa trình duyệt thực tế và thư viện lập trình.
+	- Trình điều khiển trình duyệt đóng vai trò làm cầu nối trung gian (giống như Proxy) - Interface để kết nối giữa trình duyệt thực tế và thư viện lập trình.
+		+ Là một ứng dụng do chính nơi phát triển trình duyệt tạo ra để bên ngoài có thể tương tác với trình duyệt của họ.
 		+ Đến từ nhiều nhà phát triển khác nhau với những cái tên khác nhau, bao gồm: ChromeDriver, OperaDriver, GeckoDriver...
 		+ Có nhiệm vụ nhận các câu lệnh do thư viện lập trình (Selenium) gửi, sau đó thao tác lại trên trình duyệt thật.		
 
 	- Bộ quy chuẩn chung được tách riêng cho khỏi trình duyệt. Là đoạn code chạy song song với trình duyệt, có kết nối với thư viện lập trình (Selenium), từ đó cho phép ngôn ngữ lập trình (Python, Java, C#...) can thiệp vào trình duyệt để kiểm thử những ứng dụng web một cách tự động bằng code.
 
-	- Việc giao tiếp giữa thư viện lập trình Selenium WebDriver API và Browser WebDriver sẽ được thực hiện thông qua giao thức W3C WebDriver (tên cũ là JSON Wire Protocol)
+	- Việc giao tiếp giữa thư viện lập trình Selenium WebDriver API và trình điều khiển trình duyệt sẽ được thực hiện thông qua giao thức W3C WebDriver (tên cũ là JSON Wire Protocol)
 
 	-> Tập tin nhị phân biết cách giao tiếp với trình duyệt và thư viện lập trình.
 
@@ -680,18 +715,20 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 ------------------------------------------------------------
 
-	[3. TRÌNH DUYỆT - BROWSER]
+	[3. TRÌNH DUYỆT VẬT LÝ / THỰC SỰ - BROWSER]
 
 ** Trình duyệt (Browser): giúp đưa con người đến mọi nơi trên internet, cho phép họ xem văn bản, hình ảnh và video từ mọi nơi trên thế giới.
 
-	- Các trình duyệt hiện đại sẽ thường tự động cập nhật phiên bản mới nhất.
+	- Với triết lý thiết kế "evergreen", các trình duyệt hiện đại sẽ được tự động cập nhật phiên bản mới nhất.
+		+ Người dùng luôn luôn được trải nghiệm những tính năng và bản vá bảo mật mới nhất.
+		+ Đồng thời, trình duyệt sẽ luôn hỗ trợ các tiêu chuẩn và công nghệ web mới nhất, giúp các nhà phát triển web có thể tận dụng được những tính năng này để xây dựng các ứng dụng web phức tạp với các tính năng và chức năng nâng cao, không cần lo về việc ứng dụng web của mình phải tương thích với các trình duyệt cũ hơn vì mặc định trình duyệt của người dùng cũng đang ở phiên bản mới nhất.
 
 	- Vì những phiên bản khác nhau của cùng một trình duyệt đã có thể khác nhau về câu lệnh, nên yêu cầu phải có sự đồng bộ / tương thích giữa hai phiên bản của trình duyệt và trình điều khiển trình duyệt.
 
 	- Việc đồng bộ phiên bản sẽ giúp tránh gặp những lỗi không mong muốn phát sinh trong quá trình thiết kế và thực thi Test Script.
 		Ví dụ: lỗi "This version of ChromeDriver only supports Chrome version 1xx"
 
-	-> Nơi mọi thao tác của con người sẽ diễn ra (cần có một Browser WebDriver với phiên bản phù hợp để tương tác).
+	-> Nơi mọi thao tác của con người sẽ diễn ra (cần có một trình điều khiển trình duyệt với phiên bản phù hợp để tương tác).
 
 ==========================================================================================
 
@@ -703,7 +740,7 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	2. Trình điều khiển trình duyệt (Browser WebDriver): phần trung gian để kết nối với trình duyệt, thay con người điều khiển trình duyệt.
 
-	3. Trình duyệt (Browser): nến có thể, hãy chọn những trình duyệt ít phát hành phiên bản cập nhật (ví dụ: Firefox...).
+	3. Trình duyệt (Browser): Để tiện cho việc học tập và nghiên cứu, có thể chọn những trình duyệt ít phát hành phiên bản cập nhật (ví dụ: Firefox...).
 
 (* Tham khảo thêm:
 	- https://www.selenium.dev/documentation/webdriver/getting_started/install_library/
@@ -752,67 +789,125 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 ------------------------------------------------------------
 
 	Bước 03: Cho Selenium WebDriver biết tập tin ChromeDriver nằm ở đâu trong máy tính.
-
-		Cách 1 - Sử dụng biến môi trường Path trong hệ điều hành để lưu đường dẫn đến tập tin ChromeDriver.
-
-		Cách 2 - Tạo mới một dự án và sao chép tập tin ChromeDriver.exe vào trong cùng thư mục chứa dự án, môi trường ảo (venv - python) hoặc bất kì đường dẫn nào mà ta mong muốn. Điều này sẽ giúp dễ quản lý khi đưa lên Server (ví dụ: GitHub...) và sử dụng mà không cần khai báo đường dẫn quá dài, nếu để ở nơi khác không cùng với thư mục chứa dự án thì phải chỉ rõ đường dẫn hoặc khai báo biến môi trường.
+			- Tạo mới một dự án và sao chép tập tin ChromeDriver.exe vào trong cùng thư mục chứa dự án hoặc bất kì đường dẫn nào mà ta mong muốn, sau đó khai báo đường dẫn vào trong biến môi trường ảo (JVM - Java, venv - Python...).
+			- Nếu để trong cùng thư mục với dự án sẽ giúp dễ quản lý khi đưa lên Server (ví dụ: GitHub...) và sử dụng mà không cần khai báo đường dẫn quá dài. Ngược lại, nếu để ở nơi khác không cùng với thư mục chứa dự án thì phải chỉ rõ đường dẫn hoặc khai báo biến môi trường.
 
 			* Java:
-				// Vào ngay trong thư mục chứa dự án
-				// để đi tìm Browser WebDriver
+				// * Cách: Sử dụng biến môi trường ảo
+
+				//	Trình điều khiển trình duyệt
+				//	sẽ nằm ngay trong thư mục chứa dự án
 				String duongDanChuaBrowserWebDriver = "chromedriver.exe";
-				//	-> Khai báo đường dẫn chứa Browser WebDriver
+				//	-> Khai báo đường dẫn chứa trình điều khiển trình duyệt
 
 				// Nếu để ở nơi khác thì phải khai báo đầy đủ đường dẫn
 				//  Ví dụ: "D:\\swt\\project\\chromedriver.exe"
 				//
-				// (Sử dụng hai dấu '\\' để tránh những ký hiệu đặc biệt trong lập trình,
+				// (Sử dụng hai dấu xuyệt phải (dấu chéo ngược) '\\'
+				//  để tránh những ký hiệu đặc biệt trong lập trình,
 				//  ví dụ: '\n' để xuống hàng)
 
 ------------------------------------------------------------
 
-	Bước 04: Báo cho máy ảo Java biết phải kết nối với ChromeDriver.exe (giống như việc khai báo biến môi trường trong Windows, nhưng đây là khai báo ảo trong môi trường ảo).
+	Bước 04: Báo cho máy ảo biết có một biến môi trường đặc biệt.
+
+		Cách 1: Sử dụng biến môi trường Path trong hệ điều hành để lưu đường dẫn đến tập tin ChromeDriver.
+			| System variables > Path > Edit > ...
+
+		Cách 2: Sử dụng biến môi trường ảo của ngôn ngữ lập trình để lưu đường dẫn đến tập tin ChromeDriver.
+			- Không chỉ riêng hệ điều hành mới có biến môi trường, máy ảo cũng giống như một hệ điều hành độc lập và cũng có riêng cho mình một biến môi trường.
+			- Selenium có thể dụng biến môi trường của hệ điều hành hoặc sử dụng biến môi trường của máy ảo.
+			- Nếu sử dụng biến môi trường của máy ảo, phải thiết lập đường dẫn kết nối đến ChromeDriver.exe bằng một phương thức nào đó trong lập trình (ví dụ: phương thức setProperty() trong Java...).
 
 		* Java:
-			// Báo cho máy ảo Java biết rằng
-			// có một biến môi trường (dành riêng cho máy ảo)
-			// với tên biến là "webdriver.chrome.driver"
-			// và trỏ đến giá trị là chromedriver.exe
-			// (chứa trong biến duongDanChuaBrowserWebDriver)
+			// * Chỉ thực hiện cách này
+			//   khi không khai báo ChromeDriver
+			//   trong biến môi trường của hệ điều hành
+
+			//	Thông qua phương thức setProperty(),
+			//	báo cho máy ảo Java biết rằng
+			//	có một biến môi trường (dành riêng cho máy ảo)
+			//	với tên biến là "webdriver.chrome.driver"
+			//	và trỏ đến giá trị là đường dẫn
+			//	được chứa bên trong biến chuỗi
+			//	"duongDanChuaBrowserWebDriver" ở bên trên
 
 			System.setProperty("webdriver.chrome.driver", duongDanChuaBrowserWebDriver);
 			//	-> Thiết lập biến môi trường
 			//	   và ánh xạ đến đường dẫn ChromeDriver
+			//		(webdriver.chrome.driver ≈ JAVA_HOME)
+			//		(C:\Selenium\Drivers     ≈ C:\Program Files\Java\jdk)
+
+			// System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+			// System.setProperty("webdriver.edge.driver", "msedgedriver.exe");
+			// System.setProperty("webdriver.opera.driver", "operadriver.exe");
+			// System.setProperty("webdriver.ie.driver", "IEDriverServer.exe");
+
+		* Python:
+			trinh_dieu_khien_trinh_duyet = webdriver.Chrome('chromedriver.exe')
 
 ------------------------------------------------------------
 
-	Bước 05: Khai báo thư viện lập trình Selenium WebDriver tương ứng với ngôn ngữ lập trình đang sử dụng.
+	Bước 05: Nhưng trước khi thật sự mở trình duyệt lên và tự động điều khiển trình duyệt.
+		- Giống như việc truy cập phần cài đặt của trình duyệt và thiết lập một số tuỳ chọn cho trình duyệt, lập trình viên cũng có thể cấu hình thêm các tuỳ chọn trước khi mở trình duyệt thông qua code.
+		- Việc tuỳ chỉnh các thiết lập của trình duyệt Chrome sẽ được thực hiện thông qua hàm addArguments() thuộc lớp ChromeOptions.
+		- Một số thiết lập phổ biến:
+			+ Tuỳ chỉnh ngôn ngữ.
+			+ Cài tiện ích mở rộng.
+			+ Sử dụng chế độ ẩn danh.
+			+ Tuỳ chỉnh kích thước của cửa sổ.
+			+ ...
 
 		* Java:
-			import org.openqa.selenium.WebDriver;
-			import org.openqa.selenium.chrome.ChromeDriver;
+			// Khai báo thư viện
+			// tương ứng với trình duyệt đang sử dụng
+			import org.openqa.selenium.chrome.ChromeOptions;
+
+			ChromeOptions tuyChonTrinhDuyet = new ChromeOptions();
+
+			// Kích hoạt tính năng CORS để cho phép WebDriver
+			// có thể can thiệp và điều khiển từ xa
+			tuyChonTrinhDuyet.addArguments("--remote-allow-origins=*");
+
+			// Mở trình duyệt ở chế độ ẩn danh
+			tuyChonTrinhDuyet.addArguments("--incognito"); 
+
+			// Ngôn ngữ mặc định (giao diện) là tiếng Anh
+			tuyChonTrinhDuyet.addArguments("--lang=en-GB");
+			
+			// Mở rộng hết cỡ kích thước của cửa sổ trình duyệt
+			tuyChonTrinhDuyet.addArguments("--start-maximized");
+			...
+
+			// Cài đặt thêm tiện ích mở rộng cho trình duyệt
+			tuyChonTrinhDuyet.addExtensions(...);
 
 ------------------------------------------------------------
 
-	Bước 06: Sử dụng đối tượng đại diện trong trình duyệt (ví dụ: trinhDuyetCuaToi, trinh_dieu_khien_trinh_duyet) để tìm / định vị các phần tử website.
+	Bước 06: Chính thức sử dụng đối tượng đại diện trong trình duyệt để gọi trình duyệt lên và tiến hành một số tuỳ chỉnh cho trình duyệt (nếu có).
 
 		- Khi duyệt web, bản thân trang web đó đã được tải về máy dưới dạng HTML, tốn một vùng RAM và hiển thị (render) trực tiếp lên trình duyệt thay vì được tải thành một tập tin rời.
 
 		- Khi trang web được tải về RAM, nó được xem là một đối tượng bự nhất - cây DOM.
 			+ Mỗi thành phần / thẻ xuất hiện trong cây DOM đều được xem là những đối tượng nhỏ hơn vì bên trong có thể chứa giá trị (id, name, color, type, margin, padding...), hành vi hoặc tiếp tục chứa những đối tượng khác.
-			+ Mỗi thẻ sẽ được đại diện bằng một Interface trong Selenium được gọi là WebElement.
+			+ Mỗi thẻ sẽ được đại diện bằng một đối tượng của Interface trong Selenium được gọi là WebElement.
 
 			Ví dụ: thẻ <div>, <h>, <span>,...
 				-> Đều được xem là đối tượng vì có mô tả, đặc tính và hành vi.
 
 		- Vì trang web đã được tải về trình duyệt, mà lại có một đối tượng nào đó đại diện cho trình duyệt (đối tượng được tạo từ lớp WebDriver), nghĩa là đối tượng này cũng đã nắm được toàn bộ đối tượng trong trang web (nắm được mã nguồn của trang web).
 
-		(Lúc này, Browser WebDriver sẽ bắt đầu phát huy công dụng khi dựa theo những lệnh trong code mà bắt đầu tương tác với trình duyệt thật.)
+		(Lúc này, trình điều khiển trình duyệt sẽ bắt đầu phát huy công dụng khi dựa theo những lệnh trong code mà bắt đầu tương tác với trình duyệt thật.)
 
 		* Java:
+			// Khai báo thư viện lập trình Selenium WebDriver
+			// tương ứng với ngôn ngữ lập trình đang sử dụng
+			import org.openqa.selenium.WebDriver;
+			import org.openqa.selenium.chrome.ChromeDriver;
+
 			// Khi đưa WebDriver vào trong code
 			// bằng cách tải thư viện lập trình,
-			// thì lúc này cả trình duyệt (nhờ WebDriver đại diện)
+			// lúc này, cả trình duyệt (nhờ WebDriver đại diện)
 			// được xem là một đối tượng (object),
 			// được tải về máy (hiển thị trực tiếp lên trình duyệt)
 			// và chiếm bộ nhớ trong RAM,
@@ -820,9 +915,12 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 			// để điều khiển / yêu cầu trình duyệt
 			// thực hiện các thao tác một cách tự động
 
+			// WebDriver là một lớp trừu tượng - Interface
+			// và ChromeDriver là một lớp kế thừa từ WebDriver
+
 			// Tạo một đối tượng trình duyệt mới
 			// và trỏ thẳng vào trình duyệt vật lý
-			WebDriver trinhDuyetCuaToi = new ChromeDriver();
+			WebDriver trinhDuyetCuaToi = new ChromeDriver(tuyChonTrinhDuyet);
 
 						     // Đây là một trình duyệt mới hoàn toàn
 						     // và đại diện cho trình duyệt thật,
@@ -833,12 +931,13 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 			// Sử dụng đối tượng trinhDuyetCuaToi
 			// để bắt đầu tương tác
-			// và mở trình duyệt ở chế độ toàn màn hình
+			// và mở cửa sổ trình duyệt ở chế độ toàn màn hình,
+			// thay thế cho cách truyền tham số vào hàm addArguments()
 			trinhDuyetCuaToi.manage().window().maximize();
 
 ------------------------------------------------------------
 
-	Bước 07: Định vị các thẻ và xác định hành động, thông qua các API được viết sẵn trong Selenium WebDriver.
+	Bước 07: Tìm / định vị các phần tử trên website và xác định hành động, thông qua các API được viết sẵn trong Selenium WebDriver.
 
 		- Vì đã là một đối tượng nên ta hoàn toàn có thể nhờ trình duyệt tìm giúp ta các thẻ nào đó.
 		
@@ -851,11 +950,12 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 		* Java:
 			import org.openqa.selenium.By;
 			import org.openqa.selenium.WebElement;
-
+			
+			// Mở website lên
 			trinhDuyetCuaToi.get("https://www.google.com/");
 
-			// Lưu ý: Đường dẫn bắt buộc phải có thêm "https://"
-			// để tránh bị ngoại lệ InvalidArgumentException.
+			// 	Lưu ý: Đường dẫn bắt buộc phải có thêm "https://"
+			//	       để tránh bị ngoại lệ InvalidArgumentException
         
 			// Sử dụng đối tượng đại diện cho trình duyệt
 			// để tìm phần tử nằm trong trang web,
@@ -914,9 +1014,7 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	ChromeOptions option = new ChromeOptions();
 	option.addArguments("--remote-allow-origins=*");
-	option.addArguments("--incognito");
 	option.addArguments("--lang=en-GB");
-	option.addArguments("denable-automation");
 	option.addArguments("--start-maximized");
 	// myBrowser.manage().window().maximize();
 
@@ -937,13 +1035,6 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 Selenium WebDriver có cung cấp một lớp được gọi là ChromeOptions, cho phép người sử dụng có thể tuỳ chỉnh các thiết lập của trình duyệt Chrome.
 
-Một số thiết lập phổ biến:
-	- Tuỳ chỉnh kích thước của cửa sổ.
-	- Tuỳ chỉnh ngôn ngữ.
-	- Sử dụng chế độ ẩn danh.
-	- Cài tiện ích mở rộng.
-	- ...
-
 * Cú pháp trong Java:
 
 	import org.openqa.selenium.chrome.ChromeOptions;
@@ -962,9 +1053,9 @@ Một số thiết lập phổ biến:
 		// thông qua việc cung cấp tham số cho tuỳ chọn
 		option.addArguments("--start-maximized");
 
---------------------------------------------------------------------------------
+------------------------------------------------------------
 
-	[NGÔN NGỮ MẶC ĐỊNH CHO TRÌNH DUYỆT]
+		[NGÔN NGỮ MẶC ĐỊNH CHO TRÌNH DUYỆT]
 
 Khi muốn chọn ngôn ngữ hiển thị mặc định cho trình duyệt, ta sẽ tuân theo tiêu chuẩn ISO 639-1:
 	- Hai kí tự đầu tiên đại diện cho ngôn ngữ.
@@ -987,9 +1078,9 @@ Khi muốn chọn ngôn ngữ hiển thị mặc định cho trình duyệt, ta 
 
 (Đây chỉ là ngôn ngữ hiển thị, việc định vị cho vị trí địa lý sẽ còn phụ thuộc vào những yếu tố khác.)
 
---------------------------------------------------------------------------------
+------------------------------------------------------------
 
-	[CHẾ ĐỘ ẨN DANH CHO TRÌNH DUYỆT]
+		[CHẾ ĐỘ ẨN DANH CHO TRÌNH DUYỆT]
 
 Khi sử dụng Selenium để mở trình duyệt ở chế độ ẩn danh:
 
@@ -1001,15 +1092,15 @@ Nhưng vì đây là một chế độ đặc biệt và WebDriver đã tối gi
 
 * Lưu ý: Việc ẩn danh chỉ che giấu được hành vi ở phía người dùng, không thể giấu được nhà mạng và trang web.
 
---------------------------------------------------------------------------------
+------------------------------------------------------------
 
-	[CÀI ĐẶT TIỆN ÍCH MỞ RỘNG CHO TRÌNH DUYỆT]
+		[CÀI ĐẶT TIỆN ÍCH MỞ RỘNG CHO TRÌNH DUYỆT]
 
 Sẽ có hai cách khác nhau để sử dụng tiện ích mở rộng khi tự động hoá trình duyệt.
 	1. Sử dụng trực tiếp từ thư mục có sẵn trong máy tính (Chưa đóng gói - Unpacked).
 	2. Sử dụng tập tin ở định dạng *.crx (Đã đóng gói - Packed).
 
-------------------------------------------------------------
+----------------------------------------
 
 * Cách 1: Chưa đóng gói - Unpacked (thư mục trên ổ đĩa):
 	- Sau khi cài đặt tiện ích mở rộng vào trình duyệt, một thư mục tương ứng sẽ được tạo ra (và có đánh số hiệu phiên bản) ngay trên ổ đĩa của người dùng.
@@ -1031,7 +1122,7 @@ Sẽ có hai cách khác nhau để sử dụng tiện ích mở rộng khi tự
 		// để tránh những rắc rối liên quan đến quyền truy cập
 		option.addArguments("load-extension=D:\\1.50.0_1");
 
-------------------------------------------------------------
+----------------------------------------
 
 * Cách 2: Đã đóng gói - Packed (tập tin *.crx):
 	- Ưu điểm của cách này là người dùng có thể sử dụng tập tin tiện ích mở rộng ở định dạng *.crx mà không cần phải cài đặt và giữ lại tiện ích mở rộng trong tình duyệt.
@@ -1104,46 +1195,6 @@ Sẽ có hai cách khác nhau để sử dụng tiện ích mở rộng khi tự
 
 --------------------------------------------------------------------------------
 
-	[TỰ ĐỘNG CẬP NHẬT PHIÊN BẢN CHO WEBDRIVER CỦA TRÌNH DUYỆT
-	 BẰNG WEBDRIVERMANAGER]
-
-Khi muốn sử dụng Selenium, mặc kệ code được viết trong hàm main() hoặc hàm Unit Test, thì điều quan trọng nhất để đảm bảo code luôn chạy đúng đó là: phiên bản của trình duyệt phải trùng với phiên bản của WebDriver do chính hãng làm nên trình duyệt đó cung cấp.
-	-> Luôn phải kiểm tra phiên bản của trình duyệt và WebDriver một cách thủ công.
-
-Đóng gói toàn bộ các câu lệnh: kiểm tra phiên bản, tải WebDriver, khai báo đường dẫn, thông báo cho máy ảo, duy trì sự đồng bộ giữa các phiên bản... thành một lớp riêng tên là "WebDriverManager" dưới dạng tập tin *.jar.
-	-> Đóng gói các thao tác tốn thời gian thành thư viện WebDriverManager.
-
-------------------------------------------------------------
-
-WebDriverManager là một thư viện nguồn mở của Java, được sử dụng để tự động tải xuống và cập nhật phiên bản cho Browser WebDriver.
-
-(* Tham khảo thêm: https://bonigarcia.dev/webdrivermanager/)
-
-* Các bước để sử dụng WebDriverManager trong dự án Java:
-
-	Bước 01: Khai báo thư viện phụ thuộc (Dependency) theo phong cách Maven hoặc Gradle. Khai báo trong phạm vị (scope) là các lớp để test.
-
-	Bước 02: Trong hàm main(), khai báo biến để đại diện cho trình duyệt và thuộc thư viện WebDriver của Selennium.
-		Ví dụ: WebDriver trinhDuyetCuaToi;
-
-	Bước 03.01: [Tuỳ chọn] Đi tìm thư viện phụ thuộc (Dependency) cho WebDriver đã khai báo ở trên bằng cách chọn "Search Dependency at Maven Repository...". Lúc này, IDE sẽ đi vào thư mục m2 dưới máy cục bộ để đi tìm.
-
-		(Trong quá trình đi tìm thư viện, nếu không tìm thấy dù đã tải thư viện về kho chứa cục bộ, thì có thể Clean and Build Project)
-
-	Bước 03.02: [Tuỳ chọn] Khai báo thư viện WebDriver của Selennium bằng cách import.
-
-	Bước 04: Gọi phương thức setup() trong thư viện WebDriverManager của Boni García.
-		Ví dụ: WebDriverManager.chromedriver().setup();
-
-		(Có thể tìm kiếm trong kho cục bộ nếu không tìm thấy và khai báo thư viện giống như bước 03.)
-
-	Bước 05: Tạo đối tượng trình duyệt và trỏ thẳng vào trình duyệt vật lý, nhưng vẫn độc lập với trình duyệt vật lý.
-		Ví dụ: trinhDuyetCuaToi = new ChromeDriver();
-
-		(Có thể tìm kiếm trong kho cục bộ nếu không tìm thấy và khai báo thư viện giống như bước 03.)
-
---------------------------------------------------------------------------------
-
 	[PHÂN BIỆT GIỮA SUBMIT() VÀ CLICK()]
 
 Khi lập trình sự kiện nhấn một nút trên trình duyệt:
@@ -1152,29 +1203,17 @@ Khi lập trình sự kiện nhấn một nút trên trình duyệt:
 
 --------------------------------------------------------------------------------
 
-	[CỬA SỔ THÔNG BÁO NỔI]
+	[PHÂN BIỆT PHƯƠNG THỨC CLOSE() VÀ QUIT()]
 
-Trong quá trình tương tác với trình duyệt bằng Selenium sẽ có hai dạng cửa sổ thông báo nổi.
+close(): đóng duy nhất một trình duyệt đang sử dụng. Nếu có nhiều hơn một trình duyệt đang được mở bởi Selenium, thì câu lệnh này sẽ chỉ đóng trình duyệt mà ta đang trực tiếp thao tác, những trình duyệt còn lại đang được mở sẽ không bị ảnh hưởng.
 
-	1. Của riêng ứng dụng: tương tác trong trang đã được trình duyệt tải về.
-		-> Tương tác giống như những thẻ bình thường khác.
+quit(): đóng toàn bộ những trình duyệt đang sử dụng. Nếu có nhiều hơn một trình duyệt đang được mở bởi Selenium, thì câu lệnh này sẽ tắt toàn bộ WebDriver hiện thời (ngắt đối tượng WebDriver) và đóng hết toàn bộ trình duyệt đang được mở.
 
-		Ví dụ: Trên trang https://www.thegioididong.com/
-
-			WebElement locationPopup = myBrowser.
-				findElement(By.xpath("//*[@id='lc_pop--sugg']/div/div[2]/a[2]"));
-			locationPopup.click();
-
-	2. Của riêng trình duyệt:
-		-> Tương tác trực tiếp bằng đối tượng đại diện cho trình duyệt.
-
-		Ví dụ: Tắt hộp thoại thông báo (alert) trên trình duyệt.
-
-			myBrowser.switchTo().alert().accept();
+	-> Sự khác biệt chỉ đến khi Selenium đang mở từ hai trình duyệt trở lên.
 
 --------------------------------------------------------------------------------
 
-	[CƠ CHẾ CHỜ ĐỢI / ĐỒNG BỘ]
+	[CƠ CHẾ CHỜ ĐỢI / ĐỒNG BỘ - WAIT]
 
 Trong quá trình thao tác (thường là chuyển trang), do câu lệnh điều khiển (chạy trên máy ảo) và trang web (chạy trên trình duyệt) là hai luồng (thread) riêng biệt và không đồng bộ (async).
 
@@ -1271,13 +1310,158 @@ Cắt bớt chuỗi thừa bằng Java:
 
 --------------------------------------------------------------------------------
 
-	[PHÂN BIỆT PHƯƠNG THỨC CLOSE() VÀ QUIT()]
+	[MỘT SỐ HÀM LIÊN QUAN ĐẾN ĐỐI TƯỢNG WEBELEMENT]
 
-close(): đóng duy nhất một trình duyệt đang sử dụng. Nếu có nhiều hơn một trình duyệt đang được mở bởi Selenium, thì câu lệnh này sẽ chỉ đóng trình duyệt mà ta đang trực tiếp thao tác, những trình duyệt còn lại đang được mở sẽ không bị ảnh hưởng.
+getText(): Lấy nội dung bên trong một thẻ.
 
-quit(): đóng toàn bộ những trình duyệt đang sử dụng. Nếu có nhiều hơn một trình duyệt đang được mở bởi Selenium, thì câu lệnh này sẽ tắt toàn bộ WebDriver hiện thời (ngắt đối tượng WebDriver) và đóng hết toàn bộ trình duyệt đang được mở.
+--------------------------------------------------------------------------------
 
-	-> Sự khác biệt chỉ đến khi Selenium đang mở từ hai trình duyệt trở lên.
+	[XỬ LÝ CỬA SỔ THÔNG BÁO NỔI - ALERTS & POPUPS]
+
+Trong quá trình tương tác với trình duyệt bằng Selenium sẽ có hai dạng cửa sổ thông báo nổi.
+
+	1. Của riêng ứng dụng: tương tác trong trang đã được trình duyệt tải về.
+		-> Tương tác giống như những thẻ bình thường khác.
+
+		Ví dụ: Trên trang https://www.thegioididong.com/
+
+			WebElement locationPopup = myBrowser.
+				findElement(By.xpath("//*[@id='lc_pop--sugg']/div/div[2]/a[2]"));
+			locationPopup.click();
+
+	2. Của riêng trình duyệt:
+		-> Tương tác trực tiếp bằng đối tượng đại diện cho trình duyệt.
+
+		Ví dụ: Tắt hộp thoại thông báo (alert) trên trình duyệt.
+
+			myBrowser.switchTo().alert().accept();
+
+--------------------------------------------------------------------------------
+
+	[TỰ ĐỘNG CẬP NHẬT PHIÊN BẢN CHO TRÌNH ĐIỀU KHIỂN TRÌNH DUYỆT
+	 BẰNG WEBDRIVERMANAGER]
+
+Khi muốn sử dụng Selenium, điều quan trọng nhất để đảm bảo code luôn chạy đúng là: phiên bản của trình duyệt phải trùng với phiên bản của trình điều khiển trình duyệt (Browser WebDriver) do chính hãng phát triển nên trình duyệt đó cung cấp.
+	-> Luôn phải kiểm tra phiên bản của trình duyệt và trình điều khiển trình duyệt một cách thủ công.
+
+Vì triết lý thiết kế "evergreen" mà những phiên bản mới nhất sẽ luôn luôn được tự động cập nhật.
+	- Để tránh mất thời gian cho những công đoạn: kiểm tra phiên bản, tải WebDriver, khai báo đường dẫn, thông báo cho máy ảo, duy trì sự đồng bộ giữa các phiên bản...
+	- Một lớp riêng tên là "WebDriverManager", đóng gói dưới dạng tập tin *.jar, được tạo ra để tự động hoá các thao tác tốn thời gian kể trên thành một câu lệnh đơn giản.
+	-> Đóng gói các thao tác tốn thời gian thành thư viện WebDriverManager.
+
+------------------------------------------------------------
+
+WebDriverManager là một thư viện nguồn mở của Java do Boni García phát triển và chuyện được sử dụng để tự động hoá quá trình quản lý trình điều khiển trình duyệt.
+
+Quá trình tự động hoá quản lý trình điều khiển trình duyệt sẽ bao gồm các tác vụ:
+	- Download: Tải phiên bản phù hợp với trình duyệt.
+	- Setup: Cấu hình biến môi trường.
+	- Maintenance: Đảo bảo rằng phiên bản của trình duyệt và trình điều khiển trình duyệt luôn luôn khớp nhau.
+
+Bắt đầu từ phiên bản 5, WebDriverManager còn hỗ trợ thêm nhiều tính năng nâng cao khác.
+	(* Tham khảo thêm: https://bonigarcia.dev/webdrivermanager/)
+
+* Các bước để sử dụng WebDriverManager trong dự án Maven của Java:
+
+	Bước 01: Khai báo thư viện phụ thuộc (Dependency) theo phong cách Maven. Khai báo trong phạm vị (scope) là các lớp để test.
+		| https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+
+	Bước 02: Trong hàm main(), khai báo biến để đại diện cho trình duyệt và thuộc thư viện WebDriver của Selennium.
+		| WebDriver trinhDuyetCuaToi;
+
+	Bước 03.01: [Tuỳ chọn] Nếu không tìm thấy thư viện WebDriver của Selenium (không được import một cách tự động).
+		- Đi tìm thư viện phụ thuộc (Dependency) cho WebDriver đã khai báo ở trên bằng cách chọn "Search Dependency at Maven Repositories for WebDriver".
+		- Lúc này, IDE sẽ đi vào thư mục .m2 dưới máy cục bộ để đi tìm, sau đó người dùng sẽ chọn phiên bản Selenium cần sử dụng.
+
+		(Trong quá trình đi tìm thư viện, nếu không tìm thấy dù đã tải thư viện về kho chứa cục bộ, thì có thể nhấn nút [Clean and Build Project] trên NetBeans.)
+
+	Bước 03.02: [Tuỳ chọn] Tự nhớ câu khai báo thư viện WebDriver của Selennium và import một cách thủ công.
+		| import org.openqa.selenium.WebDriver;
+
+	Bước 04: Để sử dụng được tính năng tự động hoá quản lý trình điều khiển trình duyệt, ta sẽ chỉ định một trình điều khiển đến từ một nhà phát triển trình duyệt và sau đó gọi phương thức setup().
+		| WebDriverManager.chromedriver().setup();
+
+		* Nếu cũng không tìm thấy thư viện WebDriverManager:
+			- Tìm kiếm trong kho cục bộ hoặc nhấn nút [Clean and Build Project] trên NetBeans giống như bước 03.01.
+			- Thêm một cách thủ công giống như bước 03.02.
+				| import io.github.bonigarcia.wdm.WebDriverManager;
+
+	Bước 05: Tạo đối tượng đại diện cho trình duyệt và trỏ thẳng vào trình duyệt vật lý, nhưng vẫn độc lập với trình duyệt vật lý.
+		| trinhDuyetCuaToi = new ChromeDriver();
+
+		* Nếu cũng không tìm thấy thư viện ChromeDriver:
+			- Tìm kiếm trong kho cục bộ hoặc nhấn nút [Clean and Build Project] trên NetBeans giống như bước 03.01.
+			- Thêm một cách thủ công giống như bước 03.02.	
+				| import org.openqa.selenium.chrome.ChromeDriver;
+
+		* Có thể bỏ qua bước tạo đối tượng đại diện cho trình duyệt bằng cách sử dụng trực tiếp hàm create() thay cho hàm setup():
+			| trinhDuyetCuaToi = WebDriverManager.chromedriver().create();
+
+				// Hai câu lệnh:
+				//	WebDriverManager.chromedriver().setup();
+				//	myBrowser = new ChromeDriver();
+				//
+				// Được thay thế bằng một câu duy nhất:
+				//	myBrowser = WebDriverManager.chromedriver().create();
+
+	Ví dụ: Một Test Case sử dụng JUnit 5 và phương thức AssertJ (https://joel-costigliola.github.io/assertj/).
+
+		import static org.assertj.core.api.Assertions.assertThat;
+
+		import org.junit.jupiter.api.AfterEach;
+		import org.junit.jupiter.api.BeforeAll;
+		import org.junit.jupiter.api.BeforeEach;
+		import org.junit.jupiter.api.Test;
+		import org.openqa.selenium.WebDriver;
+		import org.openqa.selenium.chrome.ChromeDriver;
+
+		import io.github.bonigarcia.wdm.WebDriverManager;
+
+		class ChromeTest {
+
+			WebDriver driver;
+
+			@BeforeAll
+			static void setupClass() {
+				WebDriverManager.chromedriver().setup();
+
+				// WebDriverManager.firefoxdriver().setup();
+				// WebDriverManager.edgedriver().setup();
+				// WebDriverManager.operadriver().setup();
+				// WebDriverManager.chromiumdriver().setup()
+				// WebDriverManager.iedriver().setup();
+
+				// driver = WebDriverManager.chromedriver().create();
+			}
+
+			@BeforeEach
+			void setupTest() {
+				driver = new ChromeDriver();
+
+				// Có thể bỏ qua bước
+				// tạo mới đối tượng driver trong @BeforeEach
+				// bằng cách sử dụng hàm create()
+				// thay thế cho setup() trong @BeforeAll
+
+				// driver = WebDriverManager.chromedriver().create();
+			}
+
+			@AfterEach
+			void teardown() {
+				driver.quit();
+			}
+
+			@Test
+			void test() {
+				// Exercise
+				driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
+				String title = driver.getTitle();
+
+				// Verify
+				assertThat(title).contains("Selenium WebDriver");
+			}
+
+		}
 
 ==========================================================================================
 ==========================================================================================
@@ -1293,14 +1477,16 @@ quit(): đóng toàn bộ những trình duyệt đang sử dụng. Nếu có nh
 
 Khi HTML và CSS kết hợp với nhau sẽ tạo thành một trang web tĩnh, Locator được xem là địa chỉ của từ khoá.
 
-Bên cạnh việc định nghĩa ra cách thiết kế trình duyệt (phải có cách để lập trình viên can thiệp vào), W3C còn định nghĩa thêm cho những thứ có liên quan đến HTML.
+Bên cạnh việc định nghĩa ra cách thiết kế trình duyệt (phải có cách để lập trình viên can thiệp vào)L, W3C còn định nghĩa thêm và chuẩn hoá cho những thứ có liên quan đến HTML.
 
-	- Khi W3C chuẩn hoá HTML, họ đã đưa ra những cách / kỹ thuật / cơ chế để định vị được các thẻ (tag) / phần tử (web element) trong website, kỹ thuật để tìm ra / xác định / chỉ định một thẻ nào đó tại vị trí nào đó trong hàng nghìn thẻ khác của một trang HTML khi nó đã được tải về máy tính.
+	- Khi W3C chuẩn hoá HTML, họ đã đưa ra những cách (kỹ thuật, cơ chế) để định vị được các thẻ (tag) / phần tử (web element) trong website, kỹ thuật để nói về một thẻ tại một vị trí nào đó trong hàng nghìn thẻ khác của một trang HTML khi nó đã được tải về máy tính.
 
 	- Một khi đã định vị chính xác được phần tử cần tìm, thì sẽ lấy được các sự kiện (event) và gửi yêu cầu đến để phần tử làm một công việc nào đó. Vì vậy, việc xác định được chính xác phần tử đóng vai trò rất quan trọng trong việc thành công của một Test Script.
 
-	-> Locator (CSS Selector, XPath...) - kỹ thuật mò vào trong trang web đã được Server trả về máy tính (trong DOM) để định vị chính xác một phần tử cụ thể giữa vô vàn phần tử khác, sau đó tương tác với phần tử này.
-		(Giống như một câu truy vấn để lấy dữ liệu trong các hệ quản trị cơ sở dữ liệu.)
+	-> Kỹ thuật tìm một thẻ bất kì trong trang web.
+
+* Bộ định vị (Locator): Là kỹ thuật mò vào trong trang web đã được Server trả về máy tính (trong DOM) để định vị chính xác một phần tử cụ thể giữa vô vàn phần tử khác, sau đó tương tác với phần tử này.
+	(Giống như một câu truy vấn để lấy dữ liệu trong các hệ quản trị cơ sở dữ liệu.)
 
 --------------------------------------------------------------------------------
 
