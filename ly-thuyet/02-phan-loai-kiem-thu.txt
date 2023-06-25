@@ -55,9 +55,11 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 [01. KIỂM THỬ ĐƠN VỊ - UNIT TEST]
 
-** Kiểm thử đơn vị / thành phần (Unit / Component / Module Test): code được viết ra phải có khả năng kiểm thử được. Lập trình viên tự tiến hành kiểm thử từng đơn vị code mà mình vừa mới viết ra bằng cách kiểm thử các các hàm, thủ tục, lớp, phương thức hoặc đối tượng... vì chúng có liên quan đến xử lý dữ liệu.
+** Kiểm thử đơn vị / thành phần (Unit / Component / Module Test): code được viết ra phải có khả năng kiểm thử được. 
 
-	- Một đơn vị (Unit) là thành phần nhỏ nhất có thể kiểm thử được. Nó có thể là một hàm (Function), thủ tục (Procedure), lớp (Class), phương thức (Method) hoặc đối tượng (object).
+	- Là một dạng kiểm thử tự động.
+		+ Lập trình viên tự tiến hành kiểm thử từng đơn vị code mà mình vừa mới viết ra vì họ chính là những người am hiểu về code nhất.
+		+ Một đơn vị (Unit) là thành phần nhỏ nhất có thể kiểm thử được. Nó có thể là một hàm (Function) / phương thức (Method), thủ tục (Procedure), lớp (Class), hoặc đối tượng (object)... vì chúng có liên quan đến xử lý dữ liệu.
 
 	- Mục đích để đảm bảo chất lượng cho từng đơn vị code, mã nguồn viết cho đơn vị nào đó đúng với đặc tả yêu cầu và xác nhận rằng mã nguồn trong đơn vị đó có thể thực thi được. Vì từng thành phần nhỏ nhất được đảm bảo chất lượng thì mới có thể lắp ráp để trở thành một tính năng lớn.
 
@@ -88,7 +90,8 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 		-> Tự nhìn từng case bằng mắt để kết luận.
 
-			Ví dụ: gọi hàm tính giai thừa và sout để so sánh kết quả bằng mắt
+			Ví dụ: gọi hàm tính giai thừa và sout để so sánh kết quả bằng mắt.
+
 				System.out.println("0! -> Mong đợi: 1; Thực tế: "
 							+ MathUtil.getFactorial(0));
 
@@ -118,9 +121,17 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 ------------------------------------------------------------
 
-	3. Sử dụng các framework (Unit testing framework): sử dụng thêm bộ thư viện khác (*.jar, *.dll...) để hỗ trợ kiểm thử các hàm / lớp.
+	3. Sử dụng các framework (Unit testing framework): sử dụng thêm bộ thư viện khác (*.jar, *.dll...) để hỗ trợ kiểm thử các hàm / lớp và đưa ra một kết luận chung.
+
+		- Lập trình viên sẽ sử dụng các thư viện kiểm thử trong lập trình để viết nên những đoạn code kiểm thử.
+			+ Được đặt ở một thư mục / gói riêng và độc lập với code tính năng của hệ thống.
+			+ Những đoạn code kiểm thử sẽ tự động thực thi các hàm, sau đó tự động so sánh kết quả và kết luận (báo cáo kết quả).
+			+ Lúc này chỉ cần nhìn vào kết quả cuối cùng được trả về.
+
+		- Những đoạn code kiểm thử do lập trình viên viết ra cũng sẽ được gọi là Test Case và sẽ có một kỹ thuật riêng để thiết kế ra các trường hợp / tình huống được gọi là kỹ thuật kiểm thử hộp trắng (White-box Testing).
 	
-		- Kỹ thuật này giúp tự động hoá việc kiểm tra kết quả, tích hợp / tham gia vào quy trình CI/CD và DevOps để tự động quyết định xem có cho ra được tập tin đóng gói hay không, đặc biệt hiệu quả đối với những hàm có cả đầu vào và đầu ra. Mục đích là để đảm bảo code luôn ổn dù đang ở trên máy cục bộ hay trên Server.
+		- Kỹ thuật này giúp tự động hoá việc kiểm tra kết quả, tích hợp / tham gia vào quy trình CI/CD và DevOps để tự động quyết định xem có cho ra được tập tin đóng gói hay không, đặc biệt hiệu quả đối với những hàm có cả đầu vào và đầu ra.
+			-> Đảm bảo code luôn ổn dù đang ở trên máy cục bộ hay trên Server.
 
 		- Các framework về Unit Test:
 			+ C#: NUnit, MSTest, xUnit...
@@ -132,9 +143,12 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 --------------------
 
 		* So sánh kết quả mong đợi (expected result) với kết quả thực tế (actual result):
-			- Xanh: tất cả các case đều chạy đúng như mong đợi.
-			- Đỏ: chỉ cần duy nhất 1 case chạy không đúng như mong đợi.
-				-> Xanh: đóng gói và tích hợp quy trình CI/CD.
+			- Xanh: chạy đúng như mong đợi trong mọi trường hợp (có thể suy nghĩ và liệt kê ra).
+				-> Phải luôn luôn đúng trong khả năng cho phép.
+			- Đỏ: chỉ cần duy nhất 1 trường hợp chạy không đúng như mong đợi.
+				-> Có sự thiếu ổn định trong quá trình hoạt động.
+
+			-> Nếu xanh: đóng gói và tích hợp quy trình CI/CD.
 
 		* Ưu điểm:
 			- Giúp tách biệt giữa code chính và code test.
@@ -148,26 +162,30 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 			- Đây là kỹ thuật bắt nguồn từ phương pháp phát triển phần mềm eXtreme Programming (XP) và sau đó lan rộng sang các dạng khác nhau của Agile, để đáp ứng nhu cầu sớm có được sản phẩm phần mềm đạt chất lượng (không phải là thuật ngữ của kiểm thử).
 
-			- Là quy trình yêu cầu ta phải luôn nghĩ đến việc thiết kế test case trước cả khi viết code chính (các hàm/lớp), để sản phẩm có chất lượng ngay trong quá trình viết code mà không cần mời nhóm QC/Tester tham gia vào trong giai đoạn này.
+			- Là quy trình yêu cầu ta phải luôn nghĩ đến việc thiết kế Test Case trước cả khi viết code chính (các hàm/lớp), để sản phẩm có chất lượng ngay trong quá trình viết code mà không cần mời nhóm QC/Tester tham gia vào trong giai đoạn này.
 
 			- Vì muốn lập trình để giải quyết được một bài toán nào đó, thì điều đầu tiên và quan trọng nhất là phải biết cách giải bài toán ấy trong thực tế; nghĩa là đã có sẵn bộ dữ liệu mẫu thông qua việc tính toán thủ công rồi và nay chỉ việc áp dụng vào hàm/lớp sắp sửa kiểm thử.
 
-			- Suy nghĩ và đưa ra những tình huống (case) để thiết kế test case trước cả khi lập trình, sau khi đã có được bộ test case thì sẽ đến bước lập trình ra những chương trình chạy đúng test case đã thiết kế.
+			- Viết code chính song song với việc thiết kế Test Case hoặc thậm chí là thiết kế Test Case trước cả khi viết code chính, vì lúc này đã thống nhất với nhau về tên hàm/lớp.
+				+ Suy nghĩ và đưa ra những tình huống (case) để thiết kế Test Case trước cả khi lập trình, sau khi đã có được bộ Test Case và thực thi nó một cách tự động thì sẽ đến bước lập trình ra những chương trình chạy đúng Test Case đã thiết kế.
+				+ Kiểm thử đơn vị (Unit Test) chính là một dạng cụ thể của TDD khi yêu cầu lập trình viên phải có một bộ dữ liệu kiểm thử trước hoặc song song với từng đơn vị code.
+				+ Giúp sớm phát hiện ra vấn đề và đảm bảo tính đúng đắn của hệ thống đến từ những đơn vị code nhỏ nhất.
 
 			- Kỹ thuật này sẽ giúp rèn luyện ý thức khi lập trình, phải suy nghĩ về cách sử dụng hàm và những tình huống có thể xảy ra trong quá trình sử dụng, luôn luôn có một bộ dữ liệu để kiểm thử song hành với những dòng code, để mục tiêu duy nhất vẫn là code đạt chất lượng cao nhất và ứng dụng làm hài lòng khách hàng nhất có thể.
 
 			- Phát triển hướng đến hành vi (BDD - Behavior-driven development) là một phần mở rộng của TDD.
 
 			* Tóm tắt kỹ thuật TDD:
-				1. Chuẩn bị thật kĩ bộ Test Case (áp dụng thêm các kỹ thuật kiểm thử)
-				2. Viết code xử lý (sai)
-				3. Chạy bộ Test -> Xem kết quả xanh hay đỏ
-				4. Sửa code (bổ sung / thay đổi hàm - refactoring)
-				5. Chạy lại Test -> Xem kết quả vẫn xanh hay đỏ
-				6. Tiếp tục sửa code cho đến khi kết quả xanh
-				7. Từ nay thoải mái sửa code, miễn là kết quả trước đó đang xanh, thì sau khi sửa xong cũng vẫn phải xanh
+				1. Chuẩn bị thật kĩ bộ Test Case (áp dụng thêm các kỹ thuật kiểm thử để đưa ra đầy đủ các trường hợp sử dụng).
+				2. Thiết kế kiểm thử trước.
+				3. Chạy bộ Test -> Để ra kết quả đỏ (vì chưa có code xử lý).
+				4. Bắt đầu viết code xử lý (đơn giản nhất có thể).
+				5. Chạy lại Test -> Xem kết quả xanh hay đỏ.
+				6. Khi đã xanh, tiếp tục sửa code (bổ sung / thay đổi theo hướng tích cực - Refactoring) cho đến khi kết quả xanh.
+					[Cần đảm bảo code phải đơn giản, dễ hiểu và dễ bảo trì]
+				7. Từ nay thoải mái sửa code, miễn là kết quả trước đó đang xanh, thì sau khi sửa xong cũng vẫn phải xanh.
 
-			-> [Phát triển hướng kiểm thử] Suy nghĩa về Test Case, sau đó viết code làm sao để PASS (xanh) được kết quả test.
+			-> [Phát triển hướng kiểm thử] Thiết kế Test Case trước, sau đó viết code làm sao để PASS (xanh) được kết quả test.
 
 --------------------
 
@@ -175,8 +193,10 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 		* Data-driven testing (DDT) / Table-driven testing / Parameterized testing (Kiểm thử hướng dữ liệu):
 
-			- Các Framework dần trở thành một phần thiết yếu và góp một phần vào sự thành công của bất kỳ quy trình thử nghiệm tự động nào, khi vừa giảm chi phí bảo trì nhưng lại tăng hiệu quả kiểm thử. Test Framework là tập hợp các quy tắc để thiết kế Test Script, mà kết quả cuối cùng là giảm thiểu việc chỉnh sửa mã kiểm thử khi ứng dụng thay đổi
-				-> Các quy tắc mà khi tuân thủ theo đúng thì sẽ cho ra kết quả tốt nhất.
+			- Các Framework dần trở thành một phần thiết yếu và góp một phần vào sự thành công của bất kỳ quy trình thử nghiệm tự động nào, khi vừa giảm chi phí bảo trì nhưng lại tăng hiệu quả kiểm thử.
+			- Test Framework là tập hợp các quy tắc để thiết kế Test Script, mà kết quả cuối cùng là giảm thiểu việc chỉnh sửa mã kiểm thử khi ứng dụng thay đổi.
+			
+			-> Các quy tắc mà khi tuân thủ theo đúng thì sẽ cho ra kết quả tốt nhất.
 
 				+ DDT là một trong các Test Automation Framework phổ biến nhất.
 					* Linear Automation Framework
@@ -187,11 +207,22 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 					* Hybrid Framework
 					* Behavior-driven Development Framework
 
-			- Là phương pháp mà dữ liệu kiểm thử sẽ được lưu riêng trong một tập tin (.txt, .csv), mảng (trong code), bảng (CSDL) hoặc trang tính (spreadsheet).
+			- Khi có quá nhiều dữ liệu kiểm thử (kết quả mong đợi và kết quả thực tế) nằm lẫn lộn trong code, tạo nên sự khó khăn khi đọc code và bộ dữ liệu cũng khó được thay đổi trong tương lai.
+				-> Khó kiểm soát được sự thiếu/đủ của các trường hợp kiểm thử.
 
-			- Là phương pháp tham số hoá dữ liệu kiểm thử / kiểm thử hướng dữ liệu (chuyển đổi dữ liệu kiểm thử thành biến / tham số để truyền vào nơi gọi hàm), tách hẳn bộ dữ liệu kiểm thử (gồm đầu vào và đầu ra) ra một nơi riêng, để dễ dàng kiểm tra xem bộ dữ liệu còn thiếu hay đủ, sau đó liên tục ánh xạ (map / feed) bộ dữ liệu trở lại nơi gọi hàm (nơi assert); thay vì trộn lẫn dữ liệu kiểm thử chung với lời gọi hàm.
+			- Là phương pháp tham số hoá dữ liệu kiểm thử / kiểm thử hướng dữ liệu (chuyển đổi dữ liệu kiểm thử thành biến / tham số để truyền vào nơi gọi hàm).
+				+ Tách hẳn bộ dữ liệu kiểm thử (gồm đầu vào và đầu ra) ra một nơi riêng.
+				+ Dữ liệu kiểm thử sẽ được lưu riêng trong một tập tin (.txt, .csv...), mảng (trong code), bảng (CSDL) hoặc trang tính (spreadsheet)...
+				+ Sau đó liên tục ánh xạ (map / extract / feed) bộ dữ liệu trở lại nơi gọi hàm (nơi assert) thay vì trộn lẫn dữ liệu kiểm thử chung với lời gọi hàm.
+				+ Điều này sẽ giúp dễ dàng trong việc kiểm tra, bảo trì và nâng cấp dữ liệu kiểm thử.
+				(Tách riêng code và dữ liệu kiểm thử.)
+
+			- Ngoài ra, nhờ áp dụng kỹ thuật DDT và đã thống nhất với nhau về tên hàm từ trước, người thiết kế dữ liệu và người lập trình tính năng có thể là hai người độc lập.
+				+ Người thiết kế các tính huống kiểm thử có thể viết trước các hàm để chuẩn bị dữ liệu, dựa theo tên hàm đã thống nhất.
+				+ Từ đó giúp đảm bảo tính độc lập và khách quan trong quá trình làm việc.
 
 			- Bên cạnh việc sử dụng trong cấp độ Unit Test, cơ chế này vẫn sử dụng được trong các cấp độ cao hơn, chẳng hạn như trong System Test hay UAT (chuẩn bị riêng một bộ dữ liệu và tự động hóa bằng Selenium).
+
 			-> [Kiểm thử hướng dữ liệu] Phương pháp tách bộ dữ liệu kiểm thử sang một nơi riêng, sau đó truyền bộ dữ liệu từ bên ngoài vào code.
 
 ----------------------------------------
@@ -214,7 +245,7 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 				05.01. Vào thư mục Test Libraries và xóa toàn bộ tập tin .jar trong đó
 				05.02. Từ Test Libraries -> Add JAR/Folder
 				05.03. Đi theo đường dẫn: C:\Program Files\NetBeans-số-phiên-bản\netbeans\platform\modules\ext
-				05.04. Chọn 2 tập tin "hamcrest-core-1.3.jar" và "junit-4.13.1.jar" để bắt đầu viết Unit Test bằng JUnit và kỹ thuật TDD
+				05.04. Chọn 2 tập tin "hamcrest-core-1.3.jar" (hỗ trợ thực thi (???) và hiển thị kết quả xanh/đỏ) và "junit-4.13.1.jar" (cung cấp các hàm để kiểm thử và so sánh) để bắt đầu viết Unit Test bằng JUnit và kỹ thuật TDD.
 
 --------------------
 
@@ -227,37 +258,67 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 					// Kiểm tra hàm tính giai thừa, khi đưa tham số sai
 					checkFactorialGivenWrongArgumentThrowsException
-					
-			// Danh sách các từ khóa / chú thích / cú pháp / quy tắc (annotation) của bộ thư viện JUnit để máy ảo biết phải làm gì
+			
+			* Từ khóa / Chú thích / Cú pháp / Kí hiệu / Quy tắc (Annotation): Giống như tên của một Interface, được sử dụng trước mỗi hàm. Vì vậy, phần thân hàm được ví như phần hiện thực hoá Interface.
+
+			* Danh sách các từ khoá của bộ thư viện JUnit để máy ảo biết phải làm gì:
  
-			@Test: để thông báo chuẩn bị hiện thực hóa việc Unit Test, giúp biến một hàm bất kỳ trong một class bất kỳ thành hàm public static void main() {...} - nơi cuộc chơi bắt đầu. Vì mỗi hàm là một cụm khác nhau, nên việc sử dụng từ khóa @Test là để báo hiệu rằng bộ dữ liệu kiểm thử nào sẽ được thực thi.
+			@Test: để thông báo chuẩn bị hiện thực hóa việc Unit Test.
+
+				- Khi lớp kiểm thử (được tạo bằng một Unit Testing Framework) được thực thi, nó sẽ chịu sự điều khiển của những thư viện kiểm thử, thư viện sẽ bằng một cách nào đó tự động tạo ra hàm main() để thực thi.
+					+ Vì bản chất muốn thực thi được một lớp trong Java sẽ cần phải có một hàm main() để làm nơi bắt đầu.
+					+ Nếu trong lập trình Java web, để bắt đầu thì Servlet cũng sẽ được người dùng gọi, thông qua quá trình "Mapping Servlets to URL Patterns".
+					+ Nhưng đối với lớp kiểm thử thì lại thiếu mất nơi bắt đầu. Vì vậy, kí hiệu @Test sẽ giúp biến một hàm bất kỳ trong một class bất kỳ thành hàm main() - nơi cuộc chơi (kiểm thử) bắt đầu, nếu thiếu thì sẽ được mặc định xem là một lớp bình thường.
+
+				- Vì mỗi hàm là một cụm khác nhau, nên việc sử dụng từ khóa @Test là để báo hiệu rằng bộ dữ liệu kiểm thử nào sẽ được thực thi.
+
 				-> Nơi thực sự chạy code để kiểm thử ứng dụng.
 
-				// Hàm (bình thường) được đánh giá là xanh khi tất cả các Test Case đều xanh,
+				// Hàm (bình thường) được đánh giá là xanh
+				// khi tất cả các Test Case đều xanh,
 				// chỉ cần duy nhất có 1 cặp actual ≠ expected
 				// nghĩa là hàm xử lý không đúng hoặc ta kỳ vọng sai.
 
-				// Ta cần xem lại code và kiểm thử lại để đảm bảo xanh hết,
+				// Ta cần xem lại code và kiểm thử lại
+				// để đảm bảo xanh hết,
 				// kết luận hàm ổn cho tất cả các tình huống đã kiểm thử.
 
-				Assert: một class chứa các hàm static - hàm của JUnit, giúp hiển thị màu xanh / đỏ dựa trên việc so sánh giữa kết quả thực tế và kết quả mong đợi.
+				Assert: một lớp chứa các hàm static - hàm của JUnit, giúp hiển thị màu xanh / đỏ dựa trên việc so sánh giữa kết quả thực tế và kết quả mong đợi.
 				Assert.assertEquals(expected, actual);
 
-    
+				Assert.assertEquals(5040, MathUtil.getFactorial(7));
+
+
 			@Test(expected = IllegalArgumentException.class)
 
-				// Ngoại lệ không phải là 1 giá trị và không thể so sánh được,
-				// ngoại lệ là 1 tình huống bất thường, có khả năng xảy ra,
-				// nên không thể kiểm thử theo cách thông thường (assertEquals),
-				// chỉ có thể đo lường bằng cách xem nó có xảy ra hay không,
+				// Ngoại lệ là 1 tình huống bất thường,
+				// có khả năng xảy ra
+
+				// Trong JUnit 4, ngoại lệ không phải là 1 giá trị
+				// và không thể so sánh được,
+				// nên không thể kiểm thử
+				// theo cách thông thường (assertEquals),
+				// mà chỉ có thể đo lường bằng cách
+				// xem nó có xảy ra / xuất hiện hay không,
+
+				// Để bắt được ngoại lệ trong JUnit 4,
+				// ta sẽ thêm một thuộc tính (attribute) expected
+				// vào bên trong kí hiệu @Test,
+				// sau đó so sánh expected với một đối tượng
+				// được tạo ra từ một lớp ngoại lệ (tênĐốiTượng.class)
 
 				// Mặc dù bên trong hàm sẽ có nhiều bộ dữ liệu,
 				// nhưng đối với ngoại lệ, chỉ cần một trường hợp xanh
 				// thì cả hàm đó sẽ xanh, mặc kệ dù cho có trường hợp đỏ
 
+				if (n < 0 || n > 20)
+					throw new IllegalArgumentException("0 < n < 20");
+
+				MathUtil.getFactorial(-5)
+
 ----------
 
-			* Test Initializer & Finalizer: ghi chú (annotation), đóng vai trò giống như những hàm khởi tạo và luôn được thực thi theo một thứ tự ưu tiên, mà không quan trọng tên hàm hay vị trí hàm được khai báo.
+			* Test Initializer & Finalizer: Những từ khoá đóng vai trò như những hàm khởi tạo hoặc dọn dẹp, luôn được thực thi theo một thứ tự ưu tiên và không quan trọng tên hàm hay vị trí hàm được khai báo.
 
 				- Khi hàm kiểm thử @Test được thực thi thì những hàm đặc biệt này sẽ được ưu tiên chạy trước hoặc chạy cuối cùng.
 
@@ -265,9 +326,9 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 				- Trong khi đó, cú pháp @Test được sử dụng chỉ để chạy riêng các tình huống, thực thi code chuẩn bị kiểm thử theo thứ tự từ trên xuống dưới.
 
-				-> Sử dụng từ khoá đặc biệt để quy định thứ tự thực thi.
+				-> Sử dụng kí hiệu / từ khoá đặc biệt để quy định thứ tự thực thi.
 
-			* Bảng so sánh giữa JUnit 4 và JUnit 5 (Jupiter):
+				* Bảng so sánh kí hiệu giữa JUnit 4 và JUnit 5 (Jupiter):
 
 			+-----------------------------------------------------------------------------+
 			¦		Feature				¦   JUnit 4    ¦   JUnit 5    ¦
@@ -327,9 +388,9 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 				+--------------+			v
 
 
-			* Diễn giải bằng văn bản:
+				* Diễn giải bằng văn bản:
 
-			- Test Initializer | setUp() / @Before: được thi trước những hàm @Test khác, có thể được thực thi nhiều lần, miễn là vẫn trước các hàm @Test khác. Có thể tận dụng để luôn tạo mới một đối tượng đại diện cho trình duyệt trước mỗi lần chạy.
+			- Test Initializer | setUp() / @Before: được thực thi trước những hàm @Test khác, có thể được thực thi nhiều lần, miễn là vẫn trước các hàm @Test khác. Có thể tận dụng để luôn tạo mới một đối tượng đại diện cho trình duyệt trước mỗi lần chạy.
 				-> Tài lanh và luôn chạy trước mỗi hàm @Test, chạy nhiều lần nếu có nhiều hàm @Test.
 
 				Ví dụ: chuẩn bị dữ liệu...
@@ -339,24 +400,98 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 				Ví dụ: dọn dẹp dữ liệu...
 
-			- Test Class Initializer | setUpClass() / @BeforeClass: được thực thi đầu tiên và một lần duy nhất, trước tất cả các hàm @Test khác trong lớp. Vì vậy, có thể tách thao tác ra thành một hàm riêng và đảm bảo hàm này luôn chạy trước tất cả các hàm @Test khác.
+			- Test Class Initializer | setUpClass() / @BeforeClass: được thực thi đầu tiên và một lần duy nhất, trước tất cả các hàm @Test khác trong lớp.
+				+ Vì vậy, có thể tách thao tác ra thành một hàm riêng và đảm bảo hàm này luôn chạy trước tất cả các hàm @Test khác.
+				+ Thường được sử dụng để khởi động giá trị.
 				-> Chạy trước tất cả các hàm @Test để "làm gương" / "dẫn đường" một lần duy nhất.
 
 				Ví dụ:
-					- Khởi động trình duyệt và trang web (System.setProperty(), chromeDriver.get()...).
+					- Khởi động trình duyệt và trang web: System.setProperty(), chromeDriver.get()...
 					- Mở kết nối với CSDL để lấy dữ liệu.
 
-			- Test Class Finalizer | tearDownClass() / @AfterClass: được thực thi cuối cùng và một lần duy nhất, sau khi tất cả các hàm @Test trong lớp đã được thực thi. Vì vậy, có thể tách thao tác ra thành một hàm riêng và đảm bảo hàm này chỉ chạy sau khi tất cả các hàm @Test đều đã được thực thi xong.
+			- Test Class Finalizer | tearDownClass() / @AfterClass: được thực thi cuối cùng và một lần duy nhất, sau khi tất cả các hàm @Test trong lớp đã được thực thi.
+				+ Vì vậy, có thể tách thao tác ra thành một hàm riêng và đảm bảo hàm này chỉ chạy sau khi tất cả các hàm @Test đều đã được thực thi xong.
+				+ Thường được sử dụng để đóng các kết nối.
 				-> Ở lại cuối cùng để "dọn dẹp hậu trường" một lần duy nhất.
 
 				Ví dụ:
-					- Tắt trình duyệt (chromeDriver.close() và chromeDriver.quit()).
+					- Tắt trình duyệt sau khi đã kiểm thử xong tất cả các Test Case: chromeDriver.close() và chromeDriver.quit().
 					- Xoá dữ liệu rác và đóng kết nối CSDL.
+					- Gán giá trị NULL cho các biến.
 
 
-			@RunWith(value = Parameterized.class): thông báo cho máy ảo Java (JUNit) rằng class này đã được tham số hóa, trong quá trình thực thi cần có trích xuất dữ liệu.
-			@Parameters: báo cho JUnit biết đây là dữ liệu nguồn, là tập hợp các tham số dùng để truyền vào hàm assert, hãy trích xuất dữ liệu từ đây để đưa vào @Parameter.
-			@Parameter: tham số con của @Parameters.
+			@RunWith(value = Parameterized.class): thông báo cho máy ảo Java (thư viện JUNit) rằng class này đã được tham số hóa, trong quá trình thực thi cần có trích xuất dữ liệu.
+
+			public class AdvancedFactorialTest {
+
+				// @Parameters: Báo cho JUnit biết đây là dữ liệu nguồn.
+				//	- Là tập hợp tham số dùng để truyền vào hàm assert().
+				//	- Hãy trích xuất dữ liệu từ đây để đưa vào @Parameter.
+
+				@Parameters
+
+				// Khai báo tập hợp các tham số
+				// là mảng 2 chiều kiểu Object
+				// (vì các Framework thường sẽ chơi với Object),
+				// đi kèm từ khoá static để dữ liệu nằm cố định
+				// và mọi nơi đều có thể sử dụng được,
+				// lặp lại cho nhiều tình huống kiểm thử khác nhau
+				public static Object[][] initData() {
+
+					// Để sử dụng, cần phải biến dữ liệu thành đối tượng
+					// bằng cách tạo mới đối tượng với từ khoá new()
+					// và thuộc lớp đóng gói (Wrapper Class) số nguyên
+					return new Integer[][] {
+								// Dữ liệu đầu vào - Kết quả mong đợi
+								{0, 1},
+								{1, 1},
+								{7, 5040},
+								{18, 6402373705728000},
+								{19, 121645100408832000},
+							       };
+				}
+
+			
+
+				// @Parameter: Tương ứng với từng tham số con của @Parameters
+				//	       (từng phần tử trong tập hợp các tham số),
+				//	       báo cho JUnit 4 biết cách lấy từng dữ liệu
+				//	       với ý nghĩa do người thiết kế tự quy định.
+				//
+				//	Ví dụ: Báo cho JUnit, mỗi dòng dữ liệu
+				//	       trong mảng 2 chiều gồm 2 cột với 2 ý nghĩa:
+				//		- Cột 0 là dữ liệu đầu vào
+				//		- Cột 1 là kết quả mong đợi
+
+				@Parameter
+
+				// Chuẩn bị 2 biến là thuộc tính non-static
+				// (riêng biệt cho từng đối tượng khác nhau),
+				// vì mỗi hàm kiểm thử khác nhau
+				// khi được thực thi sẽ là một ngữ cảnh khác nhau,
+				// được xem là một đối tượng độc lập
+				// với những thuộc tính riêng biệt
+
+				// Ánh xạ input với cột 0 trong mảng
+				@Parameter(value = 0)
+				public int input;
+				
+				// Ánh xạ expected với cột 1 trong mảng
+				@Parameter(value = 1)
+				public long expected;
+
+				// Nhận bộ dữ liệu kiểm thử,
+				// tự động duyệt và lặp qua các bộ dữ liệu
+				// trong hàm initData() ở bên trên
+				// và tự động tiến hành kiểm thử
+				// (dành cho trường hợp tham số đúng, kết quả "xanh")
+				@Test
+				public void checkFactorialGivenCorrectArgumentReturnsWell() {
+
+					//long actual = getFactorial(input);
+					assertEquals(expected, getFactorial(input));
+				}
+			}
 
 ----------------------------------------
 
@@ -367,6 +502,7 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 		* Các bước chuẩn bị để viết Unit Test bằng NetBeans với JUnit 5 (Jupiter) và Maven:
 
 			Bước 01. Truy cập kho Maven Central Repository và tìm kiếm với từ khoá Jupiter hoặc JUnit 5
+
 				JUnit Jupiter API
 				JUnit Jupiter Engine
 				JUnit Jupiter Params: phục vụ cho việc kiểm thử hướng dữ liệu (Data-driven testing - DDT)
@@ -456,14 +592,14 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 				// các biến để hứng bộ dữ liệu và truyền vào hàm,
 				// thay vì phải khai báo rời ở bên ngoài hàm
 
-			// Sử dụng biểu thức lamdba: [Nhập môn Software Testing: Bài 12 - MAVEN & JUNIT5] https://youtu.be/etCIAip6GDg?t=4412
-
 ==========================================================================================
 
 
 [02. KIỂM THỬ TÍCH HỢP - INTEGRATION TEST]
 
-** Kiểm thử tích hợp (Integration Test): kiểm thử viên hoặc lập trình viên sẽ thực hiện kiểm thử cho các thành phần riêng lẻ (các hàm, lớp, mô-đun) đang hoạt động tốt, các hệ thống bên ngoài được gọi thông qua API... để xem khi được tích hợp lại với nhau (thành một cụm chức năng, nhưng chưa thành một ứng dụng hoàn chỉnh) có tương thích và hoạt động/gọi/tương tác đúng hay không. Hoặc kiểm thử khi Back-end được kết hợp với Front-end. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
+** Kiểm thử tích hợp (Integration Test): kiểm thử viên hoặc lập trình viên sẽ thực hiện kiểm thử.
+	- Các thành phần riêng lẻ (các hàm, lớp, mô-đun) đang hoạt động tốt, các hệ thống bên ngoài... sẽ được tích hợp lại với nhau (gọi thông qua API...) để xem khi trở thành một cụm chức năng (nhưng chưa thành một ứng dụng hoàn chỉnh) có tương thích và hoạt động/gọi/tương tác đúng hay không.
+	- Hoặc kiểm thử khi Back-end được kết hợp với Front-end. Stub và Driver được sử dụng để hỗ trợ cho quá trình này.
 
 	-> Kiểm thử khi các hàm / lớp / mô-đun, sử dụng hệ thống bên ngoài thông qua API, khi Back-end và Front-end... được gom thành một cụm chức năng mà người dùng có thể trải nghiệm.
 		(Kiểm thử sự tương tác giữa các đơn vị / thành phần code hoặc giữa các hệ thống / microservice - API / web service.)
@@ -474,7 +610,7 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 			// Kết nối với phần mềm bên thứ ba
 			// chẳng hạn như Google mail, Facebook, Paypal...
 
-			// Kết nối với API, thư viện Jersey
+			// Kết nối với API, thư viện Jersey...
 
 			-> Chức năng thêm-xoá-sửa-tìm kiếm.
 
@@ -510,7 +646,14 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 [03. KIỂM THỬ HỆ THỐNG - SYSTEM TEST]
 
-** Kiểm thử hệ thống (System Test): do đội ngũ tester độc lập thực hiện để đảm bảo tính khách quan bằng các kỹ thuật kiểm thử hộp đen (black-box testing). Thực hiện khi các thành phần đã được tích hợp thành một hệ thống hoàn chỉnh, để kiểm tra về tổng thể mọi mặt của hệ thống có tuân thủ các đặc tả yêu cầu của người dùng (requirement) và hoạt động có đúng với mong đợi. Nhóm kiểm thử chỉ dựa trên đặc tả yêu cầu mà không được xem mã nguồn hệ thống. Đặc tả yêu cầu thường chứa các yêu cầu chức năng (functional requirement) và các yêu cầu phi chức năng (non-functional requirement) cần được kiểm thử.
+** Kiểm thử hệ thống (System Test): do đội ngũ tester độc lập thực hiện để đảm bảo tính khách quan bằng các kỹ thuật kiểm thử hộp đen (black-box testing).
+
+	- Thực hiện khi các thành phần đã được tích hợp thành một hệ thống hoàn chỉnh, môi trường để kiểm thử là một môi trường giả lập (không thể giống thực tế hoàn toàn).
+
+	- Kiểm tra về tổng thể mọi mặt của hệ thống có tuân thủ các đặc tả yêu cầu của người dùng (requirement).
+		+ Thực hiện kiểm thử theo toàn bộ những đặc tả yêu cầu (kiểm thử cả hệ thống) - khi tích hợp nhiều mô-đun lại với nhau.
+		+ Đặc tả yêu cầu thường chứa các yêu cầu chức năng (functional requirement) và các yêu cầu phi chức năng (non-functional requirement) cần được kiểm thử.
+
 	-> Kiểm thử khi những chức năng được tổng hợp thành một hệ thống và tạm sử dụng được.
 
 	Ví dụ: Giao diện đồ họa người dùng (GUI) + API + Back-end + các trang
@@ -520,11 +663,11 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 	[PHÂN LOẠI YÊU CẦU PHẦN MỀM]
 
-	- Yêu cầu chức năng (Functional Requirement): các yêu cầu chỉ định các chức năng của hệ thống hoặc các thành phần cần được thực hiện, nó chỉ định chi tiết những gì (WHAT) hệ thống cần làm. Trong suốt quá trình kiểm thử chức năng, ta cần thực hiện các kiểm tra chức năng như: cài đặt, chạy thử ứng dụng trên máy cục bộ, hệ điều hành cục bộ, kiểm tra các chức năng của ứng dụng, các xử lý chuỗi, văn bản như sao chép (copy), dán (paste) cho các ký tự mở rộng,...
+	* Yêu cầu chức năng (Functional Requirement): các yêu cầu chỉ định các chức năng của hệ thống hoặc các thành phần cần được thực hiện, nó chỉ định chi tiết những gì (WHAT) hệ thống cần làm. Trong suốt quá trình kiểm thử chức năng, ta cần thực hiện các kiểm tra chức năng như: cài đặt, chạy thử ứng dụng trên máy cục bộ, hệ điều hành cục bộ, kiểm tra các chức năng của ứng dụng, các xử lý chuỗi, văn bản như sao chép (copy), dán (paste) cho các ký tự mở rộng,...
 
 ------------------------------------------------------------
 
-	- Yêu cầu phi chức năng (Non-Functional Requirement): những yêu cầu không liên quan đến dịch vụ được chỉ định, mà liên quan đến những thuộc tính ràng buộc hệ thống, chất lượng và trải nghiệm:
+	* Yêu cầu phi chức năng (Non-Functional Requirement): những yêu cầu không liên quan đến dịch vụ được chỉ định, mà liên quan đến những thuộc tính ràng buộc hệ thống, chất lượng và trải nghiệm:
 		+ Kiểm thử tính tin cậy (Reliabilty Tesing).
 		+ Kiểm thử tính hiệu quả (Efficiency Testing).
 		+ Kiểm thử tính tiện dụng (Usablilty Testing).
@@ -536,28 +679,64 @@ Có thể thấy, trước khi có code thì đã tiến hành kiểm thử (tà
 
 [04. KIỂM THỬ CHẤP NHẬN - USER ACCEPTANCE TEST]
 
-** Kiểm thử chấp nhận (User Acceptance Test - UAT): trước khi đưa vào thực tế, quan trọng nhất vẫn là cần đưa cho khách hàng sử dụng thử và nhận phản hồi, để đảm bảo sản phẩm phần mềm hoạt động đúng những gì khách hàng mong đợi, đáp ứng nhu cầu và không gặp quá nhiều khó khăn trong quá trình sử dụng, khách hàng hài lòng và chấp nhận sản phẩm – thanh toán hợp đồng. Ngoài ra, việc thu thập thói quen sử dụng phần mềm của người dùng cũng là một hình thức UAT.
+** Kiểm thử chấp nhận (User Acceptance Test - UAT): trước khi đưa vào thực tế, quan trọng nhất vẫn là cần đưa cho khách hàng sử dụng thử và nhận phản hồi.
+
+	- Được thực hiện bởi những cá nhân hoặc tổ chức có quyền lợi nhất định đối với hệ thống đang phát triển.
+		+ Là những người dùng cuối và có thể là bất kì ai có nhu cầu sử dụng phần mềm, chẳng hạn như: chủ doanh nghiệp, người quản lý, giám đốc điều hành, khách hàng... (là những người cung cấp yêu cầu, hướng dẫn, phản hồi về thiết kế và chức năng... trong suốt quá trình phát triển).
+		+ Được thực hiện trong chính môi trường thực tế hoặc gần giống thực tế nhất.
+		+ Kiểm thử chỉ tập trung vào các yêu cầu nghiệp vụ (Business Requirement) và mục tiêu kinh doanh (Business Objective / Business Goal) của người sử dụng.
+
+	- Giúp đảm bảo sản phẩm phần mềm hoạt động đúng những gì khách hàng mong đợi, đáp ứng nhu cầu trong công việc và không gặp quá nhiều khó khăn trong quá trình sử dụng, khách hàng hài lòng và chấp nhận sản phẩm – thanh toán hợp đồng.
+
+	- Ngoài ra, việc thu thập thói quen sử dụng phần mềm của người dùng cũng là một hình thức UAT.
+
 	-> Quyết định sản phẩm đúng với yêu cầu và khách hàng sẵn sàng thanh toán hợp đồng.
 
 ------------------------------------------------------------
 
 	[CÁC DẠNG KIỂM THỬ CHẤP NHẬN]
 
-	- Alpha Test: người trong công ty (in-house), những bên có liên quan (stakeholders) hoặc một đội ngũ kiểm thử độc lập đóng vai trò người dùng phía khách hàng để tiến hành kiểm thử trong môi trường phát triển và phản hồi lại cho developer.
+	* Alpha Test: người trong công ty (in-house) - cả lập trình viên và kiểm thử viên, những bên có liên quan (stakeholders) hoặc một đội ngũ kiểm thử độc lập đóng vai trò người dùng phía khách hàng.
+		- Tiến hành kiểm thử trong môi trường phát triển, sau đó phản hồi lại cho lập trình viên về những lỗi gặp phải trong quá trình sử dụng.
+		- Được kiểm thử với nhiều kịch bản khác nhau để tìm và vá lỗi trước khi đưa sang Beta Test.
 
-	- Beta Test: công khai đưa cho những người từ phía khách hàng (external) dùng thử sản phẩm trong môi trường thực tế của chính họ và đưa ra phản hồi trước khi phát hành phiên bản chính thức thông qua hình thức phát hành miễn phí hoặc mời tham gia trải nghiệm tại một hội thảo nào đó. Beta Test có thể được thực hiện sau Alpha Test hoặc không cần đến Alpha Test.
+	* Beta Test: công khai đưa cho những người từ phía khách hàng (external).
+		- Khách hàng dùng thử sản phẩm trong môi trường thực tế của chính họ và đưa ra phản hồi trước khi phát hành phiên bản chính thức.
+		- Mục đích là để đánh giá khả năng đáp ứng các yêu cầu nghiệp vụ, hiệu suất, độ tin cậy, khả năng sử dụng và khả năng tương thích của hệ thống trong những tình huống thực tế.
+		- Phiên bản dùng thử thường được phân phối thông qua hình thức phát hành miễn phí hoặc mời tham gia trải nghiệm tại một hội thảo nào đó.
+		- Beta Test có thể được thực hiện sau Alpha Test hoặc không cần đến Alpha Test.
 
 --------------------------------------------------------------------------------
 
 [GÓC NHÌN CỦA NGƯỜI DÙNG]
 
-Ngoại trừ Unit Test, 3 cấp độ còn lại (Integration Test, System Test, User Acceptance Test - UAT) của việc kiểm thử được thực hiện khi phần mềm đã thành hình, đó là khi code được ráp với giao diện người dùng (UI) hoặc khi chức năng đã ổn định. Lúc này, ta sẽ chuyển sang kiểm thử dưới góc nhìn của người dùng.
+Ngoại trừ Unit Test, 3 cấp độ còn lại của việc kiểm thử (Integration Test, System Test, User Acceptance Test - UAT) đều được thực hiện khi phần mềm đã thành hình, đó là khi code được ráp với giao diện người dùng (UI) hoặc khi chức năng đã ổn định. Lúc này, ta sẽ chuyển sang kiểm thử dưới góc nhìn của người dùng.
 
 	- Góc nhìn của người dùng: sẽ có giao diện / màn hình với các trang, biểu mẫu... để người dùng có thể tương tác và nhập dữ liệu vào, nhấn nút và xem kết quả trả về (có thể là điều hướng sang một trang khác).
 
 	- Người dùng không quan tâm phần "hậu trường" (các hàm được chạy đằng sau UI), mà chỉ quan tâm họ làm được gì với hệ thống.
 
 	-> Góc nhìn của người dùng là góc nhìn về mặt tính năng, không còn quan tâm về mặt xử lý.
+
+==========================================================================================
+
+	[TỔNG KẾT VỀ PHÂN LOẠI THEO MỨC ĐỘ / CẤP ĐỘ]
+
+Lập trình viên: Xây dựng hệ thống (ngay từ những "viên gạch đầu tiên").
+		|
+		|
+		|
+		|
+		V
+	-----------------	-----------------	-----------------
+	| Hàm, Lớp	| ----> | Tính năng	| ----> | Hệ thống	|
+	-----------------	-----------------	-----------------
+					^
+					|
+			-----------------
+			|
+			|
+Kiểm thử viên: Kiểm thử hệ thống (sau khi hệ thống đã bắt đầu "thành hình").
 
 ==========================================================================================
 ==========================================================================================
@@ -669,13 +848,27 @@ Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp
 
 --------------------------------------------------------------------------------
 
-	- Kiểm thử xác nhận (Retesting / Confirmation Testing): kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi, sau khi lập trình viên sửa/thay đổi trong mã nguồn xong sẽ giao cho kiểm thử viên kiểm tra lại (verify) ở phiên bản hiện tại, nhằm xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo hay chưa. Trước đó xảy ra lỗi ở đâu, thì nay kiểm tra lỗi đúng ngay ở đấy. Đây là điều hiển nhiên và là quy trình thường xuyên xảy ra.
+	* Kiểm thử xác nhận (Retesting / Confirmation Testing): kiểm thử viên phát hiện ra lỗi (bug) và báo cáo cho lập trình viên để sửa lỗi...
+
+		- Sau khi sửa/thay đổi trong mã nguồn xong, lập trình viên sẽ giao cho kiểm thử viên kiểm tra lại (verify) ở phiên bản hiện tại.
+
+		- Nhằm xác minh rằng vấn đề đã thực sự được giải quyết theo đúng với những gì đã được báo cáo hay chưa.
+
+		- Trước đó xảy ra lỗi ở đâu, thì nay kiểm tra lỗi đúng ngay ở đấy.
+
+		- Đây là điều hiển nhiên và là quy trình thường xuyên xảy ra.
+
 		-> Phát hiện lỗi > Báo lỗi > Sửa lỗi > Xác minh rằng lỗi đã được sửa theo đúng báo cáo ban đầu hay chưa - diễn ra trong đúng phạm vi của lỗi đó.
-			(Kiểm tra xem liệu lỗi có thực sự đã được sửa hay không.)
+			(Kiểm tra xem liệu lỗi đã báo cáo có thực sự được sửa hay chưa.)
 
 --------------------------------------------------------------------------------
 
-	- Kiểm thử hồi quy (Regression Testing): thứ gì vẫn đang ổn do trước đó đã có thực hiện kiểm thử, thì không nên động chạm đến. Mà đã không động đến, nếu trước đó đã ổn, thì bây giờ cũng phải ổn. Nhưng mỗi khi có sự thay đổi nào đó trong mã nguồn hoặc môi trường hệ thống, thì đều cần phải kiểm tra lại những tính năng, mô-đun cũ... bằng cách thực thi hết tất cả các Test Case đã được thiết kế từ trước và có liên quan với những thay đổi (ví dụ: những tính năng đăng ký, đăng nhập, quên mật khẩu...). Mục đích là để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ những sự thay đổi đó. Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy.
+	* Kiểm thử hồi quy (Regression Testing): những thứ gì vẫn đang ổn do trước đó đã có thực hiện kiểm thử (với một bộ Test Case ổn định), thì không nên động chạm đến.
+
+		- Mà đã không động đến, nếu trước đó đã ổn, thì bây giờ cũng phải ổn.
+			+ Nhưng mỗi khi có sự thay đổi nào đó trong mã nguồn hoặc môi trường hệ thống, đều cần phải kiểm tra lại những tính năng, mô-đun cũ... bằng cách thực thi hết tất cả các Test Case đã được thiết kế từ trước và có liên quan với những thay đổi (ví dụ: những tính năng đăng ký, đăng nhập, quên mật khẩu...).
+			+ Bộ Test Case vẫn sẽ giữ nguyên, ta sẽ đem chúng ra và chạy lại một lần nữa để đảm bảo mã nguồn sau khi sửa đổi cũng phải ổn giống như trước khi sửa đổi.
+			+ Nếu mã nguồn sau khi sửa đổi bỗng nhiên bất ổn, hoặc là tìm cách để tiếp tục cải thiện cho đến khi ổn, hoặc là sẽ bị từ chối (Reject) thẳng thừng và phải khôi phục lại (Rollback) phiên bản ổn định ban đầu.
 
 		* Những sự thay đổi có thể là:
 			- Thêm/Tích hợp-sửa-xoá tính năng.
@@ -684,8 +877,12 @@ Khi đã có hệ thống rồi, ta sẽ không còn kiểm thử ở các cấp
 			- Thay đổi môi trường hệ thống (Ví dụ: chuyển đổi Database từ MySQL sang Oracle...).
 			- ...
 
+		- Mục đích là để đảm bảo rằng những tính năng ấy vẫn hoạt động ổn định và không có lỗi mới phát sinh từ những sự thay đổi đó.
+
+		- Thường áp dụng kiểm thử tự động (Automation Testing) và Unit Test để tự động hoá việc kiểm thử hồi quy.
+
 		-> Xác minh để đảm bảo rằng những tính năng cũ vẫn hoạt động ổn định sau khi có thay đổi - diễn ra trong phạm vi của những thành phần có "bà con" với sự thay đổi.
-			(Kiểm tra xem liệu có phát sinh lỗi mới sau khi chỉnh sửa hay không.)
+			(Xác minh rằng những chỉnh sửa trong mã nguồn không gây thêm lỗi.)
 
 ==========================================================================================
 ==========================================================================================
