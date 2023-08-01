@@ -111,4 +111,72 @@ public class TGDDTest {
         assertEquals(priceBrief, priceDetails);
     }
     
+    // TGDD - v2
+//    public void verifyPhonePriceGivenAPhoneReturnsTheSamePriceBothInBriefAndDetail() throws InterruptedException {
+//        WebElement searchKeyword = myBrowser.findElement(By.id("skw"));
+//        searchKeyword.sendKeys("iphone");
+//        searchKeyword.submit();
+//
+//        Thread.sleep(3000);
+//
+//        WebElement phoneBriefE;
+//        try {
+//            phoneBriefE = myBrowser.findElement(By.xpath("//ul[@class='listproduct']/li[1]"));
+//        } catch (Exception e) {
+//            try {
+//                phoneBriefE = myBrowser.findElement(By.xpath("//ul[@class='listsearch lowerProduct item2020 listproduct']/li[2]"));
+//            } catch (Exception ee) {
+//                phoneBriefE = myBrowser.findElement(By.xpath("//ul[@class='listsearch item2020 listproduct']/li[3]"));
+//            }
+//        }
+//
+//        WebElement phonePriceBriefE;
+//        try {
+//            phonePriceBriefE = phoneBriefE.findElement(By.className("price"));
+//        } catch (Exception e) {
+//            phonePriceBriefE = phoneBriefE.findElement(By.xpath("//p[@class='item-txt-online']"));
+//        }
+//
+//        String phonePriceBrief = phonePriceBriefE.getText();
+//        System.out.println("Price in brief: " + phonePriceBrief);
+//        phonePriceBriefE.click();
+//
+//        Thread.sleep(3000);
+//
+//        WebElement phonePriceDetailsE;
+//        String phonePriceDetails;
+//        try {
+//            phonePriceDetailsE = myBrowser.findElement(By.xpath("//div[@data-price='price02']/p[@class='box-price-present']"));
+//        } catch (Exception e) {
+//            try {
+//                phonePriceDetailsE = myBrowser.findElement(By.xpath("//div[@class='box-price']/p[@class='box-price-present']"));
+//            } catch (Exception ee) {
+//                phonePriceDetailsE = myBrowser.findElement(By.xpath("//strong[@class='productstatus ']"));
+//            }
+//
+//        }
+//
+//        phonePriceDetails = phonePriceDetailsE.getText();
+//
+//        if (phonePriceBrief.equalsIgnoreCase("Không kinh doanh") || phonePriceBrief.equalsIgnoreCase("Tin đồn")) {
+//            phonePriceBrief = phonePriceBrief.toLowerCase();
+//            phonePriceDetails = phonePriceDetails.toLowerCase();
+//
+//            if (phonePriceDetails.contains("sản phẩm")) {
+//                phonePriceDetails = phonePriceDetails.substring(9, phonePriceDetails.length());
+//            }
+//
+//        } else {
+//            int index = phonePriceDetails.indexOf('*');
+//
+//            if (index >= 0) {
+//                phonePriceDetails = phonePriceDetails.substring(0, phonePriceDetails.length() - 2);
+//            }
+//        }
+//
+//        System.out.println("Price in details: " + phonePriceDetails);
+//
+//        assertEquals(phonePriceBrief, phonePriceDetails);
+//    }
+    
 }
