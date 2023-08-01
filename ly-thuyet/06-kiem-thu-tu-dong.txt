@@ -650,17 +650,19 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 		- Mỗi ngôn ngữ lập trình khác nhau sẽ có gói thư viện khác nhau.
 		- Có nhiệm vụ nhận các câu lệnh và đưa sang cho Selenium Server để tiến hành kiểm thử, đồng thời cũng sẽ nhận các kết quả trả về và trả về cho ứng dụng. Ứng dụng sẽ lưu kết quả xử lý vào một biến và kiểm tra xem thành công hay thất bại.
 
+		-> Những API (hàm) được Selenium cung cấp để kiểm thử tự động.
+
 ----------------------------------------
 
 ** Thư viện lập trình (Selenium WebDriver API): để điều khiển được trình duyệt thì bắt buộc phải sử dụng code, kèm theo đó là những thư viện được gói trong package / namespace và chuyên cung cấp các hàm phục vụ cho việc lập trình.
 
 	- Là tập hợp gồm nhiều lớp (class) trừu tượng, hay còn được gọi là Interface, được đóng gói theo một định dạng cụ thể (*.jar, *.dll, *.exe...).
-		+ Chuyên cung cấp các lệnh (API), cho phép lập trình viên sử dụng những ngôn ngữ lập trình khác nhau như: Java, Python, C#, Ruby...
+		+ Chuyên cung cấp các lệnh (API), cho phép lập trình viên sử dụng những ngôn ngữ lập trình khác nhau như: Java, Python, C#, Ruby... để tương tác với WebDriver.
 		+ Nói cách khác, đối tượng được tạo ra từ Selenium WebDriver sẽ làm đại diện cho một đối tượng (object) trình duyệt và cung cấp các lệnh / hàm.
 	
 	- Vì đã là thư viện nên cách sử dụng cũng sẽ giống hệt như mọi thư viện khác trong ngôn ngữ lập trình, phải tải về và thêm thủ công vào dự án hoặc khai báo tên thư viện theo dạng phụ thuộc (Dependency).
 
-	- Khi chạy Test Script, Selenium WebDriver sẽ gọi trực tiếp (direct call) cho trình duyệt thông qua chính trình điều khiển trình duyệt (Browser WebDriver) mà nhà phát triển trình duyệt đấy cung cấp. Sau đó, các hành động trong Test Script sẽ được thực thi.
+	- Khi chạy Test Script, Selenium WebDriver sẽ gọi trực tiếp (direct call) cho trình duyệt thông qua chính trình điều khiển trình duyệt (Browser WebDriver) mà nhà phát triển trình duyệt đấy cung cấp. Sau đó, một phiên làm việc sẽ được tạo ra và các hành động trong Test Script sẽ được thực thi.
 
 	-> Cung cấp API và cho phép điều khiển nhiều trình duyệt khác nhau bằng nhiều ngôn ngữ lập trình khác nhau.
 
@@ -682,7 +684,9 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	[2. TRÌNH ĐIỀU KHIỂN TRÌNH DUYỆT - BROWSER WEBDRIVER / PROXY]
 
-	* Protocol: giao thức chung (giống như ngôn ngữ trung gian) để giúp Selenium WebDriver và trình duyệt có thể hiểu nhau. Trình điều khiển trình duyệt sẽ hiểu giao thức và từ đó giúp giao tiếp được với Selenium WebDriver.
+	* Protocol: giao thức chung (giống như ngôn ngữ trung gian), quy định những quy tắc ứng xử chung giữa các bên có liên quan.
+		- Giúp Selenium WebDriver và trình duyệt có thể hiểu nhau.
+		- Trình điều khiển trình duyệt sẽ hiểu giao thức và từ đó giúp giao tiếp được với Selenium WebDriver.
 
 	* JSON Wire Protocol: giao thức này sẽ không còn được hỗ trợ kể từ Selenium 4.
 
@@ -690,7 +694,8 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 
 	(* Tham khảo thêm:
 		- https://anhtester.com/blog/nhung-tinh-nang-moi-trong-selenium-4-b464.html
-		- https://youtu.be/6iHdvOYdJk8 - Selenium 4 with Simon Stewart and BrowserStack)
+		- https://youtu.be/6iHdvOYdJk8 - Selenium 4 with Simon Stewart and BrowserStack
+		- https://www.selenium.dev/documentation/webdriver/)
 
 ----------------------------------------
 
@@ -710,8 +715,6 @@ Nhưng đối với các kiểm thử viên tự động (Automation Tester), v�
 	- Việc giao tiếp giữa thư viện lập trình Selenium WebDriver API và trình điều khiển trình duyệt sẽ được thực hiện thông qua giao thức W3C WebDriver (tên cũ là JSON Wire Protocol)
 
 	-> Tập tin nhị phân biết cách giao tiếp với trình duyệt và thư viện lập trình.
-
-(* Tham khảo thêm: https://www.selenium.dev/documentation/webdriver/)
 
 ------------------------------------------------------------
 

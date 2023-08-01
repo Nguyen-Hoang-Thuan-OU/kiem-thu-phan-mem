@@ -1,8 +1,16 @@
 [CẤU TRÚC TEST CASE - TEST CASE STRUCTURE]
 
+Để có được kết quả đúng/sai cho một tình huống kiểm thử, Test Case phải trải qua hai bước.
+	1. Thiết kế Test Case (Test Case Design)
+	2. Thực thi / Chạy Test Case (Test Run / Test Execution)
+		- Thủ công (Manual).
+		- Tự động (Automation).
+
+--------------------------------------------------------------------------------
+
 Việc thiết kế Test Case (Test Case Design): sẽ do QC / Tester thực hiện, kết quả sau đó sẽ được lưu trữ trong một tập tin, trong một ứng dụng hoặc trên một dịch vụ lưu trữ trực tuyến.
 
-------------------------------------------------------------
+----------------------------------------
 
 	* Cấu trúc [gợi ý] của một Test Case:
 
@@ -26,7 +34,7 @@ Việc thiết kế Test Case (Test Case Design): sẽ do QC / Tester thực hi�
 		
 		- Trạng thái / Kết quả kiểm thử (Status / Test Result).
 
-------------------------------------------------------------
+----------------------------------------
 
 	* Tuỳ chọn: có thể có hoặc không
 	
@@ -48,9 +56,11 @@ Việc thiết kế Test Case (Test Case Design): sẽ do QC / Tester thực hi�
 		
 		- ID của lỗi (ID Bug): đính kèm thêm những lỗi nếu có tìm thấy trong quá trình kiểm thử.
 
---------------------------------------------------------------------------------
+------------------------------------------------------------
 
-Việc thực thi / chạy Test Case (Test Run / Test Execution): sau khi đã thiết kế xong Test Case, việc thực thi để kiểm chứng tính năng sẽ do chính người đã thiết kế ra hoặc một người khác thực hiện, bằng cách so sánh kết quả thực tế (actual) với kết quả mong đợi (expected) được mô tả trong Test Case.
+Việc thực thi / Chạy Test Case (Test Run / Test Execution): sau khi thiết kế Test Case, thực thi Test Case được bằng cách so sánh kết quả thực tế (actual) với kết quả mong đợi (expected) được mô tả trong Test Case.
+
+	- Việc thực thi để kiểm chứng tính năng sẽ do chính người đã thiết kế ra hoặc một người khác độc lập.
 
 	- Kết quả mong đợi (Expected Result / Expected Output): kết quả mong muốn nhận được, dựa theo những gì đã được mô tả trong đặc tả.
 
@@ -89,7 +99,9 @@ Việc thực thi / chạy Test Case (Test Run / Test Execution): sau khi đã t
 
 	- Các điều kiện tiên quyết (Pre-conditions / Prerequisites): những điều kiện cần phải thoả mãn / trạng thái dữ liệu trước khi muốn tiến hành thực hiện kiểm thử.
 	
-		Ví dụ: không có tài khoản, mật khẩu...
+		Ví dụ:
+			- Không có tài khoản, mật khẩu.
+			- Đảm bảo đủ số dư tài khoản.
 
 --------------------------------------------------------------------------------
 

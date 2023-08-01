@@ -183,7 +183,9 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 
 --------------------------------------------------------------------------------
 
-** Kịch bản kiểm thử (Test Scenario): được lập sau khi nhận được yêu cầu / tài liệu kiểm thử (Test Document) từ phía khách hàng để xác định ra những chức năng cần kiểm thử.
+** Kịch bản kiểm thử (Test Scenario): Tên của một chức năng lớn gồm nhiều trường hợp kiểm thử (Test Case) cụ thể, theo nhiều hướng khác nhau.
+
+	- Được lập sau khi nhận được yêu cầu / tài liệu kiểm thử (Test Document) từ phía khách hàng để xác định ra những chức năng cần kiểm thử.
 
 	- Mỗi chức năng / yêu cầu sẽ tương ứng với một kịch bản (scenario) hay một câu chuyện lớn, mà trong mỗi kịch bản sẽ có nhiều tình huống (case) / hướng rẽ khác nhau hay nhiều mạch chuyện nhỏ hơn (bao gồm cả tốt và xấu).
 
@@ -201,11 +203,11 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 		- Thí sinh gian lận.
 
 	Ví dụ 2: kịch bản kiểm thử (Test Scenario) chỉ nêu mục đích
-		- Kiểm tra chức năng đăng nhập.
-		- Kiểm tra chức năng tìm kiếm.
-		- Kiểm tra chức năng thanh toán.
-		- Xác minh tính năng khôi phục.
-		- Xác minh tính năng huỷ đăng nhập.
+		- Kiểm tra chức năng Đăng nhập.
+		- Kiểm tra chức năng Tìm kiếm.
+		- Kiểm tra chức năng Thanh toán.
+		- Xác minh tính năng Khôi phục.
+		- Xác minh tính năng Điểm thành viên thân thiết.
 
 	Ví dụ 3: kịch bản kiểm thử (Test Scenario) của chức năng đăng nhập.
 
@@ -214,13 +216,13 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 		|ID của yêu cầu	|kiểm thử	|bản kiểm thử		|kiểm thử (Test Cases)	|
 		|---------------|---------------|-----------------------|-----------------------|
 		|Mô-đun		|TS_Login_001	|Kiểm tra tính năng	|	4		|
-		|đăng nhập	|		|đăng nhập		|			|
+		|đăng nhập	|		|Đăng nhập		|			|
 		|---------------|---------------|-----------------------|-----------------------|
 		|Mô-đun		|TS_Login_002	|Xác minh tính năng	|	2		|
-		|đăng nhập	|		|khôi phục		|			|
+		|đăng nhập	|		|Khôi phục		|			|
 		|---------------|---------------|-----------------------|-----------------------|
-		|Mô-đun		|TS_Login_003	|Xác minh tính năng huỷ	|	2		|
-		|đăng nhập	|		|đăng nhập		|			|
+		|Mô-đun		|TS_Login_003	|Xác minh tính năng Đổi	|	2		|
+		|đăng nhập	|		|mật khẩu		|			|
 		---------------------------------------------------------------------------------
 
 ==========================================================================================
@@ -255,7 +257,8 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 
 ------------------------------------------------------------
 
-** Tình huống kiểm thử / Ca kiểm thử (Test Case): một dạng tài liệu do QC / Tester lập để ghi chép và tập hợp lại những tình huống sử dụng / kiểm thử theo dạng từng bước cụ thể liên tiếp nhau (step by step).
+** Tình huống kiểm thử / Ca kiểm thử (Test Case): một dạng tài liệu do Tester lập ra nhằm ghi chép và tập hợp lại những tình huống kiểm thử (tương ứng với từng tình huống sử dụng), mục đích là để kiểm tra hành xử của một tính năng.
+	(Liệt kê những tình huống sử dụng (theo chuẩn, lơ đễnh hoặc cố tình phá) của người dùng, đi kèm với bộ dữ liệu đầu vào, từng bước xử lý cụ thể liên tiếp nhau (step by step) và kết quả trả về dự kiến.)
 
 	- Tester phải tự hình dung ra các trường hợp sử dụng cụ thể (cả tốt và xấu), dựa theo những tình huống sử dụng thực tế của người dùng.
 	
@@ -274,7 +277,7 @@ Những thành phần của hệ thống sẽ không được kiểm thử đư�
 		+ Đây được xem là bằng chứng cho những công việc của một kiểm thử viên.
 		+ Ngoài ra, việc lập tài liệu một cách chi tiết cũng sẽ giúp những người đến sau dễ dàng hơn trong việc bảo trì Test Case.
 
-	-> Liệt kê các hành động / Tập hợp các bước để kiểm tra tính đúng/sai của một chức năng.
+	-> Liệt kê các hành động (tập hợp các bước) để kiểm tra tính đúng/sai của một chức năng.
 		(Tài liệu ghi nhận lại những công việc cần phải làm của một Tester.)
 
 (Đây là giai đoạn khó khăn nhất đối với Tester, khi phải thiết kế được đầy đủ các tình huống xảy ra, nhằm đảm bảo chất lượng của phần mềm.)
@@ -379,13 +382,18 @@ Vì vậy, bên cạnh việc dựa vào kinh nghiệm để liệt kê cách tr
 
 [BỘ KIỂM THỬ - TEST SUITE]
 
-** Bộ kiểm thử/Bộ xác nhận (Test Suite/Validation Suite): tập hợp của các Test Case cho một mục đích nhất định. Trong kiểm thử tự động, nó có thể có nghĩa là một tập hợp các kịch bản kiểm thử tự động (Test Script) sẽ được thực thi trong cùng một lần kiểm thử cụ thể.
+** Bộ kiểm thử/Bộ xác nhận (Test Suite/Validation Suite): tập hợp của các Test Case cho một mục đích nhất định.
 
-Các Test Case và Test Script trong Test Suite đều được sắp xếp theo thứ tự. Ví dụ: Test Case [Đăng ký] sẽ được đặt ở trước Test Case [Đăng nhập].
+	- Trong kiểm thử tự động, nó có thể có nghĩa là một tập hợp các kịch bản kiểm thử tự động (Test Script) sẽ được thực thi trong cùng một lần kiểm thử cụ thể.
 
-Bản chất của Test Suite là mô tả thật rõ ràng mục tiêu và đích đến của các trường hợp kiểm thử (Test Case). Khi có hàng nghìn Test Case, sử dụng Test Suite sẽ giúp phân loại các Test Case theo từng tình huống kiểm thử khác nhau, chẳng hạn như kiểm thử chức năng hoặc cho các tính năng riêng biệt của phần mềm.
+	- Các Test Case và Test Script trong Test Suite đều được sắp xếp theo thứ tự.
+		Ví dụ: Test Case [Đăng ký] sẽ được đặt ở trước Test Case [Đăng nhập].
 
-Ngoài ra, Test Suite cũng có các bước khác nhau, có thể sử dụng để xác định các bước hiện tại của quá trình kiểm thử, như: Đã kích hoạt, Đang trong tiến trình hoặc Đã hoàn thành.
+	- Bản chất của Test Suite là mô tả thật rõ ràng mục tiêu và đích đến của các trường hợp kiểm thử (Test Case).
+	
+	- Khi có hàng nghìn Test Case, sử dụng Test Suite sẽ giúp phân loại các Test Case theo từng tình huống kiểm thử khác nhau, chẳng hạn như: kiểm thử chức năng hoặc cho các tính năng riêng biệt của phần mềm.
+
+Ngoài ra, Test Suite cũng có các bước khác nhau, có thể sử dụng để xác định các bước hiện tại của quá trình kiểm thử, chẳng hạn như: Đã kích hoạt, Đang trong tiến trình hoặc Đã hoàn thành.
 
 	Ví dụ 1: Regression Test Suite được chạy để xác minh những tính năng cũ.
 
@@ -398,7 +406,7 @@ Ngoài ra, Test Suite cũng có các bước khác nhau, có thể sử dụng �
 			Test Case 2: Thêm sản phẩm vào giỏ hàng
 			Test Case 3: Thanh toán
 			Test Case 4: Đăng xuất
-	(Mỗi Test Case ở trên đều phụ thuộc vào sự thành công của các Test Case trước đó. Ví dụ: không thể thanh toán nếu không thể thêm sản phẩm vào giỏ hàng. Do đó, nếu đang chạy bộ Test Suite ở chế độ tuần tự, ta có thể chọn dừng việc thực thi bộ Test Suite nếu một trường hợp thử nghiệm duy nhất không vượt qua)
+		(Mỗi Test Case ở trên đều phụ thuộc vào sự thành công của các Test Case trước đó (ví dụ: không thể thanh toán nếu không thể thêm sản phẩm vào giỏ hàng). Do đó, nếu đang chạy bộ Test Suite ở chế độ tuần tự, ta có thể chọn dừng việc thực thi bộ Test Suite nếu một trường hợp thử nghiệm duy nhất không vượt qua)
 
 ==========================================================================================
 ==========================================================================================
@@ -418,14 +426,16 @@ Procedure | Expected Result | Actual Result | Status | Comment
 
 [MA TRẬN LƯU VẾT - TRACEABILITY MATRIX]
 
-** Traceability Matrix là một bảng để lưu vết (trace) các yêu cầu trong vòng đời phát triển phần mềm (SDLC). Mỗi yêu cầu bảng này được liên kết đến một Test Case để quá trình kiểm thử được thực hiện.
+** Traceability Matrix là một bảng để lưu vết (trace) các yêu cầu trong vòng đời phát triển phần mềm (SDLC).
+	- Mỗi yêu cầu bảng này được liên kết đến một Test Case để quá trình kiểm thử được thực hiện.
 
-Ngoài ra, Bug ID cũng được liên kết đến yêu cầu này.
+	- Mục đích chính của bảng này:
+		+ Đảm bảo phần mềm phát triển như yêu cầu đề cập.
+		+ Thuận tiện tìm nguyên nhân chính (root cause) gây ra bug.
+		+ Lưu vết các tài liệu được phát triển trong vòng đời phát triển phần mềm.
+		+ Đảm bảo rằng mọi tính năng đều đã được kiểm thử.
 
-Mục đích chính của bảng này:
-	- Đảm bảo phần mềm phát triển như yêu cầu đề cập.
-	- Thuận tiện tìm nguyên nhân chính (root cause) gây ra bug.
-	- Lưu vết các tài liệu được phát triển trong vòng đời phát triển phần mềm.
+	- Ngoài ra, Bug ID cũng được liên kết đến yêu cầu này.
 
 ==========================================================================================
 ==========================================================================================
@@ -462,9 +472,11 @@ Mục đích chính của bảng này:
 
 	- Sau đó lưu lại các mô tả về lỗi vào một công cụ riêng chuyên được sử dụng để quản lý lỗi (ví dụ: Bugzilla...), hoặc lưu vào các công cụ quản lý dự án / quản lý các yêu cầu phần mềm có kết hợp quản lý lỗi (ví dụ: Jira...).
 
-	- Vì lỗi sẽ liên quan đến lập trình, nên sẽ được đặt ở một nơi riêng để các lập trình viên có thể đọc và tiến hành sửa lỗi, chứ không cần để chung ở nơi viết Test Case. Giữa các công cụ này thường này có liên thông với nhau bằng cách chuyển đổi thông tin qua lại nhờ API.
+	- Đây giống như một "Phòng xưng tội" (Confession) khi toàn bộ những lỗi phát sinh trong quá trình kiểm thử phần mềm sẽ được liệt kê ra một cách chi tiết, kèm bằng chứng (hình chụp, video) và các bước để tái hiện / phục dựng lại lỗi (reproduce).
 
-	-> Lưu lại những "bằng chứng" về lỗi lên một nơi được gọi là Bug Database / Bug Tracker / Issue Tracker; thuật ngữ trong nghề gọi là "Log Bug".
+	- Vì lỗi sẽ liên quan đến lập trình, nên sẽ được đặt ở một nơi riêng để các lập trình viên có thể đọc và tiến hành sửa lỗi, chứ không cần để chung ở nơi viết Test Case. Giữa các công cụ lưu trữ Test Case và lưu trữ lỗi thường có liên thông với nhau bằng cách chuyển đổi thông tin qua lại nhờ API.
+
+	-> Lưu lại những "bằng chứng" về lỗi lên một nơi được gọi là Bug Database / Bug Tracker / Issue Tracker; thuật ngữ trong nghề (slang) gọi là "Log Bug".
 
 ----------------------------------------
 
