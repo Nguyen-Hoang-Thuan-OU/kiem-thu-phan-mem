@@ -255,6 +255,18 @@ Tham khảo thêm: các tiêu chuẩn về chất lượng phần mềm
 			- Thực tế (actual - what is): 3 phần đồ ăn/thức uống thì tổng tiền không phải là 100k.
 				-> Lỗi tính toán xử, lý không đúng.
 
+------------------------------------------------
+
+	* Lưu ý: Phải tập trung và cố gắng mong đợi / kì vọng (Expected) đúng trước khi đem kết quá này đi so sánh với kết quả thực tế (Actual).
+
+		Ví dụ: Những kì vọng sai.
+
+			- Không học bài nhưng lại mong được điểm cao.
+				-> Mong đợi / Kì vọng SAI.
+
+			- Mua đồ hiệu nhưng phải rẻ.
+				-> Mong đợi / Kì vọng SAI.
+
 ------------------------------------------------------------------------
 
 	[CÁC THUẬT NGỮ KHÁC]
@@ -581,7 +593,7 @@ Kiểm thử là một phần không thể thiếu trong quy trình phát triể
 [MÔ HÌNH V&V]
 
 ---------------------------------	---------------------------------
-|Verification (đặc tả yêu cầu)	|------>|Validation (thứ khách hàng cần)|
+| Verification (đặc tả yêu cầu)	|------>|Validation (thứ khách hàng cần)|
 ---------------------------------	---------------------------------
 
 V&V (Verification & Validation) bao gồm rất nhiều hoạt động trong đảm bảm chất lượng phần mềm như: technial reviews, documentation review, database review, algorithm analysis (bao gồm cả QA và QC). Trong đó, kiểm thử (testing) đóng vai trò cực kỳ quan trọng.
